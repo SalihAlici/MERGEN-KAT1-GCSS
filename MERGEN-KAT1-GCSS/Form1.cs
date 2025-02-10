@@ -1,11 +1,20 @@
-﻿using System;
+﻿using GMap.NET;
+using System;
+using System.Drawing;
 using System.Windows.Forms;
+using AForge.Video;
+using AForge.Video.DirectShow;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace MERGEN_KAT1_GCSS
 {
     public partial class Form1 : Form
     {
+
+         
+        public float lat = 38.707675f, lng = 35.519550f;
+        private FilterInfoCollection videoDevices;
+        private VideoCaptureDevice videoSource;
         public Form1()
         {
             InitializeComponent();
@@ -13,6 +22,28 @@ namespace MERGEN_KAT1_GCSS
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+
+            if (videoDevices.Count == 0)
+            {
+                MessageBox.Show("Kamera bulunamadı!");
+                return;
+            }
+
+            // İlk kamerayı seç
+            videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
+            videoSource.NewFrame += new NewFrameEventHandler(Video_NewFrame);
+
+            gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
+            GMaps.Instance.Mode = AccessMode.ServerAndCache;
+
+
+            gMapControl1.Position = new PointLatLng(lat, lng);
+
+            gMapControl1.MinZoom = 5;
+            gMapControl1.MaxZoom = 25;
+            gMapControl1.Zoom = 16;
             // Chart1'i formun tasarımında eklediğinizi varsayıyoruz
             // Bu şekilde doğrudan veri ekleyebilirsiniz.
 
@@ -117,6 +148,49 @@ namespace MERGEN_KAT1_GCSS
             chart8.Series["Series2"].Points.AddXY(5, 9);
             chart8.Series["Series2"].Points.AddXY(6, 75);
             chart8.Series["Series2"].Points.AddXY(7, 6);
+        }
+        private void Video_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            // Kameradan gelen yeni görüntüyü PictureBox'a aktar
+            Bitmap frame = (Bitmap)eventArgs.Frame.Clone();
+            pictureBox1.Image = frame;
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Uygulama kapanırken kamerayı durdur
+            if (videoSource != null && videoSource.IsRunning)
+            {
+                videoSource.SignalToStop();
+                videoSource.WaitForStop();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (videoSource != null && !videoSource.IsRunning)
+            {
+                videoSource.Start();
+            }
+        }
+
+        private void sagpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            for (int i = e.RowIndex; i < e.RowIndex + e.RowCount; i++)
+            {
+                if (i % 2 == 0) // Çift indeksli satırları mavi yap
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(38, 29, 58);
+                }
+                else // Tek indeksli satırları turuncu yap
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(76, 58, 116);
+                }
+            }
         }
     }
 }
