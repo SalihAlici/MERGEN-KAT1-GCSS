@@ -185,19 +185,6 @@ namespace MERGEN_KAT1_GCSS
 
         }
 
-        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            for (int i = e.RowIndex; i < e.RowIndex + e.RowCount; i++)
-            {
-                if (i % 2 == 0) // Çift indeksli satırları mavi yap
-                {
-                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(38, 29, 58);
-                }
-                else // Tek indeksli satırları turuncu yap
-                {
-                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(76, 58, 116);
-                }
-            }
-        }
+       
     }
 }
