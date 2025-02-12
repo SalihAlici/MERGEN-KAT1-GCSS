@@ -172,12 +172,13 @@ namespace MERGEN_KAT1_GCSS
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             if (videoSource != null && !videoSource.IsRunning)
             {
                 videoSource.Start();
             }
+
         }
 
         private void glControl1_Load(object sender, EventArgs e)
