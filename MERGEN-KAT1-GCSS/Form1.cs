@@ -181,6 +181,11 @@ namespace MERGEN_KAT1_GCSS
 
         }
 
+        private void gMapControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void glControl1_Load(object sender, EventArgs e)
         {
 
