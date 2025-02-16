@@ -122,11 +122,10 @@
             this.chart7 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pilpanel = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.cikisbutton = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -139,11 +138,12 @@
             this.label16 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.camopenbutton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.camclosebutton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
+            this.batteryProgressBar1 = new BatteryProgressBar();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.solpanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -162,9 +162,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart5)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.pilpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -448,7 +448,6 @@
             this.gMapControl1.Size = new System.Drawing.Size(364, 354);
             this.gMapControl1.TabIndex = 0;
             this.gMapControl1.Zoom = 0D;
-            this.gMapControl1.Load += new System.EventHandler(this.gMapControl1_Load);
             // 
             // sagpanel
             // 
@@ -465,7 +464,6 @@
             this.sagpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.sagpanel.Size = new System.Drawing.Size(430, 727);
             this.sagpanel.TabIndex = 4;
-            this.sagpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.sagpanel_Paint);
             // 
             // panel5
             // 
@@ -487,7 +485,6 @@
             this.glControl1.Size = new System.Drawing.Size(420, 353);
             this.glControl1.TabIndex = 0;
             this.glControl1.VSync = false;
-            this.glControl1.Load += new System.EventHandler(this.glControl1_Load);
             // 
             // araspanel
             // 
@@ -1052,42 +1049,42 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "BASINÇ 1-2 (hpa)";
             // 
-            // panel1
+            // pilpanel
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.button10);
-            this.panel1.Controls.Add(this.button9);
-            this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1901, 128);
-            this.panel1.TabIndex = 5;
+            this.pilpanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pilpanel.Controls.Add(this.batteryProgressBar1);
+            this.pilpanel.Controls.Add(this.button10);
+            this.pilpanel.Controls.Add(this.button9);
+            this.pilpanel.Controls.Add(this.cikisbutton);
+            this.pilpanel.Controls.Add(this.button7);
+            this.pilpanel.Controls.Add(this.textBox1);
+            this.pilpanel.Controls.Add(this.label19);
+            this.pilpanel.Controls.Add(this.button4);
+            this.pilpanel.Controls.Add(this.button6);
+            this.pilpanel.Controls.Add(this.comboBox1);
+            this.pilpanel.Controls.Add(this.label15);
+            this.pilpanel.Controls.Add(this.label17);
+            this.pilpanel.Controls.Add(this.label18);
+            this.pilpanel.Controls.Add(this.label16);
+            this.pilpanel.Controls.Add(this.comboBox2);
+            this.pilpanel.Controls.Add(this.button5);
+            this.pilpanel.Controls.Add(this.camopenbutton);
+            this.pilpanel.Controls.Add(this.pictureBox2);
+            this.pilpanel.Controls.Add(this.camclosebutton);
+            this.pilpanel.Controls.Add(this.button3);
+            this.pilpanel.Controls.Add(this.pictureBox3);
+            this.pilpanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pilpanel.Location = new System.Drawing.Point(0, 0);
+            this.pilpanel.Name = "pilpanel";
+            this.pilpanel.Size = new System.Drawing.Size(1901, 128);
+            this.pilpanel.TabIndex = 5;
             // 
             // button10
             // 
             this.button10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button10.BackgroundImage")));
             this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Location = new System.Drawing.Point(866, 67);
+            this.button10.Location = new System.Drawing.Point(846, 65);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(48, 48);
             this.button10.TabIndex = 25;
@@ -1098,40 +1095,31 @@
             this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
             this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(866, 12);
+            this.button9.Location = new System.Drawing.Point(846, 12);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(48, 48);
             this.button9.TabIndex = 24;
             this.button9.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // cikisbutton
             // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(1855, 4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(32, 26);
-            this.button8.TabIndex = 23;
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1548, -3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(113, 118);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 18;
-            this.pictureBox3.TabStop = false;
+            this.cikisbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cikisbutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cikisbutton.BackgroundImage")));
+            this.cikisbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cikisbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cikisbutton.Location = new System.Drawing.Point(1855, 4);
+            this.cikisbutton.Name = "cikisbutton";
+            this.cikisbutton.Size = new System.Drawing.Size(32, 26);
+            this.cikisbutton.TabIndex = 23;
+            this.cikisbutton.UseVisualStyleBackColor = true;
+            this.cikisbutton.Click += new System.EventHandler(this.cikisbutton_Click_1);
             // 
             // button7
             // 
             this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(1054, 38);
+            this.button7.Location = new System.Drawing.Point(989, 57);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(28, 29);
             this.button7.TabIndex = 17;
@@ -1142,7 +1130,7 @@
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.textBox1.Location = new System.Drawing.Point(1088, 41);
+            this.textBox1.Location = new System.Drawing.Point(1023, 60);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(166, 22);
             this.textBox1.TabIndex = 16;
@@ -1152,7 +1140,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.SystemColors.Control;
-            this.label19.Location = new System.Drawing.Point(1105, 7);
+            this.label19.Location = new System.Drawing.Point(1040, 26);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(117, 19);
             this.label19.TabIndex = 15;
@@ -1260,17 +1248,17 @@
             this.button5.TabIndex = 7;
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // camopenbutton
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(764, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 48);
-            this.button1.TabIndex = 6;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.camopenbutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("camopenbutton.BackgroundImage")));
+            this.camopenbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.camopenbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.camopenbutton.Location = new System.Drawing.Point(764, 12);
+            this.camopenbutton.Name = "camopenbutton";
+            this.camopenbutton.Size = new System.Drawing.Size(48, 48);
+            this.camopenbutton.TabIndex = 6;
+            this.camopenbutton.UseVisualStyleBackColor = true;
+            this.camopenbutton.Click += new System.EventHandler(this.camopenbutton_Click);
             // 
             // pictureBox2
             // 
@@ -1282,16 +1270,17 @@
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
-            // button2
+            // camclosebutton
             // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(764, 67);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(48, 48);
-            this.button2.TabIndex = 3;
-            this.button2.UseVisualStyleBackColor = true;
+            this.camclosebutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("camclosebutton.BackgroundImage")));
+            this.camclosebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.camclosebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.camclosebutton.Location = new System.Drawing.Point(764, 67);
+            this.camclosebutton.Name = "camclosebutton";
+            this.camclosebutton.Size = new System.Drawing.Size(48, 48);
+            this.camclosebutton.TabIndex = 3;
+            this.camclosebutton.UseVisualStyleBackColor = true;
+            this.camclosebutton.Click += new System.EventHandler(this.camclosebutton_Click);
             // 
             // button3
             // 
@@ -1305,15 +1294,24 @@
             this.button3.TabIndex = 2;
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // label20
+            // batteryProgressBar1
             // 
-            this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label20.Location = new System.Drawing.Point(1582, 47);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(37, 16);
-            this.label20.TabIndex = 26;
-            this.label20.Text = "AYIP";
+            this.batteryProgressBar1.Location = new System.Drawing.Point(1575, 41);
+            this.batteryProgressBar1.Name = "batteryProgressBar1";
+            this.batteryProgressBar1.Percentage = 0;
+            this.batteryProgressBar1.Size = new System.Drawing.Size(78, 48);
+            this.batteryProgressBar1.TabIndex = 31;
+            this.batteryProgressBar1.Text = "batteryProgressBar1";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(1514, 9);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(209, 112);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 32;
+            this.pictureBox3.TabStop = false;
             // 
             // Form1
             // 
@@ -1325,7 +1323,7 @@
             this.Controls.Add(this.grafikpanel);
             this.Controls.Add(this.solpanel);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pilpanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
@@ -1352,10 +1350,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart5)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.pilpanel.ResumeLayout(false);
+            this.pilpanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1404,7 +1402,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart6;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pilpanel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
@@ -1413,7 +1411,7 @@
         private System.Windows.Forms.Panel panel5;
         private OpenTK.GLControl glControl1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button camclosebutton;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TableLayoutPanel araspanel;
         private System.Windows.Forms.Panel araspanel2;
@@ -1429,7 +1427,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel araspanel6;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button camopenbutton;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label15;
@@ -1441,11 +1439,11 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button cikisbutton;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Label label20;
+        private BatteryProgressBar batteryProgressBar1;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 

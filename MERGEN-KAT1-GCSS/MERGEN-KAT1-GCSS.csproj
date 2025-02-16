@@ -157,12 +157,18 @@
     <Compile Include="baslangic_ekrani.Designer.cs">
       <DependentUpon>baslangic_ekrani.cs</DependentUpon>
     </Compile>
+    <Compile Include="BatteryProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Camera.cs" />
+    <Compile Include="Chart.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Map.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="baslangic_ekrani.resx">
