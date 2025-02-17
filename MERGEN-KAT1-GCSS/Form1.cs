@@ -28,13 +28,18 @@ namespace MERGEN_KAT1_GCSS
             batteryProgressBar.Location = new Point(this.ClientSize.Width - batteryProgressBar.Width - 10, 10);  // Sağ üst köşeye yerleştiriyoruz
             batteryProgressBar.Size = new Size(200, 50);  // Boyut ayarı
             this.Controls.Add(batteryProgressBar);  // Pil göstergesini formun kontrol listesine ekliyoruz
+
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
             camopenbutton.Enabled = true; camclosebutton.Enabled = false; // Form açıldığında sadece kamera open butonu basılabilir
             map.InitializeMap(); // Haritayı başlat
             charts.InitializeCharts(); // Grafiklere veri ekle
+            batteryProgressBar.Percentage = 30;
+
+
         }
 
         private void Video_NewFrame(object sender, NewFrameEventArgs eventArgs)
@@ -75,5 +80,7 @@ namespace MERGEN_KAT1_GCSS
             }
 
         }
+
+      
     }
 }

@@ -1,22 +1,25 @@
-﻿using System;
-using System.ComponentModel;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Windows.Forms;
+using System.Windows.Media.Media3D;
+using System;
 
-[ToolboxItem(true)]  // Toolbox'ta görünmesini sağlar
 public class BatteryProgressBar : Control
 {
-    private int _percentage = 0; // Başlangıçta %0
-    private Timer batteryTimer; // Timer değişkeni
+    private int _percentage;
+    private int[] batteryLevels;  // Pil yüzdesini tutan dizi
+    private int currentIndex = 0; // Dizideki sıralama için bir sayaç
+    private Timer batteryUpdateTimer;
 
-    [Category("Battery"), Description("Pil doluluk yüzdesi")]
     public int Percentage
     {
         get { return _percentage; }
         set
         {
-            _percentage = Math.Max(0, Math.Min(100, value)); // 0-100 arasında sınırla
-            Invalidate(); // Yeniden çiz
+            if (_percentage != value)
+            {
+                _percentage = Math.Max(0, Math.Min(100, value));
+                Invalidate();  // Ekranı yeniden çiz
+            }
         }
     }
 
@@ -24,46 +27,39 @@ public class BatteryProgressBar : Control
     {
         DoubleBuffered = true;
 
-        // Timer'ı başlat
-        batteryTimer = new Timer();
-        batteryTimer.Interval = 1000; // 1000 ms = 1 saniye
-        batteryTimer.Tick += BatteryTimer_Tick;
-        batteryTimer.Start(); // Timer'ı başlat
+        // Pil yüzdesini tutan diziyi oluşturuyoruz ve rastgele 0-100 arasında değerler atıyoruz
+        Random rand = new Random();
+        batteryLevels = new int[20];
+        for (int i = 0; i < batteryLevels.Length; i++)
+        {
+            batteryLevels[i] = rand.Next(0, 101);  // 0 ile 100 arasında rastgele sayılar
+        }
+
+        // Timer'ı başlatıyoruz
+        batteryUpdateTimer = new Timer();
+        batteryUpdateTimer.Interval = 1000; // 1 saniyede bir güncelleme (1000 ms)
+        batteryUpdateTimer.Tick += BatteryUpdateTimer_Tick;
+        batteryUpdateTimer.Start(); // Timer'ı başlatıyoruz
     }
 
-    private void BatteryTimer_Tick(object sender, EventArgs e)
+    private void BatteryUpdateTimer_Tick(object sender, EventArgs e)
     {
-        // Pil yüzdesini 5 artır
-        if (Percentage < 100)
-        {
-            Percentage += 5;
-        }
-        else
-        {
-            batteryTimer.Stop(); // Yüzde 100 olunca timer'ı durdur
-        }
+        // Dizinin şu anki indeksindeki pil yüzdesini alıyoruz
+        int batteryPercentage = batteryLevels[currentIndex];
+
+        // Pil yüzdesini güncelle
+        Percentage = batteryPercentage;
+
+        // Dizinin bir sonraki elemanına geçiyoruz, eğer son elemana geldiysek başa dönüyoruz
+        currentIndex = (currentIndex + 1) % batteryLevels.Length;
     }
 
-    // 5 tonlu renkleri hesaplayan metot
+    // Pil dolum rengini belirleyen metot
     private Color GetFillColor(int percentage)
     {
-        Color fillColor;
-
-        // Pil yüzdesine göre renk belirle
-        if (percentage > 50)
-        {
-            fillColor = Color.Green; // %50 ve üzeri için yeşil
-        }
-        else if (percentage > 20)
-        {
-            fillColor = Color.Orange; // %20 ile %50 arasında turuncu
-        }
-        else
-        {
-            fillColor = Color.Red; // %20'nin altı için kırmızı
-        }
-
-        return fillColor;
+        if (percentage > 50) return Color.Lime;
+        else if (percentage > 20) return Color.Orange;
+        else return Color.Red;
     }
 
     protected override void OnPaint(PaintEventArgs e)
@@ -76,25 +72,30 @@ public class BatteryProgressBar : Control
         g.FillRectangle(Brushes.White, 0, 0, Width, Height);
 
         // Dolum alanını hesapla
-        int fillWidth = (int)((Percentage / 100f) * (Width - 10));
-        Rectangle fillRect = new Rectangle(5, 5, fillWidth, Height - 10);
+        int fillWidth = (int)((_percentage / 100f) * (Width - 10)); // % yüzdesine göre dolum genişliğini hesapla
+        Rectangle fillRect = new Rectangle(5, 5, fillWidth, Height - 10); // Dolum dikdörtgeni
 
-        // Pil dolum rengini hesapla
-        Color fillColor = GetFillColor(Percentage);
-
-        // Pil dolum rengini çiz
-        using (SolidBrush brush = new SolidBrush(fillColor))
+        // Dolum rengini uygula
+        using (SolidBrush brush = new SolidBrush(GetFillColor(_percentage)))
         {
             g.FillRectangle(brush, fillRect);
         }
+        // Çerçeve çiz
+        using (Pen pen = new Pen(Color.White, 1))
+        {
+            g.DrawRectangle(pen, 5, 5, Width - 10, Height - 10); // Çerçeve çiz
+        }
 
-        // Şarj yüzdesini yazdır
+
+
+
+        // Yüzdelik metni ekle
         using (Font font = new Font("Arial", 12, FontStyle.Bold))
         using (SolidBrush textBrush = new SolidBrush(Color.Black))
         {
-            string text = $"{Percentage}%";
-            SizeF textSize = g.MeasureString(text, font);
-            g.DrawString(text, font, textBrush, (Width - textSize.Width) / 2, (Height - textSize.Height) / 2);
+            string text = $"{_percentage}%";
+            SizeF textSize = g.MeasureString(text, font); // Metin boyutunu hesapla
+            g.DrawString(text, font, textBrush, (Width - textSize.Width) / 2, (Height - textSize.Height) / 2); // Metni ortala
         }
     }
 }
