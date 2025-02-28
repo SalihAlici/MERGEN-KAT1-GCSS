@@ -151,6 +151,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArdunioReader.cs" />
     <Compile Include="baslangic_ekrani.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +172,7 @@
     <Compile Include="Map.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_3DSim.cs" />
     <EmbeddedResource Include="baslangic_ekrani.resx">
       <DependentUpon>baslangic_ekrani.cs</DependentUpon>
     </EmbeddedResource>

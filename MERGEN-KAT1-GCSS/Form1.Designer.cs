@@ -123,6 +123,7 @@
             this.chart5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.pilpanel = new System.Windows.Forms.Panel();
+            this.batteryProgressBar1 = new BatteryProgressBar();
             this.birlesmebutton = new System.Windows.Forms.Button();
             this.ayrilmabutton = new System.Windows.Forms.Button();
             this.cikisbutton = new System.Windows.Forms.Button();
@@ -143,7 +144,6 @@
             this.camclosebutton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.batteryProgressBar1 = new BatteryProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.solpanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1079,6 +1079,15 @@
             this.pilpanel.Size = new System.Drawing.Size(1901, 128);
             this.pilpanel.TabIndex = 5;
             // 
+            // batteryProgressBar1
+            // 
+            this.batteryProgressBar1.Location = new System.Drawing.Point(1666, 27);
+            this.batteryProgressBar1.Name = "batteryProgressBar1";
+            this.batteryProgressBar1.Percentage = 60;
+            this.batteryProgressBar1.Size = new System.Drawing.Size(100, 60);
+            this.batteryProgressBar1.TabIndex = 31;
+            this.batteryProgressBar1.Text = "batteryProgressBar1";
+            // 
             // birlesmebutton
             // 
             this.birlesmebutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("birlesmebutton.BackgroundImage")));
@@ -1293,6 +1302,7 @@
             this.button3.Size = new System.Drawing.Size(42, 42);
             this.button3.TabIndex = 2;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // pictureBox3
             // 
@@ -1303,15 +1313,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 32;
             this.pictureBox3.TabStop = false;
-            // 
-            // batteryProgressBar1
-            // 
-            this.batteryProgressBar1.Location = new System.Drawing.Point(1666, 27);
-            this.batteryProgressBar1.Name = "batteryProgressBar1";
-            this.batteryProgressBar1.Percentage = 22;
-            this.batteryProgressBar1.Size = new System.Drawing.Size(100, 60);
-            this.batteryProgressBar1.TabIndex = 31;
-            this.batteryProgressBar1.Text = "batteryProgressBar1";
             // 
             // Form1
             // 
