@@ -123,27 +123,25 @@
             this.chart5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.pilpanel = new System.Windows.Forms.Panel();
-            this.batteryProgressBar1 = new BatteryProgressBar();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.birlesmebutton = new System.Windows.Forms.Button();
-            this.ayrilmabutton = new System.Windows.Forms.Button();
-            this.cikisbutton = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.camopenbutton = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.camclosebutton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ayrilmabutton = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.camopenbutton = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.cikisbutton = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.batteryProgressBar1 = new BatteryProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.solpanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -163,6 +161,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart5)).BeginInit();
             this.pilpanel.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -216,14 +215,14 @@
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
-            this.dataGridView1.Location = new System.Drawing.Point(0, 855);
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 902);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1901, 178);
+            this.dataGridView1.Size = new System.Drawing.Size(1920, 178);
             this.dataGridView1.TabIndex = 1;
             // 
             // Column1
@@ -375,13 +374,13 @@
             this.solpanel.Controls.Add(this.panel2, 0, 0);
             this.solpanel.Controls.Add(this.panel3, 0, 1);
             this.solpanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.solpanel.Location = new System.Drawing.Point(0, 128);
+            this.solpanel.Location = new System.Drawing.Point(0, 147);
             this.solpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.solpanel.Name = "solpanel";
             this.solpanel.RowCount = 2;
             this.solpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.solpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.solpanel.Size = new System.Drawing.Size(374, 727);
+            this.solpanel.Size = new System.Drawing.Size(433, 755);
             this.solpanel.TabIndex = 2;
             // 
             // panel2
@@ -391,7 +390,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(368, 357);
+            this.panel2.Size = new System.Drawing.Size(427, 371);
             this.panel2.TabIndex = 0;
             // 
             // pictureBox1
@@ -399,7 +398,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(364, 353);
+            this.pictureBox1.Size = new System.Drawing.Size(423, 367);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -407,9 +406,9 @@
             // 
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 366);
+            this.panel3.Location = new System.Drawing.Point(3, 380);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(368, 358);
+            this.panel3.Size = new System.Drawing.Size(427, 372);
             this.panel3.TabIndex = 1;
             // 
             // panel4
@@ -419,7 +418,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(368, 358);
+            this.panel4.Size = new System.Drawing.Size(427, 372);
             this.panel4.TabIndex = 0;
             // 
             // gMapControl1
@@ -445,7 +444,7 @@
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(364, 354);
+            this.gMapControl1.Size = new System.Drawing.Size(423, 368);
             this.gMapControl1.TabIndex = 0;
             this.gMapControl1.Zoom = 0D;
             // 
@@ -456,13 +455,13 @@
             this.sagpanel.Controls.Add(this.panel5, 0, 0);
             this.sagpanel.Controls.Add(this.araspanel, 0, 1);
             this.sagpanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.sagpanel.Location = new System.Drawing.Point(1471, 128);
+            this.sagpanel.Location = new System.Drawing.Point(1487, 147);
             this.sagpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sagpanel.Name = "sagpanel";
             this.sagpanel.RowCount = 2;
-            this.sagpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.sagpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.sagpanel.Size = new System.Drawing.Size(430, 727);
+            this.sagpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.90729F));
+            this.sagpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.09271F));
+            this.sagpanel.Size = new System.Drawing.Size(433, 755);
             this.sagpanel.TabIndex = 4;
             // 
             // panel5
@@ -472,7 +471,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(424, 357);
+            this.panel5.Size = new System.Drawing.Size(427, 552);
             this.panel5.TabIndex = 0;
             // 
             // glControl1
@@ -482,7 +481,7 @@
             this.glControl1.Location = new System.Drawing.Point(0, 0);
             this.glControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.glControl1.Name = "glControl1";
-            this.glControl1.Size = new System.Drawing.Size(420, 353);
+            this.glControl1.Size = new System.Drawing.Size(423, 548);
             this.glControl1.TabIndex = 0;
             this.glControl1.VSync = false;
             // 
@@ -508,7 +507,7 @@
             this.araspanel.Controls.Add(this.label12, 3, 0);
             this.araspanel.Controls.Add(this.label13, 4, 0);
             this.araspanel.Controls.Add(this.label14, 5, 0);
-            this.araspanel.Location = new System.Drawing.Point(3, 593);
+            this.araspanel.Location = new System.Drawing.Point(4, 621);
             this.araspanel.Name = "araspanel";
             this.araspanel.RowCount = 2;
             this.araspanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.85315F));
@@ -669,7 +668,7 @@
             legend1.Enabled = false;
             legend1.Name = "Legend1";
             this.chart3.Legends.Add(legend1);
-            this.chart3.Location = new System.Drawing.Point(547, 37);
+            this.chart3.Location = new System.Drawing.Point(529, 40);
             this.chart3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart3.Name = "chart3";
             series1.ChartArea = "ChartArea1";
@@ -679,7 +678,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart3.Series.Add(series1);
-            this.chart3.Size = new System.Drawing.Size(266, 303);
+            this.chart3.Size = new System.Drawing.Size(257, 332);
             this.chart3.TabIndex = 9;
             this.chart3.Text = "chart4";
             // 
@@ -700,7 +699,7 @@
             legend2.Enabled = false;
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
-            this.chart2.Location = new System.Drawing.Point(275, 37);
+            this.chart2.Location = new System.Drawing.Point(266, 40);
             this.chart2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart2.Name = "chart2";
             series2.ChartArea = "ChartArea1";
@@ -710,7 +709,7 @@
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(266, 303);
+            this.chart2.Size = new System.Drawing.Size(257, 332);
             this.chart2.TabIndex = 14;
             this.chart2.Text = "chart6";
             // 
@@ -731,7 +730,7 @@
             legend3.Enabled = false;
             legend3.Name = "Legend1";
             this.chart1.Legends.Add(legend3);
-            this.chart1.Location = new System.Drawing.Point(3, 37);
+            this.chart1.Location = new System.Drawing.Point(3, 40);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
             series3.ChartArea = "ChartArea1";
@@ -748,7 +747,7 @@
             series4.Name = "Series2";
             this.chart1.Series.Add(series3);
             this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(266, 303);
+            this.chart1.Size = new System.Drawing.Size(257, 332);
             this.chart1.TabIndex = 16;
             this.chart1.Text = "bel";
             // 
@@ -778,7 +777,7 @@
             this.grafikpanel.Controls.Add(this.chart2, 0, 1);
             this.grafikpanel.Controls.Add(this.label1, 0, 0);
             this.grafikpanel.Controls.Add(this.chart3, 2, 1);
-            this.grafikpanel.Location = new System.Drawing.Point(375, 164);
+            this.grafikpanel.Location = new System.Drawing.Point(434, 147);
             this.grafikpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grafikpanel.Name = "grafikpanel";
             this.grafikpanel.RowCount = 4;
@@ -786,7 +785,7 @@
             this.grafikpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.70199F));
             this.grafikpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.470199F));
             this.grafikpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.02649F));
-            this.grafikpanel.Size = new System.Drawing.Size(1090, 691);
+            this.grafikpanel.Size = new System.Drawing.Size(1054, 755);
             this.grafikpanel.TabIndex = 0;
             // 
             // chart4
@@ -806,7 +805,7 @@
             legend4.Enabled = false;
             legend4.Name = "Legend1";
             this.chart4.Legends.Add(legend4);
-            this.chart4.Location = new System.Drawing.Point(819, 37);
+            this.chart4.Location = new System.Drawing.Point(792, 40);
             this.chart4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart4.Name = "chart4";
             series5.ChartArea = "ChartArea1";
@@ -817,7 +816,7 @@
             series5.Name = "Series1";
             series5.ShadowColor = System.Drawing.Color.White;
             this.chart4.Series.Add(series5);
-            this.chart4.Size = new System.Drawing.Size(268, 303);
+            this.chart4.Size = new System.Drawing.Size(259, 332);
             this.chart4.TabIndex = 34;
             this.chart4.Text = "chart4";
             // 
@@ -838,7 +837,7 @@
             legend5.Enabled = false;
             legend5.Name = "Legend1";
             this.chart6.Legends.Add(legend5);
-            this.chart6.Location = new System.Drawing.Point(275, 374);
+            this.chart6.Location = new System.Drawing.Point(266, 409);
             this.chart6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart6.Name = "chart6";
             series6.ChartArea = "ChartArea1";
@@ -848,7 +847,7 @@
             series6.Legend = "Legend1";
             series6.Name = "Series1";
             this.chart6.Series.Add(series6);
-            this.chart6.Size = new System.Drawing.Size(266, 315);
+            this.chart6.Size = new System.Drawing.Size(257, 344);
             this.chart6.TabIndex = 30;
             this.chart6.Text = "chart9";
             // 
@@ -858,7 +857,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label8.Location = new System.Drawing.Point(867, 350);
+            this.label8.Location = new System.Drawing.Point(835, 385);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(172, 22);
             this.label8.TabIndex = 29;
@@ -870,7 +869,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label7.Location = new System.Drawing.Point(609, 350);
+            this.label7.Location = new System.Drawing.Point(587, 385);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(141, 22);
             this.label7.TabIndex = 28;
@@ -882,7 +881,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label6.Location = new System.Drawing.Point(349, 350);
+            this.label6.Location = new System.Drawing.Point(335, 385);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(118, 22);
             this.label6.TabIndex = 27;
@@ -894,7 +893,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label5.Location = new System.Drawing.Point(70, 350);
+            this.label5.Location = new System.Drawing.Point(65, 385);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(132, 22);
             this.label5.TabIndex = 26;
@@ -906,7 +905,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label4.Location = new System.Drawing.Point(880, 13);
+            this.label4.Location = new System.Drawing.Point(848, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(146, 22);
             this.label4.TabIndex = 25;
@@ -919,7 +918,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label3.Location = new System.Drawing.Point(607, 13);
+            this.label3.Location = new System.Drawing.Point(584, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(146, 22);
             this.label3.TabIndex = 24;
@@ -931,7 +930,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label2.Location = new System.Drawing.Point(335, 13);
+            this.label2.Location = new System.Drawing.Point(321, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 22);
             this.label2.TabIndex = 23;
@@ -954,7 +953,7 @@
             legend6.Enabled = false;
             legend6.Name = "Legend1";
             this.chart8.Legends.Add(legend6);
-            this.chart8.Location = new System.Drawing.Point(819, 374);
+            this.chart8.Location = new System.Drawing.Point(792, 409);
             this.chart8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart8.Name = "chart8";
             series7.ChartArea = "ChartArea1";
@@ -971,7 +970,7 @@
             series8.Name = "Series2";
             this.chart8.Series.Add(series7);
             this.chart8.Series.Add(series8);
-            this.chart8.Size = new System.Drawing.Size(268, 315);
+            this.chart8.Size = new System.Drawing.Size(259, 344);
             this.chart8.TabIndex = 21;
             this.chart8.Text = "chart12";
             // 
@@ -992,7 +991,7 @@
             legend7.Enabled = false;
             legend7.Name = "Legend1";
             this.chart7.Legends.Add(legend7);
-            this.chart7.Location = new System.Drawing.Point(547, 374);
+            this.chart7.Location = new System.Drawing.Point(529, 409);
             this.chart7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart7.Name = "chart7";
             series9.ChartArea = "ChartArea1";
@@ -1002,7 +1001,7 @@
             series9.Legend = "Legend1";
             series9.Name = "Series1";
             this.chart7.Series.Add(series9);
-            this.chart7.Size = new System.Drawing.Size(266, 315);
+            this.chart7.Size = new System.Drawing.Size(257, 344);
             this.chart7.TabIndex = 20;
             this.chart7.Text = "chart11";
             // 
@@ -1023,7 +1022,7 @@
             legend8.Enabled = false;
             legend8.Name = "Legend1";
             this.chart5.Legends.Add(legend8);
-            this.chart5.Location = new System.Drawing.Point(3, 374);
+            this.chart5.Location = new System.Drawing.Point(3, 409);
             this.chart5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart5.Name = "chart5";
             series10.ChartArea = "ChartArea1";
@@ -1033,7 +1032,7 @@
             series10.Legend = "Legend1";
             series10.Name = "Series1";
             this.chart5.Series.Add(series10);
-            this.chart5.Size = new System.Drawing.Size(266, 315);
+            this.chart5.Size = new System.Drawing.Size(257, 344);
             this.chart5.TabIndex = 18;
             this.chart5.Text = "chart9";
             // 
@@ -1043,7 +1042,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label1.Location = new System.Drawing.Point(60, 13);
+            this.label1.Location = new System.Drawing.Point(55, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(152, 22);
             this.label1.TabIndex = 22;
@@ -1052,63 +1051,226 @@
             // pilpanel
             // 
             this.pilpanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pilpanel.Controls.Add(this.groupBox1);
             this.pilpanel.Controls.Add(this.batteryProgressBar1);
-            this.pilpanel.Controls.Add(this.birlesmebutton);
-            this.pilpanel.Controls.Add(this.ayrilmabutton);
             this.pilpanel.Controls.Add(this.cikisbutton);
-            this.pilpanel.Controls.Add(this.button7);
-            this.pilpanel.Controls.Add(this.textBox1);
-            this.pilpanel.Controls.Add(this.label19);
-            this.pilpanel.Controls.Add(this.button4);
-            this.pilpanel.Controls.Add(this.button6);
-            this.pilpanel.Controls.Add(this.comboBox1);
-            this.pilpanel.Controls.Add(this.label15);
-            this.pilpanel.Controls.Add(this.label17);
-            this.pilpanel.Controls.Add(this.label18);
-            this.pilpanel.Controls.Add(this.label16);
-            this.pilpanel.Controls.Add(this.comboBox2);
-            this.pilpanel.Controls.Add(this.button5);
-            this.pilpanel.Controls.Add(this.camopenbutton);
             this.pilpanel.Controls.Add(this.pictureBox2);
-            this.pilpanel.Controls.Add(this.camclosebutton);
-            this.pilpanel.Controls.Add(this.button3);
             this.pilpanel.Controls.Add(this.pictureBox3);
             this.pilpanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.pilpanel.Location = new System.Drawing.Point(0, 0);
             this.pilpanel.Name = "pilpanel";
-            this.pilpanel.Size = new System.Drawing.Size(1901, 128);
+            this.pilpanel.Size = new System.Drawing.Size(1920, 147);
             this.pilpanel.TabIndex = 5;
             // 
-            // batteryProgressBar1
+            // groupBox1
             // 
-            this.batteryProgressBar1.Location = new System.Drawing.Point(1666, 27);
-            this.batteryProgressBar1.Name = "batteryProgressBar1";
-            this.batteryProgressBar1.Percentage = 60;
-            this.batteryProgressBar1.Size = new System.Drawing.Size(100, 60);
-            this.batteryProgressBar1.TabIndex = 31;
-            this.batteryProgressBar1.Text = "batteryProgressBar1";
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.birlesmebutton);
+            this.groupBox1.Controls.Add(this.button7);
+            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.camclosebutton);
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.ayrilmabutton);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.camopenbutton);
+            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox1.Location = new System.Drawing.Point(426, 21);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1066, 96);
+            this.groupBox1.TabIndex = 33;
+            this.groupBox1.TabStop = false;
+            // 
+            // label17
+            // 
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label17.Location = new System.Drawing.Point(509, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(121, 19);
+            this.label17.TabIndex = 26;
+            this.label17.Text = "C  O  N  T  R  O  L";
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Snow;
+            this.label15.Location = new System.Drawing.Point(19, 19);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(193, 20);
+            this.label15.TabIndex = 9;
+            this.label15.Text = "GÖREV YÜKÜ BAĞLANTISI";
             // 
             // birlesmebutton
             // 
+            this.birlesmebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.birlesmebutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("birlesmebutton.BackgroundImage")));
             this.birlesmebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.birlesmebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.birlesmebutton.Location = new System.Drawing.Point(1062, 66);
+            this.birlesmebutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.birlesmebutton.Location = new System.Drawing.Point(962, 11);
             this.birlesmebutton.Name = "birlesmebutton";
-            this.birlesmebutton.Size = new System.Drawing.Size(48, 48);
+            this.birlesmebutton.Size = new System.Drawing.Size(38, 38);
             this.birlesmebutton.TabIndex = 25;
             this.birlesmebutton.UseVisualStyleBackColor = true;
             // 
+            // button7
+            // 
+            this.button7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.button7.Location = new System.Drawing.Point(543, 44);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(28, 29);
+            this.button7.TabIndex = 17;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.button5.Location = new System.Drawing.Point(219, 45);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(33, 33);
+            this.button5.TabIndex = 7;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(77)))), ((int)(((byte)(0)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.textBox1.Location = new System.Drawing.Point(577, 51);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(168, 22);
+            this.textBox1.TabIndex = 16;
+            // 
+            // label19
+            // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.label19.ForeColor = System.Drawing.Color.Snow;
+            this.label19.Location = new System.Drawing.Point(590, 21);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(117, 20);
+            this.label19.TabIndex = 15;
+            this.label19.Text = "KOMUT PANELİ";
+            // 
+            // camclosebutton
+            // 
+            this.camclosebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.camclosebutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("camclosebutton.BackgroundImage")));
+            this.camclosebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.camclosebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.camclosebutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.camclosebutton.Location = new System.Drawing.Point(962, 53);
+            this.camclosebutton.Name = "camclosebutton";
+            this.camclosebutton.Size = new System.Drawing.Size(38, 38);
+            this.camclosebutton.TabIndex = 3;
+            this.camclosebutton.UseVisualStyleBackColor = true;
+            this.camclosebutton.Click += new System.EventHandler(this.camclosebutton_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "PORT3"});
+            this.comboBox1.Location = new System.Drawing.Point(23, 49);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(190, 24);
+            this.comboBox1.TabIndex = 10;
+            // 
             // ayrilmabutton
             // 
+            this.ayrilmabutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ayrilmabutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ayrilmabutton.BackgroundImage")));
             this.ayrilmabutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ayrilmabutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ayrilmabutton.Location = new System.Drawing.Point(1062, 9);
+            this.ayrilmabutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.ayrilmabutton.Location = new System.Drawing.Point(858, 11);
             this.ayrilmabutton.Name = "ayrilmabutton";
-            this.ayrilmabutton.Size = new System.Drawing.Size(48, 48);
+            this.ayrilmabutton.Size = new System.Drawing.Size(38, 38);
             this.ayrilmabutton.TabIndex = 24;
             this.ayrilmabutton.UseVisualStyleBackColor = true;
+            this.ayrilmabutton.Click += new System.EventHandler(this.ayrilmabutton_Click);
+            // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.label16.ForeColor = System.Drawing.Color.Snow;
+            this.label16.Location = new System.Drawing.Point(312, 21);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(143, 20);
+            this.label16.TabIndex = 12;
+            this.label16.Text = "ANTEN BAĞLANTISI";
+            // 
+            // camopenbutton
+            // 
+            this.camopenbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.camopenbutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("camopenbutton.BackgroundImage")));
+            this.camopenbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.camopenbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.camopenbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.camopenbutton.Location = new System.Drawing.Point(858, 52);
+            this.camopenbutton.Name = "camopenbutton";
+            this.camopenbutton.Size = new System.Drawing.Size(38, 38);
+            this.camopenbutton.TabIndex = 6;
+            this.camopenbutton.UseVisualStyleBackColor = true;
+            this.camopenbutton.Click += new System.EventHandler(this.camopenbutton_Click);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
+            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.comboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "PORT8"});
+            this.comboBox2.Location = new System.Drawing.Point(305, 51);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(168, 24);
+            this.comboBox2.TabIndex = 11;
+            // 
+            // button4
+            // 
+            this.button4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.button4.Location = new System.Drawing.Point(479, 45);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(33, 33);
+            this.button4.TabIndex = 4;
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // cikisbutton
             // 
@@ -1116,210 +1278,51 @@
             this.cikisbutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cikisbutton.BackgroundImage")));
             this.cikisbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cikisbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cikisbutton.Location = new System.Drawing.Point(1855, 4);
+            this.cikisbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.cikisbutton.Location = new System.Drawing.Point(1874, 4);
             this.cikisbutton.Name = "cikisbutton";
             this.cikisbutton.Size = new System.Drawing.Size(32, 26);
             this.cikisbutton.TabIndex = 23;
             this.cikisbutton.UseVisualStyleBackColor = true;
             this.cikisbutton.Click += new System.EventHandler(this.cikisbutton_Click_1);
             // 
-            // button7
-            // 
-            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(1260, 58);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(28, 29);
-            this.button7.TabIndex = 17;
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.textBox1.Location = new System.Drawing.Point(1294, 61);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(166, 22);
-            this.textBox1.TabIndex = 16;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.SystemColors.Control;
-            this.label19.Location = new System.Drawing.Point(1311, 27);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(117, 19);
-            this.label19.TabIndex = 15;
-            this.label19.Text = "KOMUT PANELİ";
-            // 
-            // button4
-            // 
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(727, 73);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(42, 42);
-            this.button4.TabIndex = 4;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(664, 73);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(42, 42);
-            this.button6.TabIndex = 8;
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "PORT3"});
-            this.comboBox1.Location = new System.Drawing.Point(319, 38);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 24);
-            this.comboBox1.TabIndex = 10;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.Control;
-            this.label15.Location = new System.Drawing.Point(302, 7);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(194, 19);
-            this.label15.TabIndex = 9;
-            this.label15.Text = "GÖREV YÜKÜ BAĞLANTISI";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.ForeColor = System.Drawing.SystemColors.Control;
-            this.label17.Location = new System.Drawing.Point(265, 41);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(48, 16);
-            this.label17.TabIndex = 13;
-            this.label17.Text = "PORT:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.SystemColors.Control;
-            this.label18.Location = new System.Drawing.Point(594, 41);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(48, 16);
-            this.label18.TabIndex = 14;
-            this.label18.Text = "PORT:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.Control;
-            this.label16.Location = new System.Drawing.Point(643, 7);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(149, 19);
-            this.label16.TabIndex = 12;
-            this.label16.Text = "ANTEN BAĞLANTISI";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(77)))), ((int)(((byte)(0)))));
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "PORT8"});
-            this.comboBox2.Location = new System.Drawing.Point(648, 38);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(150, 24);
-            this.comboBox2.TabIndex = 11;
-            // 
-            // button5
-            // 
-            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(393, 73);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(42, 42);
-            this.button5.TabIndex = 7;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // camopenbutton
-            // 
-            this.camopenbutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("camopenbutton.BackgroundImage")));
-            this.camopenbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.camopenbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.camopenbutton.Location = new System.Drawing.Point(920, 9);
-            this.camopenbutton.Name = "camopenbutton";
-            this.camopenbutton.Size = new System.Drawing.Size(48, 48);
-            this.camopenbutton.TabIndex = 6;
-            this.camopenbutton.UseVisualStyleBackColor = true;
-            this.camopenbutton.Click += new System.EventHandler(this.camopenbutton_Click);
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(-2, -36);
+            this.pictureBox2.Location = new System.Drawing.Point(-13, -88);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(211, 198);
+            this.pictureBox2.Size = new System.Drawing.Size(424, 326);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
-            // camclosebutton
-            // 
-            this.camclosebutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("camclosebutton.BackgroundImage")));
-            this.camclosebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.camclosebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.camclosebutton.Location = new System.Drawing.Point(920, 64);
-            this.camclosebutton.Name = "camclosebutton";
-            this.camclosebutton.Size = new System.Drawing.Size(48, 48);
-            this.camclosebutton.TabIndex = 3;
-            this.camclosebutton.UseVisualStyleBackColor = true;
-            this.camclosebutton.Click += new System.EventHandler(this.camclosebutton_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(335, 73);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(42, 42);
-            this.button3.TabIndex = 2;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // pictureBox3
             // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1596, -2);
+            this.pictureBox3.Location = new System.Drawing.Point(1631, 21);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(253, 121);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 32;
             this.pictureBox3.TabStop = false;
             // 
+            // batteryProgressBar1
+            // 
+            this.batteryProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.batteryProgressBar1.Location = new System.Drawing.Point(1701, 50);
+            this.batteryProgressBar1.Name = "batteryProgressBar1";
+            this.batteryProgressBar1.Percentage = 43;
+            this.batteryProgressBar1.Size = new System.Drawing.Size(100, 60);
+            this.batteryProgressBar1.TabIndex = 31;
+            this.batteryProgressBar1.Text = "batteryProgressBar1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(1901, 1033);
+            this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.sagpanel);
             this.Controls.Add(this.grafikpanel);
             this.Controls.Add(this.solpanel);
@@ -1352,7 +1355,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart5)).EndInit();
             this.pilpanel.ResumeLayout(false);
-            this.pilpanel.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
@@ -1427,15 +1431,11 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel araspanel6;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button camopenbutton;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button button7;
@@ -1445,6 +1445,8 @@
         private System.Windows.Forms.Button ayrilmabutton;
         public BatteryProgressBar batteryProgressBar1;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label17;
     }
 }
 

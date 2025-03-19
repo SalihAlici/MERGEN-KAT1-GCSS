@@ -5,6 +5,8 @@ using AForge.Video;
 using AForge.Video.DirectShow;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.IO.Ports;
+using OpenTK;
+using OpenTK.Graphics.OpenGL;
 
 namespace MERGEN_KAT1_GCSS
 {
@@ -14,44 +16,53 @@ namespace MERGEN_KAT1_GCSS
         private Map map;
         private Charts charts;
         private BatteryProgressBar batteryProgressBar;
-        private _3DSim simulation;
         private ArduinoReader arduinoReader;
+        private _3DSimulation simulation;
 
         public Form1()
         {
             InitializeComponent();
-            // PictureBox'ın görüntü ayarını düzenle (Zoom, görüntüyü orantılı olarak merkezler)
+
+            // PictureBox, harita ve chart ayarları
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-
-            camera = new Camera(pictureBox1); // Kamera sınıfını başlat
-            map = new Map(gMapControl1); // gMapControl1 form üzerinde yer almalı
+            camera = new Camera(pictureBox1);
+            map = new Map(gMapControl1);
             Chart[] chartArray = new Chart[] { chart1, chart2, chart3, chart4, chart5, chart6, chart7, chart8 };
-            charts = new Charts(chartArray); // Grafikler için Charts sınıfını başlat
-
+            charts = new Charts(chartArray);
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            camera = new Camera(pictureBox1);
-
-
-            // BatteryProgressBar nesnesini oluştur ve form üzerine ekle
+            // Batarya göstergesi
             batteryProgressBar = new BatteryProgressBar();
             batteryProgressBar.Location = new Point(this.ClientSize.Width - batteryProgressBar.Width - 10, 10);
             batteryProgressBar.Size = new Size(200, 50);
             this.Controls.Add(batteryProgressBar);
 
-            simulation = new _3DSim(glControl1); // glControl1 formda yer almalı
-            arduinoReader = new ArduinoReader(); // ArduinoReader nesnesini başlat
+            // Arduino okuyucu
+            arduinoReader = new ArduinoReader();
+
+            // GLControl üzerinden 3D simülasyonu başlatıyoruz.
+            // (glControl1, Form1'in tasarımında eklenmiş olmalı)
+            simulation = new _3DSimulation(glControl1);
+
+ 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             camopenbutton.Enabled = true;
-            camclosebutton.Enabled = false; // Form açıldığında sadece "Kamera Aç" butonu aktif
+            camclosebutton.Enabled = false;
             map.InitializeMap();
             charts.InitializeCharts();
             batteryProgressBar.Percentage = 30;
             LoadAvailablePorts();
+
+           
+
+            // Manuel güncelleme için timer'ı başlatıyoruz (1 ms interval)
+            simulation.StartSimulationTimer(1);
+            // Her saniye rastgele rotasyon güncellemesi için randomTimer'ı başlatıyoruz
+            simulation.StartRandomRotation();
         }
 
         private void LoadAvailablePorts()
@@ -70,7 +81,7 @@ namespace MERGEN_KAT1_GCSS
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            camera.Dispose(); // Form kapanırken kamerayı kapat
+            camera.Dispose();
         }
 
         private void camopenbutton_Click(object sender, EventArgs e)
@@ -100,7 +111,8 @@ namespace MERGEN_KAT1_GCSS
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        // Arduino bağlantısı için
+        private void buttonArduino_Click(object sender, EventArgs e)
         {
             if (comboBox1.SelectedItem == null)
             {
@@ -109,8 +121,6 @@ namespace MERGEN_KAT1_GCSS
             }
 
             string selectedPort = comboBox1.SelectedItem.ToString();
-
-            // Arduino ile bağlantıyı başlat
             bool success = arduinoReader.Start(selectedPort);
             if (success)
             {
@@ -126,6 +136,12 @@ namespace MERGEN_KAT1_GCSS
         private void ArduinoReader_DataReceived(object sender, ArduinoDataEventArgs e)
         {
             simulation.UpdateRotation(e.Yaw, e.Pitch, e.Roll);
+        }
+
+        private void ayrilmabutton_Click(object sender, EventArgs e)
+        {
+            simulation.SwitchModel();
+
         }
     }
 }
