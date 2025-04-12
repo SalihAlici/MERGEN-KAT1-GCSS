@@ -86,16 +86,12 @@ namespace MERGEN_KAT1_GCSS
 
         private void camopenbutton_Click(object sender, EventArgs e)
         {
-            camera.StartCamera();
-            camopenbutton.Enabled = false;
-            camclosebutton.Enabled = true;
+
         }
 
         private void camclosebutton_Click(object sender, EventArgs e)
         {
-            camera.StopCamera();
-            camopenbutton.Enabled = true;
-            camclosebutton.Enabled = false;
+
         }
 
         private void cikisbutton_Click_1(object sender, EventArgs e)
@@ -143,5 +139,7 @@ namespace MERGEN_KAT1_GCSS
             simulation.SwitchModel();
 
         }
+
+ 
     }
 }

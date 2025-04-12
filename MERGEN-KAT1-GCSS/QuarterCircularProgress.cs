@@ -53,6 +53,7 @@ namespace MERGEN_KAT1_GCSS
             centerLabel.BackColor = Color.Transparent;
             centerLabel.Font = new Font("Arial", 20, FontStyle.Bold);
             centerLabel.AutoSize = false;
+            centerLabel.ForeColor = Color.White;
             this.Controls.Add(centerLabel);
 
             // Başlangıç değerleri (rastgele)
