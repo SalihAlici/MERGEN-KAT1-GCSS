@@ -18,6 +18,8 @@ namespace MERGEN_KAT1_GCSS
         private BatteryProgressBar batteryProgressBar;
         private ArduinoReader arduinoReader;
         private _3DSimulation simulation;
+        private Compass compass;
+      
 
         public Form1()
         {
@@ -45,7 +47,11 @@ namespace MERGEN_KAT1_GCSS
             // (glControl1, Form1'in tasarımında eklenmiş olmalı)
             simulation = new _3DSimulation(glControl1);
 
- 
+            //compass 
+            compass = new Compass();
+            panel11.Paint += panel11_Paint;
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -133,13 +139,14 @@ namespace MERGEN_KAT1_GCSS
         {
             simulation.UpdateRotation(e.Yaw, e.Pitch, e.Roll);
         }
-
-        private void ayrilmabutton_Click(object sender, EventArgs e)
+        private void panel11_Paint(object sender, PaintEventArgs e)
         {
-            simulation.SwitchModel();
-
+            compass.Draw(e.Graphics, panel11.ClientRectangle);
         }
 
- 
+
+
+
+
     }
 }

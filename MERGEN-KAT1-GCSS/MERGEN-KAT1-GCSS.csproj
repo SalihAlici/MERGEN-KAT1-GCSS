@@ -166,6 +166,7 @@
     <Compile Include="CircularProgress.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Compass.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
