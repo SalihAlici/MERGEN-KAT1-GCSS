@@ -128,7 +128,7 @@ namespace MERGEN_KAT1_GCSS
             GL.Rotate(z, 0.0, 1.0, 0.0);
             GL.Rotate(y, 0.0, 0.0, 1.0);
 
-            DrawTexturedCube(6.0f);
+            DrawTexturedCube(8.0f);
 
             glControl1.SwapBuffers();
         }

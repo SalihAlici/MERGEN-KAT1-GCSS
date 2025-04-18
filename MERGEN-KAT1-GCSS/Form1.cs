@@ -49,7 +49,7 @@ namespace MERGEN_KAT1_GCSS
 
             //compass 
             compass = new Compass();
-            panel11.Paint += panel11_Paint;
+            panel7.Paint += panel7_Paint;
 
 
         }
@@ -139,14 +139,11 @@ namespace MERGEN_KAT1_GCSS
         {
             simulation.UpdateRotation(e.Yaw, e.Pitch, e.Roll);
         }
-        private void panel11_Paint(object sender, PaintEventArgs e)
+        private void panel7_Paint(object sender, PaintEventArgs e)
         {
-            compass.Draw(e.Graphics, panel11.ClientRectangle);
+            compass.Draw(e.Graphics, panel7.ClientRectangle);
         }
 
-
-
-
-
+      
     }
 }
