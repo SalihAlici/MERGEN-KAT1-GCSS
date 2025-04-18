@@ -153,6 +153,9 @@ namespace MERGEN_KAT1_GCSS
                     }
                 }
 
+                // Flip the image vertically before loading into OpenGL
+                bmp.RotateFlip(RotateFlipType.RotateNoneFlipY);
+
                 BitmapData data = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height),
                     ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 
