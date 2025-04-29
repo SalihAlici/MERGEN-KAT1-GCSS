@@ -15,91 +15,127 @@ namespace MERGEN_KAT1_GCSS
         public void InitializeCharts()
         {
             // Chart1
-            charts[0].Series["Series1"].Points.AddXY(1, 5);
-            charts[0].Series["Series1"].Points.AddXY(2, 7);
-            charts[0].Series["Series1"].Points.AddXY(3, 12);
-            charts[0].Series["Series1"].Points.AddXY(4, 94);
-            charts[0].Series["Series1"].Points.AddXY(5, 15);
-            charts[0].Series["Series1"].Points.AddXY(6, 8);
+            // Chart1charts[0].Series["Series1"].Points.AddXY("12:02:10", 989);
 
-            charts[0].Series["Series2"].Points.AddXY(1, 1);
-            charts[0].Series["Series2"].Points.AddXY(2, 10);
-            charts[0].Series["Series2"].Points.AddXY(3, 96);
-            charts[0].Series["Series2"].Points.AddXY(4, 82);
-            charts[0].Series["Series2"].Points.AddXY(5, 9);
-            charts[0].Series["Series2"].Points.AddXY(6, 55);
-            charts[0].Series["Series2"].Points.AddXY(7, 85);
+            charts[0].ChartAreas[0].AxisY.Minimum = 600;
+            charts[0].ChartAreas[0].AxisY.Maximum = 1200;
+
+            charts[0].Series["Series1"].Points.AddXY("12:02:10", 991);
+            charts[0].Series["Series1"].Points.AddXY("12:02:11", 992);
+            charts[0].Series["Series1"].Points.AddXY("12:02:12", 992);
+            charts[0].Series["Series1"].Points.AddXY("12:02:13", 993);
+            charts[0].Series["Series1"].Points.AddXY("12:02:14", 993);
+            charts[0].Series["Series1"].Points.AddXY("12:02:15", 994);
+            charts[0].Series["Series1"].Points.AddXY("12:02:16", 994);
+
+            charts[0].Series["Series2"].Points.AddXY("12:02:10", 992);
+            charts[0].Series["Series2"].Points.AddXY("12:02:11", 993);
+            charts[0].Series["Series2"].Points.AddXY("12:02:12", 993);
+            charts[0].Series["Series2"].Points.AddXY("12:02:13", 994);
+            charts[0].Series["Series2"].Points.AddXY("12:02:14", 994);
+            charts[0].Series["Series2"].Points.AddXY("12:02:15", 994);
+            charts[0].Series["Series2"].Points.AddXY("12:02:16", 995);
+
 
             // Chart2
-            charts[1].Series["Series1"].Points.AddXY(2, 10);
-            charts[1].Series["Series1"].Points.AddXY(3, 7);
-            charts[1].Series["Series1"].Points.AddXY(4, 12);
-            charts[1].Series["Series1"].Points.AddXY(5, 9);
-            charts[1].Series["Series1"].Points.AddXY(6, 15);
-            charts[1].Series["Series1"].Points.AddXY(7, 8);
-            charts[1].Series["Series1"].Points.AddXY(1, 5);
+            charts[1].ChartAreas[0].AxisY.Minimum = 10;
+            charts[1].ChartAreas[0].AxisY.Maximum = 1000;
+     
+            charts[1].Series["Series1"].Points.AddXY("12:02:10", 560.3);
+            charts[1].Series["Series1"].Points.AddXY("12:02:11", 560);
+            charts[1].Series["Series1"].Points.AddXY("12:02:12", 559.5);
+            charts[1].Series["Series1"].Points.AddXY("12:02:14", 558.3);
+            charts[1].Series["Series1"].Points.AddXY("12:02:15", 558);
+            charts[1].Series["Series1"].Points.AddXY("12:02:16", 557.9);
+            charts[1].Series["Series1"].Points.AddXY("12:02:17", 556);
 
             // Chart3
-            charts[2].Series["Series1"].Points.AddXY(1, 5);
-            charts[2].Series["Series1"].Points.AddXY(2, 10);
-            charts[2].Series["Series1"].Points.AddXY(3, 7);
-            charts[2].Series["Series1"].Points.AddXY(4, 12);
-            charts[2].Series["Series1"].Points.AddXY(5, 9);
-            charts[2].Series["Series1"].Points.AddXY(6, 15);
-            charts[2].Series["Series1"].Points.AddXY(7, 8);
+            charts[2].ChartAreas[0].AxisY.Minimum = 0;
+            charts[2].ChartAreas[0].AxisY.Maximum = 1000;
+
+            charts[2].Series["Series1"].Points.AddXY("12:02:10", 540);
+            charts[2].Series["Series1"].Points.AddXY("12:02:11", 540);
+            charts[2].Series["Series1"].Points.AddXY("12:02:12", 539);
+            charts[2].Series["Series1"].Points.AddXY("12:02:14", 538);
+            charts[2].Series["Series1"].Points.AddXY("12:02:15", 537);
+            charts[2].Series["Series1"].Points.AddXY("12:02:16", 536);
+            charts[2].Series["Series1"].Points.AddXY("12:02:17", 535);
 
             // Chart4
-            charts[3].Series["Series1"].Points.AddXY(1, 5);
-            charts[3].Series["Series1"].Points.AddXY(2, 10);
-            charts[3].Series["Series1"].Points.AddXY(3, 7);
-            charts[3].Series["Series1"].Points.AddXY(4, 12);
-            charts[3].Series["Series1"].Points.AddXY(5, 9);
-            charts[3].Series["Series1"].Points.AddXY(6, 15);
-            charts[3].Series["Series1"].Points.AddXY(7, 8);
+            charts[3].ChartAreas[0].AxisY.Minimum = 0;
+            charts[3].ChartAreas[0].AxisY.Maximum = 500;
+
+            charts[3].Series["Series1"].Points.AddXY("12:02:10", 20);
+            charts[3].Series["Series1"].Points.AddXY("12:02:11", 22);
+            charts[3].Series["Series1"].Points.AddXY("12:02:12", 23);
+            charts[3].Series["Series1"].Points.AddXY("12:02:14", 24);
+            charts[3].Series["Series1"].Points.AddXY("12:02:15", 26);
+            charts[3].Series["Series1"].Points.AddXY("12:02:16", 27);
+            charts[3].Series["Series1"].Points.AddXY("12:02:17", 25);
 
             // Chart5
-            charts[4].Series["Series1"].Points.AddXY(1, 5);
-            charts[4].Series["Series1"].Points.AddXY(2, 10);
-            charts[4].Series["Series1"].Points.AddXY(3, 7);
-            charts[4].Series["Series1"].Points.AddXY(4, 12);
-            charts[4].Series["Series1"].Points.AddXY(5, 9);
-            charts[4].Series["Series1"].Points.AddXY(6, 15);
-            charts[4].Series["Series1"].Points.AddXY(7, 8);
+
+            charts[4].ChartAreas[0].AxisY.Minimum = 0;
+            charts[4].ChartAreas[0].AxisY.Maximum = 30;
+
+            charts[4].Series["Series1"].Points.AddXY("12:02:10", 9);
+            charts[4].Series["Series1"].Points.AddXY("12:02:11", 9.1);
+            charts[4].Series["Series1"].Points.AddXY("12:02:12", 9.2);
+            charts[4].Series["Series1"].Points.AddXY("12:02:14", 9.3);
+            charts[4].Series["Series1"].Points.AddXY("12:02:15", 9.3);
+            charts[4].Series["Series1"].Points.AddXY("12:02:16", 9.3);
+            charts[4].Series["Series1"].Points.AddXY("12:02:17", 9.5);
+
 
             // Chart6
-            charts[5].Series["Series1"].Points.AddXY(1, 5);
-            charts[5].Series["Series1"].Points.AddXY(2, 10);
-            charts[5].Series["Series1"].Points.AddXY(3, 7);
-            charts[5].Series["Series1"].Points.AddXY(4, 12);
-            charts[5].Series["Series1"].Points.AddXY(5, 9);
-            charts[5].Series["Series1"].Points.AddXY(6, 15);
-            charts[5].Series["Series1"].Points.AddXY(7, 8);
+            charts[5].ChartAreas[0].AxisY.Minimum = 0;
+            charts[5].ChartAreas[0].AxisY.Maximum = 50;
+
+            charts[5].Series["Series1"].Points.AddXY("12:02:10", 22.5);
+            charts[5].Series["Series1"].Points.AddXY("12:02:11", 22.4);
+            charts[5].Series["Series1"].Points.AddXY("12:02:12", 22.7);
+            charts[5].Series["Series1"].Points.AddXY("12:02:14", 22.3);
+            charts[5].Series["Series1"].Points.AddXY("12:02:15", 22.6);
+            charts[5].Series["Series1"].Points.AddXY("12:02:16", 22.8);
+            charts[5].Series["Series1"].Points.AddXY("12:02:17", 23);
 
             // Chart7
-            charts[6].Series["Series1"].Points.AddXY(1, 5);
-            charts[6].Series["Series1"].Points.AddXY(2, 10);
-            charts[6].Series["Series1"].Points.AddXY(3, 7);
-            charts[6].Series["Series1"].Points.AddXY(4, 12);
-            charts[6].Series["Series1"].Points.AddXY(5, 9);
-            charts[6].Series["Series1"].Points.AddXY(6, 15);
-            charts[6].Series["Series1"].Points.AddXY(7, 8);
+            charts[6].ChartAreas[0].AxisY.Minimum = 0;
+            charts[6].ChartAreas[0].AxisY.Maximum = 10;
+
+            charts[6].Series["Series1"].Points.AddXY("12:02:10", 3.89);
+            charts[6].Series["Series1"].Points.AddXY("12:02:11", 3.89);
+            charts[6].Series["Series1"].Points.AddXY("12:02:12", 3.89);
+            charts[6].Series["Series1"].Points.AddXY("12:02:14", 3.89);
+            charts[6].Series["Series1"].Points.AddXY("12:02:15", 3.89);
+            charts[6].Series["Series1"].Points.AddXY("12:02:16", 3.89);
+            charts[6].Series["Series1"].Points.AddXY("12:02:17", 3.89);
 
             // Chart8
-            charts[7].Series["Series1"].Points.AddXY(1, 5);
-            charts[7].Series["Series1"].Points.AddXY(2, 10);
-            charts[7].Series["Series1"].Points.AddXY(3, 7);
-            charts[7].Series["Series1"].Points.AddXY(4, 12);
-            charts[7].Series["Series1"].Points.AddXY(5, 9);
-            charts[7].Series["Series1"].Points.AddXY(6, 15);
-            charts[7].Series["Series1"].Points.AddXY(7, 8);
 
-            charts[7].Series["Series2"].Points.AddXY(1, 51);
-            charts[7].Series["Series2"].Points.AddXY(2, 80);
-            charts[7].Series["Series2"].Points.AddXY(3, 7);
-            charts[7].Series["Series2"].Points.AddXY(4, 2);
-            charts[7].Series["Series2"].Points.AddXY(5, 9);
-            charts[7].Series["Series2"].Points.AddXY(6, 75);
-            charts[7].Series["Series2"].Points.AddXY(7, 6);
+
+
+
+            charts[7].ChartAreas[0].AxisY.Minimum = 0;
+            charts[7].ChartAreas[0].AxisY.Maximum = 50;
+
+            charts[7].Series["Series1"].Points.AddXY("12:02:10", 23);
+            charts[7].Series["Series1"].Points.AddXY("12:02:11", 22);
+            charts[7].Series["Series1"].Points.AddXY("12:02:12", 23);
+            charts[7].Series["Series1"].Points.AddXY("12:02:14", 22.5);
+            charts[7].Series["Series1"].Points.AddXY("12:02:15", 22.6);
+            charts[7].Series["Series1"].Points.AddXY("12:02:16", 22.9);
+            charts[7].Series["Series1"].Points.AddXY("12:02:17", 23);
+
+        
+
+            charts[7].Series["Series2"].Points.AddXY("12:02:10", 22.3);
+            charts[7].Series["Series2"].Points.AddXY("12:02:11", 22);
+            charts[7].Series["Series2"].Points.AddXY("12:02:12", 23.5);
+            charts[7].Series["Series2"].Points.AddXY("12:02:14", 24.3);
+            charts[7].Series["Series2"].Points.AddXY("12:02:15", 24.3);
+            charts[7].Series["Series2"].Points.AddXY("12:02:16", 24.9);
+            charts[7].Series["Series2"].Points.AddXY("12:02:17", 23.6);
         }
     }
 }
