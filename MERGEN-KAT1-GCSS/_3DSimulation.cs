@@ -245,6 +245,55 @@ namespace MERGEN_KAT1_GCSS
             float halfHeight = height / 2.0f;
             float discThickness = 0.03f * height;
             float columnInset = 0.15f * radius;
+            // --- İÇ DİKDÖRTGEN LEVHA (Turuncu) ---
+            GL.Color3(1.0f, 0.5f, 0.0f); // Turuncu
+            float plateWidth = radius * 1.2f;  // Daha geniş levha (eski olsaydı mesela 1.4f olurdu)
+            float plateThickness = 0.05f * height; // Levha kalınlığı
+
+            GL.Begin(PrimitiveType.Quads);
+            // Alt yüzey
+            GL.Normal3(0, 1, 0);
+            GL.Vertex3(-plateWidth / 2, -halfHeight + discThickness, -plateThickness / 2);
+            GL.Vertex3(plateWidth / 2, -halfHeight + discThickness, -plateThickness / 2);
+            GL.Vertex3(plateWidth / 2, halfHeight - discThickness, -plateThickness / 2);
+            GL.Vertex3(-plateWidth / 2, halfHeight - discThickness, -plateThickness / 2);
+
+            // Üst yüzey
+            GL.Normal3(0, -1, 0);
+            GL.Vertex3(-plateWidth / 2, -halfHeight + discThickness, plateThickness / 2);
+            GL.Vertex3(plateWidth / 2, -halfHeight + discThickness, plateThickness / 2);
+            GL.Vertex3(plateWidth / 2, halfHeight - discThickness, plateThickness / 2);
+            GL.Vertex3(-plateWidth / 2, halfHeight - discThickness, plateThickness / 2);
+
+            // Sağ kenar
+            GL.Normal3(1, 0, 0);
+            GL.Vertex3(plateWidth / 2, -halfHeight + discThickness, -plateThickness / 2);
+            GL.Vertex3(plateWidth / 2, -halfHeight + discThickness, plateThickness / 2);
+            GL.Vertex3(plateWidth / 2, halfHeight - discThickness, plateThickness / 2);
+            GL.Vertex3(plateWidth / 2, halfHeight - discThickness, -plateThickness / 2);
+
+            // Sol kenar
+            GL.Normal3(-1, 0, 0);
+            GL.Vertex3(-plateWidth / 2, -halfHeight + discThickness, -plateThickness / 2);
+            GL.Vertex3(-plateWidth / 2, -halfHeight + discThickness, plateThickness / 2);
+            GL.Vertex3(-plateWidth / 2, halfHeight - discThickness, plateThickness / 2);
+            GL.Vertex3(-plateWidth / 2, halfHeight - discThickness, -plateThickness / 2);
+
+            // Ön yüzey
+            GL.Normal3(0, 0, -1);
+            GL.Vertex3(-plateWidth / 2, -halfHeight + discThickness, -plateThickness / 2);
+            GL.Vertex3(-plateWidth / 2, halfHeight - discThickness, -plateThickness / 2);
+            GL.Vertex3(plateWidth / 2, halfHeight - discThickness, -plateThickness / 2);
+            GL.Vertex3(plateWidth / 2, -halfHeight + discThickness, -plateThickness / 2);
+
+            // Arka yüzey
+            GL.Normal3(0, 0, 1);
+            GL.Vertex3(-plateWidth / 2, -halfHeight + discThickness, plateThickness / 2);
+            GL.Vertex3(-plateWidth / 2, halfHeight - discThickness, plateThickness / 2);
+            GL.Vertex3(plateWidth / 2, halfHeight - discThickness, plateThickness / 2);
+            GL.Vertex3(plateWidth / 2, -halfHeight + discThickness, plateThickness / 2);
+            GL.End();
+
 
             // --- ALT DİSK (TABAN) HACMİ ---
             GL.Begin(PrimitiveType.TriangleFan);
@@ -383,6 +432,8 @@ namespace MERGEN_KAT1_GCSS
                 GL.Vertex3(x + dx, halfHeight, z + dz);
             }
             GL.End();
+
+
         }
     }
 }
