@@ -20,21 +20,21 @@ namespace MERGEN_KAT1_GCSS
             charts[0].ChartAreas[0].AxisY.Minimum = 600;
             charts[0].ChartAreas[0].AxisY.Maximum = 1200;
 
-            charts[0].Series["Series1"].Points.AddXY("12:02:10", 991);
-            charts[0].Series["Series1"].Points.AddXY("12:02:11", 992);
-            charts[0].Series["Series1"].Points.AddXY("12:02:12", 992);
-            charts[0].Series["Series1"].Points.AddXY("12:02:13", 993);
-            charts[0].Series["Series1"].Points.AddXY("12:02:14", 993);
-            charts[0].Series["Series1"].Points.AddXY("12:02:15", 994);
-            charts[0].Series["Series1"].Points.AddXY("12:02:16", 994);
+            charts[0].Series["Series1"].Points.AddXY("12:02:10", 640);
+            charts[0].Series["Series1"].Points.AddXY("12:02:11", 640);
+            charts[0].Series["Series1"].Points.AddXY("12:02:12", 641);
+            charts[0].Series["Series1"].Points.AddXY("12:02:13", 641);
+            charts[0].Series["Series1"].Points.AddXY("12:02:14", 642);
+            charts[0].Series["Series1"].Points.AddXY("12:02:15", 642);
+            charts[0].Series["Series1"].Points.AddXY("12:02:16", 642);
 
-            charts[0].Series["Series2"].Points.AddXY("12:02:10", 992);
-            charts[0].Series["Series2"].Points.AddXY("12:02:11", 993);
-            charts[0].Series["Series2"].Points.AddXY("12:02:12", 993);
-            charts[0].Series["Series2"].Points.AddXY("12:02:13", 994);
-            charts[0].Series["Series2"].Points.AddXY("12:02:14", 994);
-            charts[0].Series["Series2"].Points.AddXY("12:02:15", 994);
-            charts[0].Series["Series2"].Points.AddXY("12:02:16", 995);
+            charts[0].Series["Series2"].Points.AddXY("12:02:10", 645);
+            charts[0].Series["Series2"].Points.AddXY("12:02:11", 645);
+            charts[0].Series["Series2"].Points.AddXY("12:02:12", 646);
+            charts[0].Series["Series2"].Points.AddXY("12:02:13", 646);
+            charts[0].Series["Series2"].Points.AddXY("12:02:14", 647);
+            charts[0].Series["Series2"].Points.AddXY("12:02:15", 647);
+            charts[0].Series["Series2"].Points.AddXY("12:02:16", 648);
 
 
             // Chart2
