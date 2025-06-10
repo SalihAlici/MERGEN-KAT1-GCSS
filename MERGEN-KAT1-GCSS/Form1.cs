@@ -12,16 +12,21 @@ namespace MERGEN_KAT1_GCSS
 {
     public partial class Form1 : Form
     {
+        public float x = 0.0f, y = 0.0f, z = 0.0f;
         private Camera camera;
         private Map map;
         private Charts charts;
         private BatteryProgressBar batteryProgressBar;
         private ArduinoReader arduinoReader;
         private _3DSimulation simulation;
+        private veri veriOku;
+        private Button switchModelButton;
+
 
         public Form1()
         {
             InitializeComponent();
+            Initialize3DComponents();
 
             // PictureBox, harita ve chart ayarları
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -41,13 +46,20 @@ namespace MERGEN_KAT1_GCSS
             // Arduino okuyucu
             arduinoReader = new ArduinoReader();
 
-            // GLControl üzerinden 3D simülasyonu başlatıyoruz.
-            // (glControl1, Form1'in tasarımında eklenmiş olmalı)
-            simulation = new _3DSimulation(glControl1);
+ 
 
  
         }
 
+        private void Initialize3DComponents()
+        {
+            // GLControl1 olaylarını bağla
+            glControl1.Load += GlControl1_Load;
+            glControl1.Paint += GlControl1_Paint;
+            simulation = new _3DSimulation();
+
+            // 3D Simülasyon nesnesini başlat
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             camopenbutton.Enabled = true;
@@ -55,16 +67,71 @@ namespace MERGEN_KAT1_GCSS
             map.InitializeMap();
             charts.InitializeCharts();
             batteryProgressBar.Percentage = 30;
+            timer1.Tick += timer1_Tick;
             LoadAvailablePorts();
+            timer1.Start();
+            veriOku = new veri(this, simulation);
 
-           
 
-            // Manuel güncelleme için timer'ı başlatıyoruz (1 ms interval)
-            simulation.StartSimulationTimer(1);
-            // Her saniye rastgele rotasyon güncellemesi için randomTimer'ı başlatıyoruz
-            simulation.StartRandomRotation();
         }
 
+
+        public void SwitchModel()
+        {
+            simulation.useAlternativeModel = !simulation.useAlternativeModel;
+            glControl1?.Invalidate(); // Ekranı güncelle
+        }
+        private void GlControl1_Load(object sender, EventArgs e)
+        {
+            GL.ClearColor(Color.FromArgb(24, 30, 54)); // Arka plan rengi
+            GL.Enable(EnableCap.DepthTest);
+        }
+
+        private void GlControl1_Paint(object sender, PaintEventArgs e)
+        {
+            // Önce buffer temizleniyor.
+            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+
+            // Perspektif ve kamera ayarları.
+            Matrix4 perspective = Matrix4.CreatePerspectiveFieldOfView(1.04f, (float)glControl1.Width / glControl1.Height, 1, 10000);
+            Matrix4 lookAt = Matrix4.LookAt(25, 0, 0, 0, 0, 0, 0, 1, 0);
+
+            GL.MatrixMode(MatrixMode.Projection);
+            GL.LoadIdentity();
+            GL.LoadMatrix(ref perspective);
+
+            GL.MatrixMode(MatrixMode.Modelview);
+            GL.LoadIdentity();
+            GL.LoadMatrix(ref lookAt);
+
+            GL.Viewport(0, 0, glControl1.Width, glControl1.Height);
+            GL.Enable(EnableCap.DepthTest);
+            GL.DepthFunc(DepthFunction.Less);
+
+            // Model rotasyonları uygulanıyor.
+            GL.Rotate(x, -1.0, 0.0, 0.0);
+            GL.Rotate(z, 0.0, -1.0, 0.0);
+            GL.Rotate(y, 0.0, 0.0, 2.0);
+
+            // Modelin çizimi: alternatif model seçimine göre.
+            if (simulation.useAlternativeModel)
+                simulation.DrawNewSatellite();
+            else
+                simulation.DrawPerforatedShell(2.3f, 12.0f, 16);
+
+            glControl1.SwapBuffers();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            x = simulation.x;
+            y = simulation.y;
+            z = simulation.z;
+
+
+            glControl1.Invalidate(); // Yeniden çizim
+        }
         private void LoadAvailablePorts()
         {
             comboBox1.Items.Clear();
@@ -140,8 +207,22 @@ namespace MERGEN_KAT1_GCSS
 
         private void ayrilmabutton_Click(object sender, EventArgs e)
         {
-            simulation.SwitchModel();
+            SwitchModel();
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string selectedPort = comboBox1.SelectedItem?.ToString();
+            if (!string.IsNullOrEmpty(selectedPort))
+            {
+                veriOku.PortAc(selectedPort, 9600); // Seçilen COM port ve sabit baud rate
+                MessageBox.Show("Bağlantı başarılı.");
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir COM port seçin.");
+            }
         }
     }
 }

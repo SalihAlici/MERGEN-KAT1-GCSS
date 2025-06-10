@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -141,6 +142,7 @@
             this.cikisbutton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.batteryProgressBar1 = new BatteryProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.solpanel.SuspendLayout();
@@ -1150,6 +1152,7 @@
             this.button5.Size = new System.Drawing.Size(33, 33);
             this.button5.TabIndex = 7;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // textBox1
             // 
@@ -1307,12 +1310,16 @@
             this.pictureBox3.TabIndex = 32;
             this.pictureBox3.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            // 
             // batteryProgressBar1
             // 
             this.batteryProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.batteryProgressBar1.Location = new System.Drawing.Point(1701, 50);
             this.batteryProgressBar1.Name = "batteryProgressBar1";
-            this.batteryProgressBar1.Percentage = 43;
+            this.batteryProgressBar1.Percentage = 96;
             this.batteryProgressBar1.Size = new System.Drawing.Size(100, 60);
             this.batteryProgressBar1.TabIndex = 31;
             this.batteryProgressBar1.Text = "batteryProgressBar1";
@@ -1447,6 +1454,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

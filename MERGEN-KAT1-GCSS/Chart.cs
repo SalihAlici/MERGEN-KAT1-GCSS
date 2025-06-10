@@ -5,7 +5,7 @@ namespace MERGEN_KAT1_GCSS
 {
     public class Charts
     {
-        private Chart[] charts;
+        public Chart[] charts;
 
         public Charts(Chart[] charts)
         {

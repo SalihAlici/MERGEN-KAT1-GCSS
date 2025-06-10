@@ -8,53 +8,17 @@ namespace MERGEN_KAT1_GCSS
 {
     public partial class _3DSimulation
     {
-        private GLControl glControl1;
-        private Timer simulationTimer;
-        private Timer randomRotationTimer;
-        public Label label18 { get; set; }
-        public Label label20 { get; set; }
-        public Label label21 { get; set; }
-        private bool useAlternativeModel = false; // Alternatif model durumu
 
-        private float x = 0, y = 0, z = 0;
-        private bool rotateX = false, rotateY = false, rotateZ = false;
-        private Random rnd = new Random();
 
-        public _3DSimulation(GLControl glControl, Button switchModelButton = null)
-        {
-            this.glControl1 = glControl ?? throw new ArgumentNullException(nameof(glControl));
-            this.glControl1.Paint += GlControl1_Paint;
-            this.glControl1.Load += GlControl1_Load;
 
-            // Simülasyon ve rastgele dönüş timer'ları ayarlanıyor.
-            simulationTimer = new Timer { Interval = 100 };
-            simulationTimer.Tick += SimulationTimer_Tick;
+   
+        public bool useAlternativeModel = false; // Alternatif model durumu
 
-            randomRotationTimer = new Timer { Interval = 1000 };
-            randomRotationTimer.Tick += RandomRotationTimer_Tick;
+        public float x, y, z;
 
-            if (switchModelButton != null)
-            {
-                switchModelButton.Click += SwitchModelButton_Click;
-            }
-        }
+        
 
-        private void SwitchModelButton_Click(object sender, EventArgs e)
-        {
-            SwitchModel();
-        }
 
-        public void StartSimulationTimer(int interval)
-        {
-            simulationTimer.Interval = interval;
-            simulationTimer.Start();
-        }
-
-        public void StopSimulationTimer() => simulationTimer.Stop();
-
-        public void StartRandomRotation() => randomRotationTimer.Start();
-
-        public void StopRandomRotation() => randomRotationTimer.Stop();
 
         public void UpdateRotation(float yaw, float pitch, float roll)
         {
@@ -62,95 +26,15 @@ namespace MERGEN_KAT1_GCSS
             x = pitch;
             y = roll;
             z = yaw;
-            glControl1?.Invalidate();
         }
 
-        private void SimulationTimer_Tick(object sender, EventArgs e)
-        {
-            // Belirlenen eksenlerde sürekli dönüş sağlanıyor.
-            if (label18 != null && rotateX)
-            {
-                x = (x < 360) ? x + 5 : 0;
-                label18.Text = x.ToString();
-            }
-            if (label20 != null && rotateY)
-            {
-                y = (y < 360) ? y + 5 : 0;
-                label20.Text = y.ToString();
-            }
-            if (label21 != null && rotateZ)
-            {
-                z = (z < 360) ? z + 5 : 0;
-                label21.Text = z.ToString();
-            }
-            glControl1?.Invalidate();
-        }
 
-        private void RandomRotationTimer_Tick(object sender, EventArgs e)
-        {
-            // Rastgele açılar üretilip label'lara yazdırılıyor.
-            x = rnd.Next(0, 360);
-            y = rnd.Next(0, 360);
-            z = rnd.Next(0, 360);
-
-            // UI thread'de label güncellemesi için Invoke kullanılıyor.
-            label18?.Invoke((MethodInvoker)(() => label18.Text = x.ToString()));
-            label20?.Invoke((MethodInvoker)(() => label20.Text = y.ToString()));
-            label21?.Invoke((MethodInvoker)(() => label21.Text = z.ToString()));
-
-            glControl1?.Invalidate();
-        }
-
-        public void SwitchModel()
-        {
-            useAlternativeModel = !useAlternativeModel;
-            glControl1?.Invalidate(); // Ekranı güncelle
-        }
-
-        private void GlControl1_Load(object sender, EventArgs e)
-        {
-            GL.ClearColor(Color.FromArgb(24, 30, 54)); // Arka plan rengi
-            GL.Enable(EnableCap.DepthTest);
-        }
-
-        private void GlControl1_Paint(object sender, PaintEventArgs e)
-        {
-            // Önce buffer temizleniyor.
-            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-
-            // Perspektif ve kamera ayarları.
-            Matrix4 perspective = Matrix4.CreatePerspectiveFieldOfView(1.04f, (float)glControl1.Width / glControl1.Height, 1, 10000);
-            Matrix4 lookAt = Matrix4.LookAt(25, 0, 0, 0, 0, 0, 0, 1, 0);
-
-            GL.MatrixMode(MatrixMode.Projection);
-            GL.LoadIdentity();
-            GL.LoadMatrix(ref perspective);
-
-            GL.MatrixMode(MatrixMode.Modelview);
-            GL.LoadIdentity();
-            GL.LoadMatrix(ref lookAt);
-
-            GL.Viewport(0, 0, glControl1.Width, glControl1.Height);
-            GL.Enable(EnableCap.DepthTest);
-            GL.DepthFunc(DepthFunction.Less);
-
-            // Model rotasyonları uygulanıyor.
-            GL.Rotate(x, 1.0, 0.0, 0.0);
-            GL.Rotate(z, 0.0, 1.0, 0.0);
-            GL.Rotate(y, 0.0, 0.0, 1.0);
-
-            // Modelin çizimi: alternatif model seçimine göre.
-            if (useAlternativeModel)
-                DrawNewSatellite();
-            else
-                DrawPerforatedShell(2.3f, 12.0f, 16);
-
-            glControl1.SwapBuffers();
-        }
+       
+       
 
         // Alternatif model: yeni uydu/silindir modeli.
         // Ölçeklendirme kaldırıldı ki silindirin yüksekliği, perforasyonlu kılıfın yüksekliği ile aynı olsun.
-        private void DrawNewSatellite()
+        public void DrawNewSatellite()
         {
             DrawCylinder(3.0f, 12.0f, 16);
         }
@@ -235,8 +119,6 @@ namespace MERGEN_KAT1_GCSS
             }
             GL.End();
         }
-
-
 
 
         // Silindir çizim metodu: Üst ve alt diskler hacimli olarak çiziliyor, ortadaki levha turuncu, kolonlar beyaz.
