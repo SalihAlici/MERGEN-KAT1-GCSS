@@ -1,40 +1,68 @@
 ﻿using GMap.NET;
 using GMap.NET.MapProviders;
+using System;
 using System.Windows.Forms;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+
+
+
+
 
 namespace MERGEN_KAT1_GCSS
 {
     public class Map
     {
-        private GMap.NET.WindowsForms.GMapControl gMapControl;
-        private float lat = 38.707675f;
-        private float lng = 35.519550f;
+        private GMapControl gMapControl;
+        private GMapMarker marker;
+        private GMapOverlay markers;
 
-        public Map(GMap.NET.WindowsForms.GMapControl control)
+        private double lastLat = 0;
+        private double lastLng = 0;
+        private const double threshold = 0.00001; // Yaklaşık 1 metre
+
+        public Map(GMapControl control)
         {
             gMapControl = control;
         }
 
         public void InitializeMap()
         {
-            // Harita türünü belirliyoruz (örneğin: OpenStreetMap)
             gMapControl.MapProvider = GMapProviders.OpenStreetMap;
-
-            // Harita ayarlarını yapılandırıyoruz
-            gMapControl.Position = new PointLatLng(lat, lng);
+            gMapControl.Position = new PointLatLng(38.707675, 35.519550);
             gMapControl.MinZoom = 5;
             gMapControl.MaxZoom = 25;
             gMapControl.Zoom = 16;
-
-            // Harita kontrolünü aktifleştiriyoruz
             gMapControl.ShowCenter = false;
+
+            // Marker ve overlay'ı sadece bir kere oluştur
+            markers = new GMapOverlay("markers");
+            marker = new GMarkerGoogle(gMapControl.Position, GMarkerGoogleType.red_dot);
+            markers.Markers.Add(marker);
+            gMapControl.Overlays.Add(markers);
         }
 
-        public void SetCoordinates(float latitude, float longitude)
+        public void UpdatePosition(TelemetryData telemetry)
         {
-            lat = latitude;
-            lng = longitude;
-            gMapControl.Position = new PointLatLng(lat, lng);
+            if (telemetry == null)
+                return;
+
+            double lat = telemetry.Gps1Latitude;
+            double lng = telemetry.Gps1Longitude;
+
+            double deltaLat = Math.Abs(lat - lastLat);
+            double deltaLng = Math.Abs(lng - lastLng);
+
+            // Eşik kontrolü (1 metreden az fark varsa güncelleme)
+            if (deltaLat < threshold && deltaLng < threshold)
+                return;
+
+            lastLat = lat;
+            lastLng = lng;
+
+            // Sadece pozisyonu güncelle
+            marker.Position = new PointLatLng(lat, lng);
+           // gMapControl.Position = marker.Position; // Kamera ortalama opsiyonel
         }
     }
 }

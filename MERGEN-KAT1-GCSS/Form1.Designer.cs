@@ -28,37 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea17 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend17 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea18 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend18 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea19 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend19 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea20 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend20 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series25 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea21 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend21 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series26 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea22 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend22 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series27 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series28 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea23 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend23 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series29 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea24 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend24 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series30 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -138,10 +139,11 @@
             this.camopenbutton = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.batteryProgressBar1 = new BatteryProgressBar();
             this.cikisbutton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.batteryProgressBar1 = new BatteryProgressBar();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.solpanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -168,19 +170,19 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(58)))), ((int)(((byte)(116)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(58)))), ((int)(((byte)(116)))));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Blue;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(18)))), ((int)(((byte)(80)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(18)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -205,14 +207,14 @@
             this.Column20,
             this.Column21,
             this.Column22});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(29)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(29)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
@@ -228,8 +230,8 @@
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle13;
             this.Column1.HeaderText = "PAKET NUMARASI";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
@@ -297,9 +299,9 @@
             // 
             // Column12
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column12.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column12.DefaultCellStyle = dataGridViewCellStyle14;
             this.Column12.HeaderText = "PİL GERİLİMİ (V)";
             this.Column12.MinimumWidth = 6;
             this.Column12.Name = "Column12";
@@ -654,30 +656,30 @@
             // chart3
             // 
             this.chart3.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea1.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea1.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea1);
+            chartArea17.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea17.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea17.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea17.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea17.BackColor = System.Drawing.Color.Transparent;
+            chartArea17.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea17);
             this.chart3.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Alignment = System.Drawing.StringAlignment.Center;
-            legend1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.chart3.Legends.Add(legend1);
+            legend17.Alignment = System.Drawing.StringAlignment.Center;
+            legend17.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            legend17.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend17.Enabled = false;
+            legend17.Name = "Legend1";
+            this.chart3.Legends.Add(legend17);
             this.chart3.Location = new System.Drawing.Point(529, 40);
             this.chart3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart3.Name = "chart3";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Color = System.Drawing.Color.Lime;
-            series1.IsVisibleInLegend = false;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart3.Series.Add(series1);
+            series21.ChartArea = "ChartArea1";
+            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series21.Color = System.Drawing.Color.Lime;
+            series21.IsVisibleInLegend = false;
+            series21.Legend = "Legend1";
+            series21.Name = "Series1";
+            this.chart3.Series.Add(series21);
             this.chart3.Size = new System.Drawing.Size(257, 332);
             this.chart3.TabIndex = 9;
             this.chart3.Text = "chart4";
@@ -685,30 +687,30 @@
             // chart2
             // 
             this.chart2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea2.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea2.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea2);
+            chartArea18.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea18.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea18.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea18.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea18.BackColor = System.Drawing.Color.Transparent;
+            chartArea18.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea18);
             this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Alignment = System.Drawing.StringAlignment.Center;
-            legend2.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.chart2.Legends.Add(legend2);
+            legend18.Alignment = System.Drawing.StringAlignment.Center;
+            legend18.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            legend18.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend18.Enabled = false;
+            legend18.Name = "Legend1";
+            this.chart2.Legends.Add(legend18);
             this.chart2.Location = new System.Drawing.Point(266, 40);
             this.chart2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart2.Name = "chart2";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Color = System.Drawing.Color.Cyan;
-            series2.IsVisibleInLegend = false;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart2.Series.Add(series2);
+            series22.ChartArea = "ChartArea1";
+            series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series22.Color = System.Drawing.Color.Cyan;
+            series22.IsVisibleInLegend = false;
+            series22.Legend = "Legend1";
+            series22.Name = "Series1";
+            this.chart2.Series.Add(series22);
             this.chart2.Size = new System.Drawing.Size(257, 332);
             this.chart2.TabIndex = 14;
             this.chart2.Text = "chart6";
@@ -716,37 +718,37 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.Transparent;
-            chartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea3.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea3.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea3.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea3.BackColor = System.Drawing.Color.Transparent;
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
+            chartArea19.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea19.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea19.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea19.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea19.BackColor = System.Drawing.Color.Transparent;
+            chartArea19.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea19);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.Alignment = System.Drawing.StringAlignment.Center;
-            legend3.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend3.Enabled = false;
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            legend19.Alignment = System.Drawing.StringAlignment.Center;
+            legend19.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            legend19.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend19.Enabled = false;
+            legend19.Name = "Legend1";
+            this.chart1.Legends.Add(legend19);
             this.chart1.Location = new System.Drawing.Point(3, 40);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            series3.IsVisibleInLegend = false;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.Color = System.Drawing.Color.Fuchsia;
-            series4.IsVisibleInLegend = false;
-            series4.Legend = "Legend1";
-            series4.Name = "Series2";
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
+            series23.ChartArea = "ChartArea1";
+            series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series23.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            series23.IsVisibleInLegend = false;
+            series23.Legend = "Legend1";
+            series23.Name = "Series1";
+            series24.ChartArea = "ChartArea1";
+            series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series24.Color = System.Drawing.Color.Fuchsia;
+            series24.IsVisibleInLegend = false;
+            series24.Legend = "Legend1";
+            series24.Name = "Series2";
+            this.chart1.Series.Add(series23);
+            this.chart1.Series.Add(series24);
             this.chart1.Size = new System.Drawing.Size(257, 332);
             this.chart1.TabIndex = 16;
             this.chart1.Text = "bel";
@@ -791,31 +793,31 @@
             // chart4
             // 
             this.chart4.BackColor = System.Drawing.Color.Transparent;
-            chartArea4.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea4.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea4.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea4.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea4.BackColor = System.Drawing.Color.Transparent;
-            chartArea4.Name = "ChartArea1";
-            this.chart4.ChartAreas.Add(chartArea4);
+            chartArea20.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea20.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea20.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea20.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea20.BackColor = System.Drawing.Color.Transparent;
+            chartArea20.Name = "ChartArea1";
+            this.chart4.ChartAreas.Add(chartArea20);
             this.chart4.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend4.Alignment = System.Drawing.StringAlignment.Center;
-            legend4.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend4.Enabled = false;
-            legend4.Name = "Legend1";
-            this.chart4.Legends.Add(legend4);
+            legend20.Alignment = System.Drawing.StringAlignment.Center;
+            legend20.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            legend20.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend20.Enabled = false;
+            legend20.Name = "Legend1";
+            this.chart4.Legends.Add(legend20);
             this.chart4.Location = new System.Drawing.Point(792, 40);
             this.chart4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart4.Name = "chart4";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series5.Color = System.Drawing.SystemColors.Info;
-            series5.IsVisibleInLegend = false;
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            series5.ShadowColor = System.Drawing.Color.White;
-            this.chart4.Series.Add(series5);
+            series25.ChartArea = "ChartArea1";
+            series25.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series25.Color = System.Drawing.SystemColors.Info;
+            series25.IsVisibleInLegend = false;
+            series25.Legend = "Legend1";
+            series25.Name = "Series1";
+            series25.ShadowColor = System.Drawing.Color.White;
+            this.chart4.Series.Add(series25);
             this.chart4.Size = new System.Drawing.Size(259, 332);
             this.chart4.TabIndex = 34;
             this.chart4.Text = "chart4";
@@ -823,30 +825,30 @@
             // chart6
             // 
             this.chart6.BackColor = System.Drawing.Color.Transparent;
-            chartArea5.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea5.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea5.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea5.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea5.BackColor = System.Drawing.Color.Transparent;
-            chartArea5.Name = "ChartArea1";
-            this.chart6.ChartAreas.Add(chartArea5);
+            chartArea21.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea21.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea21.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea21.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea21.BackColor = System.Drawing.Color.Transparent;
+            chartArea21.Name = "ChartArea1";
+            this.chart6.ChartAreas.Add(chartArea21);
             this.chart6.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend5.Alignment = System.Drawing.StringAlignment.Center;
-            legend5.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            legend5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend5.Enabled = false;
-            legend5.Name = "Legend1";
-            this.chart6.Legends.Add(legend5);
+            legend21.Alignment = System.Drawing.StringAlignment.Center;
+            legend21.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            legend21.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend21.Enabled = false;
+            legend21.Name = "Legend1";
+            this.chart6.Legends.Add(legend21);
             this.chart6.Location = new System.Drawing.Point(266, 409);
             this.chart6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart6.Name = "chart6";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            series6.IsVisibleInLegend = false;
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chart6.Series.Add(series6);
+            series26.ChartArea = "ChartArea1";
+            series26.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series26.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            series26.IsVisibleInLegend = false;
+            series26.Legend = "Legend1";
+            series26.Name = "Series1";
+            this.chart6.Series.Add(series26);
             this.chart6.Size = new System.Drawing.Size(257, 344);
             this.chart6.TabIndex = 30;
             this.chart6.Text = "chart9";
@@ -939,37 +941,37 @@
             // chart8
             // 
             this.chart8.BackColor = System.Drawing.Color.Transparent;
-            chartArea6.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea6.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea6.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea6.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea6.BackColor = System.Drawing.Color.Transparent;
-            chartArea6.Name = "ChartArea1";
-            this.chart8.ChartAreas.Add(chartArea6);
+            chartArea22.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea22.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea22.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea22.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea22.BackColor = System.Drawing.Color.Transparent;
+            chartArea22.Name = "ChartArea1";
+            this.chart8.ChartAreas.Add(chartArea22);
             this.chart8.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend6.Alignment = System.Drawing.StringAlignment.Center;
-            legend6.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend6.Enabled = false;
-            legend6.Name = "Legend1";
-            this.chart8.Legends.Add(legend6);
+            legend22.Alignment = System.Drawing.StringAlignment.Center;
+            legend22.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            legend22.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend22.Enabled = false;
+            legend22.Name = "Legend1";
+            this.chart8.Legends.Add(legend22);
             this.chart8.Location = new System.Drawing.Point(792, 409);
             this.chart8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart8.Name = "chart8";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series7.Color = System.Drawing.Color.Turquoise;
-            series7.IsVisibleInLegend = false;
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series8.Color = System.Drawing.Color.IndianRed;
-            series8.IsVisibleInLegend = false;
-            series8.Legend = "Legend1";
-            series8.Name = "Series2";
-            this.chart8.Series.Add(series7);
-            this.chart8.Series.Add(series8);
+            series27.ChartArea = "ChartArea1";
+            series27.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series27.Color = System.Drawing.Color.Turquoise;
+            series27.IsVisibleInLegend = false;
+            series27.Legend = "Legend1";
+            series27.Name = "Series1";
+            series28.ChartArea = "ChartArea1";
+            series28.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series28.Color = System.Drawing.Color.IndianRed;
+            series28.IsVisibleInLegend = false;
+            series28.Legend = "Legend1";
+            series28.Name = "Series2";
+            this.chart8.Series.Add(series27);
+            this.chart8.Series.Add(series28);
             this.chart8.Size = new System.Drawing.Size(259, 344);
             this.chart8.TabIndex = 21;
             this.chart8.Text = "chart12";
@@ -977,30 +979,30 @@
             // chart7
             // 
             this.chart7.BackColor = System.Drawing.Color.Transparent;
-            chartArea7.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea7.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea7.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea7.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea7.BackColor = System.Drawing.Color.Transparent;
-            chartArea7.Name = "ChartArea1";
-            this.chart7.ChartAreas.Add(chartArea7);
+            chartArea23.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea23.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea23.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea23.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea23.BackColor = System.Drawing.Color.Transparent;
+            chartArea23.Name = "ChartArea1";
+            this.chart7.ChartAreas.Add(chartArea23);
             this.chart7.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend7.Alignment = System.Drawing.StringAlignment.Center;
-            legend7.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            legend7.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend7.Enabled = false;
-            legend7.Name = "Legend1";
-            this.chart7.Legends.Add(legend7);
+            legend23.Alignment = System.Drawing.StringAlignment.Center;
+            legend23.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            legend23.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend23.Enabled = false;
+            legend23.Name = "Legend1";
+            this.chart7.Legends.Add(legend23);
             this.chart7.Location = new System.Drawing.Point(529, 409);
             this.chart7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart7.Name = "chart7";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series9.Color = System.Drawing.Color.Yellow;
-            series9.IsVisibleInLegend = false;
-            series9.Legend = "Legend1";
-            series9.Name = "Series1";
-            this.chart7.Series.Add(series9);
+            series29.ChartArea = "ChartArea1";
+            series29.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series29.Color = System.Drawing.Color.Yellow;
+            series29.IsVisibleInLegend = false;
+            series29.Legend = "Legend1";
+            series29.Name = "Series1";
+            this.chart7.Series.Add(series29);
             this.chart7.Size = new System.Drawing.Size(257, 344);
             this.chart7.TabIndex = 20;
             this.chart7.Text = "chart11";
@@ -1008,30 +1010,30 @@
             // chart5
             // 
             this.chart5.BackColor = System.Drawing.Color.Transparent;
-            chartArea8.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea8.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea8.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea8.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea8.BackColor = System.Drawing.Color.Transparent;
-            chartArea8.Name = "ChartArea1";
-            this.chart5.ChartAreas.Add(chartArea8);
+            chartArea24.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea24.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea24.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea24.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea24.BackColor = System.Drawing.Color.Transparent;
+            chartArea24.Name = "ChartArea1";
+            this.chart5.ChartAreas.Add(chartArea24);
             this.chart5.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend8.Alignment = System.Drawing.StringAlignment.Center;
-            legend8.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            legend8.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend8.Enabled = false;
-            legend8.Name = "Legend1";
-            this.chart5.Legends.Add(legend8);
+            legend24.Alignment = System.Drawing.StringAlignment.Center;
+            legend24.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            legend24.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend24.Enabled = false;
+            legend24.Name = "Legend1";
+            this.chart5.Legends.Add(legend24);
             this.chart5.Location = new System.Drawing.Point(3, 409);
             this.chart5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart5.Name = "chart5";
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series10.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            series10.IsVisibleInLegend = false;
-            series10.Legend = "Legend1";
-            series10.Name = "Series1";
-            this.chart5.Series.Add(series10);
+            series30.ChartArea = "ChartArea1";
+            series30.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series30.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            series30.IsVisibleInLegend = false;
+            series30.Legend = "Legend1";
+            series30.Name = "Series1";
+            this.chart5.Series.Add(series30);
             this.chart5.Size = new System.Drawing.Size(257, 344);
             this.chart5.TabIndex = 18;
             this.chart5.Text = "chart9";
@@ -1150,6 +1152,7 @@
             this.button5.Size = new System.Drawing.Size(33, 33);
             this.button5.TabIndex = 7;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // textBox1
             // 
@@ -1272,6 +1275,16 @@
             this.button4.TabIndex = 4;
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // batteryProgressBar1
+            // 
+            this.batteryProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.batteryProgressBar1.Location = new System.Drawing.Point(1701, 50);
+            this.batteryProgressBar1.Name = "batteryProgressBar1";
+            this.batteryProgressBar1.Percentage = 15;
+            this.batteryProgressBar1.Size = new System.Drawing.Size(100, 60);
+            this.batteryProgressBar1.TabIndex = 31;
+            this.batteryProgressBar1.Text = "batteryProgressBar1";
+            // 
             // cikisbutton
             // 
             this.cikisbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1307,15 +1320,9 @@
             this.pictureBox3.TabIndex = 32;
             this.pictureBox3.TabStop = false;
             // 
-            // batteryProgressBar1
+            // serialPort1
             // 
-            this.batteryProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.batteryProgressBar1.Location = new System.Drawing.Point(1701, 50);
-            this.batteryProgressBar1.Name = "batteryProgressBar1";
-            this.batteryProgressBar1.Percentage = 43;
-            this.batteryProgressBar1.Size = new System.Drawing.Size(100, 60);
-            this.batteryProgressBar1.TabIndex = 31;
-            this.batteryProgressBar1.Text = "batteryProgressBar1";
+           
             // 
             // Form1
             // 
@@ -1447,6 +1454,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label17;
+        private System.IO.Ports.SerialPort serialPort1;
     }
 }
 

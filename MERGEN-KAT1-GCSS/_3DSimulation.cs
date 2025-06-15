@@ -9,8 +9,7 @@ namespace MERGEN_KAT1_GCSS
     public partial class _3DSimulation
     {
         private GLControl glControl1;
-        private Timer simulationTimer;
-        private Timer randomRotationTimer;
+       
         public Label label18 { get; set; }
         public Label label20 { get; set; }
         public Label label21 { get; set; }
@@ -27,11 +26,7 @@ namespace MERGEN_KAT1_GCSS
             this.glControl1.Load += GlControl1_Load;
 
             // Simülasyon ve rastgele dönüş timer'ları ayarlanıyor.
-            simulationTimer = new Timer { Interval = 100 };
-            simulationTimer.Tick += SimulationTimer_Tick;
-
-            randomRotationTimer = new Timer { Interval = 1000 };
-            randomRotationTimer.Tick += RandomRotationTimer_Tick;
+           
 
             if (switchModelButton != null)
             {
@@ -44,17 +39,9 @@ namespace MERGEN_KAT1_GCSS
             SwitchModel();
         }
 
-        public void StartSimulationTimer(int interval)
-        {
-            simulationTimer.Interval = interval;
-            simulationTimer.Start();
-        }
+        
 
-        public void StopSimulationTimer() => simulationTimer.Stop();
-
-        public void StartRandomRotation() => randomRotationTimer.Start();
-
-        public void StopRandomRotation() => randomRotationTimer.Stop();
+       
 
         public void UpdateRotation(float yaw, float pitch, float roll)
         {
@@ -65,41 +52,9 @@ namespace MERGEN_KAT1_GCSS
             glControl1?.Invalidate();
         }
 
-        private void SimulationTimer_Tick(object sender, EventArgs e)
-        {
-            // Belirlenen eksenlerde sürekli dönüş sağlanıyor.
-            if (label18 != null && rotateX)
-            {
-                x = (x < 360) ? x + 5 : 0;
-                label18.Text = x.ToString();
-            }
-            if (label20 != null && rotateY)
-            {
-                y = (y < 360) ? y + 5 : 0;
-                label20.Text = y.ToString();
-            }
-            if (label21 != null && rotateZ)
-            {
-                z = (z < 360) ? z + 5 : 0;
-                label21.Text = z.ToString();
-            }
-            glControl1?.Invalidate();
-        }
+        
 
-        private void RandomRotationTimer_Tick(object sender, EventArgs e)
-        {
-            // Rastgele açılar üretilip label'lara yazdırılıyor.
-            x = rnd.Next(0, 360);
-            y = rnd.Next(0, 360);
-            z = rnd.Next(0, 360);
-
-            // UI thread'de label güncellemesi için Invoke kullanılıyor.
-            label18?.Invoke((MethodInvoker)(() => label18.Text = x.ToString()));
-            label20?.Invoke((MethodInvoker)(() => label20.Text = y.ToString()));
-            label21?.Invoke((MethodInvoker)(() => label21.Text = z.ToString()));
-
-            glControl1?.Invalidate();
-        }
+       
 
         public void SwitchModel()
         {
@@ -242,172 +197,117 @@ namespace MERGEN_KAT1_GCSS
         // Silindir çizim metodu: Üst ve alt diskler hacimli olarak çiziliyor, ortadaki levha turuncu, kolonlar beyaz.
         public void DrawCylinder(float radius, float height, int slices)
         {
+
             float halfHeight = height / 2.0f;
-            float discThickness = 0.03f * height;
-            float columnInset = 0.15f * radius;
-            // --- İÇ DİKDÖRTGEN LEVHA (Turuncu) ---
-            GL.Color3(1.0f, 0.5f, 0.0f); // Turuncu
-            float plateWidth = radius * 1.2f;  // Daha geniş levha (eski olsaydı mesela 1.4f olurdu)
-            float plateThickness = 0.05f * height; // Levha kalınlığı
+            float columnInset = 0.15f * radius; // Kolonların merkeze olan mesafesi
+            float layerHeight = height / 3.0f; // Her bir tabakanın yüksekliği
+            float wallThickness = 0.1f * height; // Üst taban kalınlığı
 
-            GL.Begin(PrimitiveType.Quads);
-            // Alt yüzey
-            GL.Normal3(0, 1, 0);
-            GL.Vertex3(-plateWidth / 2, -halfHeight + discThickness, -plateThickness / 2);
-            GL.Vertex3(plateWidth / 2, -halfHeight + discThickness, -plateThickness / 2);
-            GL.Vertex3(plateWidth / 2, halfHeight - discThickness, -plateThickness / 2);
-            GL.Vertex3(-plateWidth / 2, halfHeight - discThickness, -plateThickness / 2);
-
-            // Üst yüzey
-            GL.Normal3(0, -1, 0);
-            GL.Vertex3(-plateWidth / 2, -halfHeight + discThickness, plateThickness / 2);
-            GL.Vertex3(plateWidth / 2, -halfHeight + discThickness, plateThickness / 2);
-            GL.Vertex3(plateWidth / 2, halfHeight - discThickness, plateThickness / 2);
-            GL.Vertex3(-plateWidth / 2, halfHeight - discThickness, plateThickness / 2);
-
-            // Sağ kenar
-            GL.Normal3(1, 0, 0);
-            GL.Vertex3(plateWidth / 2, -halfHeight + discThickness, -plateThickness / 2);
-            GL.Vertex3(plateWidth / 2, -halfHeight + discThickness, plateThickness / 2);
-            GL.Vertex3(plateWidth / 2, halfHeight - discThickness, plateThickness / 2);
-            GL.Vertex3(plateWidth / 2, halfHeight - discThickness, -plateThickness / 2);
-
-            // Sol kenar
-            GL.Normal3(-1, 0, 0);
-            GL.Vertex3(-plateWidth / 2, -halfHeight + discThickness, -plateThickness / 2);
-            GL.Vertex3(-plateWidth / 2, -halfHeight + discThickness, plateThickness / 2);
-            GL.Vertex3(-plateWidth / 2, halfHeight - discThickness, plateThickness / 2);
-            GL.Vertex3(-plateWidth / 2, halfHeight - discThickness, -plateThickness / 2);
-
-            // Ön yüzey
-            GL.Normal3(0, 0, -1);
-            GL.Vertex3(-plateWidth / 2, -halfHeight + discThickness, -plateThickness / 2);
-            GL.Vertex3(-plateWidth / 2, halfHeight - discThickness, -plateThickness / 2);
-            GL.Vertex3(plateWidth / 2, halfHeight - discThickness, -plateThickness / 2);
-            GL.Vertex3(plateWidth / 2, -halfHeight + discThickness, -plateThickness / 2);
-
-            // Arka yüzey
-            GL.Normal3(0, 0, 1);
-            GL.Vertex3(-plateWidth / 2, -halfHeight + discThickness, plateThickness / 2);
-            GL.Vertex3(-plateWidth / 2, halfHeight - discThickness, plateThickness / 2);
-            GL.Vertex3(plateWidth / 2, halfHeight - discThickness, plateThickness / 2);
-            GL.Vertex3(plateWidth / 2, -halfHeight + discThickness, plateThickness / 2);
-            GL.End();
-
-
-            // --- ALT DİSK (TABAN) HACMİ ---
+            // Alt taban
             GL.Begin(PrimitiveType.TriangleFan);
-            GL.Color3(1.0f, 0.65f, 0.0f); // Turuncu
+            GL.Color3(1.0f, 0.0f, 0.0f); // Kırmızı renk
             GL.Normal3(0, -1, 0);
             GL.Vertex3(0, -halfHeight, 0);
             for (int i = 0; i <= slices; i++)
             {
                 float angle = i * 2.0f * (float)Math.PI / slices;
-                float dx = (float)Math.Cos(angle) * radius;
-                float dz = (float)Math.Sin(angle) * radius;
-                GL.Vertex3(dx, -halfHeight, dz);
+                float x = (float)Math.Cos(angle) * radius;
+                float z = (float)Math.Sin(angle) * radius;
+                GL.Vertex3(x, -halfHeight, z);
             }
             GL.End();
 
-            GL.Begin(PrimitiveType.TriangleFan);
-            GL.Color3(1.0f, 0.65f, 0.0f);
-            GL.Normal3(0, 1, 0);
-            GL.Vertex3(0, -halfHeight + discThickness, 0);
-            for (int i = 0; i <= slices; i++)
+            // Ortadaki iki tabaka
+            for (int j = 1; j <= 2; j++)
             {
-                float angle = i * 2.0f * (float)Math.PI / slices;
-                float dx = (float)Math.Cos(angle) * radius;
-                float dz = (float)Math.Sin(angle) * radius;
-                GL.Vertex3(dx, -halfHeight + discThickness, dz);
+                float currentHeight = -halfHeight + j * layerHeight;
+                GL.Begin(PrimitiveType.TriangleFan);
+                // Her tabakayı farklı renkte çiz
+                switch (j)
+                {
+                    case 1:
+                        GL.Color3(0.5f, 0.5f, 0.0f); // Sarı renk
+                        break;
+                    case 2:
+                        GL.Color3(0.5f, 0.0f, 0.5f); // Mor renk
+                        break;
+                }
+                GL.Normal3(0, 0, 0);
+                GL.Vertex3(0, currentHeight, 0);
+                for (int i = 0; i <= slices; i++)
+                {
+                    float angle = i * 2.0f * (float)Math.PI / slices;
+                    float x = (float)Math.Cos(angle) * radius;
+                    float z = (float)Math.Sin(angle) * radius;
+                    GL.Vertex3(x, currentHeight, z);
+                }
+                GL.End();
             }
-            GL.End();
 
+            // Üst tabanın duvarları (aynı genişlikte iniyor)
             GL.Begin(PrimitiveType.QuadStrip);
-            GL.Color3(1.0f, 0.65f, 0.0f);
+            GL.Color3(0.0f, 0.5f, 1.0f); // Açık mavi renk
             for (int i = 0; i <= slices; i++)
             {
                 float angle = i * 2.0f * (float)Math.PI / slices;
-                float dx = (float)Math.Cos(angle) * radius;
-                float dz = (float)Math.Sin(angle) * radius;
-                GL.Normal3(dx, 0, dz);
-                GL.Vertex3(dx, -halfHeight, dz);
-                GL.Vertex3(dx, -halfHeight + discThickness, dz);
+                float xOuter = (float)Math.Cos(angle) * radius;
+                float zOuter = (float)Math.Sin(angle) * radius;
+                float xInner = xOuter;
+                float zInner = zOuter;
+
+                GL.Normal3(xOuter, 0, zOuter);
+                GL.Vertex3(xOuter, halfHeight, zOuter);
+                GL.Vertex3(xInner, halfHeight - wallThickness, zInner);
             }
             GL.End();
 
-            // --- ÜST DİSK (TAVAN) HACMİ ---
+            // Üst tabanın alt kısmındaki tabaka
             GL.Begin(PrimitiveType.TriangleFan);
-            GL.Color3(0.5f, 0.0f, 0.5f);
+            GL.Color3(0.0f, 0.0f, 1.0f); // Mavi renk
             GL.Normal3(0, -1, 0);
-            GL.Vertex3(0, halfHeight - discThickness, 0);
+            GL.Vertex3(0, halfHeight - wallThickness, 0);
             for (int i = 0; i <= slices; i++)
             {
                 float angle = i * 2.0f * (float)Math.PI / slices;
-                float dx = (float)Math.Cos(angle) * radius;
-                float dz = (float)Math.Sin(angle) * radius;
-                GL.Vertex3(dx, halfHeight - discThickness, dz);
+                float x = (float)Math.Cos(angle) * radius;
+                float z = (float)Math.Sin(angle) * radius;
+                GL.Vertex3(x, halfHeight - wallThickness, z);
             }
             GL.End();
 
-            GL.Begin(PrimitiveType.TriangleFan);
-            GL.Color3(0.5f, 0.0f, 0.5f);
-            GL.Normal3(0, 1, 0);
-            GL.Vertex3(0, halfHeight, 0);
-            for (int i = 0; i <= slices; i++)
-            {
-                float angle = i * 2.0f * (float)Math.PI / slices;
-                float dx = (float)Math.Cos(angle) * radius;
-                float dz = (float)Math.Sin(angle) * radius;
-                GL.Vertex3(dx, halfHeight, dz);
-            }
-            GL.End();
+            // 4 Kolon
+            GL.Color3(0.0f, 1.0f, 0.0f); // Yeşil renk
+            float columnRadius = 0.1f * radius; // Kolon yarıçapı
 
-            GL.Begin(PrimitiveType.QuadStrip);
-            GL.Color3(0.5f, 0.0f, 0.5f);
-            for (int i = 0; i <= slices; i++)
-            {
-                float angle = i * 2.0f * (float)Math.PI / slices;
-                float dx = (float)Math.Cos(angle) * radius;
-                float dz = (float)Math.Sin(angle) * radius;
-                GL.Normal3(dx, 0, dz);
-                GL.Vertex3(dx, halfHeight - discThickness, dz);
-                GL.Vertex3(dx, halfHeight, dz);
-            }
-            GL.End();
-
-            // --- KOLONLAR (Beyaz) ---
-            float columnRadius = 0.1f * radius;
-            GL.Color3(1.0f, 1.0f, 1.0f);
             for (int i = 0; i < 4; i++)
             {
                 float angle = i * (float)Math.PI / 2;
-                float dx = (float)Math.Cos(angle) * (radius - columnInset);
-                float dz = (float)Math.Sin(angle) * (radius - columnInset);
-                DrawColumn(dx, dz, columnRadius, height);
+                float x = (float)Math.Cos(angle) * (radius - columnInset);
+                float z = (float)Math.Sin(angle) * (radius - columnInset);
+
+                DrawColumn(x, z, columnRadius, height);
             }
         }
 
-        // Kolon çizim metodu (beyaz renkte)
         public void DrawColumn(float x, float z, float columnRadius, float height)
         {
-            GL.Color3(1.0f, 1.0f, 1.0f); // Beyaz
             float halfHeight = height / 2.0f;
             int slices = 16; // Kolon için dilim sayısı
 
-            // Kolon yan yüzeyi
             GL.Begin(PrimitiveType.QuadStrip);
             for (int i = 0; i <= slices; i++)
             {
                 float angle = i * 2.0f * (float)Math.PI / slices;
                 float dx = (float)Math.Cos(angle) * columnRadius;
                 float dz = (float)Math.Sin(angle) * columnRadius;
+
                 GL.Normal3(dx, 0, dz);
                 GL.Vertex3(x + dx, -halfHeight, z + dz);
                 GL.Vertex3(x + dx, halfHeight, z + dz);
             }
             GL.End();
 
-            // Kolon alt diski
+            // Kolon alt tabanı
             GL.Begin(PrimitiveType.TriangleFan);
             GL.Normal3(0, -1, 0);
             GL.Vertex3(x, -halfHeight, z);
@@ -420,7 +320,7 @@ namespace MERGEN_KAT1_GCSS
             }
             GL.End();
 
-            // Kolon üst diski
+            // Kolon üst tabanı
             GL.Begin(PrimitiveType.TriangleFan);
             GL.Normal3(0, 1, 0);
             GL.Vertex3(x, halfHeight, z);
@@ -432,8 +332,6 @@ namespace MERGEN_KAT1_GCSS
                 GL.Vertex3(x + dx, halfHeight, z + dz);
             }
             GL.End();
-
-
         }
     }
 }

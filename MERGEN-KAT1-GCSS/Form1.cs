@@ -7,16 +7,22 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.IO.Ports;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
+using GMap.NET.WindowsForms;
+using GMap.NET;
+using GMap.NET.MapProviders;
+
 
 namespace MERGEN_KAT1_GCSS
 {
     public partial class Form1 : Form
     {
         private Camera camera;
-        private Map map;
+        Map map ;
+
         private Charts charts;
         private BatteryProgressBar batteryProgressBar;
-        private ArduinoReader arduinoReader;
+        private Data dataHandler;
+       
         private _3DSimulation simulation;
 
         public Form1()
@@ -26,9 +32,10 @@ namespace MERGEN_KAT1_GCSS
             // PictureBox, harita ve chart ayarları
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             camera = new Camera(pictureBox1);
-            map = new Map(gMapControl1);
-            Chart[] chartArray = new Chart[] { chart1, chart2, chart3, chart4, chart5, chart6, chart7, chart8 };
-            charts = new Charts(chartArray);
+            map=new Map(gMapControl1);
+            //map.InitializeMap();
+
+
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
@@ -38,8 +45,8 @@ namespace MERGEN_KAT1_GCSS
             batteryProgressBar.Size = new Size(200, 50);
             this.Controls.Add(batteryProgressBar);
 
-            // Arduino okuyucu
-            arduinoReader = new ArduinoReader();
+            
+          
 
             // GLControl üzerinden 3D simülasyonu başlatıyoruz.
             // (glControl1, Form1'in tasarımında eklenmiş olmalı)
@@ -53,31 +60,23 @@ namespace MERGEN_KAT1_GCSS
             camopenbutton.Enabled = true;
             camclosebutton.Enabled = false;
             map.InitializeMap();
-            charts.InitializeCharts();
-            batteryProgressBar.Percentage = 30;
-            LoadAvailablePorts();
-
            
+            batteryProgressBar.Percentage = 30;
 
-            // Manuel güncelleme için timer'ı başlatıyoruz (1 ms interval)
-            simulation.StartSimulationTimer(1);
-            // Her saniye rastgele rotasyon güncellemesi için randomTimer'ı başlatıyoruz
-            simulation.StartRandomRotation();
-        }
 
-        private void LoadAvailablePorts()
-        {
-            comboBox1.Items.Clear();
-            string[] ports = arduinoReader.GetAvailablePorts();
-            if (ports.Length == 0)
-            {
-                MessageBox.Show("Bağlı hiçbir seri port bulunamadı.");
-            }
+            string[] ports = SerialPort.GetPortNames();
+            comboBox1.Items.AddRange(ports);
+
+            if (ports.Length > 0)
+                comboBox1.SelectedIndex = 0;
             else
-            {
-                comboBox1.Items.AddRange(ports);
-            }
+                comboBox1.Items.Add("Port Yok");
+
+
+
         }
+
+
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -112,36 +111,42 @@ namespace MERGEN_KAT1_GCSS
         }
 
         // Arduino bağlantısı için
-        private void buttonArduino_Click(object sender, EventArgs e)
-        {
-            if (comboBox1.SelectedItem == null)
-            {
-                MessageBox.Show("Lütfen bir seri port seçin.");
-                return;
-            }
+       
 
-            string selectedPort = comboBox1.SelectedItem.ToString();
-            bool success = arduinoReader.Start(selectedPort);
-            if (success)
-            {
-                arduinoReader.DataReceived += ArduinoReader_DataReceived;
-                MessageBox.Show($"Arduino'ya bağlanıldı: {selectedPort}");
-            }
-            else
-            {
-                MessageBox.Show("Bağlantı kurulurken bir hata oluştu.");
-            }
-        }
-
-        private void ArduinoReader_DataReceived(object sender, ArduinoDataEventArgs e)
-        {
-            simulation.UpdateRotation(e.Yaw, e.Pitch, e.Roll);
-        }
+       
 
         private void ayrilmabutton_Click(object sender, EventArgs e)
         {
             simulation.SwitchModel();
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (serialPort1.IsOpen)
+            {
+                MessageBox.Show("Zaten bağlı.");
+                return;
+            }
+
+            string selectedPort = comboBox1.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(selectedPort) || selectedPort == "Port Yok")
+            {
+                MessageBox.Show("Port seçin.");
+                return;
+            }
+
+            serialPort1.PortName = selectedPort;
+            serialPort1.BaudRate = 9600;
+
+            dataHandler = new Data(serialPort1,map, this); // event bağlanıyor
+            dataHandler.Connect();
+
+            Console.WriteLine("Port açık: " + selectedPort);
+
+
+        }
+
+        
     }
 }
