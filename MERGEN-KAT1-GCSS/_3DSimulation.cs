@@ -10,22 +10,19 @@ namespace MERGEN_KAT1_GCSS
     {
         private GLControl glControl1;
        
-        public Label label18 { get; set; }
-        public Label label20 { get; set; }
-        public Label label21 { get; set; }
+        
         private bool useAlternativeModel = false; // Alternatif model durumu
 
-        private float x = 0, y = 0, z = 0;
-        private bool rotateX = false, rotateY = false, rotateZ = false;
-        private Random rnd = new Random();
+        public float x = 0, y = 0, z = 0;
+       
+        
 
         public _3DSimulation(GLControl glControl, Button switchModelButton = null)
         {
             this.glControl1 = glControl ?? throw new ArgumentNullException(nameof(glControl));
-            this.glControl1.Paint += GlControl1_Paint;
-            this.glControl1.Load += GlControl1_Load;
+            
 
-            // Simülasyon ve rastgele dönüş timer'ları ayarlanıyor.
+            
            
 
             if (switchModelButton != null)
@@ -45,11 +42,12 @@ namespace MERGEN_KAT1_GCSS
 
         public void UpdateRotation(float yaw, float pitch, float roll)
         {
-            // Not: Parametre isimleri (yaw, pitch, roll) ile uygulamada kullanılan açılar (x, y, z) arasında mantıksal uyum sağlanmalıdır.
+            
             x = pitch;
             y = roll;
             z = yaw;
-            glControl1?.Invalidate();
+            
+
         }
 
         
@@ -62,50 +60,13 @@ namespace MERGEN_KAT1_GCSS
             glControl1?.Invalidate(); // Ekranı güncelle
         }
 
-        private void GlControl1_Load(object sender, EventArgs e)
-        {
-            GL.ClearColor(Color.FromArgb(24, 30, 54)); // Arka plan rengi
-            GL.Enable(EnableCap.DepthTest);
-        }
+        
 
-        private void GlControl1_Paint(object sender, PaintEventArgs e)
-        {
-            // Önce buffer temizleniyor.
-            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-
-            // Perspektif ve kamera ayarları.
-            Matrix4 perspective = Matrix4.CreatePerspectiveFieldOfView(1.04f, (float)glControl1.Width / glControl1.Height, 1, 10000);
-            Matrix4 lookAt = Matrix4.LookAt(25, 0, 0, 0, 0, 0, 0, 1, 0);
-
-            GL.MatrixMode(MatrixMode.Projection);
-            GL.LoadIdentity();
-            GL.LoadMatrix(ref perspective);
-
-            GL.MatrixMode(MatrixMode.Modelview);
-            GL.LoadIdentity();
-            GL.LoadMatrix(ref lookAt);
-
-            GL.Viewport(0, 0, glControl1.Width, glControl1.Height);
-            GL.Enable(EnableCap.DepthTest);
-            GL.DepthFunc(DepthFunction.Less);
-
-            // Model rotasyonları uygulanıyor.
-            GL.Rotate(x, 1.0, 0.0, 0.0);
-            GL.Rotate(z, 0.0, 1.0, 0.0);
-            GL.Rotate(y, 0.0, 0.0, 1.0);
-
-            // Modelin çizimi: alternatif model seçimine göre.
-            if (useAlternativeModel)
-                DrawNewSatellite();
-            else
-                DrawPerforatedShell(2.3f, 12.0f, 16);
-
-            glControl1.SwapBuffers();
-        }
+        
 
         // Alternatif model: yeni uydu/silindir modeli.
         // Ölçeklendirme kaldırıldı ki silindirin yüksekliği, perforasyonlu kılıfın yüksekliği ile aynı olsun.
-        private void DrawNewSatellite()
+        public void DrawNewSatellite()
         {
             DrawCylinder(3.0f, 12.0f, 16);
         }
