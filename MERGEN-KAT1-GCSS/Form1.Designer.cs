@@ -143,9 +143,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.batteryProgressBar1 = new BatteryProgressBar();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.solpanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -220,13 +218,13 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 733);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 903);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1440, 145);
+            this.dataGridView1.Size = new System.Drawing.Size(1920, 178);
             this.dataGridView1.TabIndex = 1;
             // 
             // Column1
@@ -400,13 +398,13 @@
             this.solpanel.Controls.Add(this.panel2, 0, 0);
             this.solpanel.Controls.Add(this.panel3, 0, 1);
             this.solpanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.solpanel.Location = new System.Drawing.Point(0, 120);
-            this.solpanel.Margin = new System.Windows.Forms.Padding(2);
+            this.solpanel.Location = new System.Drawing.Point(0, 147);
+            this.solpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.solpanel.Name = "solpanel";
             this.solpanel.RowCount = 2;
             this.solpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.solpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.solpanel.Size = new System.Drawing.Size(325, 613);
+            this.solpanel.Size = new System.Drawing.Size(433, 756);
             this.solpanel.TabIndex = 2;
             // 
             // panel2
@@ -414,19 +412,19 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(2, 2);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Location = new System.Drawing.Point(3, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(321, 302);
+            this.panel2.Size = new System.Drawing.Size(427, 374);
             this.panel2.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(317, 298);
+            this.pictureBox1.Size = new System.Drawing.Size(423, 370);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -434,10 +432,10 @@
             // 
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(2, 308);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Location = new System.Drawing.Point(3, 380);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(321, 303);
+            this.panel3.Size = new System.Drawing.Size(427, 374);
             this.panel3.TabIndex = 1;
             // 
             // panel4
@@ -446,9 +444,9 @@
             this.panel4.Controls.Add(this.gMapControl1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(321, 303);
+            this.panel4.Size = new System.Drawing.Size(427, 374);
             this.panel4.TabIndex = 0;
             // 
             // gMapControl1
@@ -461,7 +459,7 @@
             this.gMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gMapControl1.LevelsKeepInMemory = 5;
             this.gMapControl1.Location = new System.Drawing.Point(0, 0);
-            this.gMapControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.gMapControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gMapControl1.MarkersEnabled = true;
             this.gMapControl1.MaxZoom = 2;
             this.gMapControl1.MinZoom = 2;
@@ -475,7 +473,7 @@
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(317, 299);
+            this.gMapControl1.Size = new System.Drawing.Size(423, 370);
             this.gMapControl1.TabIndex = 0;
             this.gMapControl1.Zoom = 0D;
             // 
@@ -486,13 +484,13 @@
             this.sagpanel.Controls.Add(this.panel5, 0, 0);
             this.sagpanel.Controls.Add(this.araspanel, 0, 1);
             this.sagpanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.sagpanel.Location = new System.Drawing.Point(1115, 120);
-            this.sagpanel.Margin = new System.Windows.Forms.Padding(2);
+            this.sagpanel.Location = new System.Drawing.Point(1487, 147);
+            this.sagpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sagpanel.Name = "sagpanel";
             this.sagpanel.RowCount = 2;
             this.sagpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.90729F));
             this.sagpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.09271F));
-            this.sagpanel.Size = new System.Drawing.Size(325, 613);
+            this.sagpanel.Size = new System.Drawing.Size(433, 756);
             this.sagpanel.TabIndex = 4;
             // 
             // panel5
@@ -500,10 +498,10 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel5.Controls.Add(this.glControl1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(2, 2);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2);
+            this.panel5.Location = new System.Drawing.Point(3, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(321, 449);
+            this.panel5.Size = new System.Drawing.Size(427, 554);
             this.panel5.TabIndex = 0;
             // 
             // glControl1
@@ -511,8 +509,9 @@
             this.glControl1.BackColor = System.Drawing.Color.Black;
             this.glControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.glControl1.Location = new System.Drawing.Point(0, 0);
+            this.glControl1.Margin = new System.Windows.Forms.Padding(5);
             this.glControl1.Name = "glControl1";
-            this.glControl1.Size = new System.Drawing.Size(317, 445);
+            this.glControl1.Size = new System.Drawing.Size(423, 550);
             this.glControl1.TabIndex = 0;
             this.glControl1.VSync = false;
             this.glControl1.Load += new System.EventHandler(this.glControl1_Load);
@@ -540,13 +539,13 @@
             this.araspanel.Controls.Add(this.label12, 3, 0);
             this.araspanel.Controls.Add(this.label13, 4, 0);
             this.araspanel.Controls.Add(this.label14, 5, 0);
-            this.araspanel.Location = new System.Drawing.Point(3, 505);
-            this.araspanel.Margin = new System.Windows.Forms.Padding(2);
+            this.araspanel.Location = new System.Drawing.Point(4, 624);
+            this.araspanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.araspanel.Name = "araspanel";
             this.araspanel.RowCount = 2;
             this.araspanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.85315F));
             this.araspanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.14685F));
-            this.araspanel.Size = new System.Drawing.Size(318, 106);
+            this.araspanel.Size = new System.Drawing.Size(424, 130);
             this.araspanel.TabIndex = 1;
             // 
             // araspanel6
@@ -554,10 +553,10 @@
             this.araspanel6.BackColor = System.Drawing.Color.Lime;
             this.araspanel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.araspanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.araspanel6.Location = new System.Drawing.Point(266, 51);
-            this.araspanel6.Margin = new System.Windows.Forms.Padding(2);
+            this.araspanel6.Location = new System.Drawing.Point(357, 62);
+            this.araspanel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.araspanel6.Name = "araspanel6";
-            this.araspanel6.Size = new System.Drawing.Size(50, 53);
+            this.araspanel6.Size = new System.Drawing.Size(64, 66);
             this.araspanel6.TabIndex = 14;
             // 
             // araspanel2
@@ -565,10 +564,10 @@
             this.araspanel2.BackColor = System.Drawing.Color.Lime;
             this.araspanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.araspanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.araspanel2.Location = new System.Drawing.Point(54, 51);
-            this.araspanel2.Margin = new System.Windows.Forms.Padding(2);
+            this.araspanel2.Location = new System.Drawing.Point(73, 62);
+            this.araspanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.araspanel2.Name = "araspanel2";
-            this.araspanel2.Size = new System.Drawing.Size(46, 53);
+            this.araspanel2.Size = new System.Drawing.Size(61, 66);
             this.araspanel2.TabIndex = 7;
             // 
             // araspanel1
@@ -576,10 +575,10 @@
             this.araspanel1.BackColor = System.Drawing.Color.Lime;
             this.araspanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.araspanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.araspanel1.Location = new System.Drawing.Point(2, 51);
-            this.araspanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.araspanel1.Location = new System.Drawing.Point(3, 62);
+            this.araspanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.araspanel1.Name = "araspanel1";
-            this.araspanel1.Size = new System.Drawing.Size(48, 53);
+            this.araspanel1.Size = new System.Drawing.Size(64, 66);
             this.araspanel1.TabIndex = 6;
             // 
             // araspanel3
@@ -587,10 +586,10 @@
             this.araspanel3.BackColor = System.Drawing.Color.Lime;
             this.araspanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.araspanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.araspanel3.Location = new System.Drawing.Point(104, 51);
-            this.araspanel3.Margin = new System.Windows.Forms.Padding(2);
+            this.araspanel3.Location = new System.Drawing.Point(140, 62);
+            this.araspanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.araspanel3.Name = "araspanel3";
-            this.araspanel3.Size = new System.Drawing.Size(50, 53);
+            this.araspanel3.Size = new System.Drawing.Size(66, 66);
             this.araspanel3.TabIndex = 5;
             // 
             // araspanel5
@@ -598,10 +597,10 @@
             this.araspanel5.BackColor = System.Drawing.Color.Lime;
             this.araspanel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.araspanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.araspanel5.Location = new System.Drawing.Point(209, 51);
-            this.araspanel5.Margin = new System.Windows.Forms.Padding(2);
+            this.araspanel5.Location = new System.Drawing.Point(281, 62);
+            this.araspanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.araspanel5.Name = "araspanel5";
-            this.araspanel5.Size = new System.Drawing.Size(53, 53);
+            this.araspanel5.Size = new System.Drawing.Size(70, 66);
             this.araspanel5.TabIndex = 4;
             // 
             // panel8
@@ -609,10 +608,10 @@
             this.panel8.BackColor = System.Drawing.Color.Lime;
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(158, 51);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2);
+            this.panel8.Location = new System.Drawing.Point(212, 62);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(47, 53);
+            this.panel8.Size = new System.Drawing.Size(63, 66);
             this.panel8.TabIndex = 3;
             // 
             // label9
@@ -621,10 +620,9 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label9.Location = new System.Drawing.Point(3, 0);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(7, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(45, 49);
+            this.label9.Size = new System.Drawing.Size(55, 60);
             this.label9.TabIndex = 8;
             this.label9.Text = "MODEL UYDU İNİŞ HIZI";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -634,10 +632,9 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label10.Location = new System.Drawing.Point(54, 0);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Location = new System.Drawing.Point(73, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 49);
+            this.label10.Size = new System.Drawing.Size(55, 45);
             this.label10.TabIndex = 9;
             this.label10.Text = "GÖREV YÜKÜ İNİŞ HIZI";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -648,10 +645,9 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label11.Location = new System.Drawing.Point(104, 0);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Location = new System.Drawing.Point(146, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(49, 49);
+            this.label11.Size = new System.Drawing.Size(53, 60);
             this.label11.TabIndex = 10;
             this.label11.Text = "TAŞIYICI BASINÇ VERİSİ";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -661,10 +657,9 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label12.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label12.Location = new System.Drawing.Point(158, 0);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Location = new System.Drawing.Point(212, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(45, 49);
+            this.label12.Size = new System.Drawing.Size(53, 60);
             this.label12.TabIndex = 11;
             this.label12.Text = "GÖREV YÜKÜ KONUM VERİSİ";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -675,10 +670,9 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label13.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label13.Location = new System.Drawing.Point(209, 0);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Location = new System.Drawing.Point(287, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(53, 49);
+            this.label13.Size = new System.Drawing.Size(58, 60);
             this.label13.TabIndex = 12;
             this.label13.Text = "AYRILMA";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -689,10 +683,9 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label14.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label14.Location = new System.Drawing.Point(267, 0);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Location = new System.Drawing.Point(361, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(48, 49);
+            this.label14.Size = new System.Drawing.Size(55, 60);
             this.label14.TabIndex = 13;
             this.label14.Text = "FİLTRE SİSTEMİ";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -714,8 +707,8 @@
             legend1.Enabled = false;
             legend1.Name = "Legend1";
             this.chart3.Legends.Add(legend1);
-            this.chart3.Location = new System.Drawing.Point(396, 33);
-            this.chart3.Margin = new System.Windows.Forms.Padding(2);
+            this.chart3.Location = new System.Drawing.Point(529, 40);
+            this.chart3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart3.Name = "chart3";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -724,7 +717,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart3.Series.Add(series1);
-            this.chart3.Size = new System.Drawing.Size(193, 269);
+            this.chart3.Size = new System.Drawing.Size(257, 331);
             this.chart3.TabIndex = 9;
             this.chart3.Text = "chart4";
             // 
@@ -745,8 +738,8 @@
             legend2.Enabled = false;
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
-            this.chart2.Location = new System.Drawing.Point(199, 33);
-            this.chart2.Margin = new System.Windows.Forms.Padding(2);
+            this.chart2.Location = new System.Drawing.Point(266, 40);
+            this.chart2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart2.Name = "chart2";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -755,7 +748,7 @@
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(193, 269);
+            this.chart2.Size = new System.Drawing.Size(257, 331);
             this.chart2.TabIndex = 14;
             this.chart2.Text = "chart6";
             // 
@@ -776,8 +769,8 @@
             legend3.Enabled = false;
             legend3.Name = "Legend1";
             this.chart1.Legends.Add(legend3);
-            this.chart1.Location = new System.Drawing.Point(2, 33);
-            this.chart1.Margin = new System.Windows.Forms.Padding(2);
+            this.chart1.Location = new System.Drawing.Point(3, 40);
+            this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -793,7 +786,7 @@
             series4.Name = "Series2";
             this.chart1.Series.Add(series3);
             this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(193, 269);
+            this.chart1.Size = new System.Drawing.Size(257, 331);
             this.chart1.TabIndex = 16;
             this.chart1.Text = "bel";
             // 
@@ -823,15 +816,15 @@
             this.grafikpanel.Controls.Add(this.chart2, 0, 1);
             this.grafikpanel.Controls.Add(this.label1, 0, 0);
             this.grafikpanel.Controls.Add(this.chart3, 2, 1);
-            this.grafikpanel.Location = new System.Drawing.Point(326, 119);
-            this.grafikpanel.Margin = new System.Windows.Forms.Padding(2);
+            this.grafikpanel.Location = new System.Drawing.Point(435, 146);
+            this.grafikpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grafikpanel.Name = "grafikpanel";
             this.grafikpanel.RowCount = 4;
             this.grafikpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.13245F));
             this.grafikpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.70199F));
             this.grafikpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.470199F));
             this.grafikpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.02649F));
-            this.grafikpanel.Size = new System.Drawing.Size(790, 613);
+            this.grafikpanel.Size = new System.Drawing.Size(1053, 754);
             this.grafikpanel.TabIndex = 0;
             // 
             // chart4
@@ -851,8 +844,8 @@
             legend4.Enabled = false;
             legend4.Name = "Legend1";
             this.chart4.Legends.Add(legend4);
-            this.chart4.Location = new System.Drawing.Point(593, 33);
-            this.chart4.Margin = new System.Windows.Forms.Padding(2);
+            this.chart4.Location = new System.Drawing.Point(792, 40);
+            this.chart4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart4.Name = "chart4";
             series5.ChartArea = "ChartArea1";
             series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -862,7 +855,7 @@
             series5.Name = "Series1";
             series5.ShadowColor = System.Drawing.Color.White;
             this.chart4.Series.Add(series5);
-            this.chart4.Size = new System.Drawing.Size(195, 269);
+            this.chart4.Size = new System.Drawing.Size(258, 331);
             this.chart4.TabIndex = 34;
             this.chart4.Text = "chart4";
             // 
@@ -883,8 +876,8 @@
             legend5.Enabled = false;
             legend5.Name = "Legend1";
             this.chart6.Legends.Add(legend5);
-            this.chart6.Location = new System.Drawing.Point(199, 333);
-            this.chart6.Margin = new System.Windows.Forms.Padding(2);
+            this.chart6.Location = new System.Drawing.Point(266, 408);
+            this.chart6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart6.Name = "chart6";
             series6.ChartArea = "ChartArea1";
             series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -893,7 +886,7 @@
             series6.Legend = "Legend1";
             series6.Name = "Series1";
             this.chart6.Series.Add(series6);
-            this.chart6.Size = new System.Drawing.Size(193, 278);
+            this.chart6.Size = new System.Drawing.Size(257, 344);
             this.chart6.TabIndex = 30;
             this.chart6.Text = "chart9";
             // 
@@ -903,10 +896,9 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label8.Location = new System.Drawing.Point(619, 313);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(835, 384);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(143, 18);
+            this.label8.Size = new System.Drawing.Size(172, 22);
             this.label8.TabIndex = 29;
             this.label8.Text = "loT S1-S2 DATA (°C)";
             // 
@@ -916,10 +908,9 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label7.Location = new System.Drawing.Point(434, 313);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(587, 384);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(117, 18);
+            this.label7.Size = new System.Drawing.Size(141, 22);
             this.label7.TabIndex = 28;
             this.label7.Text = "PİL GERİLİMİ (V)";
             // 
@@ -929,10 +920,9 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label6.Location = new System.Drawing.Point(247, 313);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(335, 384);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 18);
+            this.label6.Size = new System.Drawing.Size(118, 22);
             this.label6.TabIndex = 27;
             this.label6.Text = "SICAKLIK (°C)";
             // 
@@ -942,10 +932,9 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label5.Location = new System.Drawing.Point(43, 313);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(65, 384);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 18);
+            this.label5.Size = new System.Drawing.Size(132, 22);
             this.label5.TabIndex = 26;
             this.label5.Text = "İNİŞ HIZI (m/s)";
             // 
@@ -955,10 +944,9 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label4.Location = new System.Drawing.Point(629, 13);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(848, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 18);
+            this.label4.Size = new System.Drawing.Size(146, 22);
             this.label4.TabIndex = 25;
             this.label4.Tag = "";
             this.label4.Text = "İRTİFA FARKI (m)";
@@ -969,10 +957,9 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label3.Location = new System.Drawing.Point(432, 13);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(584, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 18);
+            this.label3.Size = new System.Drawing.Size(146, 22);
             this.label3.TabIndex = 24;
             this.label3.Text = "YÜKSEKLİK 2 (m)";
             // 
@@ -982,10 +969,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label2.Location = new System.Drawing.Point(235, 13);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(321, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 18);
+            this.label2.Size = new System.Drawing.Size(146, 22);
             this.label2.TabIndex = 23;
             this.label2.Text = "YÜKSEKLİK 1 (m)";
             // 
@@ -1006,8 +992,8 @@
             legend6.Enabled = false;
             legend6.Name = "Legend1";
             this.chart8.Legends.Add(legend6);
-            this.chart8.Location = new System.Drawing.Point(593, 333);
-            this.chart8.Margin = new System.Windows.Forms.Padding(2);
+            this.chart8.Location = new System.Drawing.Point(792, 408);
+            this.chart8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart8.Name = "chart8";
             series7.ChartArea = "ChartArea1";
             series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -1023,7 +1009,7 @@
             series8.Name = "Series2";
             this.chart8.Series.Add(series7);
             this.chart8.Series.Add(series8);
-            this.chart8.Size = new System.Drawing.Size(195, 278);
+            this.chart8.Size = new System.Drawing.Size(258, 344);
             this.chart8.TabIndex = 21;
             this.chart8.Text = "chart12";
             // 
@@ -1044,8 +1030,8 @@
             legend7.Enabled = false;
             legend7.Name = "Legend1";
             this.chart7.Legends.Add(legend7);
-            this.chart7.Location = new System.Drawing.Point(396, 333);
-            this.chart7.Margin = new System.Windows.Forms.Padding(2);
+            this.chart7.Location = new System.Drawing.Point(529, 408);
+            this.chart7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart7.Name = "chart7";
             series9.ChartArea = "ChartArea1";
             series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -1054,7 +1040,7 @@
             series9.Legend = "Legend1";
             series9.Name = "Series1";
             this.chart7.Series.Add(series9);
-            this.chart7.Size = new System.Drawing.Size(193, 278);
+            this.chart7.Size = new System.Drawing.Size(257, 344);
             this.chart7.TabIndex = 20;
             this.chart7.Text = "chart11";
             // 
@@ -1075,8 +1061,8 @@
             legend8.Enabled = false;
             legend8.Name = "Legend1";
             this.chart5.Legends.Add(legend8);
-            this.chart5.Location = new System.Drawing.Point(2, 333);
-            this.chart5.Margin = new System.Windows.Forms.Padding(2);
+            this.chart5.Location = new System.Drawing.Point(3, 408);
+            this.chart5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart5.Name = "chart5";
             series10.ChartArea = "ChartArea1";
             series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -1085,7 +1071,7 @@
             series10.Legend = "Legend1";
             series10.Name = "Series1";
             this.chart5.Series.Add(series10);
-            this.chart5.Size = new System.Drawing.Size(193, 278);
+            this.chart5.Size = new System.Drawing.Size(257, 344);
             this.chart5.TabIndex = 18;
             this.chart5.Text = "chart9";
             // 
@@ -1095,10 +1081,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label1.Location = new System.Drawing.Point(35, 13);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(55, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 18);
+            this.label1.Size = new System.Drawing.Size(152, 22);
             this.label1.TabIndex = 22;
             this.label1.Text = "BASINÇ 1-2 (hpa)";
             // 
@@ -1112,9 +1097,9 @@
             this.pilpanel.Controls.Add(this.pictureBox3);
             this.pilpanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.pilpanel.Location = new System.Drawing.Point(0, 0);
-            this.pilpanel.Margin = new System.Windows.Forms.Padding(2);
+            this.pilpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pilpanel.Name = "pilpanel";
-            this.pilpanel.Size = new System.Drawing.Size(1440, 120);
+            this.pilpanel.Size = new System.Drawing.Size(1920, 147);
             this.pilpanel.TabIndex = 5;
             // 
             // groupBox1
@@ -1136,11 +1121,11 @@
             this.groupBox1.Controls.Add(this.comboBox2);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox1.Location = new System.Drawing.Point(320, 17);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(427, 21);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(799, 78);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(1066, 96);
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
             // 
@@ -1151,10 +1136,9 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label17.Location = new System.Drawing.Point(382, 0);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Location = new System.Drawing.Point(509, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(96, 16);
+            this.label17.Size = new System.Drawing.Size(121, 19);
             this.label17.TabIndex = 26;
             this.label17.Text = "C  O  N  T  R  O  L";
             // 
@@ -1164,10 +1148,9 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Snow;
-            this.label15.Location = new System.Drawing.Point(14, 15);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Location = new System.Drawing.Point(19, 18);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(154, 17);
+            this.label15.Size = new System.Drawing.Size(193, 20);
             this.label15.TabIndex = 9;
             this.label15.Text = "GÖREV YÜKÜ BAĞLANTISI";
             // 
@@ -1178,10 +1161,10 @@
             this.birlesmebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.birlesmebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.birlesmebutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.birlesmebutton.Location = new System.Drawing.Point(721, 9);
-            this.birlesmebutton.Margin = new System.Windows.Forms.Padding(2);
+            this.birlesmebutton.Location = new System.Drawing.Point(962, 11);
+            this.birlesmebutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.birlesmebutton.Name = "birlesmebutton";
-            this.birlesmebutton.Size = new System.Drawing.Size(28, 31);
+            this.birlesmebutton.Size = new System.Drawing.Size(37, 38);
             this.birlesmebutton.TabIndex = 25;
             this.birlesmebutton.UseVisualStyleBackColor = true;
             // 
@@ -1192,10 +1175,10 @@
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.button7.Location = new System.Drawing.Point(406, 36);
-            this.button7.Margin = new System.Windows.Forms.Padding(2);
+            this.button7.Location = new System.Drawing.Point(542, 44);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(21, 24);
+            this.button7.Size = new System.Drawing.Size(28, 30);
             this.button7.TabIndex = 17;
             this.button7.UseVisualStyleBackColor = true;
             // 
@@ -1206,10 +1189,10 @@
             this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.button5.Location = new System.Drawing.Point(164, 37);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Location = new System.Drawing.Point(219, 46);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(25, 27);
+            this.button5.Size = new System.Drawing.Size(33, 33);
             this.button5.TabIndex = 7;
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
@@ -1221,10 +1204,10 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.textBox1.Location = new System.Drawing.Point(432, 41);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Location = new System.Drawing.Point(577, 50);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(126, 19);
+            this.textBox1.Size = new System.Drawing.Size(167, 22);
             this.textBox1.TabIndex = 16;
             // 
             // label19
@@ -1233,10 +1216,9 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.label19.ForeColor = System.Drawing.Color.Snow;
-            this.label19.Location = new System.Drawing.Point(441, 17);
-            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Location = new System.Drawing.Point(589, 21);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(92, 17);
+            this.label19.Size = new System.Drawing.Size(117, 20);
             this.label19.TabIndex = 15;
             this.label19.Text = "KOMUT PANELİ";
             // 
@@ -1247,10 +1229,10 @@
             this.camclosebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.camclosebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.camclosebutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.camclosebutton.Location = new System.Drawing.Point(721, 43);
-            this.camclosebutton.Margin = new System.Windows.Forms.Padding(2);
+            this.camclosebutton.Location = new System.Drawing.Point(962, 53);
+            this.camclosebutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.camclosebutton.Name = "camclosebutton";
-            this.camclosebutton.Size = new System.Drawing.Size(28, 31);
+            this.camclosebutton.Size = new System.Drawing.Size(37, 38);
             this.camclosebutton.TabIndex = 3;
             this.camclosebutton.UseVisualStyleBackColor = true;
             this.camclosebutton.Click += new System.EventHandler(this.camclosebutton_Click);
@@ -1263,13 +1245,12 @@
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "PORT3"});
-            this.comboBox1.Location = new System.Drawing.Point(17, 40);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Location = new System.Drawing.Point(23, 49);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(144, 21);
+            this.comboBox1.Size = new System.Drawing.Size(191, 24);
             this.comboBox1.TabIndex = 10;
+            this.comboBox1.DropDown += new System.EventHandler(this.comboBox1_DropDown);
             // 
             // ayrilmabutton
             // 
@@ -1278,10 +1259,10 @@
             this.ayrilmabutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ayrilmabutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ayrilmabutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.ayrilmabutton.Location = new System.Drawing.Point(643, 9);
-            this.ayrilmabutton.Margin = new System.Windows.Forms.Padding(2);
+            this.ayrilmabutton.Location = new System.Drawing.Point(858, 11);
+            this.ayrilmabutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ayrilmabutton.Name = "ayrilmabutton";
-            this.ayrilmabutton.Size = new System.Drawing.Size(28, 31);
+            this.ayrilmabutton.Size = new System.Drawing.Size(37, 38);
             this.ayrilmabutton.TabIndex = 24;
             this.ayrilmabutton.UseVisualStyleBackColor = true;
             this.ayrilmabutton.Click += new System.EventHandler(this.ayrilmabutton_Click);
@@ -1292,10 +1273,9 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.label16.ForeColor = System.Drawing.Color.Snow;
-            this.label16.Location = new System.Drawing.Point(234, 17);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Location = new System.Drawing.Point(312, 21);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(117, 17);
+            this.label16.Size = new System.Drawing.Size(143, 20);
             this.label16.TabIndex = 12;
             this.label16.Text = "ANTEN BAĞLANTISI";
             // 
@@ -1306,10 +1286,10 @@
             this.camopenbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.camopenbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.camopenbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.camopenbutton.Location = new System.Drawing.Point(643, 42);
-            this.camopenbutton.Margin = new System.Windows.Forms.Padding(2);
+            this.camopenbutton.Location = new System.Drawing.Point(858, 52);
+            this.camopenbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.camopenbutton.Name = "camopenbutton";
-            this.camopenbutton.Size = new System.Drawing.Size(28, 31);
+            this.camopenbutton.Size = new System.Drawing.Size(37, 38);
             this.camopenbutton.TabIndex = 6;
             this.camopenbutton.UseVisualStyleBackColor = true;
             this.camopenbutton.Click += new System.EventHandler(this.camopenbutton_Click);
@@ -1322,12 +1302,10 @@
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.comboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "PORT8"});
-            this.comboBox2.Location = new System.Drawing.Point(229, 41);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox2.Location = new System.Drawing.Point(305, 50);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(127, 21);
+            this.comboBox2.Size = new System.Drawing.Size(168, 24);
             this.comboBox2.TabIndex = 11;
             // 
             // button4
@@ -1337,10 +1315,10 @@
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.button4.Location = new System.Drawing.Point(359, 37);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Location = new System.Drawing.Point(479, 46);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(25, 27);
+            this.button4.Size = new System.Drawing.Size(33, 33);
             this.button4.TabIndex = 4;
             this.button4.UseVisualStyleBackColor = true;
             // 
@@ -1351,10 +1329,10 @@
             this.cikisbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cikisbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cikisbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.cikisbutton.Location = new System.Drawing.Point(1405, 3);
-            this.cikisbutton.Margin = new System.Windows.Forms.Padding(2);
+            this.cikisbutton.Location = new System.Drawing.Point(1874, 4);
+            this.cikisbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cikisbutton.Name = "cikisbutton";
-            this.cikisbutton.Size = new System.Drawing.Size(24, 21);
+            this.cikisbutton.Size = new System.Drawing.Size(32, 26);
             this.cikisbutton.TabIndex = 23;
             this.cikisbutton.UseVisualStyleBackColor = true;
             this.cikisbutton.Click += new System.EventHandler(this.cikisbutton_Click_1);
@@ -1362,10 +1340,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(-10, -72);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Location = new System.Drawing.Point(-13, -89);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(318, 265);
+            this.pictureBox2.Size = new System.Drawing.Size(424, 326);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
@@ -1374,46 +1352,38 @@
             // 
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1222, 17);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Location = new System.Drawing.Point(1630, 21);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(190, 98);
+            this.pictureBox3.Size = new System.Drawing.Size(253, 121);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 32;
             this.pictureBox3.TabStop = false;
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // batteryProgressBar1
             // 
             this.batteryProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.batteryProgressBar1.Location = new System.Drawing.Point(1275, 41);
-            this.batteryProgressBar1.Margin = new System.Windows.Forms.Padding(2);
+            this.batteryProgressBar1.Location = new System.Drawing.Point(1701, 50);
+            this.batteryProgressBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.batteryProgressBar1.Name = "batteryProgressBar1";
-            this.batteryProgressBar1.Percentage = 26;
-            this.batteryProgressBar1.Size = new System.Drawing.Size(75, 49);
+            this.batteryProgressBar1.Percentage = 15;
+            this.batteryProgressBar1.Size = new System.Drawing.Size(100, 60);
             this.batteryProgressBar1.TabIndex = 31;
             this.batteryProgressBar1.Text = "batteryProgressBar1";
             // 
-            // timer2
-            // 
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(1440, 878);
+            this.ClientSize = new System.Drawing.Size(1920, 1081);
             this.Controls.Add(this.sagpanel);
             this.Controls.Add(this.grafikpanel);
             this.Controls.Add(this.solpanel);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pilpanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1532,8 +1502,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timer2;
     }
 }
 

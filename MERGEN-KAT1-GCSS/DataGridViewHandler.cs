@@ -11,7 +11,6 @@ namespace MERGEN_KAT1_GCSS
     {
         private BindingList<TelemetryData> _list;
         private DataGridView _dataGridView;
-        
         private string _csvFilePath;
 
         public DataGridViewHandler(DataGridView dgv, string csvFilePath)
@@ -21,48 +20,42 @@ namespace MERGEN_KAT1_GCSS
 
             _list = new BindingList<TelemetryData>();
             _dataGridView.DataSource = _list;
-
-            
         }
 
         public void AddTelemetry(TelemetryData data)
         {
-            
-            _list.Insert(0, data); // Yeni veriyi en başa ekle
+            _list.Insert(0, data);
+            AppendNewDataToCSV(data); // Tek kayıtla CSV güncellenir
+        }
+
+        private void AppendNewDataToCSV(TelemetryData data)
+        {
+            try
+            {
+                var props = typeof(TelemetryData).GetProperties();
+
+                // Dosya yoksa başlık ekle
+                if (!File.Exists(_csvFilePath))
+                {
+                    var header = string.Join(";", props.Select(p => p.Name));
+                    File.AppendAllText(_csvFilePath, header + Environment.NewLine, Encoding.UTF8);
+                }
+
+                // Yeni veri satırı
+                var values = props.Select(p => p.GetValue(data)?.ToString() ?? "");
+                string newLine = string.Join(";", values);
+
+                File.AppendAllText(_csvFilePath, newLine + Environment.NewLine, Encoding.UTF8);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("CSV yazım hatası: " + ex.Message);
+            }
         }
 
         public void Clear()
         {
             _list.Clear();
         }
-
-
-
-        public void SaveDataGridViewToCSV()
-        {
-            try
-            {
-                if (_list.Count == 0) return;
-
-                StringBuilder csvContent = new StringBuilder();
-
-                // Property'leri al
-                var props = typeof(TelemetryData).GetProperties();
-                csvContent.AppendLine(string.Join(";", props.Select(p => p.Name)));
-
-                foreach (var item in _list)
-                {
-                    var values = props.Select(p => p.GetValue(item)?.ToString() ?? "");
-                    csvContent.AppendLine(string.Join(";", values));
-                }
-
-                File.WriteAllText(_csvFilePath, csvContent.ToString(), Encoding.UTF8);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("CSV kaydı sırasında hata: " + ex.Message);
-            }
-        }
-
     }
 }

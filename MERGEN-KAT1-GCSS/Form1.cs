@@ -11,7 +11,7 @@ using GMap.NET.WindowsForms;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using System.IO;
-
+using System.Diagnostics;
 
 namespace MERGEN_KAT1_GCSS
 {
@@ -21,12 +21,15 @@ namespace MERGEN_KAT1_GCSS
         Map map ;
         private bool useAlternativeModel = false;
 
-        public float x = 0.0f, y = 0.0f, z = 0.0f;
+        
         private Charts charts;
         private BatteryProgressBar batteryProgressBar;
         private Data dataHandler;
         private DataGridViewHandler dataGridViewHandler;
         private _3DSimulation simulation;
+
+        private Stopwatch stopwatch = Stopwatch.StartNew();
+        private const int targetFPS = 30;
 
         public Form1()
         {
@@ -59,14 +62,22 @@ namespace MERGEN_KAT1_GCSS
             // (glControl1, Form1'in tasarımında eklenmiş olmalı)
             simulation = new _3DSimulation(glControl1);
 
+            Application.Idle += Application_Idle;
 
-            timer1.Interval = 1000;
-            timer2.Interval = 1000;// 1 saniye
-            timer1.Tick += timer1_Tick;
-            timer1.Start();
-            timer2.Start();
+
+
 
         }
+
+        private void Application_Idle(object sender, EventArgs e)
+        {
+            if (stopwatch.ElapsedMilliseconds >= 1000 / targetFPS)
+            {
+                glControl1.Invalidate(); // sürekli çizim
+                stopwatch.Restart();
+            }
+        }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -161,28 +172,15 @@ namespace MERGEN_KAT1_GCSS
 
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            dataGridViewHandler.SaveDataGridViewToCSV();
-            Console.WriteLine("Timer tick, CSV kaydediliyor.");
+       
 
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            x = simulation.x;
-            y = simulation.y;
-            z = simulation.z;
-
-            simulation.UpdateRotation(x, y, z);
-
-            glControl1.Invalidate(); // Yeniden çizim
-        }
+       
 
         private void glControl1_Load(object sender, EventArgs e)
         {
             GL.ClearColor(Color.FromArgb(24, 30, 54)); // Arka plan rengi
             GL.Enable(EnableCap.DepthTest);
+            GL.DepthFunc(DepthFunction.Less);
         }
 
         private void glControl1_Paint(object sender, PaintEventArgs e)
@@ -203,13 +201,12 @@ namespace MERGEN_KAT1_GCSS
             GL.LoadMatrix(ref lookAt);
 
             GL.Viewport(0, 0, glControl1.Width, glControl1.Height);
-            GL.Enable(EnableCap.DepthTest);
-            GL.DepthFunc(DepthFunction.Less);
+            
 
             // Model rotasyonları uygulanıyor.
-            GL.Rotate(x, 1.0, 0.0, 0.0);
-            GL.Rotate(z, 0.0, 1.0, 0.0);
-            GL.Rotate(y, 0.0, 0.0, 1.0);
+            GL.Rotate(simulation.x, 0.0, 0.0, 1.0);  // yaw (z)
+            GL.Rotate(simulation.z, 0.0, 1.0, 0.0);  // pitch (x)
+            GL.Rotate(simulation.y, 1.0, 0.0, 0.0);  // roll (y)
 
             // Modelin çizimi: alternatif model seçimine göre.
             if (useAlternativeModel)
@@ -219,5 +216,15 @@ namespace MERGEN_KAT1_GCSS
 
             glControl1.SwapBuffers();
         }
+
+        private void comboBox1_DropDown(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            string[] ports = SerialPort.GetPortNames();
+            Array.Sort(ports);
+            comboBox1.Items.AddRange(ports);
+        }
+
+       
     }
 }
