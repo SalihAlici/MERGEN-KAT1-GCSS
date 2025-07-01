@@ -139,11 +139,12 @@
             this.camopenbutton = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.batteryProgressBar1 = new BatteryProgressBar();
             this.cikisbutton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.batteryProgressBar1 = new BatteryProgressBar();
+            this.serialPort2 = new System.IO.Ports.SerialPort(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.solpanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1181,6 +1182,7 @@
             this.button7.Size = new System.Drawing.Size(28, 30);
             this.button7.TabIndex = 17;
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button5
             // 
@@ -1307,6 +1309,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(168, 24);
             this.comboBox2.TabIndex = 11;
+            this.comboBox2.DropDown += new System.EventHandler(this.comboBox2_DropDown);
             // 
             // button4
             // 
@@ -1321,6 +1324,18 @@
             this.button4.Size = new System.Drawing.Size(33, 33);
             this.button4.TabIndex = 4;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // batteryProgressBar1
+            // 
+            this.batteryProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.batteryProgressBar1.Location = new System.Drawing.Point(1701, 50);
+            this.batteryProgressBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.batteryProgressBar1.Name = "batteryProgressBar1";
+            this.batteryProgressBar1.Percentage = 60;
+            this.batteryProgressBar1.Size = new System.Drawing.Size(100, 60);
+            this.batteryProgressBar1.TabIndex = 31;
+            this.batteryProgressBar1.Text = "batteryProgressBar1";
             // 
             // cikisbutton
             // 
@@ -1359,17 +1374,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 32;
             this.pictureBox3.TabStop = false;
-            // 
-            // batteryProgressBar1
-            // 
-            this.batteryProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.batteryProgressBar1.Location = new System.Drawing.Point(1701, 50);
-            this.batteryProgressBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.batteryProgressBar1.Name = "batteryProgressBar1";
-            this.batteryProgressBar1.Percentage = 15;
-            this.batteryProgressBar1.Size = new System.Drawing.Size(100, 60);
-            this.batteryProgressBar1.TabIndex = 31;
-            this.batteryProgressBar1.Text = "batteryProgressBar1";
             // 
             // Form1
             // 
@@ -1502,6 +1506,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
+        private System.IO.Ports.SerialPort serialPort2;
     }
 }
 

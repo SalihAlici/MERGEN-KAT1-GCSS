@@ -65,7 +65,7 @@ namespace MERGEN_KAT1_GCSS
             Application.Idle += Application_Idle;
 
 
-
+            LoadAvailablePorts();
 
         }
 
@@ -88,19 +88,28 @@ namespace MERGEN_KAT1_GCSS
             batteryProgressBar.Percentage = 30;
 
 
-            string[] ports = SerialPort.GetPortNames();
-            comboBox1.Items.AddRange(ports);
-
-            if (ports.Length > 0)
-                comboBox1.SelectedIndex = 0;
-            else
-                comboBox1.Items.Add("Port Yok");
+           
 
             
 
         }
 
+        private void LoadAvailablePorts()
+        {
+            string[] ports = SerialPort.GetPortNames();
 
+            comboBox1.Items.Clear();
+            comboBox2.Items.Clear();
+
+            comboBox1.Items.AddRange(ports);
+            comboBox2.Items.AddRange(ports);
+
+            if (ports.Length > 0)
+            {
+                comboBox1.SelectedIndex = 0;
+                comboBox2.SelectedIndex = 0;
+            }
+        }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -150,10 +159,22 @@ namespace MERGEN_KAT1_GCSS
         {
             if (serialPort1.IsOpen)
             {
-                MessageBox.Show("Zaten bağlı.");
+                // Port açık ise kapat
+                try
+                {
+                    dataHandler?.Disconnect();  // Eğer varsa bağlantıyı kes
+                    serialPort1.Close();
+                    MessageBox.Show("Port kapatıldı.");
+                    Console.WriteLine("Port kapatıldı: " + serialPort1.PortName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Port kapatılırken hata oluştu: " + ex.Message);
+                }
                 return;
             }
 
+            // Port kapalı ise açmaya çalış
             string selectedPort = comboBox1.SelectedItem?.ToString();
             if (string.IsNullOrEmpty(selectedPort) || selectedPort == "Port Yok")
             {
@@ -164,10 +185,19 @@ namespace MERGEN_KAT1_GCSS
             serialPort1.PortName = selectedPort;
             serialPort1.BaudRate = 9600;
 
-            dataHandler = new Data(serialPort1,map, this,charts,dataGridViewHandler,simulation); // event bağlanıyor
-            dataHandler.Connect();
+            try
+            {
+                dataHandler = new Data(serialPort1, map, this, charts, dataGridViewHandler, simulation); // event bağlanıyor
+                dataHandler.Connect();
+               // serialPort1.Open();
 
-            Console.WriteLine("Port açık: " + selectedPort);
+                MessageBox.Show("Port açıldı: " + selectedPort);
+                Console.WriteLine("Port açık: " + selectedPort);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Port açılırken hata oluştu: " + ex.Message);
+            }
 
 
         }
@@ -225,6 +255,51 @@ namespace MERGEN_KAT1_GCSS
             comboBox1.Items.AddRange(ports);
         }
 
-       
+        private void comboBox2_DropDown(object sender, EventArgs e)
+        {
+            comboBox2.Items.Clear();
+            string[] ports = SerialPort.GetPortNames();
+            Array.Sort(ports);
+            comboBox2.Items.AddRange(ports);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!serialPort2.IsOpen)
+                {
+                    serialPort2.PortName = comboBox2.SelectedItem.ToString();
+                    serialPort2.BaudRate = 9600; // İstersen burayı ayarla
+                    serialPort2.Open();
+                    MessageBox.Show($"{serialPort2.PortName} açıldı.");
+                }
+                else
+                {
+                    serialPort2.Close();
+                    MessageBox.Show($"{serialPort2.PortName} kapandı.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (serialPort2.IsOpen)
+            {
+                string mesaj = textBox1.Text.Trim();
+                if (!string.IsNullOrEmpty(mesaj))
+                {
+                    serialPort2.WriteLine(mesaj);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Gönderme portu açık değil!");
+            }
+        }
     }
 }
