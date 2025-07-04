@@ -30,7 +30,7 @@ namespace MERGEN_KAT1_GCSS
 
         private Stopwatch stopwatch = Stopwatch.StartNew();
         private const int targetFPS = 30;
-
+        private Aras aras;
         public Form1()
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace MERGEN_KAT1_GCSS
             map=new Map(gMapControl1);
             //map.InitializeMap();
             charts = new Charts(chart1, chart2, chart3, chart4, chart5, chart6, chart7, chart8);
-
+            aras = new Aras(pictureBox4, pictureBox5, pictureBox6, pictureBox7, pictureBox8, pictureBox9);
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
@@ -88,9 +88,14 @@ namespace MERGEN_KAT1_GCSS
             batteryProgressBar.Percentage = 30;
 
 
-           
 
-            
+            pictureBox4.BackColor = Color.Chartreuse;
+            pictureBox5.BackColor = Color.Chartreuse;
+            pictureBox6.BackColor = Color.Chartreuse;
+            pictureBox7.BackColor = Color.Chartreuse;
+            pictureBox8.BackColor = Color.Chartreuse;
+            pictureBox9.BackColor = Color.Chartreuse;
+
 
         }
 
@@ -148,12 +153,7 @@ namespace MERGEN_KAT1_GCSS
 
        
 
-        private void ayrilmabutton_Click(object sender, EventArgs e)
-        {
-            useAlternativeModel = !useAlternativeModel;
-            glControl1.Invalidate();
-
-        }
+        
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -187,7 +187,7 @@ namespace MERGEN_KAT1_GCSS
 
             try
             {
-                dataHandler = new Data(serialPort1, map, this, charts, dataGridViewHandler, simulation); // event bağlanıyor
+                dataHandler = new Data(serialPort1, map, this, charts, dataGridViewHandler, simulation,aras); // event bağlanıyor
                 dataHandler.Connect();
                // serialPort1.Open();
 
@@ -211,6 +211,9 @@ namespace MERGEN_KAT1_GCSS
             GL.ClearColor(Color.FromArgb(24, 30, 54)); // Arka plan rengi
             GL.Enable(EnableCap.DepthTest);
             GL.DepthFunc(DepthFunction.Less);
+            
+           
+
         }
 
         private void glControl1_Paint(object sender, PaintEventArgs e)
@@ -300,6 +303,18 @@ namespace MERGEN_KAT1_GCSS
             {
                 MessageBox.Show("Gönderme portu açık değil!");
             }
+        }
+
+        private void unlockbutton_Click(object sender, EventArgs e)
+        {
+            useAlternativeModel = true;
+            glControl1.Invalidate();
+        }
+
+        private void lockbutton_Click(object sender, EventArgs e)
+        {
+            useAlternativeModel = false; // Eski model durumuna döner
+            glControl1.Invalidate();     // GLControl yeniden çizilir
         }
     }
 }

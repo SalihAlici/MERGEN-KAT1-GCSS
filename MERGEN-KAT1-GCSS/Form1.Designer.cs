@@ -94,12 +94,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.glControl1 = new OpenTK.GLControl();
             this.araspanel = new System.Windows.Forms.TableLayoutPanel();
-            this.araspanel6 = new System.Windows.Forms.Panel();
-            this.araspanel2 = new System.Windows.Forms.Panel();
-            this.araspanel1 = new System.Windows.Forms.Panel();
-            this.araspanel3 = new System.Windows.Forms.Panel();
-            this.araspanel5 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -127,24 +121,30 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.birlesmebutton = new System.Windows.Forms.Button();
+            this.lockbutton = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.camclosebutton = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.ayrilmabutton = new System.Windows.Forms.Button();
+            this.unlockbutton = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.camopenbutton = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.batteryProgressBar1 = new BatteryProgressBar();
             this.cikisbutton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.serialPort2 = new System.IO.Ports.SerialPort(this.components);
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.batteryProgressBar1 = new BatteryProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.solpanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -167,6 +167,12 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -528,18 +534,18 @@
             this.araspanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.33448F));
             this.araspanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.99762F));
             this.araspanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.08698F));
-            this.araspanel.Controls.Add(this.araspanel6, 5, 1);
-            this.araspanel.Controls.Add(this.araspanel2, 0, 1);
-            this.araspanel.Controls.Add(this.araspanel1, 0, 1);
-            this.araspanel.Controls.Add(this.araspanel3, 0, 1);
-            this.araspanel.Controls.Add(this.araspanel5, 0, 1);
-            this.araspanel.Controls.Add(this.panel8, 0, 1);
             this.araspanel.Controls.Add(this.label9, 0, 0);
             this.araspanel.Controls.Add(this.label10, 1, 0);
             this.araspanel.Controls.Add(this.label11, 2, 0);
             this.araspanel.Controls.Add(this.label12, 3, 0);
             this.araspanel.Controls.Add(this.label13, 4, 0);
             this.araspanel.Controls.Add(this.label14, 5, 0);
+            this.araspanel.Controls.Add(this.pictureBox4, 0, 1);
+            this.araspanel.Controls.Add(this.pictureBox5, 1, 1);
+            this.araspanel.Controls.Add(this.pictureBox6, 2, 1);
+            this.araspanel.Controls.Add(this.pictureBox7, 3, 1);
+            this.araspanel.Controls.Add(this.pictureBox8, 4, 1);
+            this.araspanel.Controls.Add(this.pictureBox9, 5, 1);
             this.araspanel.Location = new System.Drawing.Point(4, 624);
             this.araspanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.araspanel.Name = "araspanel";
@@ -548,72 +554,6 @@
             this.araspanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.14685F));
             this.araspanel.Size = new System.Drawing.Size(424, 130);
             this.araspanel.TabIndex = 1;
-            // 
-            // araspanel6
-            // 
-            this.araspanel6.BackColor = System.Drawing.Color.Lime;
-            this.araspanel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.araspanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.araspanel6.Location = new System.Drawing.Point(357, 62);
-            this.araspanel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.araspanel6.Name = "araspanel6";
-            this.araspanel6.Size = new System.Drawing.Size(64, 66);
-            this.araspanel6.TabIndex = 14;
-            // 
-            // araspanel2
-            // 
-            this.araspanel2.BackColor = System.Drawing.Color.Lime;
-            this.araspanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.araspanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.araspanel2.Location = new System.Drawing.Point(73, 62);
-            this.araspanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.araspanel2.Name = "araspanel2";
-            this.araspanel2.Size = new System.Drawing.Size(61, 66);
-            this.araspanel2.TabIndex = 7;
-            // 
-            // araspanel1
-            // 
-            this.araspanel1.BackColor = System.Drawing.Color.Lime;
-            this.araspanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.araspanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.araspanel1.Location = new System.Drawing.Point(3, 62);
-            this.araspanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.araspanel1.Name = "araspanel1";
-            this.araspanel1.Size = new System.Drawing.Size(64, 66);
-            this.araspanel1.TabIndex = 6;
-            // 
-            // araspanel3
-            // 
-            this.araspanel3.BackColor = System.Drawing.Color.Lime;
-            this.araspanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.araspanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.araspanel3.Location = new System.Drawing.Point(140, 62);
-            this.araspanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.araspanel3.Name = "araspanel3";
-            this.araspanel3.Size = new System.Drawing.Size(66, 66);
-            this.araspanel3.TabIndex = 5;
-            // 
-            // araspanel5
-            // 
-            this.araspanel5.BackColor = System.Drawing.Color.Lime;
-            this.araspanel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.araspanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.araspanel5.Location = new System.Drawing.Point(281, 62);
-            this.araspanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.araspanel5.Name = "araspanel5";
-            this.araspanel5.Size = new System.Drawing.Size(70, 66);
-            this.araspanel5.TabIndex = 4;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.Lime;
-            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(212, 62);
-            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(63, 66);
-            this.panel8.TabIndex = 3;
             // 
             // label9
             // 
@@ -1109,14 +1049,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.birlesmebutton);
+            this.groupBox1.Controls.Add(this.lockbutton);
             this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.camclosebutton);
             this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.ayrilmabutton);
+            this.groupBox1.Controls.Add(this.unlockbutton);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.camopenbutton);
             this.groupBox1.Controls.Add(this.comboBox2);
@@ -1155,19 +1095,20 @@
             this.label15.TabIndex = 9;
             this.label15.Text = "GÖREV YÜKÜ BAĞLANTISI";
             // 
-            // birlesmebutton
+            // lockbutton
             // 
-            this.birlesmebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.birlesmebutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("birlesmebutton.BackgroundImage")));
-            this.birlesmebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.birlesmebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.birlesmebutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.birlesmebutton.Location = new System.Drawing.Point(962, 11);
-            this.birlesmebutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.birlesmebutton.Name = "birlesmebutton";
-            this.birlesmebutton.Size = new System.Drawing.Size(37, 38);
-            this.birlesmebutton.TabIndex = 25;
-            this.birlesmebutton.UseVisualStyleBackColor = true;
+            this.lockbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lockbutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lockbutton.BackgroundImage")));
+            this.lockbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.lockbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lockbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.lockbutton.Location = new System.Drawing.Point(962, 11);
+            this.lockbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lockbutton.Name = "lockbutton";
+            this.lockbutton.Size = new System.Drawing.Size(37, 38);
+            this.lockbutton.TabIndex = 25;
+            this.lockbutton.UseVisualStyleBackColor = true;
+            this.lockbutton.Click += new System.EventHandler(this.lockbutton_Click);
             // 
             // button7
             // 
@@ -1254,20 +1195,20 @@
             this.comboBox1.TabIndex = 10;
             this.comboBox1.DropDown += new System.EventHandler(this.comboBox1_DropDown);
             // 
-            // ayrilmabutton
+            // unlockbutton
             // 
-            this.ayrilmabutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ayrilmabutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ayrilmabutton.BackgroundImage")));
-            this.ayrilmabutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ayrilmabutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ayrilmabutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.ayrilmabutton.Location = new System.Drawing.Point(858, 11);
-            this.ayrilmabutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ayrilmabutton.Name = "ayrilmabutton";
-            this.ayrilmabutton.Size = new System.Drawing.Size(37, 38);
-            this.ayrilmabutton.TabIndex = 24;
-            this.ayrilmabutton.UseVisualStyleBackColor = true;
-            this.ayrilmabutton.Click += new System.EventHandler(this.ayrilmabutton_Click);
+            this.unlockbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.unlockbutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("unlockbutton.BackgroundImage")));
+            this.unlockbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.unlockbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.unlockbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.unlockbutton.Location = new System.Drawing.Point(858, 11);
+            this.unlockbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.unlockbutton.Name = "unlockbutton";
+            this.unlockbutton.Size = new System.Drawing.Size(37, 38);
+            this.unlockbutton.TabIndex = 24;
+            this.unlockbutton.UseVisualStyleBackColor = true;
+            this.unlockbutton.Click += new System.EventHandler(this.unlockbutton_Click);
             // 
             // label16
             // 
@@ -1326,17 +1267,6 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // batteryProgressBar1
-            // 
-            this.batteryProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.batteryProgressBar1.Location = new System.Drawing.Point(1701, 50);
-            this.batteryProgressBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.batteryProgressBar1.Name = "batteryProgressBar1";
-            this.batteryProgressBar1.Percentage = 60;
-            this.batteryProgressBar1.Size = new System.Drawing.Size(100, 60);
-            this.batteryProgressBar1.TabIndex = 31;
-            this.batteryProgressBar1.Text = "batteryProgressBar1";
-            // 
             // cikisbutton
             // 
             this.cikisbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1374,6 +1304,71 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 32;
             this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox4.Location = new System.Drawing.Point(3, 63);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox4.TabIndex = 14;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox5.Location = new System.Drawing.Point(73, 63);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(61, 64);
+            this.pictureBox5.TabIndex = 15;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox6.Location = new System.Drawing.Point(140, 63);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(66, 64);
+            this.pictureBox6.TabIndex = 16;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox7.Location = new System.Drawing.Point(212, 63);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(63, 64);
+            this.pictureBox7.TabIndex = 17;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox8.Location = new System.Drawing.Point(281, 63);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(70, 64);
+            this.pictureBox8.TabIndex = 18;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox9.Location = new System.Drawing.Point(357, 63);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox9.TabIndex = 19;
+            this.pictureBox9.TabStop = false;
+            // 
+            // batteryProgressBar1
+            // 
+            this.batteryProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.batteryProgressBar1.Location = new System.Drawing.Point(1701, 50);
+            this.batteryProgressBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.batteryProgressBar1.Name = "batteryProgressBar1";
+            this.batteryProgressBar1.Percentage = 32;
+            this.batteryProgressBar1.Size = new System.Drawing.Size(100, 60);
+            this.batteryProgressBar1.TabIndex = 31;
+            this.batteryProgressBar1.Text = "batteryProgressBar1";
             // 
             // Form1
             // 
@@ -1417,6 +1412,12 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1455,18 +1456,12 @@
         private System.Windows.Forms.Button camclosebutton;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TableLayoutPanel araspanel;
-        private System.Windows.Forms.Panel araspanel2;
-        private System.Windows.Forms.Panel araspanel1;
-        private System.Windows.Forms.Panel araspanel3;
-        private System.Windows.Forms.Panel araspanel5;
-        private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Panel araspanel6;
         private System.Windows.Forms.Button camopenbutton;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label15;
@@ -1477,8 +1472,8 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button cikisbutton;
-        private System.Windows.Forms.Button birlesmebutton;
-        private System.Windows.Forms.Button ayrilmabutton;
+        private System.Windows.Forms.Button lockbutton;
+        private System.Windows.Forms.Button unlockbutton;
         public BatteryProgressBar batteryProgressBar1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -1507,6 +1502,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
         private System.IO.Ports.SerialPort serialPort2;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox9;
     }
 }
 

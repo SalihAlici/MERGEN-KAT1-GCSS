@@ -11,13 +11,13 @@ namespace MERGEN_KAT1_GCSS
         private GLControl glControl1;
        
         
-        private bool useAlternativeModel = false; // Alternatif model durumu
+      
 
         public float x = 0, y = 0, z = 0;
        
         
 
-        public _3DSimulation(GLControl glControl, Button switchModelButton = null)
+        public _3DSimulation(GLControl glControl)
         {
             this.glControl1 = glControl ?? throw new ArgumentNullException(nameof(glControl));
             
@@ -25,16 +25,10 @@ namespace MERGEN_KAT1_GCSS
             
            
 
-            if (switchModelButton != null)
-            {
-                switchModelButton.Click += SwitchModelButton_Click;
-            }
+           
         }
 
-        private void SwitchModelButton_Click(object sender, EventArgs e)
-        {
-            SwitchModel();
-        }
+       
 
         
 
@@ -54,11 +48,7 @@ namespace MERGEN_KAT1_GCSS
 
        
 
-        public void SwitchModel()
-        {
-            useAlternativeModel = !useAlternativeModel;
-            glControl1?.Invalidate(); // Ekranı güncelle
-        }
+        
 
         
 
@@ -68,7 +58,7 @@ namespace MERGEN_KAT1_GCSS
         // Ölçeklendirme kaldırıldı ki silindirin yüksekliği, perforasyonlu kılıfın yüksekliği ile aynı olsun.
         public void DrawNewSatellite()
         {
-            DrawCylinder(3.0f, 12.0f, 16);
+            DrawCylinder(3.0f, 12.0f, 64);
         }
 
         // Perforasyonlu kılıf modeli
