@@ -144,6 +144,6 @@ namespace MERGEN_KAT1_GCSS
             compass.Draw(e.Graphics, panel7.ClientRectangle);
         }
 
-      
+        
     }
 }
