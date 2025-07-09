@@ -12,6 +12,7 @@ using GMap.NET;
 using GMap.NET.MapProviders;
 using System.IO;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace MERGEN_KAT1_GCSS
 {
@@ -268,53 +269,61 @@ namespace MERGEN_KAT1_GCSS
 
         private void button4_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (!serialPort2.IsOpen)
-                {
-                    serialPort2.PortName = comboBox2.SelectedItem.ToString();
-                    serialPort2.BaudRate = 9600; // İstersen burayı ayarla
-                    serialPort2.Open();
-                    MessageBox.Show($"{serialPort2.PortName} açıldı.");
-                }
-                else
-                {
-                    serialPort2.Close();
-                    MessageBox.Show($"{serialPort2.PortName} kapandı.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Hata: " + ex.Message);
-            }
+           
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (serialPort2.IsOpen)
+            if (serialPort1.IsOpen)
             {
                 string mesaj = textBox1.Text.Trim();
                 if (!string.IsNullOrEmpty(mesaj))
                 {
-                    serialPort2.WriteLine(mesaj);
+                    serialPort1.WriteLine(mesaj);
+                    //MessageBox.Show("Mesaj gönderildi: " + mesaj);
+                }
+                else
+                {
+                    MessageBox.Show("Gönderilecek mesaj boş!");
                 }
             }
             else
             {
-                MessageBox.Show("Gönderme portu açık değil!");
+                MessageBox.Show("Port açık değil!");
+            }
+        }
+        private async void SendMessageAsync(string message)
+        {
+            if (serialPort1.IsOpen)
+            {
+                try
+                {
+                    await Task.Run(() => serialPort1.WriteLine(message));
+                    Console.WriteLine($"Mesaj gönderildi: {message}");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Mesaj gönderilirken hata: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Port açık değil!");
             }
         }
 
         private void unlockbutton_Click(object sender, EventArgs e)
         {
+            SendMessageAsync("A");
             useAlternativeModel = true;
             glControl1.Invalidate();
         }
 
         private void lockbutton_Click(object sender, EventArgs e)
         {
-            useAlternativeModel = false; // Eski model durumuna döner
-            glControl1.Invalidate();     // GLControl yeniden çizilir
+            SendMessageAsync("B");
+            useAlternativeModel = false;
+            glControl1.Invalidate();
         }
     }
 }
