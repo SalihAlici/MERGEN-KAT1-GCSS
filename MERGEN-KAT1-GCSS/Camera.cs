@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Drawing;
-using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
@@ -8,72 +9,74 @@ using Accord.Video.FFMPEG;
 
 namespace MERGEN_KAT1_GCSS
 {
-    internal class Camera
+    internal class Camera : IDisposable
     {
         private FilterInfoCollection videoDevices;
         private VideoCaptureDevice videoSource;
         private PictureBox pictureBox;
         private VideoFileWriter videoWriter;
+
         private bool isRecording = false;
         private string outputFilePath;
 
-        public Camera(PictureBox pictureBox)
+        private readonly object lockObj = new object();
+
+        private ConcurrentQueue<Bitmap> frameQueue = new ConcurrentQueue<Bitmap>();
+        private Thread recordingThread;
+        private bool recordingThreadRunning = false;
+
+        public Camera(PictureBox pictureBox, int deviceIndex = 1)
         {
             this.pictureBox = pictureBox;
-            InitializeCamera();
+            InitializeCamera(deviceIndex);
         }
 
-        private void InitializeCamera()
+        private void InitializeCamera(int deviceIndex)
         {
             videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-
             if (videoDevices.Count == 0)
             {
                 MessageBox.Show("Kamera bulunamadı!");
                 return;
             }
 
-            videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
+            if (deviceIndex < 0 || deviceIndex >= videoDevices.Count)
+                deviceIndex = 0;
 
-            // Çözünürlük iyileştirmesi: 1280x720 veya daha yüksek destekleyen bir çözünürlük seç
-            if (videoSource.VideoCapabilities != null && videoSource.VideoCapabilities.Length > 0)
+            videoSource = new VideoCaptureDevice(videoDevices[deviceIndex].MonikerString);
+
+            // 1280x720 kesin çözünürlük seçimi
+            VideoCapabilities desiredCap = null;
+            foreach (var cap in videoSource.VideoCapabilities)
             {
-                VideoCapabilities desiredCap = null;
+                if (cap.FrameSize.Width == 1280 && cap.FrameSize.Height == 720)
+                {
+                    desiredCap = cap;
+                    break;
+                }
+            }
+            if (desiredCap == null)
+            {
+                desiredCap = videoSource.VideoCapabilities[0];
                 foreach (var cap in videoSource.VideoCapabilities)
                 {
-                    if (cap.FrameSize.Width >= 1280 && cap.FrameSize.Height >= 720)
-                    {
+                    if (cap.FrameSize.Width * cap.FrameSize.Height > desiredCap.FrameSize.Width * desiredCap.FrameSize.Height)
                         desiredCap = cap;
-                        break;
-                    }
                 }
-                if (desiredCap == null)
-                {
-                    // 1280x720 veya üzeri yoksa, en yüksek çözünürlüğü seç
-                    VideoCapabilities maxCap = videoSource.VideoCapabilities[0];
-                    foreach (var cap in videoSource.VideoCapabilities)
-                    {
-                        if (cap.FrameSize.Width * cap.FrameSize.Height > maxCap.FrameSize.Width * maxCap.FrameSize.Height)
-                            maxCap = cap;
-                    }
-                    desiredCap = maxCap;
-                }
-                videoSource.VideoResolution = desiredCap;
             }
 
-            videoSource.NewFrame += new NewFrameEventHandler(Video_NewFrame);
+            videoSource.VideoResolution = desiredCap;
+            videoSource.NewFrame += Video_NewFrame;
         }
 
         private void Video_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             Bitmap frame = (Bitmap)eventArgs.Frame.Clone();
 
-            // Yatay aynalama: Sağa hareket ettiğinizde ekranın doğru yönde hareket etmesi için
-            frame.RotateFlip(RotateFlipType.RotateNoneFlipX);
-
+            // Canlı ekrana 60 FPS ile göster
             if (pictureBox.InvokeRequired)
             {
-                pictureBox.Invoke(new MethodInvoker(delegate
+                pictureBox.Invoke(new MethodInvoker(() =>
                 {
                     pictureBox.Image?.Dispose();
                     pictureBox.Image = (Bitmap)frame.Clone();
@@ -85,26 +88,35 @@ namespace MERGEN_KAT1_GCSS
                 pictureBox.Image = (Bitmap)frame.Clone();
             }
 
-            // Kayıt yapılıyorsa, videoya kare ekle
-            if (isRecording && videoWriter != null)
+            // Kayıt aktifse kuyruğa frame ekle
+            if (isRecording)
             {
-                videoWriter.WriteVideoFrame(frame);
+                // Kuyruk kontrolü
+                while (frameQueue.Count > 60 && frameQueue.TryDequeue(out Bitmap oldFrame))
+                {
+                    oldFrame.Dispose();
+                }
+                frameQueue.Enqueue((Bitmap)frame.Clone());
             }
+
             frame.Dispose();
         }
 
-        public void StartCamera()
+        public void StartCamera(bool autoStartRecording = true)
         {
             if (videoSource == null)
             {
-                MessageBox.Show("Kamera bulunamadı veya uygun değil.");
+                MessageBox.Show("Kamera uygun değil.");
                 return;
             }
 
             if (!videoSource.IsRunning)
             {
                 videoSource.Start();
-                StartRecording();  // Kamera açıldığında kayıt başlasın
+                if (autoStartRecording)
+                {
+                    StartRecording();
+                }
             }
             else
             {
@@ -121,47 +133,82 @@ namespace MERGEN_KAT1_GCSS
                 videoSource.WaitForStop();
                 pictureBox.Image?.Dispose();
             }
-            else
+        }
+
+        public void StartRecording()
+        {
+            lock (lockObj)
             {
-                MessageBox.Show("Kamera zaten kapalı.");
+                if (!isRecording)
+                {
+                    string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                    string datetimeString = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                    outputFilePath = System.IO.Path.Combine(desktopPath, $"KameraKaydi_{datetimeString}.mp4");
+
+                    videoWriter = new VideoFileWriter();
+
+                    int width = videoSource.VideoResolution.FrameSize.Width;
+                    int height = videoSource.VideoResolution.FrameSize.Height;
+
+                    videoWriter.Open(outputFilePath, width, height, 60, VideoCodec.MPEG4, 4000000);
+
+                    isRecording = true;
+
+                    recordingThreadRunning = true;
+                    recordingThread = new Thread(RecordingWorker);
+                    recordingThread.Start();
+
+                    MessageBox.Show("Kayıt başladı.");
+                }
             }
         }
 
-        private void StartRecording()
+        public void StopRecording()
         {
-            if (!isRecording)
+            lock (lockObj)
             {
-                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                // Dosya adına geçerli tarih-saat bilgisini ekle
-                string datetimeString = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-                outputFilePath = Path.Combine(desktopPath, $"KameraKaydi_{datetimeString}.mp4");
-
-                videoWriter = new VideoFileWriter();
-                int width = 1280, height = 720;
-                if (videoSource.VideoResolution != null)
+                if (isRecording)
                 {
-                    width = videoSource.VideoResolution.FrameSize.Width;
-                    height = videoSource.VideoResolution.FrameSize.Height;
+                    isRecording = false;
+                    recordingThreadRunning = false;
+                    recordingThread.Join();
+
+                    while (frameQueue.TryDequeue(out Bitmap bmp))
+                    {
+                        bmp.Dispose();
+                    }
+
+                    if (videoWriter != null)
+                    {
+                        videoWriter.Close();
+                        videoWriter.Dispose();
+                        videoWriter = null;
+                    }
+
+                    MessageBox.Show("Kayıt tamamlandı.\nDosya: " + outputFilePath);
                 }
-                // Bitrate ekleyerek video kalitesini artırıyoruz (örneğin: 4000000 bps)
-                videoWriter.Open(outputFilePath, width, height, 30, VideoCodec.MPEG4, 4000000);
-                isRecording = true;
-                MessageBox.Show("Kayıt Başladı!");
             }
         }
 
-        private void StopRecording()
+        private void RecordingWorker()
         {
-            if (isRecording)
+            while (recordingThreadRunning)
             {
-                isRecording = false;
-                if (videoWriter != null)
+                if (frameQueue.TryDequeue(out Bitmap frame))
                 {
-                    videoWriter.Close();
-                    videoWriter.Dispose();
-                    videoWriter = null;
+                    lock (lockObj)
+                    {
+                        if (videoWriter != null && isRecording)
+                        {
+                            videoWriter.WriteVideoFrame(frame);
+                        }
+                    }
+                    frame.Dispose();
                 }
-                MessageBox.Show("Kayıt tamamlandı!\nKaydedilen Dosya: " + outputFilePath);
+                else
+                {
+                    Thread.Sleep(1);
+                }
             }
         }
 
@@ -170,9 +217,10 @@ namespace MERGEN_KAT1_GCSS
             StopCamera();
             if (videoSource != null)
             {
-                videoSource.NewFrame -= new NewFrameEventHandler(Video_NewFrame);
+                videoSource.NewFrame -= Video_NewFrame;
                 videoSource = null;
             }
+            pictureBox.Image?.Dispose();
         }
     }
 }
