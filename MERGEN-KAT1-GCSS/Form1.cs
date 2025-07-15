@@ -24,7 +24,7 @@ namespace MERGEN_KAT1_GCSS
 
         
         private Charts charts;
-        private BatteryProgressBar batteryProgressBar;
+       
         private Data dataHandler;
         private DataGridViewHandler dataGridViewHandler;
         private _3DSimulation simulation;
@@ -46,11 +46,7 @@ namespace MERGEN_KAT1_GCSS
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            // Batarya göstergesi
-            batteryProgressBar = new BatteryProgressBar();
-            batteryProgressBar.Location = new Point(this.ClientSize.Width - batteryProgressBar.Width - 10, 10);
-            batteryProgressBar.Size = new Size(200, 50);
-            this.Controls.Add(batteryProgressBar);
+           
 
            
             string csvPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "TELEMETRİ.csv");
@@ -86,7 +82,7 @@ namespace MERGEN_KAT1_GCSS
             camclosebutton.Enabled = false;
             map.InitializeMap();
            
-            batteryProgressBar.Percentage = 30;
+           
 
 
 

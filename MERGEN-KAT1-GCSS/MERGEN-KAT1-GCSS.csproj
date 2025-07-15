@@ -153,7 +153,10 @@
   <ItemGroup>
     <Compile Include="Aras.cs" />
     <Compile Include="BatteryProgressBar.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BatteryProgressBar.Designer.cs">
+      <DependentUpon>BatteryProgressBar.cs</DependentUpon>
     </Compile>
     <Compile Include="Camera.cs" />
     <Compile Include="Chart.cs" />
