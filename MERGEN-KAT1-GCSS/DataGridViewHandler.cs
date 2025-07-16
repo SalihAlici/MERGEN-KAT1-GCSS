@@ -3,53 +3,105 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MERGEN_KAT1_GCSS
 {
     public class DataGridViewHandler
     {
-        private BindingList<TelemetryData> _list;
-        private DataGridView _dataGridView;
-        private string _csvFilePath;
+        private readonly BindingList<TelemetryData> _list;
+        private readonly DataGridView _dataGridView;
+        private readonly string _csvFilePath;
+        private readonly object _csvLock = new object();
+        private const int MAX_ROWS = 500;
 
         public DataGridViewHandler(DataGridView dgv, string csvFilePath)
         {
             _dataGridView = dgv;
             _csvFilePath = csvFilePath;
-
             _list = new BindingList<TelemetryData>();
+
+            // DataGridView performans ayarı: flicker önleme
+            typeof(DataGridView).GetProperty("DoubleBuffered",
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.NonPublic)?
+                .SetValue(_dataGridView, true, null);
+
             _dataGridView.DataSource = _list;
+
+            // Kolonların sıralanabilir olmasını engelle
+            _dataGridView.DataBindingComplete += (s, e) =>
+            {
+                foreach (DataGridViewColumn col in _dataGridView.Columns)
+                {
+                    col.SortMode = DataGridViewColumnSortMode.NotSortable;
+                }
+            };
         }
 
         public void AddTelemetry(TelemetryData data)
         {
-            _list.Insert(0, data);
-            AppendNewDataToCSV(data); // Tek kayıtla CSV güncellenir
-        }
+            if (_dataGridView.InvokeRequired)
+            {
+                _dataGridView.BeginInvoke((MethodInvoker)(() => AddTelemetry(data)));
+                return;
+            }
 
-        private void AppendNewDataToCSV(TelemetryData data)
-        {
+            // Scroll pozisyonunu hatırla
+            int firstDisplayedIndex = -1;
             try
             {
-                var props = typeof(TelemetryData).GetProperties();
-
-                // Dosya yoksa başlık ekle
-                if (!File.Exists(_csvFilePath))
-                {
-                    var header = string.Join(";", props.Select(p => p.Name));
-                    File.AppendAllText(_csvFilePath, header + Environment.NewLine, Encoding.UTF8);
-                }
-
-                // Yeni veri satırı
-                var values = props.Select(p => p.GetValue(data)?.ToString() ?? "");
-                string newLine = string.Join(";", values);
-
-                File.AppendAllText(_csvFilePath, newLine + Environment.NewLine, Encoding.UTF8);
+                firstDisplayedIndex = _dataGridView.FirstDisplayedScrollingRowIndex;
             }
-            catch (Exception ex)
+            catch { }
+
+            // Yeni veriyi en üste ekle
+            _list.Insert(0, data);
+
+            // 500'den fazla ise en alttaki veriyi sil
+            if (_list.Count > MAX_ROWS)
             {
-                MessageBox.Show("CSV yazım hatası: " + ex.Message);
+                _list.RemoveAt(_list.Count - 1);
+            }
+
+            // Scroll pozisyonunu geri yükle
+            try
+            {
+                if (_dataGridView.RowCount > 0 && firstDisplayedIndex >= 0 && firstDisplayedIndex < _dataGridView.RowCount)
+                {
+                    _dataGridView.FirstDisplayedScrollingRowIndex = firstDisplayedIndex;
+                }
+            }
+            catch { }
+
+            // CSV'ye arka planda yaz
+            Task.Run(() => AppendToCsv(data));
+        }
+
+        private void AppendToCsv(TelemetryData data)
+        {
+            lock (_csvLock)
+            {
+                try
+                {
+                    var props = typeof(TelemetryData).GetProperties();
+
+                    if (!File.Exists(_csvFilePath))
+                    {
+                        File.WriteAllText(_csvFilePath,
+                            string.Join(";", props.Select(p => p.Name)) + Environment.NewLine,
+                            Encoding.UTF8);
+                    }
+
+                    File.AppendAllText(_csvFilePath,
+                        string.Join(";", props.Select(p => p.GetValue(data)?.ToString() ?? "")) + Environment.NewLine,
+                        Encoding.UTF8);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"CSV Write Error: {ex.Message}");
+                }
             }
         }
 

@@ -80,7 +80,7 @@ namespace MERGEN_KAT1_GCSS
         {
             camopenbutton.Enabled = true;
             camclosebutton.Enabled = false;
-            map.InitializeMap();
+            //map.InitializeMap();
            
            
 

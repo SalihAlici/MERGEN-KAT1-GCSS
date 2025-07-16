@@ -1,50 +1,87 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using MERGEN_KAT1_GCSS;
 
-public class Charts
+namespace MERGEN_KAT1_GCSS
 {
-    private Chart chart1, chart2, chart3, chart4, chart5, chart6, chart7, chart8;
-
-    public Charts(Chart ch1, Chart ch2, Chart ch3, Chart ch4, Chart ch5, Chart ch6, Chart ch7, Chart ch8)
+    public class Charts
     {
-        chart1 = ch1;
-        chart2 = ch2;
-        chart3 = ch3;
-        chart4 = ch4;
-        chart5 = ch5;
-        chart6 = ch6;
-        chart7 = ch7;
-        chart8 = ch8;
+        private readonly Chart[] _charts;
+        private const int MAX_POINTS = 1000;
+
+        public Charts(Chart ch1, Chart ch2, Chart ch3, Chart ch4, Chart ch5, Chart ch6, Chart ch7, Chart ch8)
+        {
+            _charts = new[] { ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8 };
+
+            // Chart optimizasyonları
+            foreach (var chart in _charts)
+            {
+                // Double buffering
+                typeof(Chart).GetProperty("DoubleBuffered",
+                    System.Reflection.BindingFlags.Instance |
+                    System.Reflection.BindingFlags.NonPublic)?
+                    .SetValue(chart, true, null);
+
+                foreach (var series in chart.Series)
+                {
+                    series.ChartType = SeriesChartType.FastLine;
+                    series.BorderWidth = 1;
+                }
+            }
+        }
+
+        public void Update(TelemetryData data)
+        {
+            if (_charts[0].InvokeRequired)
+            {
+                _charts[0].BeginInvoke((MethodInvoker)(() => Update(data)));
+                return;
+            }
+
+            string timeLabel = FormatTimeLabel(data.GondermeSaati);
+
+            // Chart 1: Basınç 1 ve 2
+            UpdateChart(_charts[0], timeLabel, data.Basinc1, data.Basinc2);
+
+            // Chart 2: Yükseklik 1
+            UpdateChart(_charts[1], timeLabel, data.Yukseklik1);
+
+            // Chart 3: Yükseklik 2
+            UpdateChart(_charts[2], timeLabel, data.Yukseklik2);
+
+            // Chart 4: İrtifa Farkı
+            UpdateChart(_charts[3], timeLabel, data.IrtifaFarki);
+
+            // Chart 5: İniş Hızı
+            UpdateChart(_charts[4], timeLabel, data.InisHizi);
+
+            // Chart 6: Sıcaklık
+            UpdateChart(_charts[5], timeLabel, data.Sicaklik);
+
+            // Chart 7: Pil Gerilimi
+            UpdateChart(_charts[6], timeLabel, data.PilGerilimi);
+
+            // Chart 8: IoT Verileri
+            UpdateChart(_charts[7], timeLabel, data.IoTS1Data, data.IoTS2Data);
+        }
+
+        private void UpdateChart(Chart chart, string timeLabel, params double[] values)
+        {
+            for (int i = 0; i < values.Length && i < chart.Series.Count; i++)
+            {
+                var series = chart.Series[i];
+                if (series.Points.Count > MAX_POINTS)
+                {
+                    series.Points.RemoveAt(0);
+                }
+                series.Points.AddXY(timeLabel, values[i]);
+            }
+        }
+
+        private string FormatTimeLabel(string rawTime)
+        {
+            string timePart = rawTime.Contains(",") ? rawTime.Split(',')[1] : rawTime;
+            return timePart.Replace('/', ':');
+        }
     }
-
-    public void Update(TelemetryData data)
-    {
-        string raw = data.GondermeSaati;
-        string timePart = raw.Contains(",") ? raw.Split(',')[1] : raw;
-        string timeLabel = timePart.Replace('/', ':');
-
-        chart1.Series["Series1"].Points.AddXY(timeLabel, data.Basinc1);
-        chart1.Series["Series2"].Points.AddXY(timeLabel, data.Basinc2);
-
-        chart2.Series["Series1"].Points.AddXY(timeLabel, data.Yukseklik1);
-
-        chart3.Series["Series1"].Points.AddXY(timeLabel, data.Yukseklik2);
-
-        chart4.Series["Series1"].Points.AddXY(timeLabel, data.IrtifaFarki);
-
-        chart5.Series["Series1"].Points.AddXY(timeLabel, data.InisHizi);
-
-        chart6.Series["Series1"].Points.AddXY(timeLabel, data.Sicaklik);
-
-        chart7.Series["Series1"].Points.AddXY(timeLabel, data.PilGerilimi);
-
-        chart8.Series["Series1"].Points.AddXY(timeLabel, data.IoTS1Data);
-        chart8.Series["Series2"].Points.AddXY(timeLabel, data.IoTS2Data);
-    }
-
-
 }

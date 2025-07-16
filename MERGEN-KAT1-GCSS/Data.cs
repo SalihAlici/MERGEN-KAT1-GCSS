@@ -1,103 +1,145 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.IO.Ports;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace MERGEN_KAT1_GCSS
 {
-    public class Data
+    public class Data : IDisposable
     {
-        private SerialPort _port;
-        private Form1 _form;
-        private Map _map;
-        private Charts _charts;
-        private DataGridViewHandler dataGridViewHandler;
-        private _3DSimulation simulation;
-        private Aras _aras;
-        // Thread-safe kuyruk
-        private ConcurrentQueue<TelemetryData> telemetryQueue = new ConcurrentQueue<TelemetryData>();
-        private bool isProcessing = false;
+        private readonly SerialPort _port;
+        private readonly Form1 _form;
+        private readonly Map _map;
+        private readonly Charts _charts;
+        private readonly DataGridViewHandler _dataGridHandler;
+        private readonly _3DSimulation _simulation;
+        private readonly Aras _aras;
 
-        private string serialBuffer = "";
+        // Thread-safe kuyruklar
+        private readonly BlockingCollection<TelemetryData> _processingQueue = new BlockingCollection<TelemetryData>(1000);
+        private readonly CancellationTokenSource _cts = new CancellationTokenSource();
 
-        public Data(SerialPort port, Map map, Form1 form, Charts charts, DataGridViewHandler dataGridViewHandler, _3DSimulation simulation,Aras aras)
+        // İşlemci thread'leri
+        private Thread _serialReaderThread;
+        private Thread _dataProcessorThread;
+
+        public Data(SerialPort port, Map map, Form1 form, Charts charts,
+                   DataGridViewHandler dataGridHandler, _3DSimulation simulation, Aras aras)
         {
             _port = port;
             _map = map;
             _form = form;
             _charts = charts;
-            this.dataGridViewHandler = dataGridViewHandler;
-            this.simulation = simulation;
+            _dataGridHandler = dataGridHandler;
+            _simulation = simulation;
             _aras = aras;
-            _port.DataReceived += SerialPort_DataReceived;
+
+            InitializeThreads();
         }
 
-        private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        private void InitializeThreads()
         {
-            string data = _port.ReadExisting();
-            serialBuffer += data;
-            Console.WriteLine($"{DateTime.Now:HH:mm:ss.fff} - Gelen veri: {data}");
-            int newlineIndex;
-            while ((newlineIndex = serialBuffer.IndexOf('\n')) >= 0)
+            _serialReaderThread = new Thread(ReadSerialData)
             {
-                string line = serialBuffer.Substring(0, newlineIndex).Trim();
-                serialBuffer = serialBuffer.Substring(newlineIndex + 1);
+                Name = "SerialReaderThread",
+                IsBackground = true,
+                Priority = ThreadPriority.Highest
+            };
 
-                TelemetryData telemetry = TelemetryData.Parse(line);
-                if (telemetry != null)
+            _dataProcessorThread = new Thread(ProcessData)
+            {
+                Name = "DataProcessorThread",
+                IsBackground = true,
+                Priority = ThreadPriority.Normal
+            };
+
+            _serialReaderThread.Start();
+            _dataProcessorThread.Start();
+        }
+
+        private void ReadSerialData()
+        {
+            while (!_cts.IsCancellationRequested)
+            {
+                try
                 {
-                    telemetryQueue.Enqueue(telemetry);
+                    if (_port.IsOpen && _port.BytesToRead > 0)
+                    {
+                        string data = _port.ReadLine().Trim();
+                        if (TelemetryData.TryParse(data, out var telemetry))
+                        {
+                            _processingQueue.Add(telemetry, _cts.Token);
+                        }
+                    }
+                    Thread.Sleep(1); // CPU kullanımını azalt
+                }
+                catch (OperationCanceledException)
+                {
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Serial Read Error: {ex.Message}");
+                    Thread.Sleep(100); // Hata durumunda bekle
                 }
             }
-
-            // Veri geldikten sonra arka planda işlem başlat
-            ProcessQueueAsync();
         }
 
-        private async void ProcessQueueAsync()
+        private void ProcessData()
         {
-            if (isProcessing) return; // Aynı anda birden fazla çağrıyı engelle
-
-            isProcessing = true;
-
-            await Task.Run(() =>
+            foreach (var telemetry in _processingQueue.GetConsumingEnumerable(_cts.Token))
             {
-                while (telemetryQueue.TryDequeue(out TelemetryData telemetry))
+                try
                 {
-                    // Ağır işlemler varsa burada yapabilirsin (örn. filtreleme, hesaplama)
-                    
-                    // UI güncellemesini ana thread’de yap
-                    _form.BeginInvoke((MethodInvoker)(() =>
+                    // UI güncellemelerini tek Invoke'da topla
+                    _form.Invoke((MethodInvoker)(() =>
                     {
-                        //  _map.UpdatePosition(telemetry);
-                        simulation.UpdateRotation(telemetry.Yaw, telemetry.Pitch, telemetry.Roll);
-                        Console.WriteLine($"{DateTime.Now:HH:mm:ss.fff} - UpdateRotation çağrıldı");
+                        _simulation.UpdateRotation(telemetry.Yaw, telemetry.Pitch, telemetry.Roll);
                         _map.UpdatePosition(telemetry);
-                        Console.WriteLine($"{DateTime.Now:HH:mm:ss.fff} - map çağrıldı");
                         _charts.Update(telemetry);
-                        Console.WriteLine($"{DateTime.Now:HH:mm:ss.fff} - chart çağrıldı");
-                        dataGridViewHandler.AddTelemetry(telemetry);
-                        Console.WriteLine($"{DateTime.Now:HH:mm:ss.fff} - datagrid çağrıldı");
+                        _dataGridHandler.AddTelemetry(telemetry);
                         _aras.Update(telemetry.HataKodu);
                     }));
-                }
-            });
 
-            isProcessing = false;
+                    // Güncelleme hızını sınırla (max 30 FPS)
+                    Thread.Sleep(33);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"UI Update Error: {ex.Message}");
+                }
+            }
         }
 
         public void Connect()
         {
             if (!_port.IsOpen)
+            {
                 _port.Open();
+                Console.WriteLine("Serial port connected");
+            }
         }
 
         public void Disconnect()
         {
             if (_port.IsOpen)
+            {
                 _port.Close();
+                Console.WriteLine("Serial port disconnected");
+            }
+        }
+
+        public void Dispose()
+        {
+            _cts.Cancel();
+            _processingQueue.CompleteAdding();
+
+            _serialReaderThread?.Join(1000);
+            _dataProcessorThread?.Join(1000);
+
+            _cts.Dispose();
+            _processingQueue.Dispose();
         }
     }
 }
