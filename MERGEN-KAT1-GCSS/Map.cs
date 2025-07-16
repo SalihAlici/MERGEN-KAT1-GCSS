@@ -12,13 +12,14 @@ namespace MERGEN_KAT1_GCSS
     public class Map : IDisposable
     {
         private readonly GMapControl _gMapControl;
-        private GMapMarker _startMarker; // Mavi başlangıç marker'ı
-        private GMapMarker _currentMarker; // Kırmızı güncel marker
+        private GMapMarker _startMarker;
+        private GMapMarker _currentMarker;
         private GMapOverlay _routesOverlay;
         private GMapRoute _route;
         private readonly List<PointLatLng> _pathPoints = new List<PointLatLng>();
         private bool _disposed = false;
         private bool _isFirstValidPosition = true;
+        private PointLatLng? _lastValidPosition = null; // Nullable olarak tanımlandı
         private const double MovementThreshold = 0.00001;
 
         public Map(GMapControl control)
@@ -51,13 +52,10 @@ namespace MERGEN_KAT1_GCSS
                 _gMapControl.Zoom = 16;
                 _gMapControl.ShowCenter = false;
 
-                // Overlay'leri temizle
                 _gMapControl.Overlays.Clear();
 
-                // Marker'lar overlay'i oluştur
                 var markersOverlay = new GMapOverlay("markers");
 
-                // Mavi başlangıç marker'ı (başlangıçta gizli)
                 _startMarker = new GMarkerGoogle(new PointLatLng(0, 0), GMarkerGoogleType.blue_dot)
                 {
                     IsHitTestVisible = false,
@@ -66,7 +64,6 @@ namespace MERGEN_KAT1_GCSS
                 };
                 markersOverlay.Markers.Add(_startMarker);
 
-                // Kırmızı güncel marker (başlangıçta gizli)
                 _currentMarker = new GMarkerGoogle(new PointLatLng(0, 0), GMarkerGoogleType.red_dot)
                 {
                     IsHitTestVisible = false,
@@ -77,7 +74,6 @@ namespace MERGEN_KAT1_GCSS
 
                 _gMapControl.Overlays.Add(markersOverlay);
 
-                // Rota çizgisi overlay'i
                 _routesOverlay = new GMapOverlay("routes");
                 _route = new GMapRoute(_pathPoints, "path")
                 {
@@ -101,11 +97,19 @@ namespace MERGEN_KAT1_GCSS
 
             if (IsInvalidCoordinate(telemetry.Gps1Latitude, telemetry.Gps1Longitude))
             {
-                Console.WriteLine("Geçersiz koordinat - İşlem yapılmadı");
+                Console.WriteLine("Geçersiz koordinat - Son geçerli konum kullanılıyor");
+
+                // Null kontrolü ile son geçerli konumu kullan
+                if (_lastValidPosition.HasValue)
+                {
+                    _currentMarker.Position = _lastValidPosition.Value;
+                    _gMapControl.UpdateMarkerLocalPosition(_currentMarker);
+                }
                 return;
             }
 
             var newPosition = new PointLatLng(telemetry.Gps1Latitude, telemetry.Gps1Longitude);
+            _lastValidPosition = newPosition;
 
             if (_gMapControl.InvokeRequired)
             {
@@ -113,23 +117,18 @@ namespace MERGEN_KAT1_GCSS
             }
             else
             {
-                // İlk geçerli konumda mavi marker'ı ayarla
                 if (_isFirstValidPosition)
                 {
                     _startMarker.Position = newPosition;
                     _startMarker.IsVisible = true;
                     _currentMarker.IsVisible = true;
                     _isFirstValidPosition = false;
-
-                    // Haritayı ilk konuma odakla
                     _gMapControl.Position = newPosition;
                 }
 
-                // Güncel konumu güncelle
                 _currentMarker.Position = newPosition;
                 _pathPoints.Add(newPosition);
 
-                // Rota çizgisini güncelle
                 _routesOverlay.Routes.Clear();
                 _route = new GMapRoute(new List<PointLatLng>(_pathPoints), "path")
                 {
@@ -137,7 +136,6 @@ namespace MERGEN_KAT1_GCSS
                 };
                 _routesOverlay.Routes.Add(_route);
 
-                // Haritayı güncelle
                 _gMapControl.UpdateRouteLocalPosition(_route);
                 _gMapControl.UpdateMarkerLocalPosition(_startMarker);
                 _gMapControl.UpdateMarkerLocalPosition(_currentMarker);
@@ -170,10 +168,10 @@ namespace MERGEN_KAT1_GCSS
                 };
                 _routesOverlay.Routes.Add(_route);
 
-                // Marker'ları gizle ve durumu sıfırla
                 _startMarker.IsVisible = false;
                 _currentMarker.IsVisible = false;
                 _isFirstValidPosition = true;
+                _lastValidPosition = null;
 
                 _gMapControl.UpdateRouteLocalPosition(_route);
             }
@@ -189,6 +187,7 @@ namespace MERGEN_KAT1_GCSS
             _route = null;
             _routesOverlay = null;
             _pathPoints.Clear();
+            _lastValidPosition = null;
 
             if (_gMapControl.IsHandleCreated && !_gMapControl.IsDisposed)
             {
