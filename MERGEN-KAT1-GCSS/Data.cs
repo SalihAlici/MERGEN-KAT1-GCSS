@@ -100,6 +100,7 @@ namespace MERGEN_KAT1_GCSS
                         _charts.Update(telemetry);
                         _dataGridHandler.AddTelemetry(telemetry);
                         _aras.Update(telemetry.HataKodu);
+                        
                     }));
 
                     // Güncelleme hızını sınırla (max 30 FPS)

@@ -40,8 +40,8 @@ namespace MERGEN_KAT1_GCSS
             x = pitch;
             y = roll;
             z = yaw;
-           
 
+            glControl1.Invalidate();
         }
 
         

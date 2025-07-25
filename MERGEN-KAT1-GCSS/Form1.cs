@@ -51,7 +51,6 @@ namespace MERGEN_KAT1_GCSS
            
             string csvPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "TELEMETRİ.csv");
             dataGridViewHandler = new DataGridViewHandler(dataGridView1, csvPath);
-            
 
 
 
@@ -59,21 +58,14 @@ namespace MERGEN_KAT1_GCSS
             // (glControl1, Form1'in tasarımında eklenmiş olmalı)
             simulation = new _3DSimulation(glControl1);
 
-            Application.Idle += Application_Idle;
+         
 
 
             LoadAvailablePorts();
 
         }
 
-        private void Application_Idle(object sender, EventArgs e)
-        {
-            if (stopwatch.ElapsedMilliseconds >= 1000 / targetFPS)
-            {
-                glControl1.Invalidate(); // sürekli çizim
-                stopwatch.Restart();
-            }
-        }
+      
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -236,7 +228,8 @@ namespace MERGEN_KAT1_GCSS
             // Model rotasyonları uygulanıyor.
             GL.Rotate(simulation.x, 0.0, 0.0, -1.0);  // yaw (z)
             GL.Rotate(simulation.z, 0.0, 1.0, 0.0);  // pitch (x)
-            GL.Rotate(simulation.y, -1.0, 0.0, 0.0);  // roll (y)
+            GL.Rotate(simulation.y, -1.0, 0.0, 0.0);  // roll (y)  
+
 
             // Modelin çizimi: alternatif model seçimine göre.
             if (useAlternativeModel)
@@ -321,5 +314,7 @@ namespace MERGEN_KAT1_GCSS
             useAlternativeModel = false;
             glControl1.Invalidate();
         }
+
+        
     }
 }

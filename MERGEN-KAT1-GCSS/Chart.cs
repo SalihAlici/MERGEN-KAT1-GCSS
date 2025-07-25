@@ -24,7 +24,7 @@ namespace MERGEN_KAT1_GCSS
 
                 foreach (var series in chart.Series)
                 {
-                    series.ChartType = SeriesChartType.FastLine;
+                   // series.ChartType = SeriesChartType.FastLine;
                     series.BorderWidth = 1;
                 }
             }
