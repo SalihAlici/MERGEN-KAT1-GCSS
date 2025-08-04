@@ -37,9 +37,11 @@ namespace MERGEN_KAT1_GCSS
         public void UpdateRotation(float yaw, float pitch, float roll)
         {
             
+          
+           
+            z = yaw;
             x = pitch;
             y = roll;
-            z = yaw;
 
             glControl1.Invalidate();
         }

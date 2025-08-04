@@ -25,7 +25,7 @@ namespace MERGEN_KAT1_GCSS
         private Thread recordingThread;
         private bool recordingThreadRunning = false;
 
-        public Camera(PictureBox pictureBox, int deviceIndex = 0)
+        public Camera(PictureBox pictureBox, int deviceIndex = 1)
         {
             this.pictureBox = pictureBox;
             InitializeCamera(deviceIndex);

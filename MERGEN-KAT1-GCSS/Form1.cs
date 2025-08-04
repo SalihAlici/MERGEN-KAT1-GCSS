@@ -223,13 +223,17 @@ namespace MERGEN_KAT1_GCSS
             GL.LoadMatrix(ref lookAt);
 
             GL.Viewport(0, 0, glControl1.Width, glControl1.Height);
-            
+
 
             // Model rotasyonları uygulanıyor.
-            GL.Rotate(simulation.x, 0.0, 0.0, -1.0);  // yaw (z)
-            GL.Rotate(simulation.z, 0.0, 1.0, 0.0);  // pitch (x)
-            GL.Rotate(simulation.y, -1.0, 0.0, 0.0);  // roll (y)  
+              GL.Rotate(simulation.x, 0.0, 0.0, -1.0);   
+              GL.Rotate(simulation.z, 0.0, -1.0, 0.0);  
+              GL.Rotate(simulation.y, -1.0, 0.0, 0.0);   
 
+            
+
+
+         
 
             // Modelin çizimi: alternatif model seçimine göre.
             if (useAlternativeModel)
