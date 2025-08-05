@@ -110,18 +110,22 @@ namespace MERGEN_KAT1_GCSS
             camera.Dispose();
         }
 
-        private void camopenbutton_Click(object sender, EventArgs e)
+        private async void camopenbutton_Click(object sender, EventArgs e)
         {
-            camera.StartCamera();
             camopenbutton.Enabled = false;
+
+            await Task.Run(() => camera.StartCamera());
+
             camclosebutton.Enabled = true;
         }
 
-        private void camclosebutton_Click(object sender, EventArgs e)
+        private async void camclosebutton_Click(object sender, EventArgs e)
         {
-            camera.StopCamera();
-            camopenbutton.Enabled = true;
             camclosebutton.Enabled = false;
+
+            await Task.Run(() => camera.StopCamera());
+
+            camopenbutton.Enabled = true;
         }
 
         private void cikisbutton_Click_1(object sender, EventArgs e)
@@ -265,15 +269,16 @@ namespace MERGEN_KAT1_GCSS
            
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private async void button7_Click(object sender, EventArgs e)
         {
             if (serialPort1.IsOpen)
             {
                 string mesaj = textBox1.Text.Trim();
                 if (!string.IsNullOrEmpty(mesaj))
                 {
-                    serialPort1.WriteLine(mesaj);
-                    //MessageBox.Show("Mesaj gönderildi: " + mesaj);
+                    string mesajWithC = "C" + mesaj; // Başına 'C' ekle
+                    await Task.Run(() => serialPort1.WriteLine(mesajWithC)); // Asenkron gönder
+                                                                            
                 }
                 else
                 {

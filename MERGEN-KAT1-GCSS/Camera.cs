@@ -24,6 +24,9 @@ namespace MERGEN_KAT1_GCSS
         private ConcurrentQueue<Bitmap> frameQueue = new ConcurrentQueue<Bitmap>();
         private Thread recordingThread;
         private bool recordingThreadRunning = false;
+        private AutoResetEvent frameAvailable = new AutoResetEvent(false);
+
+        private DateTime lastUIUpdate = DateTime.MinValue;
 
         public Camera(PictureBox pictureBox, int deviceIndex = 1)
         {
@@ -45,7 +48,7 @@ namespace MERGEN_KAT1_GCSS
 
             videoSource = new VideoCaptureDevice(videoDevices[deviceIndex].MonikerString);
 
-            // 1280x720 kesin çözünürlük seçimi
+            // 1280x720 çözünürlük tercihi
             VideoCapabilities desiredCap = null;
             foreach (var cap in videoSource.VideoCapabilities)
             {
@@ -71,35 +74,43 @@ namespace MERGEN_KAT1_GCSS
 
         private void Video_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            Bitmap frame = (Bitmap)eventArgs.Frame.Clone();
+            Bitmap originalFrame = (Bitmap)eventArgs.Frame.Clone();
 
-            // Canlı ekrana 60 FPS ile göster
-            if (pictureBox.InvokeRequired)
+            // UI güncellemesi: sadece 30 FPS ile sınırla (~33ms)
+            if ((DateTime.Now - lastUIUpdate).TotalMilliseconds >= 33)
             {
-                pictureBox.Invoke(new MethodInvoker(() =>
+                lastUIUpdate = DateTime.Now;
+
+                if (pictureBox.InvokeRequired)
+                {
+                    pictureBox.Invoke(new MethodInvoker(() =>
+                    {
+                        pictureBox.Image?.Dispose();
+                        pictureBox.Image = (Bitmap)originalFrame.Clone();
+                    }));
+                }
+                else
                 {
                     pictureBox.Image?.Dispose();
-                    pictureBox.Image = (Bitmap)frame.Clone();
-                }));
-            }
-            else
-            {
-                pictureBox.Image?.Dispose();
-                pictureBox.Image = (Bitmap)frame.Clone();
+                    pictureBox.Image = (Bitmap)originalFrame.Clone();
+                }
             }
 
-            // Kayıt aktifse kuyruğa frame ekle
+            // Kayıt aktifse kuyruğa ekle
             if (isRecording)
             {
-                // Kuyruk kontrolü
                 while (frameQueue.Count > 60 && frameQueue.TryDequeue(out Bitmap oldFrame))
                 {
                     oldFrame.Dispose();
                 }
-                frameQueue.Enqueue((Bitmap)frame.Clone());
-            }
 
-            frame.Dispose();
+                frameQueue.Enqueue(originalFrame);
+                frameAvailable.Set();
+            }
+            else
+            {
+                originalFrame.Dispose();
+            }
         }
 
         public void StartCamera(bool autoStartRecording = true)
@@ -145,17 +156,21 @@ namespace MERGEN_KAT1_GCSS
                     string datetimeString = DateTime.Now.ToString("yyyyMMdd_HHmmss");
                     outputFilePath = System.IO.Path.Combine(desktopPath, $"KameraKaydi_{datetimeString}.mp4");
 
+
                     videoWriter = new VideoFileWriter();
 
-                    int width = videoSource.VideoResolution.FrameSize.Width;
-                    int height = videoSource.VideoResolution.FrameSize.Height;
+                    
+                    
 
-                    videoWriter.Open(outputFilePath, width, height, 60, VideoCodec.MPEG4, 4000000);
+                    videoWriter.Open(outputFilePath, 1280, 720, 60, VideoCodec.MPEG4, 5000000);
 
                     isRecording = true;
 
                     recordingThreadRunning = true;
-                    recordingThread = new Thread(RecordingWorker);
+                    recordingThread = new Thread(RecordingWorker)
+                    {
+                        IsBackground = true
+                    };
                     recordingThread.Start();
 
                     MessageBox.Show("Kayıt başladı.");
@@ -171,6 +186,8 @@ namespace MERGEN_KAT1_GCSS
                 {
                     isRecording = false;
                     recordingThreadRunning = false;
+                    frameAvailable.Set(); // Thread'i uyandır
+
                     recordingThread.Join();
 
                     while (frameQueue.TryDequeue(out Bitmap bmp))
@@ -194,7 +211,9 @@ namespace MERGEN_KAT1_GCSS
         {
             while (recordingThreadRunning)
             {
-                if (frameQueue.TryDequeue(out Bitmap frame))
+                frameAvailable.WaitOne();
+
+                while (frameQueue.TryDequeue(out Bitmap frame))
                 {
                     lock (lockObj)
                     {
@@ -204,10 +223,6 @@ namespace MERGEN_KAT1_GCSS
                         }
                     }
                     frame.Dispose();
-                }
-                else
-                {
-                    Thread.Sleep(1);
                 }
             }
         }

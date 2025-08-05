@@ -93,7 +93,7 @@ namespace MERGEN_KAT1_GCSS
                 try
                 {
                     // UI güncellemelerini tek Invoke'da topla
-                    _form.Invoke((MethodInvoker)(() =>
+                    _form.BeginInvoke((MethodInvoker)(() =>
                     {
                         _simulation.UpdateRotation(telemetry.Yaw, telemetry.Pitch, telemetry.Roll);
                         _map.UpdatePosition(telemetry);
