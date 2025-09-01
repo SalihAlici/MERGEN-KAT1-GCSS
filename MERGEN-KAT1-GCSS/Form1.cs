@@ -180,7 +180,7 @@ namespace MERGEN_KAT1_GCSS
 
             try
             {
-                dataHandler = new Data(serialPort1, map, this, charts, dataGridViewHandler, simulation,aras); // event bağlanıyor
+                dataHandler = new Data(serialPort1, map, this, charts, simulation, dataGridViewHandler,aras); // event bağlanıyor
                 dataHandler.Connect();
                // serialPort1.Open();
 
@@ -271,14 +271,13 @@ namespace MERGEN_KAT1_GCSS
 
         private async void button7_Click(object sender, EventArgs e)
         {
-            if (serialPort1.IsOpen)
+            if (serialPort1.IsOpen && dataHandler != null)
             {
                 string mesaj = textBox1.Text.Trim();
                 if (!string.IsNullOrEmpty(mesaj))
                 {
                     string mesajWithC = "C" + mesaj; // Başına 'C' ekle
-                    await Task.Run(() => serialPort1.WriteLine(mesajWithC)); // Asenkron gönder
-                                                                            
+                    await Task.Run(() => dataHandler.SendCommand(mesajWithC)); // Data sınıfı üzerinden gönder
                 }
                 else
                 {
@@ -287,16 +286,16 @@ namespace MERGEN_KAT1_GCSS
             }
             else
             {
-                MessageBox.Show("Port açık değil!");
+                MessageBox.Show("Port açık değil veya Data nesnesi yok!");
             }
         }
         private async void SendMessageAsync(string message)
         {
-            if (serialPort1.IsOpen)
+            if (serialPort1.IsOpen && dataHandler != null)
             {
                 try
                 {
-                    await Task.Run(() => serialPort1.WriteLine(message));
+                    await Task.Run(() => dataHandler.SendCommand(message)); // Data üzerinden gönder
                     Console.WriteLine($"Mesaj gönderildi: {message}");
                 }
                 catch (Exception ex)
@@ -306,7 +305,7 @@ namespace MERGEN_KAT1_GCSS
             }
             else
             {
-                MessageBox.Show("Port açık değil!");
+                MessageBox.Show("Port açık değil veya Data nesnesi yok!");
             }
         }
 

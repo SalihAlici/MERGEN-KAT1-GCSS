@@ -124,7 +124,6 @@
             this.chart5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.pilpanel = new System.Windows.Forms.Panel();
-            this.batteryProgressBar1 = new MERGEN_KAT1_GCSS.BatteryProgressBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -142,6 +141,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.cikisbutton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.batteryProgressBar1 = new MERGEN_KAT1_GCSS.BatteryProgressBar();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.serialPort2 = new System.IO.Ports.SerialPort(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -1083,7 +1083,6 @@
             // pilpanel
             // 
             this.pilpanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pilpanel.Controls.Add(this.batteryProgressBar1);
             this.pilpanel.Controls.Add(this.groupBox1);
             this.pilpanel.Controls.Add(this.cikisbutton);
             this.pilpanel.Controls.Add(this.pictureBox2);
@@ -1093,16 +1092,6 @@
             this.pilpanel.Name = "pilpanel";
             this.pilpanel.Size = new System.Drawing.Size(1920, 147);
             this.pilpanel.TabIndex = 5;
-            // 
-            // batteryProgressBar1
-            // 
-            this.batteryProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.batteryProgressBar1.BackColor = System.Drawing.Color.Transparent;
-            this.batteryProgressBar1.Location = new System.Drawing.Point(1643, 39);
-            this.batteryProgressBar1.Name = "batteryProgressBar1";
-            this.batteryProgressBar1.Percentage = 74;
-            this.batteryProgressBar1.Size = new System.Drawing.Size(120, 66);
-            this.batteryProgressBar1.TabIndex = 34;
             // 
             // groupBox1
             // 
@@ -1353,6 +1342,21 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
+            // 
+            // batteryProgressBar1
+            // 
+            this.batteryProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.batteryProgressBar1.BackColor = System.Drawing.Color.Transparent;
+            this.batteryProgressBar1.Location = new System.Drawing.Point(1643, 39);
+            this.batteryProgressBar1.Name = "batteryProgressBar1";
+            this.batteryProgressBar1.Percentage = 18;
+            this.batteryProgressBar1.Size = new System.Drawing.Size(120, 66);
+            this.batteryProgressBar1.TabIndex = 34;
+            // 
+            // serialPort1
+            // 
+            this.serialPort1.ReadTimeout = 500;
+            this.serialPort1.WriteTimeout = 500;
             // 
             // Form1
             // 

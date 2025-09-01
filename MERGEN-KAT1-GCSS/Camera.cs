@@ -28,7 +28,7 @@ namespace MERGEN_KAT1_GCSS
 
         private DateTime lastUIUpdate = DateTime.MinValue;
 
-        public Camera(PictureBox pictureBox, int deviceIndex = 1)
+        public Camera(PictureBox pictureBox, int deviceIndex = 0)
         {
             this.pictureBox = pictureBox;
             InitializeCamera(deviceIndex);
