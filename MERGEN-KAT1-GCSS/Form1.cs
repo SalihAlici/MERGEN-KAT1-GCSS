@@ -46,9 +46,9 @@ namespace MERGEN_KAT1_GCSS
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
-           
+            aras.FifthErrorChanged += OnFifthErrorChanged;
 
-           
+
             string csvPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "TELEMETRİ.csv");
             dataGridViewHandler = new DataGridViewHandler(dataGridView1, csvPath);
 
@@ -65,7 +65,17 @@ namespace MERGEN_KAT1_GCSS
 
         }
 
-      
+        private void OnFifthErrorChanged(bool isError)
+        {
+            // 5. bit 0 iken alternatif model
+            useAlternativeModel = !isError;
+
+            Console.WriteLine($"[DEBUG] 5. bit: {(isError ? 1 : 0)}, useAlternativeModel: {useAlternativeModel}");
+
+            // 3D çizimi yenile
+            glControl1.Invalidate();
+        }
+
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -312,15 +322,13 @@ namespace MERGEN_KAT1_GCSS
         private void unlockbutton_Click(object sender, EventArgs e)
         {
             SendMessageAsync("A");
-            useAlternativeModel = true;
-            glControl1.Invalidate();
+            
         }
 
         private void lockbutton_Click(object sender, EventArgs e)
         {
             SendMessageAsync("B");
-            useAlternativeModel = false;
-            glControl1.Invalidate();
+           
         }
 
         
