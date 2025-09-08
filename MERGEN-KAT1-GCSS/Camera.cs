@@ -28,13 +28,18 @@ namespace MERGEN_KAT1_GCSS
 
         private DateTime lastUIUpdate = DateTime.MinValue;
 
-        public Camera(PictureBox pictureBox, int deviceIndex = 0)
+        public Camera(PictureBox pictureBox)
         {
             this.pictureBox = pictureBox;
-            InitializeCamera(deviceIndex);
+            InitializeCamera();
         }
 
-        private void InitializeCamera(int deviceIndex)
+        /// <summary>
+        /// Otomatik kamera seçimi:
+        /// - Eğer sadece 1 cihaz varsa => dahili (0)
+        /// - Eğer 2 veya daha fazla cihaz varsa => harici (1)
+        /// </summary>
+        private void InitializeCamera()
         {
             videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             if (videoDevices.Count == 0)
@@ -43,8 +48,9 @@ namespace MERGEN_KAT1_GCSS
                 return;
             }
 
-            if (deviceIndex < 0 || deviceIndex >= videoDevices.Count)
-                deviceIndex = 0;
+            int deviceIndex = 0; // Varsayılan laptop kamerası
+            if (videoDevices.Count > 1)
+                deviceIndex = 1; // Harici kamera varsa onu seç
 
             videoSource = new VideoCaptureDevice(videoDevices[deviceIndex].MonikerString);
 
@@ -63,7 +69,8 @@ namespace MERGEN_KAT1_GCSS
                 desiredCap = videoSource.VideoCapabilities[0];
                 foreach (var cap in videoSource.VideoCapabilities)
                 {
-                    if (cap.FrameSize.Width * cap.FrameSize.Height > desiredCap.FrameSize.Width * desiredCap.FrameSize.Height)
+                    if (cap.FrameSize.Width * cap.FrameSize.Height >
+                        desiredCap.FrameSize.Width * desiredCap.FrameSize.Height)
                         desiredCap = cap;
                 }
             }
@@ -76,41 +83,44 @@ namespace MERGEN_KAT1_GCSS
         {
             Bitmap originalFrame = (Bitmap)eventArgs.Frame.Clone();
 
-            // UI güncellemesi: sadece 30 FPS ile sınırla (~33ms)
-            if ((DateTime.Now - lastUIUpdate).TotalMilliseconds >= 33)
+            // UI güncellemesi (60 FPS sınırı)
+            if ((DateTime.Now - lastUIUpdate).TotalMilliseconds >= 16) // ~16ms ≈ 60FPS
             {
                 lastUIUpdate = DateTime.Now;
+                Bitmap preview = (Bitmap)originalFrame.Clone();
 
                 if (pictureBox.InvokeRequired)
                 {
-                    pictureBox.Invoke(new MethodInvoker(() =>
+                    pictureBox.BeginInvoke(new MethodInvoker(() =>
                     {
                         pictureBox.Image?.Dispose();
-                        pictureBox.Image = (Bitmap)originalFrame.Clone();
+                        pictureBox.Image = preview;
                     }));
                 }
                 else
                 {
                     pictureBox.Image?.Dispose();
-                    pictureBox.Image = (Bitmap)originalFrame.Clone();
+                    pictureBox.Image = preview;
                 }
             }
 
-            // Kayıt aktifse kuyruğa ekle
+            // Kayıt için ayrı kopya
             if (isRecording)
             {
-                while (frameQueue.Count > 60 && frameQueue.TryDequeue(out Bitmap oldFrame))
+                Bitmap recordingFrame = (Bitmap)originalFrame.Clone();
+
+                // Kuyruk boyunu sınırla (60 kare = 1 saniye)
+                if (frameQueue.Count > 60)
                 {
-                    oldFrame.Dispose();
+                    if (frameQueue.TryDequeue(out Bitmap oldFrame))
+                        oldFrame.Dispose();
                 }
 
-                frameQueue.Enqueue(originalFrame);
+                frameQueue.Enqueue(recordingFrame);
                 frameAvailable.Set();
             }
-            else
-            {
-                originalFrame.Dispose();
-            }
+
+            originalFrame.Dispose();
         }
 
         public void StartCamera(bool autoStartRecording = true)
@@ -156,12 +166,9 @@ namespace MERGEN_KAT1_GCSS
                     string datetimeString = DateTime.Now.ToString("yyyyMMdd_HHmmss");
                     outputFilePath = System.IO.Path.Combine(desktopPath, $"KameraKaydi_{datetimeString}.mp4");
 
-
                     videoWriter = new VideoFileWriter();
 
-                    
-                    
-
+                    // 60 FPS kayıt, makul bitrate ile
                     videoWriter.Open(outputFilePath, 1280, 720, 60, VideoCodec.MPEG4, 5000000);
 
                     isRecording = true;
@@ -186,7 +193,7 @@ namespace MERGEN_KAT1_GCSS
                 {
                     isRecording = false;
                     recordingThreadRunning = false;
-                    frameAvailable.Set(); // Thread'i uyandır
+                    frameAvailable.Set();
 
                     recordingThread.Join();
 
@@ -215,14 +222,21 @@ namespace MERGEN_KAT1_GCSS
 
                 while (frameQueue.TryDequeue(out Bitmap frame))
                 {
-                    lock (lockObj)
+                    try
                     {
                         if (videoWriter != null && isRecording)
                         {
                             videoWriter.WriteVideoFrame(frame);
                         }
                     }
-                    frame.Dispose();
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Yazma hatası: " + ex.Message);
+                    }
+                    finally
+                    {
+                        frame.Dispose();
+                    }
                 }
             }
         }
