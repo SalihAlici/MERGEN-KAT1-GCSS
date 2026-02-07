@@ -28,38 +28,97 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.solpanel = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
+            this.sagpanel = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label26 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.glControl1 = new OpenTK.GLControl();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.grafikpanel = new System.Windows.Forms.TableLayoutPanel();
+            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart6 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.chart8 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart7 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pilpanel = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.camclosebutton = new System.Windows.Forms.Button();
+            this.camopenbutton = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.label16 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.mSerialConnectButton = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lSerialConnectButton = new System.Windows.Forms.Button();
+            this.batteryProgressBar1 = new BatteryProgressBar();
+            this.cikisbutton = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,78 +140,61 @@
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.solpanel = new System.Windows.Forms.TableLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
-            this.sagpanel = new System.Windows.Forms.TableLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.glControl1 = new OpenTK.GLControl();
-            this.araspanel = new System.Windows.Forms.TableLayoutPanel();
-            this.araspanel6 = new System.Windows.Forms.Panel();
-            this.araspanel2 = new System.Windows.Forms.Panel();
-            this.araspanel1 = new System.Windows.Forms.Panel();
-            this.araspanel3 = new System.Windows.Forms.Panel();
-            this.araspanel5 = new System.Windows.Forms.Panel();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.grafikpanel = new System.Windows.Forms.TableLayoutPanel();
-            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart6 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.chart8 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart7 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.circularProgress2 = new MERGEN_KAT1_GCSS.CircularProgress();
+            this.quarterCircularProgress2 = new MERGEN_KAT1_GCSS.QuarterCircularProgress();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.UpButton = new System.Windows.Forms.Button();
+            this.HomeButton = new System.Windows.Forms.Button();
+            this.LeftButton = new System.Windows.Forms.Button();
+            this.RightButton = new System.Windows.Forms.Button();
+            this.DownButton = new System.Windows.Forms.Button();
+            this.buttonStracking = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.labelElevation = new System.Windows.Forms.Label();
+            this.textBoxDegree = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.labelAzimuth = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.labelVdistance = new System.Windows.Forms.Label();
+            this.labelGSlong = new System.Windows.Forms.Label();
+            this.labelHdistance = new System.Windows.Forms.Label();
+            this.labelGSlat = new System.Windows.Forms.Label();
+            this.labelMSalt = new System.Windows.Forms.Label();
+            this.labelGSalt = new System.Windows.Forms.Label();
+            this.labelMSlat = new System.Windows.Forms.Label();
+            this.labelMSlong = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.fhApplyButton = new System.Windows.Forms.Button();
+            this.labelMag = new System.Windows.Forms.Label();
+            this.tbMSalt = new System.Windows.Forms.TextBox();
+            this.tbMSlon = new System.Windows.Forms.TextBox();
+            this.labelAntennaElevation = new System.Windows.Forms.Label();
+            this.tbMSlat = new System.Windows.Forms.TextBox();
+            this.labelAntennaAzimuth = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.tbGSlat = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tbGSlon = new System.Windows.Forms.TextBox();
+            this.tbGSalt = new System.Windows.Forms.TextBox();
             this.solpanel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.sagpanel.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.araspanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -162,211 +204,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart5)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.pilpanel.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(58)))), ((int)(((byte)(116)))));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Blue;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(18)))), ((int)(((byte)(80)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8,
-            this.Column9,
-            this.Column10,
-            this.Column11,
-            this.Column12,
-            this.Column13,
-            this.Column14,
-            this.Column15,
-            this.Column16,
-            this.Column17,
-            this.Column18,
-            this.Column19,
-            this.Column20,
-            this.Column21,
-            this.Column22});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(29)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
-            this.dataGridView1.Location = new System.Drawing.Point(0, 855);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1901, 178);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle8;
-            this.Column1.HeaderText = "PAKET NUMARASI";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "UYDU STATÜSÜ";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "HATA KODU";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "GÖNDERME SAATİ";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "BASINÇ1 (hpa)";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "BASINÇ2 (hpa)";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "YÜKSEKLİK1 (m)";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "YÜKSEKLİK2 (m)";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "İRTİFA FARKI (m)";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "İNİŞ HIZI (m/s)";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "SICAKLIK (°C)";
-            this.Column11.MinimumWidth = 6;
-            this.Column11.Name = "Column11";
-            // 
-            // Column12
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column12.DefaultCellStyle = dataGridViewCellStyle9;
-            this.Column12.HeaderText = "PİL GERİLİMİ (V)";
-            this.Column12.MinimumWidth = 6;
-            this.Column12.Name = "Column12";
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "GPS1 LATITUDE";
-            this.Column13.MinimumWidth = 6;
-            this.Column13.Name = "Column13";
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "GPS1 LONGITUDE";
-            this.Column14.MinimumWidth = 6;
-            this.Column14.Name = "Column14";
-            // 
-            // Column15
-            // 
-            this.Column15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column15.HeaderText = "GPS1 ALTITUDE";
-            this.Column15.MinimumWidth = 6;
-            this.Column15.Name = "Column15";
-            this.Column15.Width = 84;
-            // 
-            // Column16
-            // 
-            this.Column16.HeaderText = "PITCH (°)";
-            this.Column16.MinimumWidth = 6;
-            this.Column16.Name = "Column16";
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "ROLL (°)";
-            this.Column17.MinimumWidth = 6;
-            this.Column17.Name = "Column17";
-            // 
-            // Column18
-            // 
-            this.Column18.HeaderText = "YAW (°)";
-            this.Column18.MinimumWidth = 6;
-            this.Column18.Name = "Column18";
-            // 
-            // Column19
-            // 
-            this.Column19.HeaderText = "RHRH";
-            this.Column19.MinimumWidth = 6;
-            this.Column19.Name = "Column19";
-            // 
-            // Column20
-            // 
-            this.Column20.HeaderText = "loT S1 DATA (°C)";
-            this.Column20.MinimumWidth = 6;
-            this.Column20.Name = "Column20";
-            // 
-            // Column21
-            // 
-            this.Column21.HeaderText = "loT S2 DATA (°C)";
-            this.Column21.MinimumWidth = 6;
-            this.Column21.Name = "Column21";
-            // 
-            // Column22
-            // 
-            this.Column22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column22.HeaderText = "TAKIM NO";
-            this.Column22.MinimumWidth = 6;
-            this.Column22.Name = "Column22";
             // 
             // solpanel
             // 
@@ -375,13 +225,13 @@
             this.solpanel.Controls.Add(this.panel2, 0, 0);
             this.solpanel.Controls.Add(this.panel3, 0, 1);
             this.solpanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.solpanel.Location = new System.Drawing.Point(0, 128);
+            this.solpanel.Location = new System.Drawing.Point(3, 3);
             this.solpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.solpanel.Name = "solpanel";
             this.solpanel.RowCount = 2;
             this.solpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.solpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.solpanel.Size = new System.Drawing.Size(374, 727);
+            this.solpanel.Size = new System.Drawing.Size(433, 720);
             this.solpanel.TabIndex = 2;
             // 
             // panel2
@@ -391,7 +241,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(368, 357);
+            this.panel2.Size = new System.Drawing.Size(427, 354);
             this.panel2.TabIndex = 0;
             // 
             // pictureBox1
@@ -399,7 +249,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(364, 353);
+            this.pictureBox1.Size = new System.Drawing.Size(423, 350);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -407,9 +257,9 @@
             // 
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 366);
+            this.panel3.Location = new System.Drawing.Point(3, 363);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(368, 358);
+            this.panel3.Size = new System.Drawing.Size(427, 354);
             this.panel3.TabIndex = 1;
             // 
             // panel4
@@ -419,7 +269,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(368, 358);
+            this.panel4.Size = new System.Drawing.Size(427, 354);
             this.panel4.TabIndex = 0;
             // 
             // gMapControl1
@@ -445,27 +295,137 @@
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(364, 354);
+            this.gMapControl1.Size = new System.Drawing.Size(423, 350);
             this.gMapControl1.TabIndex = 0;
             this.gMapControl1.Zoom = 0D;
-            this.gMapControl1.Load += new System.EventHandler(this.gMapControl1_Load);
             // 
             // sagpanel
             // 
             this.sagpanel.ColumnCount = 1;
             this.sagpanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.sagpanel.Controls.Add(this.tableLayoutPanel2, 0, 2);
             this.sagpanel.Controls.Add(this.panel5, 0, 0);
-            this.sagpanel.Controls.Add(this.araspanel, 0, 1);
+            this.sagpanel.Controls.Add(this.panel7, 0, 1);
             this.sagpanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.sagpanel.Location = new System.Drawing.Point(1471, 128);
+            this.sagpanel.Location = new System.Drawing.Point(1476, 3);
             this.sagpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sagpanel.Name = "sagpanel";
-            this.sagpanel.RowCount = 2;
-            this.sagpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.sagpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.sagpanel.Size = new System.Drawing.Size(430, 727);
+            this.sagpanel.RowCount = 3;
+            this.sagpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.66666F));
+            this.sagpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.33333F));
+            this.sagpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 119F));
+            this.sagpanel.Size = new System.Drawing.Size(433, 720);
             this.sagpanel.TabIndex = 4;
-            this.sagpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.sagpanel_Paint);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24F));
+            this.tableLayoutPanel2.Controls.Add(this.label13, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label14, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label19, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel11, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.panel12, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.panel13, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.panel14, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label26, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 603);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.38095F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.61905F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(427, 114);
+            this.tableLayoutPanel2.TabIndex = 2;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label13.Location = new System.Drawing.Point(327, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(97, 59);
+            this.label13.TabIndex = 14;
+            this.label13.Text = "BASINÇ VERİSİ";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label14.Location = new System.Drawing.Point(225, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(96, 59);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "KONUM VERİSİ";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label19.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label19.Location = new System.Drawing.Point(114, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(105, 59);
+            this.label19.TabIndex = 10;
+            this.label19.Text = "HABERLEŞME YER İST. 2";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.Lime;
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(327, 62);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(97, 49);
+            this.panel11.TabIndex = 7;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.Lime;
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(225, 62);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(96, 49);
+            this.panel12.TabIndex = 6;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.Lime;
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(114, 62);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(105, 49);
+            this.panel13.TabIndex = 5;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.Lime;
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(3, 62);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(105, 49);
+            this.panel14.TabIndex = 4;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label26.Location = new System.Drawing.Point(3, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(105, 59);
+            this.label26.TabIndex = 8;
+            this.label26.Text = "HABERLEŞME YER İST. 1";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel5
             // 
@@ -474,7 +434,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(424, 357);
+            this.panel5.Size = new System.Drawing.Size(427, 400);
             this.panel5.TabIndex = 0;
             // 
             // glControl1
@@ -484,274 +444,115 @@
             this.glControl1.Location = new System.Drawing.Point(0, 0);
             this.glControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.glControl1.Name = "glControl1";
-            this.glControl1.Size = new System.Drawing.Size(420, 353);
+            this.glControl1.Size = new System.Drawing.Size(423, 396);
             this.glControl1.TabIndex = 0;
             this.glControl1.VSync = false;
-            this.glControl1.Load += new System.EventHandler(this.glControl1_Load);
             // 
-            // araspanel
+            // panel7
             // 
-            this.araspanel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.araspanel.ColumnCount = 6;
-            this.araspanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66447F));
-            this.araspanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.83949F));
-            this.araspanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.07695F));
-            this.araspanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.33448F));
-            this.araspanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.99762F));
-            this.araspanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.08698F));
-            this.araspanel.Controls.Add(this.araspanel6, 5, 1);
-            this.araspanel.Controls.Add(this.araspanel2, 0, 1);
-            this.araspanel.Controls.Add(this.araspanel1, 0, 1);
-            this.araspanel.Controls.Add(this.araspanel3, 0, 1);
-            this.araspanel.Controls.Add(this.araspanel5, 0, 1);
-            this.araspanel.Controls.Add(this.panel8, 0, 1);
-            this.araspanel.Controls.Add(this.label9, 0, 0);
-            this.araspanel.Controls.Add(this.label10, 1, 0);
-            this.araspanel.Controls.Add(this.label11, 2, 0);
-            this.araspanel.Controls.Add(this.label12, 3, 0);
-            this.araspanel.Controls.Add(this.label13, 4, 0);
-            this.araspanel.Controls.Add(this.label14, 5, 0);
-            this.araspanel.Location = new System.Drawing.Point(3, 593);
-            this.araspanel.Name = "araspanel";
-            this.araspanel.RowCount = 2;
-            this.araspanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.85315F));
-            this.araspanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.14685F));
-            this.araspanel.Size = new System.Drawing.Size(424, 131);
-            this.araspanel.TabIndex = 1;
-            // 
-            // araspanel6
-            // 
-            this.araspanel6.BackColor = System.Drawing.Color.Lime;
-            this.araspanel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.araspanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.araspanel6.Location = new System.Drawing.Point(357, 64);
-            this.araspanel6.Name = "araspanel6";
-            this.araspanel6.Size = new System.Drawing.Size(64, 64);
-            this.araspanel6.TabIndex = 14;
-            // 
-            // araspanel2
-            // 
-            this.araspanel2.BackColor = System.Drawing.Color.Lime;
-            this.araspanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.araspanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.araspanel2.Location = new System.Drawing.Point(73, 64);
-            this.araspanel2.Name = "araspanel2";
-            this.araspanel2.Size = new System.Drawing.Size(61, 64);
-            this.araspanel2.TabIndex = 7;
-            // 
-            // araspanel1
-            // 
-            this.araspanel1.BackColor = System.Drawing.Color.Lime;
-            this.araspanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.araspanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.araspanel1.Location = new System.Drawing.Point(3, 64);
-            this.araspanel1.Name = "araspanel1";
-            this.araspanel1.Size = new System.Drawing.Size(64, 64);
-            this.araspanel1.TabIndex = 6;
-            // 
-            // araspanel3
-            // 
-            this.araspanel3.BackColor = System.Drawing.Color.Lime;
-            this.araspanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.araspanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.araspanel3.Location = new System.Drawing.Point(140, 64);
-            this.araspanel3.Name = "araspanel3";
-            this.araspanel3.Size = new System.Drawing.Size(66, 64);
-            this.araspanel3.TabIndex = 5;
-            // 
-            // araspanel5
-            // 
-            this.araspanel5.BackColor = System.Drawing.Color.Lime;
-            this.araspanel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.araspanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.araspanel5.Location = new System.Drawing.Point(281, 64);
-            this.araspanel5.Name = "araspanel5";
-            this.araspanel5.Size = new System.Drawing.Size(70, 64);
-            this.araspanel5.TabIndex = 4;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.Lime;
-            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(212, 64);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(63, 64);
-            this.panel8.TabIndex = 3;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label9.Location = new System.Drawing.Point(7, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 61);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "MODEL UYDU İNİŞ HIZI";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label10.Location = new System.Drawing.Point(73, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 45);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "GÖREV YÜKÜ İNİŞ HIZI";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label11.Location = new System.Drawing.Point(146, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 61);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "TAŞIYICI BASINÇ VERİSİ";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label12.Location = new System.Drawing.Point(212, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 60);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "GÖREV YÜKÜ KONUM VERİSİ";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label13.Location = new System.Drawing.Point(287, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(58, 61);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "AYRILMA";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label14.Location = new System.Drawing.Point(361, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(55, 61);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "FİLTRE SİSTEMİ";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel7.Location = new System.Drawing.Point(120, 409);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(193, 188);
+            this.panel7.TabIndex = 3;
             // 
             // chart3
             // 
             this.chart3.BackColor = System.Drawing.Color.Transparent;
-            chartArea9.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea9.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea9.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea9.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea9.BackColor = System.Drawing.Color.Transparent;
-            chartArea9.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea9);
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea1.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea1.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea1);
             this.chart3.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend9.Alignment = System.Drawing.StringAlignment.Center;
-            legend9.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            legend9.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend9.Enabled = false;
-            legend9.Name = "Legend1";
-            this.chart3.Legends.Add(legend9);
-            this.chart3.Location = new System.Drawing.Point(547, 37);
+            legend1.Alignment = System.Drawing.StringAlignment.Center;
+            legend1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.chart3.Legends.Add(legend1);
+            this.chart3.Location = new System.Drawing.Point(523, 38);
             this.chart3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart3.Name = "chart3";
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series11.Color = System.Drawing.Color.Lime;
-            series11.IsVisibleInLegend = false;
-            series11.Legend = "Legend1";
-            series11.Name = "Series1";
-            this.chart3.Series.Add(series11);
-            this.chart3.Size = new System.Drawing.Size(266, 303);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Color = System.Drawing.Color.Lime;
+            series1.IsVisibleInLegend = false;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart3.Series.Add(series1);
+            this.chart3.Size = new System.Drawing.Size(254, 315);
             this.chart3.TabIndex = 9;
             this.chart3.Text = "chart4";
             // 
             // chart2
             // 
             this.chart2.BackColor = System.Drawing.Color.Transparent;
-            chartArea10.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea10.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea10.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea10.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea10.BackColor = System.Drawing.Color.Transparent;
-            chartArea10.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea10);
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea2.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea2.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
             this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend10.Alignment = System.Drawing.StringAlignment.Center;
-            legend10.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            legend10.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend10.Enabled = false;
-            legend10.Name = "Legend1";
-            this.chart2.Legends.Add(legend10);
-            this.chart2.Location = new System.Drawing.Point(275, 37);
+            legend2.Alignment = System.Drawing.StringAlignment.Center;
+            legend2.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.chart2.Legends.Add(legend2);
+            this.chart2.Location = new System.Drawing.Point(263, 38);
             this.chart2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart2.Name = "chart2";
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series12.Color = System.Drawing.Color.Cyan;
-            series12.IsVisibleInLegend = false;
-            series12.Legend = "Legend1";
-            series12.Name = "Series1";
-            this.chart2.Series.Add(series12);
-            this.chart2.Size = new System.Drawing.Size(266, 303);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Color = System.Drawing.Color.Cyan;
+            series2.IsVisibleInLegend = false;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart2.Series.Add(series2);
+            this.chart2.Size = new System.Drawing.Size(254, 315);
             this.chart2.TabIndex = 14;
             this.chart2.Text = "chart6";
             // 
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.Transparent;
-            chartArea11.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea11.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea11.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea11.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea11.BackColor = System.Drawing.Color.Transparent;
-            chartArea11.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea11);
+            chartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea3.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea3.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea3.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea3.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend11.Alignment = System.Drawing.StringAlignment.Center;
-            legend11.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            legend11.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend11.Enabled = false;
-            legend11.Name = "Legend1";
-            this.chart1.Legends.Add(legend11);
-            this.chart1.Location = new System.Drawing.Point(3, 37);
+            legend3.Alignment = System.Drawing.StringAlignment.Center;
+            legend3.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
+            this.chart1.Location = new System.Drawing.Point(3, 38);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series13.ChartArea = "ChartArea1";
-            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series13.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            series13.IsVisibleInLegend = false;
-            series13.Legend = "Legend1";
-            series13.Name = "Series1";
-            series14.ChartArea = "ChartArea1";
-            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series14.Color = System.Drawing.Color.Fuchsia;
-            series14.IsVisibleInLegend = false;
-            series14.Legend = "Legend1";
-            series14.Name = "Series2";
-            this.chart1.Series.Add(series13);
-            this.chart1.Series.Add(series14);
-            this.chart1.Size = new System.Drawing.Size(266, 303);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            series3.IsVisibleInLegend = false;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Color = System.Drawing.Color.Fuchsia;
+            series4.IsVisibleInLegend = false;
+            series4.Legend = "Legend1";
+            series4.Name = "Series2";
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
+            this.chart1.Size = new System.Drawing.Size(254, 315);
             this.chart1.TabIndex = 16;
             this.chart1.Text = "bel";
             // 
@@ -781,7 +582,7 @@
             this.grafikpanel.Controls.Add(this.chart2, 0, 1);
             this.grafikpanel.Controls.Add(this.label1, 0, 0);
             this.grafikpanel.Controls.Add(this.chart3, 2, 1);
-            this.grafikpanel.Location = new System.Drawing.Point(375, 164);
+            this.grafikpanel.Location = new System.Drawing.Point(437, 5);
             this.grafikpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grafikpanel.Name = "grafikpanel";
             this.grafikpanel.RowCount = 4;
@@ -789,69 +590,69 @@
             this.grafikpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.70199F));
             this.grafikpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.470199F));
             this.grafikpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.02649F));
-            this.grafikpanel.Size = new System.Drawing.Size(1090, 691);
+            this.grafikpanel.Size = new System.Drawing.Size(1040, 718);
             this.grafikpanel.TabIndex = 0;
             // 
             // chart4
             // 
             this.chart4.BackColor = System.Drawing.Color.Transparent;
-            chartArea12.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea12.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea12.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea12.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea12.BackColor = System.Drawing.Color.Transparent;
-            chartArea12.Name = "ChartArea1";
-            this.chart4.ChartAreas.Add(chartArea12);
+            chartArea4.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea4.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea4.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea4.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea4.BackColor = System.Drawing.Color.Transparent;
+            chartArea4.Name = "ChartArea1";
+            this.chart4.ChartAreas.Add(chartArea4);
             this.chart4.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend12.Alignment = System.Drawing.StringAlignment.Center;
-            legend12.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            legend12.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend12.Enabled = false;
-            legend12.Name = "Legend1";
-            this.chart4.Legends.Add(legend12);
-            this.chart4.Location = new System.Drawing.Point(819, 37);
+            legend4.Alignment = System.Drawing.StringAlignment.Center;
+            legend4.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend4.Enabled = false;
+            legend4.Name = "Legend1";
+            this.chart4.Legends.Add(legend4);
+            this.chart4.Location = new System.Drawing.Point(783, 38);
             this.chart4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart4.Name = "chart4";
-            series15.ChartArea = "ChartArea1";
-            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series15.Color = System.Drawing.SystemColors.Info;
-            series15.IsVisibleInLegend = false;
-            series15.Legend = "Legend1";
-            series15.Name = "Series1";
-            series15.ShadowColor = System.Drawing.Color.White;
-            this.chart4.Series.Add(series15);
-            this.chart4.Size = new System.Drawing.Size(268, 303);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series5.Color = System.Drawing.SystemColors.Info;
+            series5.IsVisibleInLegend = false;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            series5.ShadowColor = System.Drawing.Color.White;
+            this.chart4.Series.Add(series5);
+            this.chart4.Size = new System.Drawing.Size(254, 315);
             this.chart4.TabIndex = 34;
             this.chart4.Text = "chart4";
             // 
             // chart6
             // 
             this.chart6.BackColor = System.Drawing.Color.Transparent;
-            chartArea13.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea13.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea13.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea13.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea13.BackColor = System.Drawing.Color.Transparent;
-            chartArea13.Name = "ChartArea1";
-            this.chart6.ChartAreas.Add(chartArea13);
+            chartArea5.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea5.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea5.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea5.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea5.BackColor = System.Drawing.Color.Transparent;
+            chartArea5.Name = "ChartArea1";
+            this.chart6.ChartAreas.Add(chartArea5);
             this.chart6.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend13.Alignment = System.Drawing.StringAlignment.Center;
-            legend13.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            legend13.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend13.Enabled = false;
-            legend13.Name = "Legend1";
-            this.chart6.Legends.Add(legend13);
-            this.chart6.Location = new System.Drawing.Point(275, 374);
+            legend5.Alignment = System.Drawing.StringAlignment.Center;
+            legend5.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            legend5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend5.Enabled = false;
+            legend5.Name = "Legend1";
+            this.chart6.Legends.Add(legend5);
+            this.chart6.Location = new System.Drawing.Point(263, 388);
             this.chart6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart6.Name = "chart6";
-            series16.ChartArea = "ChartArea1";
-            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series16.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            series16.IsVisibleInLegend = false;
-            series16.Legend = "Legend1";
-            series16.Name = "Series1";
-            this.chart6.Series.Add(series16);
-            this.chart6.Size = new System.Drawing.Size(266, 315);
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            series6.IsVisibleInLegend = false;
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chart6.Series.Add(series6);
+            this.chart6.Size = new System.Drawing.Size(254, 328);
             this.chart6.TabIndex = 30;
             this.chart6.Text = "chart9";
             // 
@@ -861,11 +662,11 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label8.Location = new System.Drawing.Point(867, 350);
+            this.label8.Location = new System.Drawing.Point(835, 364);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(172, 22);
+            this.label8.Size = new System.Drawing.Size(150, 22);
             this.label8.TabIndex = 29;
-            this.label8.Text = "loT S1-S2 DATA (°C)";
+            this.label8.Text = "PİL DURUMU (%)";
             // 
             // label7
             // 
@@ -873,7 +674,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label7.Location = new System.Drawing.Point(609, 350);
+            this.label7.Location = new System.Drawing.Point(579, 364);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(141, 22);
             this.label7.TabIndex = 28;
@@ -885,11 +686,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label6.Location = new System.Drawing.Point(349, 350);
+            this.label6.Location = new System.Drawing.Point(314, 364);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 22);
+            this.label6.Size = new System.Drawing.Size(152, 22);
             this.label6.TabIndex = 27;
-            this.label6.Text = "SICAKLIK (°C)";
+            this.label6.Text = "SICAKLIK DIŞ (°C)";
             // 
             // label5
             // 
@@ -897,11 +698,11 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label5.Location = new System.Drawing.Point(70, 350);
+            this.label5.Location = new System.Drawing.Point(61, 364);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(132, 22);
+            this.label5.Size = new System.Drawing.Size(138, 22);
             this.label5.TabIndex = 26;
-            this.label5.Text = "İNİŞ HIZI (m/s)";
+            this.label5.Text = "SICAKLIK İÇ (°C)";
             // 
             // label4
             // 
@@ -909,12 +710,12 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label4.Location = new System.Drawing.Point(880, 13);
+            this.label4.Location = new System.Drawing.Point(856, 14);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(146, 22);
+            this.label4.Size = new System.Drawing.Size(108, 22);
             this.label4.TabIndex = 25;
             this.label4.Tag = "";
-            this.label4.Text = "İRTİFA FARKI (m)";
+            this.label4.Text = "MESAFE (m)";
             // 
             // label3
             // 
@@ -922,11 +723,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label3.Location = new System.Drawing.Point(607, 13);
+            this.label3.Location = new System.Drawing.Point(580, 14);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 22);
+            this.label3.Size = new System.Drawing.Size(140, 22);
             this.label3.TabIndex = 24;
-            this.label3.Text = "YÜKSEKLİK 2 (m)";
+            this.label3.Text = "DİKEY HIZ (m/s)";
             // 
             // label2
             // 
@@ -934,109 +735,109 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label2.Location = new System.Drawing.Point(335, 13);
+            this.label2.Location = new System.Drawing.Point(324, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 22);
+            this.label2.Size = new System.Drawing.Size(132, 22);
             this.label2.TabIndex = 23;
-            this.label2.Text = "YÜKSEKLİK 1 (m)";
+            this.label2.Text = "YÜKSEKLİK (m)";
             // 
             // chart8
             // 
             this.chart8.BackColor = System.Drawing.Color.Transparent;
-            chartArea14.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea14.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea14.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea14.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea14.BackColor = System.Drawing.Color.Transparent;
-            chartArea14.Name = "ChartArea1";
-            this.chart8.ChartAreas.Add(chartArea14);
+            chartArea6.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea6.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea6.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea6.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea6.BackColor = System.Drawing.Color.Transparent;
+            chartArea6.Name = "ChartArea1";
+            this.chart8.ChartAreas.Add(chartArea6);
             this.chart8.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend14.Alignment = System.Drawing.StringAlignment.Center;
-            legend14.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            legend14.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend14.Enabled = false;
-            legend14.Name = "Legend1";
-            this.chart8.Legends.Add(legend14);
-            this.chart8.Location = new System.Drawing.Point(819, 374);
+            legend6.Alignment = System.Drawing.StringAlignment.Center;
+            legend6.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend6.Enabled = false;
+            legend6.Name = "Legend1";
+            this.chart8.Legends.Add(legend6);
+            this.chart8.Location = new System.Drawing.Point(783, 388);
             this.chart8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart8.Name = "chart8";
-            series17.ChartArea = "ChartArea1";
-            series17.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series17.Color = System.Drawing.Color.Turquoise;
-            series17.IsVisibleInLegend = false;
-            series17.Legend = "Legend1";
-            series17.Name = "Series1";
-            series18.ChartArea = "ChartArea1";
-            series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series18.Color = System.Drawing.Color.IndianRed;
-            series18.IsVisibleInLegend = false;
-            series18.Legend = "Legend1";
-            series18.Name = "Series2";
-            this.chart8.Series.Add(series17);
-            this.chart8.Series.Add(series18);
-            this.chart8.Size = new System.Drawing.Size(268, 315);
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series7.Color = System.Drawing.Color.Turquoise;
+            series7.IsVisibleInLegend = false;
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series8.Color = System.Drawing.Color.IndianRed;
+            series8.IsVisibleInLegend = false;
+            series8.Legend = "Legend1";
+            series8.Name = "Series2";
+            this.chart8.Series.Add(series7);
+            this.chart8.Series.Add(series8);
+            this.chart8.Size = new System.Drawing.Size(254, 328);
             this.chart8.TabIndex = 21;
             this.chart8.Text = "chart12";
             // 
             // chart7
             // 
             this.chart7.BackColor = System.Drawing.Color.Transparent;
-            chartArea15.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea15.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea15.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea15.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea15.BackColor = System.Drawing.Color.Transparent;
-            chartArea15.Name = "ChartArea1";
-            this.chart7.ChartAreas.Add(chartArea15);
+            chartArea7.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea7.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea7.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea7.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea7.BackColor = System.Drawing.Color.Transparent;
+            chartArea7.Name = "ChartArea1";
+            this.chart7.ChartAreas.Add(chartArea7);
             this.chart7.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend15.Alignment = System.Drawing.StringAlignment.Center;
-            legend15.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            legend15.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend15.Enabled = false;
-            legend15.Name = "Legend1";
-            this.chart7.Legends.Add(legend15);
-            this.chart7.Location = new System.Drawing.Point(547, 374);
+            legend7.Alignment = System.Drawing.StringAlignment.Center;
+            legend7.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            legend7.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend7.Enabled = false;
+            legend7.Name = "Legend1";
+            this.chart7.Legends.Add(legend7);
+            this.chart7.Location = new System.Drawing.Point(523, 388);
             this.chart7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart7.Name = "chart7";
-            series19.ChartArea = "ChartArea1";
-            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series19.Color = System.Drawing.Color.Yellow;
-            series19.IsVisibleInLegend = false;
-            series19.Legend = "Legend1";
-            series19.Name = "Series1";
-            this.chart7.Series.Add(series19);
-            this.chart7.Size = new System.Drawing.Size(266, 315);
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series9.Color = System.Drawing.Color.Yellow;
+            series9.IsVisibleInLegend = false;
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.chart7.Series.Add(series9);
+            this.chart7.Size = new System.Drawing.Size(254, 328);
             this.chart7.TabIndex = 20;
             this.chart7.Text = "chart11";
             // 
             // chart5
             // 
             this.chart5.BackColor = System.Drawing.Color.Transparent;
-            chartArea16.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea16.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea16.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea16.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
-            chartArea16.BackColor = System.Drawing.Color.Transparent;
-            chartArea16.Name = "ChartArea1";
-            this.chart5.ChartAreas.Add(chartArea16);
+            chartArea8.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea8.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea8.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea8.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.Gainsboro;
+            chartArea8.BackColor = System.Drawing.Color.Transparent;
+            chartArea8.Name = "ChartArea1";
+            this.chart5.ChartAreas.Add(chartArea8);
             this.chart5.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend16.Alignment = System.Drawing.StringAlignment.Center;
-            legend16.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            legend16.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend16.Enabled = false;
-            legend16.Name = "Legend1";
-            this.chart5.Legends.Add(legend16);
-            this.chart5.Location = new System.Drawing.Point(3, 374);
+            legend8.Alignment = System.Drawing.StringAlignment.Center;
+            legend8.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            legend8.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend8.Enabled = false;
+            legend8.Name = "Legend1";
+            this.chart5.Legends.Add(legend8);
+            this.chart5.Location = new System.Drawing.Point(3, 388);
             this.chart5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart5.Name = "chart5";
-            series20.ChartArea = "ChartArea1";
-            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series20.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            series20.IsVisibleInLegend = false;
-            series20.Legend = "Legend1";
-            series20.Name = "Series1";
-            this.chart5.Series.Add(series20);
-            this.chart5.Size = new System.Drawing.Size(266, 315);
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series10.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            series10.IsVisibleInLegend = false;
+            series10.Legend = "Legend1";
+            series10.Name = "Series1";
+            this.chart5.Series.Add(series10);
+            this.chart5.Size = new System.Drawing.Size(254, 328);
             this.chart5.TabIndex = 18;
             this.chart5.Text = "chart9";
             // 
@@ -1046,302 +847,1121 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label1.Location = new System.Drawing.Point(60, 13);
+            this.label1.Location = new System.Drawing.Point(67, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 22);
+            this.label1.Size = new System.Drawing.Size(125, 22);
             this.label1.TabIndex = 22;
-            this.label1.Text = "BASINÇ 1-2 (hpa)";
+            this.label1.Text = "BASINÇ  (hpa)";
             // 
-            // panel1
+            // pilpanel
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.button10);
-            this.panel1.Controls.Add(this.button9);
-            this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1901, 128);
-            this.panel1.TabIndex = 5;
+            this.pilpanel.Controls.Add(this.groupBox1);
+            this.pilpanel.Controls.Add(this.batteryProgressBar1);
+            this.pilpanel.Controls.Add(this.cikisbutton);
+            this.pilpanel.Controls.Add(this.pictureBox2);
+            this.pilpanel.Controls.Add(this.pictureBox3);
+            this.pilpanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pilpanel.Location = new System.Drawing.Point(0, 0);
+            this.pilpanel.Name = "pilpanel";
+            this.pilpanel.Size = new System.Drawing.Size(1920, 147);
+            this.pilpanel.TabIndex = 5;
             // 
-            // button10
+            // groupBox1
             // 
-            this.button10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button10.BackgroundImage")));
-            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Location = new System.Drawing.Point(866, 67);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(48, 48);
-            this.button10.TabIndex = 25;
-            this.button10.UseVisualStyleBackColor = true;
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.camclosebutton);
+            this.groupBox1.Controls.Add(this.camopenbutton);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.radioButton4);
+            this.groupBox1.Controls.Add(this.radioButton3);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.mSerialConnectButton);
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.lSerialConnectButton);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Location = new System.Drawing.Point(375, 31);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1247, 92);
+            this.groupBox1.TabIndex = 33;
+            this.groupBox1.TabStop = false;
             // 
-            // button9
+            // button1
             // 
-            this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(866, 12);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(48, 48);
-            this.button9.TabIndex = 24;
-            this.button9.UseVisualStyleBackColor = true;
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.button1.Location = new System.Drawing.Point(589, 43);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(28, 24);
+            this.button1.TabIndex = 17;
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // camclosebutton
             // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(1855, 4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(32, 26);
-            this.button8.TabIndex = 23;
-            this.button8.UseVisualStyleBackColor = true;
+            this.camclosebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.camclosebutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("camclosebutton.BackgroundImage")));
+            this.camclosebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.camclosebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.camclosebutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.camclosebutton.Location = new System.Drawing.Point(1194, 0);
+            this.camclosebutton.Name = "camclosebutton";
+            this.camclosebutton.Size = new System.Drawing.Size(38, 38);
+            this.camclosebutton.TabIndex = 13;
+            this.camclosebutton.UseVisualStyleBackColor = true;
             // 
-            // pictureBox3
+            // camopenbutton
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1548, -3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(113, 118);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 18;
-            this.pictureBox3.TabStop = false;
-            // 
-            // button7
-            // 
-            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(1054, 38);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(28, 29);
-            this.button7.TabIndex = 17;
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.textBox1.Location = new System.Drawing.Point(1088, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(166, 22);
-            this.textBox1.TabIndex = 16;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.SystemColors.Control;
-            this.label19.Location = new System.Drawing.Point(1105, 7);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(117, 19);
-            this.label19.TabIndex = 15;
-            this.label19.Text = "KOMUT PANELİ";
-            // 
-            // button4
-            // 
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(622, 73);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(42, 42);
-            this.button4.TabIndex = 4;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(559, 73);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(42, 42);
-            this.button6.TabIndex = 8;
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "PORT3"});
-            this.comboBox1.Location = new System.Drawing.Point(269, 38);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 24);
-            this.comboBox1.TabIndex = 10;
+            this.camopenbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.camopenbutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("camopenbutton.BackgroundImage")));
+            this.camopenbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.camopenbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.camopenbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.camopenbutton.Location = new System.Drawing.Point(1107, 0);
+            this.camopenbutton.Name = "camopenbutton";
+            this.camopenbutton.Size = new System.Drawing.Size(38, 38);
+            this.camopenbutton.TabIndex = 14;
+            this.camopenbutton.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.Control;
-            this.label15.Location = new System.Drawing.Point(252, 7);
+            this.label15.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label15.Location = new System.Drawing.Point(534, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(194, 19);
-            this.label15.TabIndex = 9;
-            this.label15.Text = "GÖREV YÜKÜ BAĞLANTISI";
+            this.label15.Size = new System.Drawing.Size(121, 19);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "C  O  N  T  R  O  L";
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
+            this.radioButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton4.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.radioButton4.ForeColor = System.Drawing.Color.Transparent;
+            this.radioButton4.Location = new System.Drawing.Point(1085, 42);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(4);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(149, 23);
+            this.radioButton4.TabIndex = 3;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Hybrid Tracking";
+            this.radioButton4.UseVisualStyleBackColor = false;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
+            this.radioButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton3.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.radioButton3.ForeColor = System.Drawing.Color.Transparent;
+            this.radioButton3.Location = new System.Drawing.Point(790, 42);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(4);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(131, 23);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "RSSI Tracking";
+            this.radioButton3.UseVisualStyleBackColor = false;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.ForeColor = System.Drawing.SystemColors.Control;
-            this.label17.Location = new System.Drawing.Point(215, 41);
+            this.label17.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label17.ForeColor = System.Drawing.Color.Snow;
+            this.label17.Location = new System.Drawing.Point(192, 14);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(48, 16);
-            this.label17.TabIndex = 13;
-            this.label17.Text = "PORT:";
+            this.label17.Size = new System.Drawing.Size(224, 20);
+            this.label17.TabIndex = 6;
+            this.label17.Text = "COMMUNICATION MODULES";
             // 
-            // label18
+            // textBox1
             // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.SystemColors.Control;
-            this.label18.Location = new System.Drawing.Point(489, 41);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(48, 16);
-            this.label18.TabIndex = 14;
-            this.label18.Text = "PORT:";
+            this.textBox1.AccessibleDescription = "alt";
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBox1.ForeColor = System.Drawing.Color.Black;
+            this.textBox1.Location = new System.Drawing.Point(421, 43);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(167, 22);
+            this.textBox1.TabIndex = 16;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
+            this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.radioButton2.ForeColor = System.Drawing.Color.Transparent;
+            this.radioButton2.Location = new System.Drawing.Point(938, 42);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(128, 23);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "GPS Tracking";
+            this.radioButton2.UseVisualStyleBackColor = false;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
+            this.radioButton1.Checked = true;
+            this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.radioButton1.ForeColor = System.Drawing.Color.Transparent;
+            this.radioButton1.Location = new System.Drawing.Point(623, 42);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(146, 23);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Manual Control";
+            this.radioButton1.UseVisualStyleBackColor = false;
             // 
             // label16
             // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.Control;
-            this.label16.Location = new System.Drawing.Point(538, 7);
+            this.label16.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label16.ForeColor = System.Drawing.Color.Snow;
+            this.label16.Location = new System.Drawing.Point(3, 14);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(149, 19);
-            this.label16.TabIndex = 12;
-            this.label16.Text = "ANTEN BAĞLANTISI";
+            this.label16.Size = new System.Drawing.Size(170, 20);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "MOTOR CONTROLLER";
             // 
             // comboBox2
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(77)))), ((int)(((byte)(0)))));
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
+            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox2.ForeColor = System.Drawing.Color.Black;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "PORT8"});
-            this.comboBox2.Location = new System.Drawing.Point(543, 38);
+            this.comboBox2.Location = new System.Drawing.Point(196, 44);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(150, 24);
-            this.comboBox2.TabIndex = 11;
+            this.comboBox2.Size = new System.Drawing.Size(181, 24);
+            this.comboBox2.TabIndex = 5;
             // 
-            // button5
+            // mSerialConnectButton
             // 
-            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(343, 73);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(42, 42);
-            this.button5.TabIndex = 7;
-            this.button5.UseVisualStyleBackColor = true;
+            this.mSerialConnectButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.mSerialConnectButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mSerialConnectButton.BackgroundImage")));
+            this.mSerialConnectButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mSerialConnectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mSerialConnectButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.mSerialConnectButton.Location = new System.Drawing.Point(153, 40);
+            this.mSerialConnectButton.Margin = new System.Windows.Forms.Padding(4);
+            this.mSerialConnectButton.Name = "mSerialConnectButton";
+            this.mSerialConnectButton.Size = new System.Drawing.Size(35, 32);
+            this.mSerialConnectButton.TabIndex = 0;
+            this.mSerialConnectButton.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // comboBox1
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(764, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 48);
-            this.button1.TabIndex = 6;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Location = new System.Drawing.Point(12, 43);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(130, 24);
+            this.comboBox1.TabIndex = 1;
+            // 
+            // lSerialConnectButton
+            // 
+            this.lSerialConnectButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lSerialConnectButton.BackgroundImage")));
+            this.lSerialConnectButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.lSerialConnectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lSerialConnectButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.lSerialConnectButton.Location = new System.Drawing.Point(385, 40);
+            this.lSerialConnectButton.Margin = new System.Windows.Forms.Padding(4);
+            this.lSerialConnectButton.Name = "lSerialConnectButton";
+            this.lSerialConnectButton.Size = new System.Drawing.Size(35, 32);
+            this.lSerialConnectButton.TabIndex = 4;
+            this.lSerialConnectButton.UseVisualStyleBackColor = true;
+            // 
+            // batteryProgressBar1
+            // 
+            this.batteryProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.batteryProgressBar1.Location = new System.Drawing.Point(1705, 50);
+            this.batteryProgressBar1.Name = "batteryProgressBar1";
+            this.batteryProgressBar1.Percentage = 86;
+            this.batteryProgressBar1.Size = new System.Drawing.Size(100, 60);
+            this.batteryProgressBar1.TabIndex = 31;
+            this.batteryProgressBar1.Text = "batteryProgressBar1";
+            // 
+            // cikisbutton
+            // 
+            this.cikisbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cikisbutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cikisbutton.BackgroundImage")));
+            this.cikisbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cikisbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cikisbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.cikisbutton.Location = new System.Drawing.Point(1878, 4);
+            this.cikisbutton.Name = "cikisbutton";
+            this.cikisbutton.Size = new System.Drawing.Size(32, 26);
+            this.cikisbutton.TabIndex = 23;
+            this.cikisbutton.UseVisualStyleBackColor = true;
+            this.cikisbutton.Click += new System.EventHandler(this.cikisbutton_Click_1);
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(-2, -36);
+            this.pictureBox2.Location = new System.Drawing.Point(-34, -86);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(211, 198);
+            this.pictureBox2.Size = new System.Drawing.Size(424, 326);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
-            // button2
+            // pictureBox3
             // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(764, 67);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(48, 48);
-            this.button2.TabIndex = 3;
-            this.button2.UseVisualStyleBackColor = true;
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(1635, 21);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(253, 121);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 32;
+            this.pictureBox3.TabStop = false;
             // 
-            // button3
+            // tabControl1
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(285, 73);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(42, 42);
-            this.button3.TabIndex = 2;
-            this.button3.UseVisualStyleBackColor = false;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 147);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1920, 933);
+            this.tabControl1.TabIndex = 6;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.tabPage1.Controls.Add(this.grafikpanel);
+            this.tabPage1.Controls.Add(this.solpanel);
+            this.tabPage1.Controls.Add(this.sagpanel);
+            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1912, 904);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "modeluydu";
+            // 
+            // dataGridView1
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(58)))), ((int)(((byte)(116)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(18)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14,
+            this.Column15,
+            this.Column16,
+            this.Column17,
+            this.Column18,
+            this.Column19,
+            this.Column20,
+            this.Column22});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(29)))), ((int)(((byte)(58)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 723);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1906, 178);
+            this.dataGridView1.TabIndex = 5;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column1.HeaderText = "PAKET NUMARASI";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "UYDU STATÜSÜ";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "HATA KODU";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "GÖNDERME SAATİ";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "BASINÇ (hpa)";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "YÜKSEKLİK (m)";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "DİKEY HIZ (m/s)";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "MESAFE (m)";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "SICAKLIK İÇ (°C)";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "SICAKLIK DIŞ (°C)";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "PİL GERİLİMİ (V)";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            // 
+            // Column12
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column12.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column12.HeaderText = "PİL DURUMU (%)";
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "GPS LATITUDE";
+            this.Column13.MinimumWidth = 6;
+            this.Column13.Name = "Column13";
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "GPS LONGITUDE";
+            this.Column14.MinimumWidth = 6;
+            this.Column14.Name = "Column14";
+            // 
+            // Column15
+            // 
+            this.Column15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column15.HeaderText = "GPS ALTITUDE";
+            this.Column15.MinimumWidth = 6;
+            this.Column15.Name = "Column15";
+            this.Column15.Width = 84;
+            // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "PITCH (°)";
+            this.Column16.MinimumWidth = 6;
+            this.Column16.Name = "Column16";
+            // 
+            // Column17
+            // 
+            this.Column17.HeaderText = "ROLL (°)";
+            this.Column17.MinimumWidth = 6;
+            this.Column17.Name = "Column17";
+            // 
+            // Column18
+            // 
+            this.Column18.HeaderText = "YAW (°)";
+            this.Column18.MinimumWidth = 6;
+            this.Column18.Name = "Column18";
+            // 
+            // Column19
+            // 
+            this.Column19.HeaderText = "DÖNME AÇISI";
+            this.Column19.MinimumWidth = 6;
+            this.Column19.Name = "Column19";
+            // 
+            // Column20
+            // 
+            this.Column20.HeaderText = "MESAJ";
+            this.Column20.MinimumWidth = 6;
+            this.Column20.Name = "Column20";
+            // 
+            // Column22
+            // 
+            this.Column22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column22.HeaderText = "TAKIM NO";
+            this.Column22.MinimumWidth = 6;
+            this.Column22.Name = "Column22";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.tabPage2.Controls.Add(this.panel8);
+            this.tabPage2.Controls.Add(this.panel6);
+            this.tabPage2.Controls.Add(this.panel1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1912, 904);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "yeristasyonu";
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.label25);
+            this.panel8.Controls.Add(this.label24);
+            this.panel8.Controls.Add(this.circularProgress2);
+            this.panel8.Controls.Add(this.quarterCircularProgress2);
+            this.panel8.Location = new System.Drawing.Point(413, 6);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1086, 880);
+            this.panel8.TabIndex = 15;
+            // 
+            // label25
+            // 
+            this.label25.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label25.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label25.Location = new System.Drawing.Point(131, 177);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(306, 19);
+            this.label25.TabIndex = 12;
+            this.label25.Text = "R S S I   I N D I C A T O R  -  A Z I M U T H";
+            // 
+            // label24
+            // 
+            this.label24.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label24.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label24.Location = new System.Drawing.Point(672, 177);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(327, 19);
+            this.label24.TabIndex = 11;
+            this.label24.Text = "R S S I   I N D I C A T O R  -  E L E V A T I O N";
+            // 
+            // circularProgress2
+            // 
+            this.circularProgress2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.circularProgress2.Location = new System.Drawing.Point(0, 271);
+            this.circularProgress2.Name = "circularProgress2";
+            this.circularProgress2.Padding = new System.Windows.Forms.Padding(5);
+            this.circularProgress2.Size = new System.Drawing.Size(588, 469);
+            this.circularProgress2.TabIndex = 14;
+            this.circularProgress2.Text = "circularProgress2";
+            // 
+            // quarterCircularProgress2
+            // 
+            this.quarterCircularProgress2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.quarterCircularProgress2.Angle = 90;
+            this.quarterCircularProgress2.CenterText = "BZG";
+            this.quarterCircularProgress2.Location = new System.Drawing.Point(355, 249);
+            this.quarterCircularProgress2.Name = "quarterCircularProgress2";
+            this.quarterCircularProgress2.Padding = new System.Windows.Forms.Padding(20);
+            this.quarterCircularProgress2.Size = new System.Drawing.Size(728, 618);
+            this.quarterCircularProgress2.TabIndex = 13;
+            this.quarterCircularProgress2.Text = "quarterCircularProgress2";
+            this.quarterCircularProgress2.ValueLabel = "90°";
+            // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel6.Controls.Add(this.groupBox2);
+            this.panel6.Controls.Add(this.buttonStracking);
+            this.panel6.Controls.Add(this.label21);
+            this.panel6.Controls.Add(this.labelElevation);
+            this.panel6.Controls.Add(this.textBoxDegree);
+            this.panel6.Controls.Add(this.label22);
+            this.panel6.Controls.Add(this.labelAzimuth);
+            this.panel6.Controls.Add(this.label23);
+            this.panel6.Controls.Add(this.labelVdistance);
+            this.panel6.Controls.Add(this.labelGSlong);
+            this.panel6.Controls.Add(this.labelHdistance);
+            this.panel6.Controls.Add(this.labelGSlat);
+            this.panel6.Controls.Add(this.labelMSalt);
+            this.panel6.Controls.Add(this.labelGSalt);
+            this.panel6.Controls.Add(this.labelMSlat);
+            this.panel6.Controls.Add(this.labelMSlong);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel6.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.panel6.ForeColor = System.Drawing.Color.Maroon;
+            this.panel6.Location = new System.Drawing.Point(1505, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(404, 898);
+            this.panel6.TabIndex = 8;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.UpButton);
+            this.groupBox2.Controls.Add(this.HomeButton);
+            this.groupBox2.Controls.Add(this.LeftButton);
+            this.groupBox2.Controls.Add(this.RightButton);
+            this.groupBox2.Controls.Add(this.DownButton);
+            this.groupBox2.Location = new System.Drawing.Point(60, 431);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(283, 241);
+            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabStop = false;
+            // 
+            // UpButton
+            // 
+            this.UpButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("UpButton.BackgroundImage")));
+            this.UpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.UpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.UpButton.Location = new System.Drawing.Point(104, 27);
+            this.UpButton.Margin = new System.Windows.Forms.Padding(4);
+            this.UpButton.Name = "UpButton";
+            this.UpButton.Size = new System.Drawing.Size(76, 55);
+            this.UpButton.TabIndex = 1;
+            this.UpButton.UseVisualStyleBackColor = true;
+            // 
+            // HomeButton
+            // 
+            this.HomeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HomeButton.BackgroundImage")));
+            this.HomeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.HomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HomeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.HomeButton.Location = new System.Drawing.Point(104, 95);
+            this.HomeButton.Margin = new System.Windows.Forms.Padding(4);
+            this.HomeButton.Name = "HomeButton";
+            this.HomeButton.Size = new System.Drawing.Size(76, 58);
+            this.HomeButton.TabIndex = 0;
+            this.HomeButton.UseVisualStyleBackColor = true;
+            // 
+            // LeftButton
+            // 
+            this.LeftButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LeftButton.BackgroundImage")));
+            this.LeftButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.LeftButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LeftButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.LeftButton.Location = new System.Drawing.Point(23, 97);
+            this.LeftButton.Margin = new System.Windows.Forms.Padding(4);
+            this.LeftButton.Name = "LeftButton";
+            this.LeftButton.Size = new System.Drawing.Size(76, 55);
+            this.LeftButton.TabIndex = 2;
+            this.LeftButton.UseVisualStyleBackColor = true;
+            // 
+            // RightButton
+            // 
+            this.RightButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RightButton.BackgroundImage")));
+            this.RightButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RightButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.RightButton.Location = new System.Drawing.Point(183, 97);
+            this.RightButton.Margin = new System.Windows.Forms.Padding(4);
+            this.RightButton.Name = "RightButton";
+            this.RightButton.Size = new System.Drawing.Size(76, 55);
+            this.RightButton.TabIndex = 3;
+            this.RightButton.UseVisualStyleBackColor = true;
+            // 
+            // DownButton
+            // 
+            this.DownButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DownButton.BackgroundImage")));
+            this.DownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.DownButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DownButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.DownButton.Location = new System.Drawing.Point(104, 170);
+            this.DownButton.Margin = new System.Windows.Forms.Padding(4);
+            this.DownButton.Name = "DownButton";
+            this.DownButton.Size = new System.Drawing.Size(76, 55);
+            this.DownButton.TabIndex = 4;
+            this.DownButton.UseVisualStyleBackColor = true;
+            // 
+            // buttonStracking
+            // 
+            this.buttonStracking.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.buttonStracking.Location = new System.Drawing.Point(26, 357);
+            this.buttonStracking.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonStracking.Name = "buttonStracking";
+            this.buttonStracking.Size = new System.Drawing.Size(334, 43);
+            this.buttonStracking.TabIndex = 14;
+            this.buttonStracking.Text = "Start Tracking!";
+            this.buttonStracking.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label21.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label21.Location = new System.Drawing.Point(166, 687);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(64, 19);
+            this.label21.TabIndex = 6;
+            this.label21.Text = "Degree";
+            // 
+            // labelElevation
+            // 
+            this.labelElevation.AutoSize = true;
+            this.labelElevation.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelElevation.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelElevation.Location = new System.Drawing.Point(21, 307);
+            this.labelElevation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelElevation.Name = "labelElevation";
+            this.labelElevation.Size = new System.Drawing.Size(166, 19);
+            this.labelElevation.TabIndex = 13;
+            this.labelElevation.Text = "Calculated Elevation:";
+            // 
+            // textBoxDegree
+            // 
+            this.textBoxDegree.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
+            this.textBoxDegree.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBoxDegree.Location = new System.Drawing.Point(135, 719);
+            this.textBoxDegree.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDegree.Name = "textBoxDegree";
+            this.textBoxDegree.Size = new System.Drawing.Size(132, 22);
+            this.textBoxDegree.TabIndex = 5;
+            this.textBoxDegree.Text = "20";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label22.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label22.Location = new System.Drawing.Point(22, 153);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(188, 19);
+            this.label22.TabIndex = 6;
+            this.label22.Text = "Mobile Station Location";
+            // 
+            // labelAzimuth
+            // 
+            this.labelAzimuth.AutoSize = true;
+            this.labelAzimuth.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelAzimuth.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelAzimuth.Location = new System.Drawing.Point(21, 288);
+            this.labelAzimuth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelAzimuth.Name = "labelAzimuth";
+            this.labelAzimuth.Size = new System.Drawing.Size(160, 19);
+            this.labelAzimuth.TabIndex = 12;
+            this.labelAzimuth.Text = "Calculated Azimuth:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label23.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label23.Location = new System.Drawing.Point(22, 28);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(193, 19);
+            this.label23.TabIndex = 2;
+            this.label23.Text = "Ground Station Location";
+            // 
+            // labelVdistance
+            // 
+            this.labelVdistance.AutoSize = true;
+            this.labelVdistance.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelVdistance.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelVdistance.Location = new System.Drawing.Point(21, 269);
+            this.labelVdistance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelVdistance.Name = "labelVdistance";
+            this.labelVdistance.Size = new System.Drawing.Size(139, 19);
+            this.labelVdistance.TabIndex = 11;
+            this.labelVdistance.Text = "Vertical Distance:";
+            // 
+            // labelGSlong
+            // 
+            this.labelGSlong.AutoSize = true;
+            this.labelGSlong.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelGSlong.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelGSlong.Location = new System.Drawing.Point(21, 87);
+            this.labelGSlong.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelGSlong.Name = "labelGSlong";
+            this.labelGSlong.Size = new System.Drawing.Size(90, 19);
+            this.labelGSlong.TabIndex = 3;
+            this.labelGSlong.Text = "Longitude:";
+            // 
+            // labelHdistance
+            // 
+            this.labelHdistance.AutoSize = true;
+            this.labelHdistance.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelHdistance.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelHdistance.Location = new System.Drawing.Point(21, 250);
+            this.labelHdistance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelHdistance.Name = "labelHdistance";
+            this.labelHdistance.Size = new System.Drawing.Size(161, 19);
+            this.labelHdistance.TabIndex = 10;
+            this.labelHdistance.Text = "Horizontal Distance:";
+            // 
+            // labelGSlat
+            // 
+            this.labelGSlat.AutoSize = true;
+            this.labelGSlat.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelGSlat.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelGSlat.Location = new System.Drawing.Point(22, 68);
+            this.labelGSlat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelGSlat.Name = "labelGSlat";
+            this.labelGSlat.Size = new System.Drawing.Size(75, 19);
+            this.labelGSlat.TabIndex = 4;
+            this.labelGSlat.Text = "Latitude:";
+            // 
+            // labelMSalt
+            // 
+            this.labelMSalt.AutoSize = true;
+            this.labelMSalt.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelMSalt.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelMSalt.Location = new System.Drawing.Point(21, 231);
+            this.labelMSalt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMSalt.Name = "labelMSalt";
+            this.labelMSalt.Size = new System.Drawing.Size(73, 19);
+            this.labelMSalt.TabIndex = 9;
+            this.labelMSalt.Text = "Altitude:";
+            // 
+            // labelGSalt
+            // 
+            this.labelGSalt.AutoSize = true;
+            this.labelGSalt.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelGSalt.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelGSalt.Location = new System.Drawing.Point(21, 106);
+            this.labelGSalt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelGSalt.Name = "labelGSalt";
+            this.labelGSalt.Size = new System.Drawing.Size(73, 19);
+            this.labelGSalt.TabIndex = 5;
+            this.labelGSalt.Text = "Altitude:";
+            // 
+            // labelMSlat
+            // 
+            this.labelMSlat.AutoSize = true;
+            this.labelMSlat.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelMSlat.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelMSlat.Location = new System.Drawing.Point(21, 193);
+            this.labelMSlat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMSlat.Name = "labelMSlat";
+            this.labelMSlat.Size = new System.Drawing.Size(75, 19);
+            this.labelMSlat.TabIndex = 8;
+            this.labelMSlat.Text = "Latitude:";
+            // 
+            // labelMSlong
+            // 
+            this.labelMSlong.AutoSize = true;
+            this.labelMSlong.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelMSlong.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelMSlong.Location = new System.Drawing.Point(21, 212);
+            this.labelMSlong.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMSlong.Name = "labelMSlong";
+            this.labelMSlong.Size = new System.Drawing.Size(90, 19);
+            this.labelMSlong.TabIndex = 7;
+            this.labelMSlong.Text = "Longitude:";
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label27);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.fhApplyButton);
+            this.panel1.Controls.Add(this.labelMag);
+            this.panel1.Controls.Add(this.tbMSalt);
+            this.panel1.Controls.Add(this.tbMSlon);
+            this.panel1.Controls.Add(this.labelAntennaElevation);
+            this.panel1.Controls.Add(this.tbMSlat);
+            this.panel1.Controls.Add(this.labelAntennaAzimuth);
+            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.tbGSlat);
+            this.panel1.Controls.Add(this.label20);
+            this.panel1.Controls.Add(this.tbGSlon);
+            this.panel1.Controls.Add(this.tbGSalt);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(404, 898);
+            this.panel1.TabIndex = 7;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label27.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label27.Location = new System.Drawing.Point(47, 648);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(271, 24);
+            this.label27.TabIndex = 16;
+            this.label27.Text = "SİNYAL GÜÇ DEĞERİ : -30 dBm";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label12.Location = new System.Drawing.Point(38, 796);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(271, 24);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "ÇIKIŞ FREKANSI : 865.125 MHz";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label11.Location = new System.Drawing.Point(47, 732);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(262, 24);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "İNİŞ FREKANSI : 868.125 MHz";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(237, 52);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(119, 24);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "BAĞLI DEĞİL";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label9.Location = new System.Drawing.Point(14, 52);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(187, 24);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "BAĞLANTI DURUMU";
+            // 
+            // fhApplyButton
+            // 
+            this.fhApplyButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fhApplyButton.BackgroundImage")));
+            this.fhApplyButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.fhApplyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fhApplyButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.fhApplyButton.Location = new System.Drawing.Point(163, 375);
+            this.fhApplyButton.Margin = new System.Windows.Forms.Padding(4);
+            this.fhApplyButton.Name = "fhApplyButton";
+            this.fhApplyButton.Size = new System.Drawing.Size(69, 51);
+            this.fhApplyButton.TabIndex = 11;
+            this.fhApplyButton.UseVisualStyleBackColor = true;
+            // 
+            // labelMag
+            // 
+            this.labelMag.AutoSize = true;
+            this.labelMag.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelMag.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelMag.Location = new System.Drawing.Point(99, 561);
+            this.labelMag.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMag.Name = "labelMag";
+            this.labelMag.Size = new System.Drawing.Size(210, 27);
+            this.labelMag.TabIndex = 1;
+            this.labelMag.Text = "Magnetic Azimuth: ";
+            // 
+            // tbMSalt
+            // 
+            this.tbMSalt.AccessibleDescription = "alt";
+            this.tbMSalt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
+            this.tbMSalt.ForeColor = System.Drawing.Color.Black;
+            this.tbMSalt.Location = new System.Drawing.Point(224, 333);
+            this.tbMSalt.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMSalt.Name = "tbMSalt";
+            this.tbMSalt.Size = new System.Drawing.Size(132, 22);
+            this.tbMSalt.TabIndex = 5;
+            // 
+            // tbMSlon
+            // 
+            this.tbMSlon.AccessibleDescription = "lon";
+            this.tbMSlon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
+            this.tbMSlon.ForeColor = System.Drawing.Color.Black;
+            this.tbMSlon.Location = new System.Drawing.Point(224, 300);
+            this.tbMSlon.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMSlon.Name = "tbMSlon";
+            this.tbMSlon.Size = new System.Drawing.Size(132, 22);
+            this.tbMSlon.TabIndex = 4;
+            // 
+            // labelAntennaElevation
+            // 
+            this.labelAntennaElevation.AutoSize = true;
+            this.labelAntennaElevation.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelAntennaElevation.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelAntennaElevation.Location = new System.Drawing.Point(219, 505);
+            this.labelAntennaElevation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelAntennaElevation.Name = "labelAntennaElevation";
+            this.labelAntennaElevation.Size = new System.Drawing.Size(109, 24);
+            this.labelAntennaElevation.TabIndex = 1;
+            this.labelAntennaElevation.Text = "Elevation: 0";
+            // 
+            // tbMSlat
+            // 
+            this.tbMSlat.AccessibleDescription = "lat";
+            this.tbMSlat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
+            this.tbMSlat.ForeColor = System.Drawing.Color.Black;
+            this.tbMSlat.Location = new System.Drawing.Point(224, 266);
+            this.tbMSlat.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMSlat.Name = "tbMSlat";
+            this.tbMSlat.Size = new System.Drawing.Size(132, 22);
+            this.tbMSlat.TabIndex = 3;
+            // 
+            // labelAntennaAzimuth
+            // 
+            this.labelAntennaAzimuth.AutoSize = true;
+            this.labelAntennaAzimuth.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelAntennaAzimuth.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelAntennaAzimuth.Location = new System.Drawing.Point(62, 505);
+            this.labelAntennaAzimuth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelAntennaAzimuth.Name = "labelAntennaAzimuth";
+            this.labelAntennaAzimuth.Size = new System.Drawing.Size(103, 24);
+            this.labelAntennaAzimuth.TabIndex = 0;
+            this.labelAntennaAzimuth.Text = "Azimuth: 0";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label18.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label18.Location = new System.Drawing.Point(272, 217);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(37, 24);
+            this.label18.TabIndex = 7;
+            this.label18.Text = "MS";
+            // 
+            // tbGSlat
+            // 
+            this.tbGSlat.AccessibleDescription = "lat";
+            this.tbGSlat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
+            this.tbGSlat.ForeColor = System.Drawing.Color.Black;
+            this.tbGSlat.Location = new System.Drawing.Point(33, 266);
+            this.tbGSlat.Margin = new System.Windows.Forms.Padding(4);
+            this.tbGSlat.Name = "tbGSlat";
+            this.tbGSlat.Size = new System.Drawing.Size(132, 22);
+            this.tbGSlat.TabIndex = 0;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label20.Location = new System.Drawing.Point(1582, 47);
+            this.label20.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label20.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label20.Location = new System.Drawing.Point(84, 217);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(37, 16);
-            this.label20.TabIndex = 26;
-            this.label20.Text = "AYIP";
+            this.label20.Size = new System.Drawing.Size(33, 24);
+            this.label20.TabIndex = 3;
+            this.label20.Text = "GS";
+            // 
+            // tbGSlon
+            // 
+            this.tbGSlon.AccessibleDescription = "lon";
+            this.tbGSlon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
+            this.tbGSlon.ForeColor = System.Drawing.Color.Black;
+            this.tbGSlon.Location = new System.Drawing.Point(33, 300);
+            this.tbGSlon.Margin = new System.Windows.Forms.Padding(4);
+            this.tbGSlon.Name = "tbGSlon";
+            this.tbGSlon.Size = new System.Drawing.Size(132, 22);
+            this.tbGSlon.TabIndex = 1;
+            // 
+            // tbGSalt
+            // 
+            this.tbGSalt.AccessibleDescription = "alt";
+            this.tbGSalt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
+            this.tbGSalt.ForeColor = System.Drawing.Color.Black;
+            this.tbGSalt.Location = new System.Drawing.Point(33, 333);
+            this.tbGSalt.Margin = new System.Windows.Forms.Padding(4);
+            this.tbGSalt.Name = "tbGSalt";
+            this.tbGSalt.Size = new System.Drawing.Size(132, 22);
+            this.tbGSalt.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(1901, 1033);
-            this.Controls.Add(this.sagpanel);
-            this.Controls.Add(this.grafikpanel);
-            this.Controls.Add(this.solpanel);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1920, 1080);
+            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.pilpanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.solpanel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.sagpanel.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.panel5.ResumeLayout(false);
-            this.araspanel.ResumeLayout(false);
-            this.araspanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
@@ -1352,16 +1972,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart5)).EndInit();
+            this.pilpanel.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TableLayoutPanel solpanel;
         private System.Windows.Forms.TableLayoutPanel sagpanel;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
@@ -1380,6 +2011,77 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart6;
+        private System.Windows.Forms.Panel pilpanel;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private GMap.NET.WindowsForms.GMapControl gMapControl1;
+        private System.Windows.Forms.Panel panel5;
+        private OpenTK.GLControl glControl1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button cikisbutton;
+        public BatteryProgressBar batteryProgressBar1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button UpButton;
+        private System.Windows.Forms.Button HomeButton;
+        private System.Windows.Forms.Button LeftButton;
+        private System.Windows.Forms.Button RightButton;
+        private System.Windows.Forms.Button DownButton;
+        private System.Windows.Forms.Button buttonStracking;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label labelElevation;
+        private System.Windows.Forms.TextBox textBoxDegree;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label labelAzimuth;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label labelVdistance;
+        private System.Windows.Forms.Label labelGSlong;
+        private System.Windows.Forms.Label labelHdistance;
+        private System.Windows.Forms.Label labelGSlat;
+        private System.Windows.Forms.Label labelMSalt;
+        private System.Windows.Forms.Label labelGSalt;
+        private System.Windows.Forms.Label labelMSlat;
+        private System.Windows.Forms.Label labelMSlong;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button fhApplyButton;
+        private System.Windows.Forms.Label labelMag;
+        private System.Windows.Forms.TextBox tbMSalt;
+        private System.Windows.Forms.TextBox tbMSlon;
+        private System.Windows.Forms.Label labelAntennaElevation;
+        private System.Windows.Forms.TextBox tbMSlat;
+        private System.Windows.Forms.Label labelAntennaAzimuth;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox tbGSlat;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox tbGSlon;
+        private System.Windows.Forms.TextBox tbGSalt;
+        private System.Windows.Forms.Label label24;
+        private QuarterCircularProgress quarterCircularProgress1;
+        private CircularProgress circularProgress1;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button mSerialConnectButton;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button lSerialConnectButton;
+        private System.Windows.Forms.Button camclosebutton;
+        private System.Windows.Forms.Button camopenbutton;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -1400,52 +2102,27 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart6;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private GMap.NET.WindowsForms.GMapControl gMapControl1;
-        private System.Windows.Forms.Panel panel5;
-        private OpenTK.GLControl glControl1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TableLayoutPanel araspanel;
-        private System.Windows.Forms.Panel araspanel2;
-        private System.Windows.Forms.Panel araspanel1;
-        private System.Windows.Forms.Panel araspanel3;
-        private System.Windows.Forms.Panel araspanel5;
+        private CircularProgress circularProgress2;
+        private QuarterCircularProgress quarterCircularProgress2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Panel araspanel6;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label27;
     }
 }
 
