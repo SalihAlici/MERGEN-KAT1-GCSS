@@ -1,196 +1,336 @@
-﻿using GMap.NET;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.IO.Ports;
+using OpenTK;
+using OpenTK.Graphics.OpenGL;
+using GMap.NET.WindowsForms;
+using GMap.NET;
+using GMap.NET.MapProviders;
+using System.IO;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace MERGEN_KAT1_GCSS
 {
     public partial class Form1 : Form
     {
+        private Camera camera;
+        Map map ;
+        private bool useAlternativeModel = false;
 
-         
-        public float lat = 38.707675f, lng = 35.519550f;
-        private FilterInfoCollection videoDevices;
-        private VideoCaptureDevice videoSource;
+        
+        private Charts charts;
+       
+        private Data dataHandler;
+        private DataGridViewHandler dataGridViewHandler;
+        private _3DSimulation simulation;
+
+        private Stopwatch stopwatch = Stopwatch.StartNew();
+        private const int targetFPS = 30;
+        private Aras aras;
         public Form1()
         {
             InitializeComponent();
+
+            // PictureBox, harita ve chart ayarları
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            camera = new Camera(pictureBox1);
+            map=new Map(gMapControl1);
+            //map.InitializeMap();
+            charts = new Charts(chart1, chart2, chart3, chart4, chart5, chart6, chart7, chart8);
+            aras = new Aras(pictureBox4, pictureBox5, pictureBox6, pictureBox7, pictureBox8, pictureBox9);
+            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            aras.FifthErrorChanged += OnFifthErrorChanged;
+
+
+            string csvPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "TELEMETRİ.csv");
+            dataGridViewHandler = new DataGridViewHandler(dataGridView1, csvPath);
+
+
+
+            // GLControl üzerinden 3D simülasyonu başlatıyoruz.
+            // (glControl1, Form1'in tasarımında eklenmiş olmalı)
+            simulation = new _3DSimulation(glControl1);
+
+         
+
+
+            LoadAvailablePorts();
+
         }
+
+        private void OnFifthErrorChanged(bool isError)
+        {
+            // 5. bit 0 iken alternatif model
+            useAlternativeModel = !isError;
+
+            Console.WriteLine($"[DEBUG] 5. bit: {(isError ? 1 : 0)}, useAlternativeModel: {useAlternativeModel}");
+
+            // 3D çizimi yenile
+            glControl1.Invalidate();
+        }
+
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-
-            if (videoDevices.Count == 0)
-            {
-                MessageBox.Show("Kamera bulunamadı!");
-                return;
-            }
-
-            // İlk kamerayı seç
-            videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
-            videoSource.NewFrame += new NewFrameEventHandler(Video_NewFrame);
-
-            gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
-            GMaps.Instance.Mode = AccessMode.ServerAndCache;
-
-
-            gMapControl1.Position = new PointLatLng(lat, lng);
-
-            gMapControl1.MinZoom = 5;
-            gMapControl1.MaxZoom = 25;
-            gMapControl1.Zoom = 16;
-            // Chart1'i formun tasarımında eklediğinizi varsayıyoruz
-            // Bu şekilde doğrudan veri ekleyebilirsiniz.
-
-            // Seri ekleme ve veri noktası girme
-            chart1.Series["Series1"].Points.AddXY(1, 5);  
-            chart1.Series["Series1"].Points.AddXY(2, 7);  
-            chart1.Series["Series1"].Points.AddXY(3, 12); 
-            chart1.Series["Series1"].Points.AddXY(4, 94);  
-            chart1.Series["Series1"].Points.AddXY(5, 15); 
-            chart1.Series["Series1"].Points.AddXY(6, 8);  
-
-            chart1.Series["Series2"].Points.AddXY(1, 1);  
-            chart1.Series["Series2"].Points.AddXY(2, 10); 
-            chart1.Series["Series2"].Points.AddXY(3, 96);  
-            chart1.Series["Series2"].Points.AddXY(4, 82); 
-            chart1.Series["Series2"].Points.AddXY(5, 9);  
-            chart1.Series["Series2"].Points.AddXY(6, 55); 
-            chart1.Series["Series2"].Points.AddXY(7, 85);  
+            camopenbutton.Enabled = true;
+            camclosebutton.Enabled = false;
+            //map.InitializeMap();
+           
+           
 
 
 
+            pictureBox4.BackColor = Color.Chartreuse;
+            pictureBox5.BackColor = Color.Chartreuse;
+            pictureBox6.BackColor = Color.Chartreuse;
+            pictureBox7.BackColor = Color.Chartreuse;
+            pictureBox8.BackColor = Color.Chartreuse;
+            pictureBox9.BackColor = Color.Chartreuse;
 
 
-
-
-            chart2.Series["Series1"].Points.AddXY(2, 10); 
-            chart2.Series["Series1"].Points.AddXY(3, 7);  
-            chart2.Series["Series1"].Points.AddXY(4, 12); 
-            chart2.Series["Series1"].Points.AddXY(5, 9);  
-            chart2.Series["Series1"].Points.AddXY(6, 15); 
-            chart2.Series["Series1"].Points.AddXY(7, 8);  
-            chart2.Series["Series1"].Points.AddXY(1, 5);  
-
-
-
-
-
-            chart3.Series["Series1"].Points.AddXY(1, 5); 
-            chart3.Series["Series1"].Points.AddXY(2, 10);
-            chart3.Series["Series1"].Points.AddXY(3, 7); 
-            chart3.Series["Series1"].Points.AddXY(4, 12);
-            chart3.Series["Series1"].Points.AddXY(5, 9); 
-            chart3.Series["Series1"].Points.AddXY(6, 15);
-            chart3.Series["Series1"].Points.AddXY(7, 8); 
-
-
-
-
-
-            chart4.Series["Series1"].Points.AddXY(1, 5);  
-            chart4.Series["Series1"].Points.AddXY(2, 10); 
-            chart4.Series["Series1"].Points.AddXY(3, 7);  
-            chart4.Series["Series1"].Points.AddXY(4, 12); 
-            chart4.Series["Series1"].Points.AddXY(5, 9);  
-            chart4.Series["Series1"].Points.AddXY(6, 15); 
-            chart4.Series["Series1"].Points.AddXY(7, 8);  
-
-
-
-
-            chart5.Series["Series1"].Points.AddXY(1, 5);  
-            chart5.Series["Series1"].Points.AddXY(2, 10); 
-            chart5.Series["Series1"].Points.AddXY(3, 7);  
-            chart5.Series["Series1"].Points.AddXY(4, 12); 
-            chart5.Series["Series1"].Points.AddXY(5, 9);  
-            chart5.Series["Series1"].Points.AddXY(6, 15); 
-            chart5.Series["Series1"].Points.AddXY(7, 8);  
-
-
-
-            chart6.Series["Series1"].Points.AddXY(1, 5);  
-            chart6.Series["Series1"].Points.AddXY(2, 10); 
-            chart6.Series["Series1"].Points.AddXY(3, 7);  
-            chart6.Series["Series1"].Points.AddXY(4, 12); 
-            chart6.Series["Series1"].Points.AddXY(5, 9);  
-            chart6.Series["Series1"].Points.AddXY(6, 15); 
-            chart6.Series["Series1"].Points.AddXY(7, 8);  
-
-
-
-            chart7.Series["Series1"].Points.AddXY(1, 5);  
-            chart7.Series["Series1"].Points.AddXY(2, 10); 
-            chart7.Series["Series1"].Points.AddXY(3, 7);  
-            chart7.Series["Series1"].Points.AddXY(4, 12); 
-            chart7.Series["Series1"].Points.AddXY(5, 9);  
-            chart7.Series["Series1"].Points.AddXY(6, 15); 
-            chart7.Series["Series1"].Points.AddXY(7, 8);  
-
-
-            chart8.Series["Series1"].Points.AddXY(1, 5);  
-            chart8.Series["Series1"].Points.AddXY(2, 10); 
-            chart8.Series["Series1"].Points.AddXY(3, 7);  
-            chart8.Series["Series1"].Points.AddXY(4, 12); 
-            chart8.Series["Series1"].Points.AddXY(5, 9);  
-            chart8.Series["Series1"].Points.AddXY(6, 15); 
-            chart8.Series["Series1"].Points.AddXY(7, 8);
-
-            chart8.Series["Series2"].Points.AddXY(1, 51);
-            chart8.Series["Series2"].Points.AddXY(2, 80);
-            chart8.Series["Series2"].Points.AddXY(3, 7);
-            chart8.Series["Series2"].Points.AddXY(4, 2);
-            chart8.Series["Series2"].Points.AddXY(5, 9);
-            chart8.Series["Series2"].Points.AddXY(6, 75);
-            chart8.Series["Series2"].Points.AddXY(7, 6);
         }
-        private void Video_NewFrame(object sender, NewFrameEventArgs eventArgs)
+
+        private void LoadAvailablePorts()
         {
-            // Kameradan gelen yeni görüntüyü PictureBox'a aktar
-            Bitmap frame = (Bitmap)eventArgs.Frame.Clone();
-            pictureBox1.Image = frame;
+            string[] ports = SerialPort.GetPortNames();
+
+            comboBox1.Items.Clear();
+            comboBox2.Items.Clear();
+
+            comboBox1.Items.AddRange(ports);
+            comboBox2.Items.AddRange(ports);
+
+            if (ports.Length > 0)
+            {
+                comboBox1.SelectedIndex = 0;
+                comboBox2.SelectedIndex = 0;
+            }
         }
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Uygulama kapanırken kamerayı durdur
-            if (videoSource != null && videoSource.IsRunning)
+            camera.Dispose();
+        }
+
+        private async void camopenbutton_Click(object sender, EventArgs e)
+        {
+            camopenbutton.Enabled = false;
+
+            await Task.Run(() => camera.StartCamera());
+
+            camclosebutton.Enabled = true;
+        }
+
+        private async void camclosebutton_Click(object sender, EventArgs e)
+        {
+            camclosebutton.Enabled = false;
+
+            await Task.Run(() => camera.StopCamera());
+
+            camopenbutton.Enabled = true;
+        }
+
+        private void cikisbutton_Click_1(object sender, EventArgs e)
+        {
+            camera.StopCamera();
+            DialogResult firstResponse = MessageBox.Show("Uygulamadan çıkmak istediğinize emin misiniz?",
+                                                           "Çıkış Onayı",
+                                                           MessageBoxButtons.YesNo,
+                                                           MessageBoxIcon.Question);
+            if (firstResponse == DialogResult.Yes)
             {
-                videoSource.SignalToStop();
-                videoSource.WaitForStop();
+                Application.Exit();
             }
         }
+
+        // Arduino bağlantısı için
+       
+
+       
 
         
 
-        private void sagpanel_Paint(object sender, PaintEventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (videoSource != null && !videoSource.IsRunning)
+            if (serialPort1.IsOpen)
             {
-                videoSource.Start();
+                // Port açık ise kapat
+                try
+                {
+                    dataHandler?.Disconnect();  // Eğer varsa bağlantıyı kes
+                    serialPort1.Close();
+                    MessageBox.Show("Port kapatıldı.");
+                    Console.WriteLine("Port kapatıldı: " + serialPort1.PortName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Port kapatılırken hata oluştu: " + ex.Message);
+                }
+                return;
             }
 
-        }
+            // Port kapalı ise açmaya çalış
+            string selectedPort = comboBox1.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(selectedPort) || selectedPort == "Port Yok")
+            {
+                MessageBox.Show("Port seçin.");
+                return;
+            }
 
-        private void gMapControl1_Load(object sender, EventArgs e)
-        {
+            serialPort1.PortName = selectedPort;
+            serialPort1.BaudRate = 9600;
 
-        }
+            try
+            {
+                dataHandler = new Data(serialPort1, map, this, charts, simulation, dataGridViewHandler,aras); // event bağlanıyor
+                dataHandler.Connect();
+               // serialPort1.Open();
 
-        private void glControl1_Load(object sender, EventArgs e)
-        {
+                MessageBox.Show("Port açıldı: " + selectedPort);
+                Console.WriteLine("Port açık: " + selectedPort);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Port açılırken hata oluştu: " + ex.Message);
+            }
+
 
         }
 
        
+
+       
+
+        private void glControl1_Load(object sender, EventArgs e)
+        {
+            GL.ClearColor(Color.FromArgb(24, 30, 54)); // Arka plan rengi
+            GL.Enable(EnableCap.DepthTest);
+            GL.DepthFunc(DepthFunction.Less);
+            
+           
+
+        }
+
+        private void glControl1_Paint(object sender, PaintEventArgs e)
+        {
+            // Önce buffer temizleniyor.
+            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+
+            // Perspektif ve kamera ayarları.
+            Matrix4 perspective = Matrix4.CreatePerspectiveFieldOfView(1.04f, (float)glControl1.Width / glControl1.Height, 1, 10000);
+            Matrix4 lookAt = Matrix4.LookAt(25, 0, 0, 0, 0, 0, 0, 1, 0);
+
+            GL.MatrixMode(MatrixMode.Projection);
+            GL.LoadIdentity();
+            GL.LoadMatrix(ref perspective);
+
+            GL.MatrixMode(MatrixMode.Modelview);
+            GL.LoadIdentity();
+            GL.LoadMatrix(ref lookAt);
+
+            GL.Viewport(0, 0, glControl1.Width, glControl1.Height);
+
+
+            // Model rotasyonları uygulanıyor.
+              GL.Rotate(simulation.x, 0.0, 0.0, -1.0);   
+              GL.Rotate(simulation.z, 0.0, -1.0, 0.0);  
+              GL.Rotate(simulation.y, -1.0, 0.0, 0.0);   
+
+            
+
+
+         
+
+            // Modelin çizimi: alternatif model seçimine göre.
+            if (useAlternativeModel)
+                simulation.DrawNewSatellite();
+            else
+                simulation.DrawPerforatedShell(2.3f, 12.0f, 16);
+
+            glControl1.SwapBuffers();
+        }
+
+        private void comboBox1_DropDown(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            string[] ports = SerialPort.GetPortNames();
+            Array.Sort(ports);
+            comboBox1.Items.AddRange(ports);
+        }
+
+        private void comboBox2_DropDown(object sender, EventArgs e)
+        {
+            comboBox2.Items.Clear();
+            string[] ports = SerialPort.GetPortNames();
+            Array.Sort(ports);
+            comboBox2.Items.AddRange(ports);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private async void button7_Click(object sender, EventArgs e)
+        {
+            if (serialPort1.IsOpen && dataHandler != null)
+            {
+                string mesaj = textBox1.Text.Trim();
+                if (!string.IsNullOrEmpty(mesaj))
+                {
+                    string mesajWithC = "C" + mesaj; // Başına 'C' ekle
+                    await Task.Run(() => dataHandler.SendCommand(mesajWithC)); // Data sınıfı üzerinden gönder
+                }
+                else
+                {
+                    MessageBox.Show("Gönderilecek mesaj boş!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Port açık değil veya Data nesnesi yok!");
+            }
+        }
+        private async void SendMessageAsync(string message)
+        {
+            if (serialPort1.IsOpen && dataHandler != null)
+            {
+                try
+                {
+                    await Task.Run(() => dataHandler.SendCommand(message)); // Data üzerinden gönder
+                    Console.WriteLine($"Mesaj gönderildi: {message}");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Mesaj gönderilirken hata: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Port açık değil veya Data nesnesi yok!");
+            }
+        }
+
+        private void unlockbutton_Click(object sender, EventArgs e)
+        {
+            SendMessageAsync("A");
+            
+        }
+
+        private void lockbutton_Click(object sender, EventArgs e)
+        {
+            SendMessageAsync("B");
+           
+        }
+
+        
     }
 }
