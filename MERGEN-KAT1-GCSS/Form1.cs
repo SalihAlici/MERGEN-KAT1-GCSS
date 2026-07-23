@@ -20,18 +20,18 @@ namespace MERGEN_KAT1_GCSS
     {
         private Camera camera;
         Map map ;
-        private bool useAlternativeModel = false;
+        
 
         
         private Charts charts;
        
         private Data dataHandler;
         private DataGridViewHandler dataGridViewHandler;
-        private _3DSimulation simulation;
+        
 
         private Stopwatch stopwatch = Stopwatch.StartNew();
         private const int targetFPS = 30;
-        private Aras aras;
+       
         public Form1()
         {
             InitializeComponent();
@@ -39,14 +39,14 @@ namespace MERGEN_KAT1_GCSS
             // PictureBox, harita ve chart ayarları
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             camera = new Camera(pictureBox1);
-            map=new Map(gMapControl1);
+            map=new Map(gMapControl2);
             //map.InitializeMap();
-            charts = new Charts(chart1, chart2, chart3, chart4, chart5, chart6, chart7, chart8);
-            aras = new Aras(pictureBox4, pictureBox5, pictureBox6, pictureBox7, pictureBox8, pictureBox9);
+            charts = new Charts(chart1, chart2, chart3, chart4);
+            
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            aras.FifthErrorChanged += OnFifthErrorChanged;
+           
 
 
             string csvPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "TELEMETRİ.csv");
@@ -56,7 +56,7 @@ namespace MERGEN_KAT1_GCSS
 
             // GLControl üzerinden 3D simülasyonu başlatıyoruz.
             // (glControl1, Form1'in tasarımında eklenmiş olmalı)
-            simulation = new _3DSimulation(glControl1);
+            
 
          
 
@@ -65,16 +65,7 @@ namespace MERGEN_KAT1_GCSS
 
         }
 
-        private void OnFifthErrorChanged(bool isError)
-        {
-            // 5. bit 0 iken alternatif model
-            useAlternativeModel = !isError;
-
-            Console.WriteLine($"[DEBUG] 5. bit: {(isError ? 1 : 0)}, useAlternativeModel: {useAlternativeModel}");
-
-            // 3D çizimi yenile
-            glControl1.Invalidate();
-        }
+        
 
 
 
@@ -88,13 +79,7 @@ namespace MERGEN_KAT1_GCSS
 
 
 
-            pictureBox4.BackColor = Color.Chartreuse;
-            pictureBox5.BackColor = Color.Chartreuse;
-            pictureBox6.BackColor = Color.Chartreuse;
-            pictureBox7.BackColor = Color.Chartreuse;
-            pictureBox8.BackColor = Color.Chartreuse;
-            pictureBox9.BackColor = Color.Chartreuse;
-
+           
 
         }
 
@@ -103,15 +88,15 @@ namespace MERGEN_KAT1_GCSS
             string[] ports = SerialPort.GetPortNames();
 
             comboBox1.Items.Clear();
-            comboBox2.Items.Clear();
+            
 
             comboBox1.Items.AddRange(ports);
-            comboBox2.Items.AddRange(ports);
+            
 
             if (ports.Length > 0)
             {
                 comboBox1.SelectedIndex = 0;
-                comboBox2.SelectedIndex = 0;
+              
             }
         }
 
@@ -190,7 +175,7 @@ namespace MERGEN_KAT1_GCSS
 
             try
             {
-                dataHandler = new Data(serialPort1, map, this, charts, simulation, dataGridViewHandler,aras); // event bağlanıyor
+                dataHandler = new Data(serialPort1, map, this, charts, dataGridViewHandler); // event bağlanıyor
                 dataHandler.Connect();
                // serialPort1.Open();
 
@@ -219,44 +204,7 @@ namespace MERGEN_KAT1_GCSS
 
         }
 
-        private void glControl1_Paint(object sender, PaintEventArgs e)
-        {
-            // Önce buffer temizleniyor.
-            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-
-            // Perspektif ve kamera ayarları.
-            Matrix4 perspective = Matrix4.CreatePerspectiveFieldOfView(1.04f, (float)glControl1.Width / glControl1.Height, 1, 10000);
-            Matrix4 lookAt = Matrix4.LookAt(25, 0, 0, 0, 0, 0, 0, 1, 0);
-
-            GL.MatrixMode(MatrixMode.Projection);
-            GL.LoadIdentity();
-            GL.LoadMatrix(ref perspective);
-
-            GL.MatrixMode(MatrixMode.Modelview);
-            GL.LoadIdentity();
-            GL.LoadMatrix(ref lookAt);
-
-            GL.Viewport(0, 0, glControl1.Width, glControl1.Height);
-
-
-            // Model rotasyonları uygulanıyor.
-              GL.Rotate(simulation.x, 0.0, 0.0, -1.0);   
-              GL.Rotate(simulation.z, 0.0, -1.0, 0.0);  
-              GL.Rotate(simulation.y, -1.0, 0.0, 0.0);   
-
-            
-
-
-         
-
-            // Modelin çizimi: alternatif model seçimine göre.
-            if (useAlternativeModel)
-                simulation.DrawNewSatellite();
-            else
-                simulation.DrawPerforatedShell(2.3f, 12.0f, 16);
-
-            glControl1.SwapBuffers();
-        }
+      
 
         private void comboBox1_DropDown(object sender, EventArgs e)
         {
@@ -266,13 +214,7 @@ namespace MERGEN_KAT1_GCSS
             comboBox1.Items.AddRange(ports);
         }
 
-        private void comboBox2_DropDown(object sender, EventArgs e)
-        {
-            comboBox2.Items.Clear();
-            string[] ports = SerialPort.GetPortNames();
-            Array.Sort(ports);
-            comboBox2.Items.AddRange(ports);
-        }
+        
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -331,6 +273,16 @@ namespace MERGEN_KAT1_GCSS
            
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SendMessageAsync("E");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SendMessageAsync("R");
+           
+
+        }
     }
 }

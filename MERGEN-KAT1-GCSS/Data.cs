@@ -14,8 +14,7 @@ namespace MERGEN_KAT1_GCSS
         private readonly Map _map;
         private readonly Charts _charts;
         private readonly DataGridViewHandler _dataGridHandler;
-        private readonly _3DSimulation _simulation;
-        private readonly Aras _aras;
+        
 
         private readonly BlockingCollection<TelemetryData> _processingQueue = new BlockingCollection<TelemetryData>(1000);
 
@@ -27,16 +26,16 @@ namespace MERGEN_KAT1_GCSS
 
         private string _serialBuffer = "";  // Gelen veriyi biriktirmek için buffer
 
-        public Data(SerialPort port, Map map, Form1 form, Charts charts, _3DSimulation simulation,
-                    DataGridViewHandler dataGridHandler, Aras aras)
+        public Data(SerialPort port, Map map, Form1 form, Charts charts,
+                    DataGridViewHandler dataGridHandler)
         {
             _port = port;
             _map = map;
             _form = form;
             _charts = charts;
-            _simulation = simulation;
+            
             _dataGridHandler = dataGridHandler;
-            _aras = aras;
+           
 
             StartThreads();
         }
@@ -159,9 +158,9 @@ namespace MERGEN_KAT1_GCSS
                             _map.UpdatePosition(telemetry);
                             _charts.Update(telemetry);
                             _dataGridHandler.AddTelemetry(telemetry);
-                            _aras.Update(telemetry.HataKodu);
+                            
                           
-                            _simulation.UpdateRotation(telemetry.Yaw, telemetry.Pitch, telemetry.Roll);
+                            
                         }));
                     }
                 }

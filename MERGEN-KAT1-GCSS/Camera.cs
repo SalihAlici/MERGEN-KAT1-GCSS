@@ -169,7 +169,7 @@ namespace MERGEN_KAT1_GCSS
                     videoWriter = new VideoFileWriter();
 
                     // 60 FPS kayıt, makul bitrate ile
-                    videoWriter.Open(outputFilePath, 1280, 720, 60, VideoCodec.MPEG4, 5000000);
+                    videoWriter.Open(outputFilePath, 1280, 720, 60, VideoCodec.MPEG4, 25000000);
 
                     isRecording = true;
 

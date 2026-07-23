@@ -9,9 +9,9 @@ namespace MERGEN_KAT1_GCSS
         private readonly Chart[] _charts;
         private const int MAX_POINTS = 1000;
 
-        public Charts(Chart ch1, Chart ch2, Chart ch3, Chart ch4, Chart ch5, Chart ch6, Chart ch7, Chart ch8)
+        public Charts(Chart ch1, Chart ch2, Chart ch3, Chart ch4)
         {
-            _charts = new[] { ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8 };
+            _charts = new[] { ch1, ch2, ch3, ch4 };
 
             // Chart optimizasyonları
             foreach (var chart in _charts)
@@ -38,31 +38,21 @@ namespace MERGEN_KAT1_GCSS
                 return;
             }
 
-            string timeLabel = FormatTimeLabel(data.GondermeSaati);
+            string timeLabel = FormatTimeLabel(data.Zaman);
 
-            // Chart 1: Basınç 1 ve 2
-            UpdateChart(_charts[0], timeLabel, data.Basinc1, data.Basinc2);
+            
+            UpdateChart(_charts[0], timeLabel, data.GoreceliYukseklik);
 
-            // Chart 2: Yükseklik 1
-            UpdateChart(_charts[1], timeLabel, data.Yukseklik1);
+            
+            UpdateChart(_charts[1], timeLabel, data.Basinc);
 
-            // Chart 3: Yükseklik 2
-            UpdateChart(_charts[2], timeLabel, data.Yukseklik2);
+            
+            UpdateChart(_charts[2], timeLabel, data.InisHizi);
 
-            // Chart 4: İrtifa Farkı
-            UpdateChart(_charts[3], timeLabel, data.IrtifaFarki);
+            
+            UpdateChart(_charts[3], timeLabel, data.PilGerilimi);
 
-            // Chart 5: İniş Hızı
-            UpdateChart(_charts[4], timeLabel, data.InisHizi);
-
-            // Chart 6: Sıcaklık
-            UpdateChart(_charts[5], timeLabel, data.Sicaklik);
-
-            // Chart 7: Pil Gerilimi
-            UpdateChart(_charts[6], timeLabel, data.PilGerilimi);
-
-            // Chart 8: IoT Verileri
-            UpdateChart(_charts[7], timeLabel, data.IoTS1Data, data.IoTS2Data);
+            
         }
 
         private void UpdateChart(Chart chart, string timeLabel, params double[] values)
@@ -80,8 +70,19 @@ namespace MERGEN_KAT1_GCSS
 
         private string FormatTimeLabel(string rawTime)
         {
-            string timePart = rawTime.Contains(",") ? rawTime.Split(',')[1] : rawTime;
-            return timePart.Replace('/', ':');
+            string[] parcalar = rawTime.Split(' ');
+
+            
+            if (parcalar.Length > 1)
+            {
+                
+                return parcalar[1];
+            }
+
+            
+            return rawTime;
         }
+
+        
     }
 }

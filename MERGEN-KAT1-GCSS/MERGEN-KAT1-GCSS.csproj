@@ -151,7 +151,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aras.cs" />
     <Compile Include="BatteryProgressBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -172,7 +171,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TelemetryData.cs" />
-    <Compile Include="_3DSimulation.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
