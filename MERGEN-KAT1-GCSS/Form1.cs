@@ -19,84 +19,66 @@ namespace MERGEN_KAT1_GCSS
     public partial class Form1 : Form
     {
         private Camera camera;
-        Map map ;
-        
-
-        
+        private Map map;
         private Charts charts;
-       
         private Data dataHandler;
         private DataGridViewHandler dataGridViewHandler;
-        
 
         private Stopwatch stopwatch = Stopwatch.StartNew();
         private const int targetFPS = 30;
-       
+
         public Form1()
         {
             InitializeComponent();
 
-            // PictureBox, harita ve chart ayarları
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             camera = new Camera(pictureBox1);
-            map=new Map(gMapControl2);
-            //map.InitializeMap();
+            map = new Map(gMapControl2);
             charts = new Charts(chart1, chart2, chart3, chart4);
-            
+
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-
-           
-
 
             string csvPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "TELEMETRİ.csv");
             dataGridViewHandler = new DataGridViewHandler(dataGridView1, csvPath);
 
-
-
-            // GLControl üzerinden 3D simülasyonu başlatıyoruz.
-            // (glControl1, Form1'in tasarımında eklenmiş olmalı)
-            
-
-         
-
-
             LoadAvailablePorts();
-
         }
-
-        
-
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
             camopenbutton.Enabled = true;
             camclosebutton.Enabled = false;
-            //map.InitializeMap();
-           
-           
 
-
-
-           
-
+            // Kameraları tarayıp combobox'a ekler
+            LoadAvailableCameras();
         }
 
         private void LoadAvailablePorts()
         {
             string[] ports = SerialPort.GetPortNames();
-
             comboBox1.Items.Clear();
-            
-
             comboBox1.Items.AddRange(ports);
-            
 
             if (ports.Length > 0)
             {
                 comboBox1.SelectedIndex = 0;
-              
+            }
+        }
+
+        private void LoadAvailableCameras()
+        {
+            comboBoxKamera.Items.Clear();
+            var kameralar = camera.GetCameraNames();
+
+            foreach (string k in kameralar)
+            {
+                comboBoxKamera.Items.Add(k);
+            }
+
+            if (comboBoxKamera.Items.Count > 0)
+            {
+                comboBoxKamera.SelectedIndex = 0;
             }
         }
 
@@ -107,9 +89,16 @@ namespace MERGEN_KAT1_GCSS
 
         private async void camopenbutton_Click(object sender, EventArgs e)
         {
-            camopenbutton.Enabled = false;
+            if (comboBoxKamera.SelectedIndex < 0)
+            {
+                MessageBox.Show("Lütfen başlatılacak kamerayı seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            await Task.Run(() => camera.StartCamera());
+            camopenbutton.Enabled = false;
+            int seciliKameraIndeksi = comboBoxKamera.SelectedIndex;
+
+            await Task.Run(() => camera.StartCamera(seciliKameraIndeksi, true));
 
             camclosebutton.Enabled = true;
         }
@@ -136,21 +125,13 @@ namespace MERGEN_KAT1_GCSS
             }
         }
 
-        // Arduino bağlantısı için
-       
-
-       
-
-        
-
         private void button5_Click(object sender, EventArgs e)
         {
             if (serialPort1.IsOpen)
             {
-                // Port açık ise kapat
                 try
                 {
-                    dataHandler?.Disconnect();  // Eğer varsa bağlantıyı kes
+                    dataHandler?.Disconnect();
                     serialPort1.Close();
                     MessageBox.Show("Port kapatıldı.");
                     Console.WriteLine("Port kapatıldı: " + serialPort1.PortName);
@@ -162,7 +143,6 @@ namespace MERGEN_KAT1_GCSS
                 return;
             }
 
-            // Port kapalı ise açmaya çalış
             string selectedPort = comboBox1.SelectedItem?.ToString();
             if (string.IsNullOrEmpty(selectedPort) || selectedPort == "Port Yok")
             {
@@ -175,10 +155,8 @@ namespace MERGEN_KAT1_GCSS
 
             try
             {
-                dataHandler = new Data(serialPort1, map, this, charts, dataGridViewHandler); // event bağlanıyor
+                dataHandler = new Data(serialPort1, map, this, charts, dataGridViewHandler);
                 dataHandler.Connect();
-               // serialPort1.Open();
-
                 MessageBox.Show("Port açıldı: " + selectedPort);
                 Console.WriteLine("Port açık: " + selectedPort);
             }
@@ -186,25 +164,14 @@ namespace MERGEN_KAT1_GCSS
             {
                 MessageBox.Show("Port açılırken hata oluştu: " + ex.Message);
             }
-
-
         }
-
-       
-
-       
 
         private void glControl1_Load(object sender, EventArgs e)
         {
-            GL.ClearColor(Color.FromArgb(24, 30, 54)); // Arka plan rengi
+            GL.ClearColor(Color.FromArgb(24, 30, 54));
             GL.Enable(EnableCap.DepthTest);
             GL.DepthFunc(DepthFunction.Less);
-            
-           
-
         }
-
-      
 
         private void comboBox1_DropDown(object sender, EventArgs e)
         {
@@ -214,11 +181,9 @@ namespace MERGEN_KAT1_GCSS
             comboBox1.Items.AddRange(ports);
         }
 
-        
-
         private void button4_Click(object sender, EventArgs e)
         {
-           
+            // İçi boş bırakılmış fonksiyon
         }
 
         private async void button7_Click(object sender, EventArgs e)
@@ -228,8 +193,8 @@ namespace MERGEN_KAT1_GCSS
                 string mesaj = textBox1.Text.Trim();
                 if (!string.IsNullOrEmpty(mesaj))
                 {
-                    string mesajWithC = "C" + mesaj; // Başına 'C' ekle
-                    await Task.Run(() => dataHandler.SendCommand(mesajWithC)); // Data sınıfı üzerinden gönder
+                    string mesajWithC = "C" + mesaj;
+                    await Task.Run(() => dataHandler.SendCommand(mesajWithC));
                 }
                 else
                 {
@@ -241,13 +206,14 @@ namespace MERGEN_KAT1_GCSS
                 MessageBox.Show("Port açık değil veya Data nesnesi yok!");
             }
         }
+
         private async void SendMessageAsync(string message)
         {
             if (serialPort1.IsOpen && dataHandler != null)
             {
                 try
                 {
-                    await Task.Run(() => dataHandler.SendCommand(message)); // Data üzerinden gönder
+                    await Task.Run(() => dataHandler.SendCommand(message));
                     Console.WriteLine($"Mesaj gönderildi: {message}");
                 }
                 catch (Exception ex)
@@ -264,13 +230,11 @@ namespace MERGEN_KAT1_GCSS
         private void unlockbutton_Click(object sender, EventArgs e)
         {
             SendMessageAsync("A");
-            
         }
 
         private void lockbutton_Click(object sender, EventArgs e)
         {
             SendMessageAsync("B");
-           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -281,8 +245,6 @@ namespace MERGEN_KAT1_GCSS
         private void button2_Click(object sender, EventArgs e)
         {
             SendMessageAsync("R");
-           
-
         }
     }
 }
