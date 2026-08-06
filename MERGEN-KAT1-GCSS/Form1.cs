@@ -39,7 +39,7 @@ namespace MERGEN_KAT1_GCSS
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            string csvPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "TELEMETRİ.csv");
+            string csvPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "MERGEN.csv");
             dataGridViewHandler = new DataGridViewHandler(dataGridView1, csvPath);
 
             LoadAvailablePorts();
