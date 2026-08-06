@@ -76,7 +76,12 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.grafikpanel = new System.Windows.Forms.TableLayoutPanel();
             this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.chart5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.pilpanel = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -91,17 +96,10 @@
             this.unlockbutton = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.camopenbutton = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.cikisbutton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.serialPort2 = new System.IO.Ports.SerialPort(this.components);
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxKamera = new System.Windows.Forms.ComboBox();
             this.batteryProgressBar1 = new MERGEN_KAT1_GCSS.BatteryProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.solpanel.SuspendLayout();
@@ -607,6 +605,30 @@
             this.chart4.TabIndex = 34;
             this.chart4.Text = "chart4";
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.label2.Location = new System.Drawing.Point(247, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(136, 22);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "YÜKSEKLİK  (m)";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.label1.Location = new System.Drawing.Point(42, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 22);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "BASINÇ  (hpa)";
+            // 
             // chart5
             // 
             this.chart5.BackColor = System.Drawing.Color.Transparent;
@@ -638,6 +660,42 @@
             this.chart5.TabIndex = 18;
             this.chart5.Text = "chart9";
             // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.label6.Location = new System.Drawing.Point(676, 53);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(118, 22);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "SICAKLIK (°C)";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.label5.Location = new System.Drawing.Point(459, 53);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(132, 22);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "İNİŞ HIZI (m/s)";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.label7.Location = new System.Drawing.Point(876, 53);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(141, 22);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "PİL GERİLİMİ (V)";
+            // 
             // pilpanel
             // 
             this.pilpanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -655,6 +713,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.comboBoxKamera);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.lockbutton);
@@ -667,8 +726,6 @@
             this.groupBox1.Controls.Add(this.unlockbutton);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.camopenbutton);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.Location = new System.Drawing.Point(427, 21);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -826,9 +883,9 @@
             this.label16.ForeColor = System.Drawing.Color.Snow;
             this.label16.Location = new System.Drawing.Point(312, 21);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(143, 20);
+            this.label16.Size = new System.Drawing.Size(160, 20);
             this.label16.TabIndex = 12;
-            this.label16.Text = "ANTEN BAĞLANTISI";
+            this.label16.Text = "KAMERA BAĞLANTISI";
             // 
             // camopenbutton
             // 
@@ -844,36 +901,6 @@
             this.camopenbutton.TabIndex = 6;
             this.camopenbutton.UseVisualStyleBackColor = true;
             this.camopenbutton.Click += new System.EventHandler(this.camopenbutton_Click);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(305, 50);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(168, 24);
-            this.comboBox2.TabIndex = 11;
-            this.comboBox2.DropDown += new System.EventHandler(this.comboBox2_DropDown);
-            // 
-            // button4
-            // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.button4.Location = new System.Drawing.Point(479, 46);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(33, 33);
-            this.button4.TabIndex = 4;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // cikisbutton
             // 
@@ -906,65 +933,19 @@
             this.serialPort1.ReadTimeout = 500;
             this.serialPort1.WriteTimeout = 500;
             // 
-            // label5
+            // comboBoxKamera
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label5.Location = new System.Drawing.Point(459, 53);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(132, 22);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "İNİŞ HIZI (m/s)";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label6.Location = new System.Drawing.Point(676, 53);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 22);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "SICAKLIK (°C)";
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label7.Location = new System.Drawing.Point(876, 53);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(141, 22);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "PİL GERİLİMİ (V)";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label1.Location = new System.Drawing.Point(42, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 22);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "BASINÇ  (hpa)";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label2.Location = new System.Drawing.Point(247, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 22);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "YÜKSEKLİK  (m)";
+            this.comboBoxKamera.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comboBoxKamera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
+            this.comboBoxKamera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxKamera.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.comboBoxKamera.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.comboBoxKamera.FormattingEnabled = true;
+            this.comboBoxKamera.Location = new System.Drawing.Point(300, 49);
+            this.comboBoxKamera.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxKamera.Name = "comboBoxKamera";
+            this.comboBoxKamera.Size = new System.Drawing.Size(191, 24);
+            this.comboBoxKamera.TabIndex = 27;
             // 
             // batteryProgressBar1
             // 
@@ -972,7 +953,7 @@
             this.batteryProgressBar1.BackColor = System.Drawing.Color.Transparent;
             this.batteryProgressBar1.Location = new System.Drawing.Point(1643, 39);
             this.batteryProgressBar1.Name = "batteryProgressBar1";
-            this.batteryProgressBar1.Percentage = 98;
+            this.batteryProgressBar1.Percentage = 75;
             this.batteryProgressBar1.Size = new System.Drawing.Size(120, 66);
             this.batteryProgressBar1.TabIndex = 34;
             // 
@@ -1043,7 +1024,6 @@
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
         private System.Windows.Forms.Panel panel5;
         private OpenTK.GLControl glControl1;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button camclosebutton;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TableLayoutPanel araspanel;
@@ -1057,7 +1037,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button button7;
@@ -1068,7 +1047,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label17;
         private System.IO.Ports.SerialPort serialPort1;
-        private System.IO.Ports.SerialPort serialPort2;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
@@ -1081,6 +1059,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBoxKamera;
     }
 }
 

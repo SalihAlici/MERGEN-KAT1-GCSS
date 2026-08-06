@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.Concurrent;
 using System.Drawing;
 using System.Threading;
@@ -28,33 +29,37 @@ namespace MERGEN_KAT1_GCSS
 
         private DateTime lastUIUpdate = DateTime.MinValue;
 
+        // Kameranın dinamik FPS değerini tutacağımız değişken
+        private int currentFps = 30;
+
         public Camera(PictureBox pictureBox)
         {
             this.pictureBox = pictureBox;
-            InitializeCamera();
+            videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
         }
 
-        /// <summary>
-        /// Otomatik kamera seçimi:
-        /// - Eğer sadece 1 cihaz varsa => dahili (0)
-        /// - Eğer 2 veya daha fazla cihaz varsa => harici (1)
-        /// </summary>
-        private void InitializeCamera()
+        public List<string> GetCameraNames()
         {
-            videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            if (videoDevices.Count == 0)
+            List<string> cameras = new List<string>();
+            if (videoDevices != null)
             {
-                MessageBox.Show("Kamera bulunamadı!");
-                return;
+                foreach (FilterInfo device in videoDevices)
+                {
+                    cameras.Add(device.Name);
+                }
             }
+            return cameras;
+        }
 
-            int deviceIndex = 0; // Varsayılan laptop kamerası
-            if (videoDevices.Count > 1)
-                deviceIndex = 1; // Harici kamera varsa onu seç
+        private void InitializeCamera(int deviceIndex)
+        {
+            if (videoDevices.Count == 0 || deviceIndex < 0 || deviceIndex >= videoDevices.Count)
+            {
+                throw new Exception("Geçersiz kamera seçimi veya kamera bulunamadı!");
+            }
 
             videoSource = new VideoCaptureDevice(videoDevices[deviceIndex].MonikerString);
 
-            // 1280x720 çözünürlük tercihi
             VideoCapabilities desiredCap = null;
             foreach (var cap in videoSource.VideoCapabilities)
             {
@@ -64,7 +69,8 @@ namespace MERGEN_KAT1_GCSS
                     break;
                 }
             }
-            if (desiredCap == null)
+
+            if (desiredCap == null && videoSource.VideoCapabilities.Length > 0)
             {
                 desiredCap = videoSource.VideoCapabilities[0];
                 foreach (var cap in videoSource.VideoCapabilities)
@@ -75,7 +81,15 @@ namespace MERGEN_KAT1_GCSS
                 }
             }
 
-            videoSource.VideoResolution = desiredCap;
+            if (desiredCap != null)
+            {
+                videoSource.VideoResolution = desiredCap;
+
+                // Kameranın desteklediği gerçek FPS değerini alıyoruz.
+                // 0 veya geçersiz bir değerse varsayılan olarak 30 kullanıyoruz.
+                currentFps = desiredCap.AverageFrameRate > 0 ? desiredCap.AverageFrameRate : 30;
+            }
+
             videoSource.NewFrame += Video_NewFrame;
         }
 
@@ -83,8 +97,8 @@ namespace MERGEN_KAT1_GCSS
         {
             Bitmap originalFrame = (Bitmap)eventArgs.Frame.Clone();
 
-            // UI güncellemesi (60 FPS sınırı)
-            if ((DateTime.Now - lastUIUpdate).TotalMilliseconds >= 16) // ~16ms ≈ 60FPS
+            // UI Güncellemesi (~60FPS limiti ile arayüzü yormamak için)
+            if ((DateTime.Now - lastUIUpdate).TotalMilliseconds >= 16)
             {
                 lastUIUpdate = DateTime.Now;
                 Bitmap preview = (Bitmap)originalFrame.Clone();
@@ -104,13 +118,13 @@ namespace MERGEN_KAT1_GCSS
                 }
             }
 
-            // Kayıt için ayrı kopya
+            // Kayıt için arka plan işlemleri
             if (isRecording)
             {
                 Bitmap recordingFrame = (Bitmap)originalFrame.Clone();
 
-                // Kuyruk boyunu sınırla (60 kare = 1 saniye)
-                if (frameQueue.Count > 60)
+                // Kuyruk boyunu kameranın gerçek FPS hızına göre dinamik sınırlıyoruz (1 saniyelik tampon)
+                if (frameQueue.Count > currentFps)
                 {
                     if (frameQueue.TryDequeue(out Bitmap oldFrame))
                         oldFrame.Dispose();
@@ -123,25 +137,26 @@ namespace MERGEN_KAT1_GCSS
             originalFrame.Dispose();
         }
 
-        public void StartCamera(bool autoStartRecording = true)
+        public void StartCamera(int selectedDeviceIndex, bool autoStartRecording = true)
         {
-            if (videoSource == null)
-            {
-                MessageBox.Show("Kamera uygun değil.");
-                return;
-            }
+            StopCamera();
 
-            if (!videoSource.IsRunning)
+            try
             {
-                videoSource.Start();
-                if (autoStartRecording)
+                InitializeCamera(selectedDeviceIndex);
+
+                if (videoSource != null && !videoSource.IsRunning)
                 {
-                    StartRecording();
+                    videoSource.Start();
+                    if (autoStartRecording)
+                    {
+                        StartRecording();
+                    }
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Kamera zaten çalışıyor.");
+                MessageBox.Show("Kamera başlatılırken hata oluştu: " + ex.Message);
             }
         }
 
@@ -152,7 +167,12 @@ namespace MERGEN_KAT1_GCSS
                 StopRecording();
                 videoSource.SignalToStop();
                 videoSource.WaitForStop();
+
+                videoSource.NewFrame -= Video_NewFrame;
+                videoSource = null;
+
                 pictureBox.Image?.Dispose();
+                pictureBox.Image = null;
             }
         }
 
@@ -168,19 +188,16 @@ namespace MERGEN_KAT1_GCSS
 
                     videoWriter = new VideoFileWriter();
 
-                    // 60 FPS kayıt, makul bitrate ile
-                    videoWriter.Open(outputFilePath, 1280, 720, 60, VideoCodec.MPEG4, 5000000);
+                    // Dinamik FPS (currentFps) değerini video kaydediciye veriyoruz
+                    videoWriter.Open(outputFilePath, 1280, 720, currentFps, VideoCodec.MPEG4, 25000000);
 
                     isRecording = true;
-
                     recordingThreadRunning = true;
                     recordingThread = new Thread(RecordingWorker)
                     {
                         IsBackground = true
                     };
                     recordingThread.Start();
-
-                    MessageBox.Show("Kayıt başladı.");
                 }
             }
         }
@@ -244,12 +261,6 @@ namespace MERGEN_KAT1_GCSS
         public void Dispose()
         {
             StopCamera();
-            if (videoSource != null)
-            {
-                videoSource.NewFrame -= Video_NewFrame;
-                videoSource = null;
-            }
-            pictureBox.Image?.Dispose();
         }
     }
 }

@@ -62,6 +62,7 @@ namespace MERGEN_KAT1_GCSS
 
 
             LoadAvailablePorts();
+            LoadAvailableCameras();
 
         }
 
@@ -103,15 +104,31 @@ namespace MERGEN_KAT1_GCSS
             string[] ports = SerialPort.GetPortNames();
 
             comboBox1.Items.Clear();
-            comboBox2.Items.Clear();
+            
 
             comboBox1.Items.AddRange(ports);
-            comboBox2.Items.AddRange(ports);
+            
 
             if (ports.Length > 0)
             {
                 comboBox1.SelectedIndex = 0;
-                comboBox2.SelectedIndex = 0;
+               
+            }
+        }
+
+        private void LoadAvailableCameras()
+        {
+            comboBoxKamera.Items.Clear();
+            var kameralar = camera.GetCameraNames();
+
+            foreach (string k in kameralar)
+            {
+                comboBoxKamera.Items.Add(k);
+            }
+
+            if (comboBoxKamera.Items.Count > 0)
+            {
+                comboBoxKamera.SelectedIndex = 0;
             }
         }
 
@@ -122,9 +139,16 @@ namespace MERGEN_KAT1_GCSS
 
         private async void camopenbutton_Click(object sender, EventArgs e)
         {
-            camopenbutton.Enabled = false;
+            if (comboBoxKamera.SelectedIndex < 0)
+            {
+                MessageBox.Show("Lütfen başlatılacak kamerayı seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            await Task.Run(() => camera.StartCamera());
+            camopenbutton.Enabled = false;
+            int seciliKameraIndeksi = comboBoxKamera.SelectedIndex;
+
+            await Task.Run(() => camera.StartCamera(seciliKameraIndeksi, true));
 
             camclosebutton.Enabled = true;
         }
@@ -266,13 +290,7 @@ namespace MERGEN_KAT1_GCSS
             comboBox1.Items.AddRange(ports);
         }
 
-        private void comboBox2_DropDown(object sender, EventArgs e)
-        {
-            comboBox2.Items.Clear();
-            string[] ports = SerialPort.GetPortNames();
-            Array.Sort(ports);
-            comboBox2.Items.AddRange(ports);
-        }
+        
 
         private void button4_Click(object sender, EventArgs e)
         {
