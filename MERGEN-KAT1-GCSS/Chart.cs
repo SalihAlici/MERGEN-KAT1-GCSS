@@ -9,9 +9,9 @@ namespace MERGEN_KAT1_GCSS
         private readonly Chart[] _charts;
         private const int MAX_POINTS = 1000;
 
-        public Charts(Chart ch1, Chart ch2, Chart ch3, Chart ch4, Chart ch5, Chart ch6, Chart ch7, Chart ch8)
+        public Charts(Chart ch1, Chart ch2, Chart ch3, Chart ch4, Chart ch5)
         {
-            _charts = new[] { ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8 };
+            _charts = new[] { ch1, ch2, ch3, ch4, ch5 };
 
             // Chart optimizasyonları
             foreach (var chart in _charts)
@@ -41,28 +41,21 @@ namespace MERGEN_KAT1_GCSS
             string timeLabel = FormatTimeLabel(data.GondermeSaati);
 
             // Chart 1: Basınç 1 ve 2
-            UpdateChart(_charts[0], timeLabel, data.Basinc1, data.Basinc2);
+            UpdateChart(_charts[0], timeLabel, data.Basinc);
 
             // Chart 2: Yükseklik 1
-            UpdateChart(_charts[1], timeLabel, data.Yukseklik1);
+            UpdateChart(_charts[1], timeLabel, data.Yukseklik);
 
             // Chart 3: Yükseklik 2
-            UpdateChart(_charts[2], timeLabel, data.Yukseklik2);
+            UpdateChart(_charts[2], timeLabel, data.InisHizi);
 
             // Chart 4: İrtifa Farkı
-            UpdateChart(_charts[3], timeLabel, data.IrtifaFarki);
+            UpdateChart(_charts[3], timeLabel, data.Sicaklik);
 
             // Chart 5: İniş Hızı
-            UpdateChart(_charts[4], timeLabel, data.InisHizi);
+            UpdateChart(_charts[4], timeLabel, data.PilGerilimi);
 
-            // Chart 6: Sıcaklık
-            UpdateChart(_charts[5], timeLabel, data.Sicaklik);
-
-            // Chart 7: Pil Gerilimi
-            UpdateChart(_charts[6], timeLabel, data.PilGerilimi);
-
-            // Chart 8: IoT Verileri
-            UpdateChart(_charts[7], timeLabel, data.IoTS1Data, data.IoTS2Data);
+           
         }
 
         private void UpdateChart(Chart chart, string timeLabel, params double[] values)
@@ -80,8 +73,25 @@ namespace MERGEN_KAT1_GCSS
 
         private string FormatTimeLabel(string rawTime)
         {
-            string timePart = rawTime.Contains(",") ? rawTime.Split(',')[1] : rawTime;
-            return timePart.Replace('/', ':');
+            // rawTime örneği: "06/08/2026 10:38:24"
+            if (string.IsNullOrWhiteSpace(rawTime))
+                return "";
+
+            // DateTime olarak parse etmeyi dener, başarılıysa sadece HH:mm:ss formatında saat kısmını döndürür
+            if (DateTime.TryParse(rawTime, out DateTime dt))
+            {
+                return dt.ToString("HH:mm:ss");
+            }
+
+            // Eğer standart bir DateTime formatında değilse boşluğa göre ayırıp ikinci kısmı (saati) almayı dener
+            string[] parts = rawTime.Trim().Split(' ');
+            if (parts.Length > 1)
+            {
+                return parts[parts.Length - 1];
+            }
+
+            // Hiçbir şart sağlanmazsa (beklenmeyen bir veri gelirse) çökmemesi için orijinal veriyi döndür
+            return rawTime;
         }
     }
 }

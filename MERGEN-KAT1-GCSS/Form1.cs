@@ -41,7 +41,7 @@ namespace MERGEN_KAT1_GCSS
             camera = new Camera(pictureBox1);
             map=new Map(gMapControl1);
             //map.InitializeMap();
-            charts = new Charts(chart1, chart2, chart3, chart4, chart5, chart6, chart7, chart8);
+            charts = new Charts(chart1, chart2, chart3, chart4, chart5);
             aras = new Aras(pictureBox4, pictureBox5, pictureBox6, pictureBox7, pictureBox8, pictureBox9);
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;

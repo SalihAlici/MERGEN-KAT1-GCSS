@@ -46,7 +46,7 @@ namespace MERGEN_KAT1_GCSS
 
             try
             {
-                _gMapControl.MapProvider = GMapProviders.OpenStreetMap;
+                _gMapControl.MapProvider = GMapProviders.GoogleHybridMap;
                 _gMapControl.MinZoom = 5;
                 _gMapControl.MaxZoom = 25;
                 _gMapControl.Zoom = 16;
@@ -95,7 +95,7 @@ namespace MERGEN_KAT1_GCSS
             if (telemetry == null || _disposed || !_gMapControl.IsHandleCreated)
                 return;
 
-            if (IsInvalidCoordinate(telemetry.Gps1Latitude, telemetry.Gps1Longitude))
+            if (IsInvalidCoordinate(telemetry.GpsLatitude, telemetry.GpsLongitude))
             {
                 Console.WriteLine("Geçersiz koordinat - Son geçerli konum kullanılıyor");
 
@@ -108,7 +108,7 @@ namespace MERGEN_KAT1_GCSS
                 return;
             }
 
-            var newPosition = new PointLatLng(telemetry.Gps1Latitude, telemetry.Gps1Longitude);
+            var newPosition = new PointLatLng(telemetry.GpsLatitude, telemetry.GpsLongitude);
             _lastValidPosition = newPosition;
 
             if (_gMapControl.InvokeRequired)
