@@ -1,290 +1,130 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
-using OpenTK;
-using OpenTK.Graphics.OpenGL;
+using System.Windows.Forms.Integration;
+using System.Windows.Media;
+using System.Windows.Media.Media3D;
+using HelixToolkit.Wpf;
 
 namespace MERGEN_KAT1_GCSS
 {
     public partial class _3DSimulation
     {
-        private GLControl glControl1;
-       
-        
-      
+        private ElementHost _host;
+        private HelixViewport3D _viewport;
+        private ModelVisual3D _satelliteModel;
 
+        // Helix'in donanımsal eksen rotasyonları
+        private AxisAngleRotation3D _yawRotation;
+        private AxisAngleRotation3D _pitchRotation;
+        private AxisAngleRotation3D _rollRotation;
+
+        // Dışarıdan okunma ihtimaline karşı eski public değişkenleri tutuyoruz
         public float x = 0, y = 0, z = 0;
-       
-        
 
-        public _3DSimulation(GLControl glControl)
+        // Sensörden gelen "Hedef" açılar
+        private float _targetYaw = 0, _targetPitch = 0, _targetRoll = 0;
+
+        // Ekranda o an çizilen "Mevcut" açılar (Yumuşatma için)
+        private float _currentYaw = 0, _currentPitch = 0, _currentRoll = 0;
+
+        // Ekran yenileme zamanlayıcısı (Render Loop)
+        private Timer _renderTimer;
+
+        public _3DSimulation(Control containerControl)
         {
-            this.glControl1 = glControl ?? throw new ArgumentNullException(nameof(glControl));
-            
+            if (containerControl == null) throw new ArgumentNullException(nameof(containerControl));
 
-            
-           
+            InitializeHelix(containerControl);
 
-           
+            // Kasıntıyı önlemek için 60 FPS (16ms) hızında çalışan Render Motorunu başlat
+            _renderTimer = new Timer();
+            _renderTimer.Interval = 16;
+            _renderTimer.Tick += RenderTimer_Tick;
+            _renderTimer.Start();
         }
 
-       
+        private void InitializeHelix(Control container)
+        {
+            // WinForms içinde WPF nesnelerini barındıracak Host aracı
+            _host = new ElementHost { Dock = DockStyle.Fill };
+            container.Controls.Add(_host);
 
-        
+            // Helix 3D Kamerası ve Uzayı
+            _viewport = new HelixViewport3D
+            {
+                ShowViewCube = false,
+                ShowCoordinateSystem = true, // X-Y-Z eksen oklarını gösterir
+                Background = new SolidColorBrush(Color.FromRgb(24, 30, 54))
+            };
 
-       
+            // Işıklandırma
+            _viewport.Children.Add(new DefaultLights());
+
+            // Tek ve Sabit Uydu Modelini Oluştur
+            _satelliteModel = new ModelVisual3D();
+            _satelliteModel.Content = CreateSatelliteModel();
+
+            // Transform3DGroup ile Gimbal Lock önlenir
+            var transformGroup = new Transform3DGroup();
+
+            // DONANIMSAL DÜZELTME: Sensörün PCB alt katmanında ters durmasını dengeleyen 180 derecelik sabit dönüş.
+            transformGroup.Children.Add(new RotateTransform3D(new AxisAngleRotation3D(new Vector3D(1, 0, 0), 180)));
+
+            // Dinamik Eksenler
+            _yawRotation = new AxisAngleRotation3D(new Vector3D(0, 1, 0), 0);
+            _pitchRotation = new AxisAngleRotation3D(new Vector3D(0, 0, 1), 0);
+            _rollRotation = new AxisAngleRotation3D(new Vector3D(1, 0, 0), 0);
+
+            // Sıralama (YAW -> PITCH -> ROLL)
+            transformGroup.Children.Add(new RotateTransform3D(_yawRotation));
+            transformGroup.Children.Add(new RotateTransform3D(_pitchRotation));
+            transformGroup.Children.Add(new RotateTransform3D(_rollRotation));
+
+            _satelliteModel.Transform = transformGroup;
+            _viewport.Children.Add(_satelliteModel);
+
+            _host.Child = _viewport;
+        }
 
         public void UpdateRotation(float yaw, float pitch, float roll)
         {
-            
-          
-           
-            z = -yaw;
+            // Eski sistem değişkenlerini güncel tut
+            z = yaw;
             x = pitch;
-            y = roll + 180.0f;
+            y = roll;
 
-            glControl1.Invalidate();
+            // Yeni gelen 1 Hz'lik veriyi hedef olarak belirliyoruz
+            _targetYaw = yaw;
+            _targetPitch = pitch;
+            _targetRoll = roll;
         }
 
-        
-
-       
-
-        
-
-        
-
-        
-
-        // Alternatif model: yeni uydu/silindir modeli.
-        // Ölçeklendirme kaldırıldı ki silindirin yüksekliği, perforasyonlu kılıfın yüksekliği ile aynı olsun.
-        public void DrawNewSatellite()
+        private void RenderTimer_Tick(object sender, EventArgs e)
         {
-            DrawCylinder(3.0f, 12.0f, 64);
+            // LERP (Linear Interpolation) ile Pürüzsüzleştirme
+            // Saniyede 1 gelen veri sıçramasını sönümlemek için katsayı 0.05f olarak ayarlandı.
+            // Bu sayede animasyon tık tık atmaz, kesintisiz ve yağ gibi akar.
+            _currentYaw += (_targetYaw - _currentYaw) * 0.05f;
+            _currentPitch += (_targetPitch - _currentPitch) * 0.05f;
+            _currentRoll += (_targetRoll - _currentRoll) * 0.05f;
+
+            // WPF UI Thread üzerinden yormadan ekran kartını (GPU) güncelliyoruz
+            _yawRotation.Angle = -_currentYaw;
+            _pitchRotation.Angle = _currentPitch;
+            _rollRotation.Angle = _currentRoll;
         }
 
-        // Perforasyonlu kılıf modeli
-        public void DrawPerforatedShell(float radius, float height, int slices)
+        private GeometryModel3D CreateSatelliteModel()
         {
-            float halfHeight = height / 2.0f;
-            float shellThickness = 0.1f * radius; // Kılıf kalınlığı
-            float holeSpacing = (float)(2.0 * Math.PI / slices); // Deliklerin açılacağı aralık
+            // Tek, sabit turuncu silindir
+            var builder = new MeshBuilder();
 
-            // Kılıfın dış yüzeyi (delikli)
-            GL.Begin(PrimitiveType.QuadStrip);
-            GL.Color3(1.0f, 0.5f, 0.0f); // Turuncu
-            for (int i = 0; i <= slices; i++)
-            {
-                float angle = i * 2.0f * (float)Math.PI / slices;
-                float dx = (float)Math.Cos(angle) * (radius + shellThickness);
-                float dz = (float)Math.Sin(angle) * (radius + shellThickness);
-                GL.Normal3(dx, 0, dz);
-                GL.Vertex3(dx, -halfHeight, dz);
-                GL.Vertex3(dx, halfHeight, dz);
-            }
-            GL.End();
+            // Boyutlar: Yarıçap (Radius) = 5, Yükseklik = 20 (-10'dan 10'a)
+            builder.AddCylinder(new Point3D(0, -10, 0), new Point3D(0, 10, 0), 5, 36);
 
-            // Yan yüzeylere daha büyük ve daha fazla sayıda yuvarlak siyah delikler ekleme (iç ve dış yüzey)
-            float holeRadius = 0.08f * radius; // Daha büyük delikler
-            int holeRows = 5; // Daha fazla sıra
-            GL.Color3(0.0f, 0.0f, 0.0f); // Siyah delikler
-            for (int i = 0; i < slices; i++)
-            {
-                for (int j = 1; j <= holeRows; j++) // 5 sıra delik
-                {
-                    float angle = i * 2.0f * (float)Math.PI / slices;
-                    float dx = (float)Math.Cos(angle) * (radius + shellThickness * 0.5f);
-                    float dz = (float)Math.Sin(angle) * (radius + shellThickness * 0.5f);
-                    float holeY = -halfHeight + j * (height / (holeRows + 1)); // Daha sık aralıklarla delikler
-                    DrawCircle(dx, holeY, dz, holeRadius, 16); // İç yüzey delikleri
-                    DrawCircle(dx * 1.1f, holeY, dz * 1.1f, holeRadius, 16); // Dış yüzey delikleri
-                }
-            }
+            var material = MaterialHelper.CreateMaterial(Colors.Orange);
 
-            // Kılıfın üst kenar yüzeyi
-            GL.Begin(PrimitiveType.QuadStrip);
-            GL.Color3(1.0f, 0.5f, 0.0f);
-            for (int i = 0; i <= slices; i++)
-            {
-                float angle = i * 2.0f * (float)Math.PI / slices;
-                float dx = (float)Math.Cos(angle) * (radius + shellThickness);
-                float dz = (float)Math.Sin(angle) * (radius + shellThickness);
-                GL.Normal3(dx, 1, dz);
-                GL.Vertex3(dx, halfHeight, dz);
-                GL.Vertex3(dx, halfHeight + shellThickness / 2, dz);
-            }
-            GL.End();
-
-            // Kılıfın alt kenar yüzeyi
-            GL.Begin(PrimitiveType.QuadStrip);
-            GL.Color3(1.0f, 0.5f, 0.0f);
-            for (int i = 0; i <= slices; i++)
-            {
-                float angle = i * 2.0f * (float)Math.PI / slices;
-                float dx = (float)Math.Cos(angle) * (radius + shellThickness);
-                float dz = (float)Math.Sin(angle) * (radius + shellThickness);
-                GL.Normal3(dx, -1, dz);
-                GL.Vertex3(dx, -halfHeight, dz);
-                GL.Vertex3(dx, -halfHeight - shellThickness / 2, dz);
-            }
-            GL.End();
-        }
-
-        public void DrawCircle(float x, float y, float z, float radius, int segments)
-        {
-            GL.Begin(PrimitiveType.TriangleFan);
-            GL.Vertex3(x, y, z);
-            for (int i = 0; i <= segments; i++)
-            {
-                float angle = i * 2.0f * (float)Math.PI / segments;
-                float dx = (float)Math.Cos(angle) * radius;
-                float dz = (float)Math.Sin(angle) * radius;
-                GL.Vertex3(x + dx, y, z + dz);
-            }
-            GL.End();
-        }
-
-
-
-
-        // Silindir çizim metodu: Üst ve alt diskler hacimli olarak çiziliyor, ortadaki levha turuncu, kolonlar beyaz.
-        public void DrawCylinder(float radius, float height, int slices)
-        {
-
-            float halfHeight = height / 2.0f;
-            float columnInset = 0.15f * radius; // Kolonların merkeze olan mesafesi
-            float layerHeight = height / 3.0f; // Her bir tabakanın yüksekliği
-            float wallThickness = 0.1f * height; // Üst taban kalınlığı
-
-            // Alt taban
-            GL.Begin(PrimitiveType.TriangleFan);
-            GL.Color3(1.0f, 0.0f, 0.0f); // Kırmızı renk
-            GL.Normal3(0, -1, 0);
-            GL.Vertex3(0, -halfHeight, 0);
-            for (int i = 0; i <= slices; i++)
-            {
-                float angle = i * 2.0f * (float)Math.PI / slices;
-                float x = (float)Math.Cos(angle) * radius;
-                float z = (float)Math.Sin(angle) * radius;
-                GL.Vertex3(x, -halfHeight, z);
-            }
-            GL.End();
-
-            // Ortadaki iki tabaka
-            for (int j = 1; j <= 2; j++)
-            {
-                float currentHeight = -halfHeight + j * layerHeight;
-                GL.Begin(PrimitiveType.TriangleFan);
-                // Her tabakayı farklı renkte çiz
-                switch (j)
-                {
-                    case 1:
-                        GL.Color3(0.5f, 0.5f, 0.0f); // Sarı renk
-                        break;
-                    case 2:
-                        GL.Color3(0.5f, 0.0f, 0.5f); // Mor renk
-                        break;
-                }
-                GL.Normal3(0, 0, 0);
-                GL.Vertex3(0, currentHeight, 0);
-                for (int i = 0; i <= slices; i++)
-                {
-                    float angle = i * 2.0f * (float)Math.PI / slices;
-                    float x = (float)Math.Cos(angle) * radius;
-                    float z = (float)Math.Sin(angle) * radius;
-                    GL.Vertex3(x, currentHeight, z);
-                }
-                GL.End();
-            }
-
-            // Üst tabanın duvarları (aynı genişlikte iniyor)
-            GL.Begin(PrimitiveType.QuadStrip);
-            GL.Color3(0.0f, 0.5f, 1.0f); // Açık mavi renk
-            for (int i = 0; i <= slices; i++)
-            {
-                float angle = i * 2.0f * (float)Math.PI / slices;
-                float xOuter = (float)Math.Cos(angle) * radius;
-                float zOuter = (float)Math.Sin(angle) * radius;
-                float xInner = xOuter;
-                float zInner = zOuter;
-
-                GL.Normal3(xOuter, 0, zOuter);
-                GL.Vertex3(xOuter, halfHeight, zOuter);
-                GL.Vertex3(xInner, halfHeight - wallThickness, zInner);
-            }
-            GL.End();
-
-            // Üst tabanın alt kısmındaki tabaka
-            GL.Begin(PrimitiveType.TriangleFan);
-            GL.Color3(0.0f, 0.0f, 1.0f); // Mavi renk
-            GL.Normal3(0, -1, 0);
-            GL.Vertex3(0, halfHeight - wallThickness, 0);
-            for (int i = 0; i <= slices; i++)
-            {
-                float angle = i * 2.0f * (float)Math.PI / slices;
-                float x = (float)Math.Cos(angle) * radius;
-                float z = (float)Math.Sin(angle) * radius;
-                GL.Vertex3(x, halfHeight - wallThickness, z);
-            }
-            GL.End();
-
-            // 4 Kolon
-            GL.Color3(0.0f, 1.0f, 0.0f); // Yeşil renk
-            float columnRadius = 0.1f * radius; // Kolon yarıçapı
-
-            for (int i = 0; i < 4; i++)
-            {
-                float angle = i * (float)Math.PI / 2;
-                float x = (float)Math.Cos(angle) * (radius - columnInset);
-                float z = (float)Math.Sin(angle) * (radius - columnInset);
-
-                DrawColumn(x, z, columnRadius, height);
-            }
-        }
-
-        public void DrawColumn(float x, float z, float columnRadius, float height)
-        {
-            float halfHeight = height / 2.0f;
-            int slices = 16; // Kolon için dilim sayısı
-
-            GL.Begin(PrimitiveType.QuadStrip);
-            for (int i = 0; i <= slices; i++)
-            {
-                float angle = i * 2.0f * (float)Math.PI / slices;
-                float dx = (float)Math.Cos(angle) * columnRadius;
-                float dz = (float)Math.Sin(angle) * columnRadius;
-
-                GL.Normal3(dx, 0, dz);
-                GL.Vertex3(x + dx, -halfHeight, z + dz);
-                GL.Vertex3(x + dx, halfHeight, z + dz);
-            }
-            GL.End();
-
-            // Kolon alt tabanı
-            GL.Begin(PrimitiveType.TriangleFan);
-            GL.Normal3(0, -1, 0);
-            GL.Vertex3(x, -halfHeight, z);
-            for (int i = 0; i <= slices; i++)
-            {
-                float angle = i * 2.0f * (float)Math.PI / slices;
-                float dx = (float)Math.Cos(angle) * columnRadius;
-                float dz = (float)Math.Sin(angle) * columnRadius;
-                GL.Vertex3(x + dx, -halfHeight, z + dz);
-            }
-            GL.End();
-
-            // Kolon üst tabanı
-            GL.Begin(PrimitiveType.TriangleFan);
-            GL.Normal3(0, 1, 0);
-            GL.Vertex3(x, halfHeight, z);
-            for (int i = 0; i <= slices; i++)
-            {
-                float angle = i * 2.0f * (float)Math.PI / slices;
-                float dx = (float)Math.Cos(angle) * columnRadius;
-                float dz = (float)Math.Sin(angle) * columnRadius;
-                GL.Vertex3(x + dx, halfHeight, z + dz);
-            }
-            GL.End();
+            return new GeometryModel3D(builder.ToMesh(), material);
         }
     }
 }
