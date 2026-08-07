@@ -39,9 +39,9 @@ namespace MERGEN_KAT1_GCSS
             
           
            
-            z = yaw;
+            z = -yaw;
             x = pitch;
-            y = roll;
+            y = roll + 180.0f;
 
             glControl1.Invalidate();
         }

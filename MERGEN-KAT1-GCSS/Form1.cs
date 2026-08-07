@@ -245,11 +245,11 @@ namespace MERGEN_KAT1_GCSS
 
         private void glControl1_Paint(object sender, PaintEventArgs e)
         {
-            // Önce buffer temizleniyor.
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
             // Perspektif ve kamera ayarları.
             Matrix4 perspective = Matrix4.CreatePerspectiveFieldOfView(1.04f, (float)glControl1.Width / glControl1.Height, 1, 10000);
+            // Kamera X ekseninde (+25 birim uzakta), merkeze (0,0,0) bakıyor. Yukarı yönü +Y.
             Matrix4 lookAt = Matrix4.LookAt(25, 0, 0, 0, 0, 0, 0, 1, 0);
 
             GL.MatrixMode(MatrixMode.Projection);
@@ -262,18 +262,14 @@ namespace MERGEN_KAT1_GCSS
 
             GL.Viewport(0, 0, glControl1.Width, glControl1.Height);
 
+            // --- DOĞRU HAVACILIK ROTASYON DİZİLİMİ ---
+            // Dönüşlerin sırası (Gimbal Lock'u en aza indirmek için) genellikle Yaw -> Pitch -> Roll şeklindedir.
 
-            // Model rotasyonları uygulanıyor.
-              GL.Rotate(simulation.x, 0.0, 0.0, -1.0);   
-              GL.Rotate(simulation.z, 0.0, -1.0, 0.0);  
-              GL.Rotate(simulation.y, -1.0, 0.0, 0.0);   
+            GL.Rotate(simulation.z, 0.0f, 1.0f, 0.0f); // YAW: Y ekseni etrafında dönme
+            GL.Rotate(simulation.x, 0.0f, 0.0f, 1.0f); // PITCH: Z ekseni etrafında eğilme
+            GL.Rotate(simulation.y, 1.0f, 0.0f, 0.0f); // ROLL: X ekseni etrafında yatış
 
-            
-
-
-         
-
-            // Modelin çizimi: alternatif model seçimine göre.
+            // Modelin çizimi
             if (useAlternativeModel)
                 simulation.DrawNewSatellite();
             else

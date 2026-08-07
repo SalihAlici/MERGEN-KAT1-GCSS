@@ -37,9 +37,9 @@ namespace MERGEN_KAT1_GCSS
             }
 
             // 5. bit (error[4]) kontrolü
-            if (error.Length > 4)
+            if (error.Length > 2)
             {
-                bool currentFifthError = error[4] == '1';
+                bool currentFifthError = error[2] == '1';
 
                 if (lastFifthError == null || currentFifthError != lastFifthError)
                 {
