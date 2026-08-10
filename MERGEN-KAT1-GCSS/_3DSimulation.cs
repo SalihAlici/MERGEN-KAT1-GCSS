@@ -57,6 +57,10 @@ namespace MERGEN_KAT1_GCSS
                 Background = new SolidColorBrush(Color.FromRgb(24, 30, 54))
             };
 
+            // --- KAMERAYI TAM DİK VE ÖN CEPHEDEN SABİTLEME ---
+            _viewport.Camera.Position = new Point3D(0, -20, 0); // Kamerayı tam önüne koyuyoruz
+            _viewport.Camera.LookDirection = new Vector3D(0, 40, 0); // Tam merkeze bakmasını sağlıyoruz
+            _viewport.Camera.UpDirection = new Vector3D(0, 0, 1); // Z eksenini yukarı dikiyoruz
             // Işıklandırma
             _viewport.Children.Add(new DefaultLights());
 
@@ -84,6 +88,8 @@ namespace MERGEN_KAT1_GCSS
             _viewport.Children.Add(_satelliteModel);
 
             _host.Child = _viewport;
+
+
         }
 
         public void UpdateRotation(float yaw, float pitch, float roll)
