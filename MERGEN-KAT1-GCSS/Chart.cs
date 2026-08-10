@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -13,23 +14,65 @@ namespace MERGEN_KAT1_GCSS
         {
             _charts = new[] { ch1, ch2, ch3, ch4, ch5 };
 
-            // Chart optimizasyonları
-            foreach (var chart in _charts)
+            // Grafikleri daha cancanlı göstermek için neon renk paleti (Sırasıyla 5 grafik için)
+            Color[] neonColors = {
+                Color.FromArgb(0, 212, 255),   // Açık Mavi (Basınç)
+                Color.FromArgb(255, 193, 7),   // Sarı/Turuncu (Yükseklik)
+                Color.FromArgb(0, 230, 118),   // Neon Yeşil (İniş Hızı)
+                Color.FromArgb(255, 64, 129),  // Pembe/Kırmızı (Sıcaklık)
+                Color.FromArgb(178, 143, 206)  // Mor (Pil Gerilimi)
+            };
+
+            for (int i = 0; i < _charts.Length; i++)
             {
-                // Double buffering
+                var chart = _charts[i];
+                var chartArea = chart.ChartAreas[0];
+
+                // 1. Double buffering (Titremeyi engeller)
                 typeof(Chart).GetProperty("DoubleBuffered",
                     System.Reflection.BindingFlags.Instance |
                     System.Reflection.BindingFlags.NonPublic)?
                     .SetValue(chart, true, null);
 
+                // 2. Arka Planı ve Kenarlıkları Temizleme
+                chart.BackColor = Color.Transparent;
+                chartArea.BackColor = Color.Transparent;
+
+                // 3. X Ekseni Ayarları (Saat kısmı)
+                chartArea.AxisX.LabelStyle.ForeColor = Color.LightGray; // Yazı rengi
+                chartArea.AxisX.LabelStyle.Font = new Font("Segoe UI", 8, FontStyle.Regular);
+                chartArea.AxisX.LabelStyle.Angle = -45; // Yazıları 45 derece eğik yaz (çakışmayı önler)
+                chartArea.AxisX.LineColor = Color.Gray; // Alt çizgi rengi
+                chartArea.AxisX.MajorGrid.LineColor = Color.FromArgb(30, 255, 255, 255); // Çok silik beyaz ızgara
+                chartArea.AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dash; // Kesik çizgi
+
+                // 4. Y Ekseni Ayarları (Değerler)
+                //chartArea.AxisY.IsStartedFromZero = false; // EN ÖNEMLİSİ: Grafiğin dalgalanmalarını gösterir
+                chartArea.AxisY.LabelStyle.ForeColor = Color.LightGray;
+                chartArea.AxisY.LabelStyle.Font = new Font("Segoe UI", 8, FontStyle.Regular);
+                chartArea.AxisY.LineColor = Color.Gray;
+                chartArea.AxisY.MajorGrid.LineColor = Color.FromArgb(30, 255, 255, 255);
+                chartArea.AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+
+                // 5. Başlık (Title) Varsa Stilini Ayarla
+                if (chart.Titles.Count > 0)
+                {
+                    chart.Titles[0].ForeColor = Color.White;
+                    chart.Titles[0].Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                }
+
+                // 6. Çizgi (Series) Ayarları
                 foreach (var series in chart.Series)
                 {
-                   // series.ChartType = SeriesChartType.FastLine;
-                    series.BorderWidth = 1;
+                    series.ChartType = SeriesChartType.Spline; // Keskin hatlar yerine yumuşak kıvrımlı çizgiler çizer
+                    series.BorderWidth = 3; // Çizgiyi kalınlaştırdık
+                    series.Color = neonColors[i]; // Yukardaki neon renkleri ata
+
+                    // Veri noktalarındaki yuvarlak işaretçileri kapat ki sadece temiz çizgi kalsın
+                    series.MarkerStyle = MarkerStyle.None;
                 }
             }
         }
-
         public void Update(TelemetryData data)
         {
             if (_charts[0].InvokeRequired)
