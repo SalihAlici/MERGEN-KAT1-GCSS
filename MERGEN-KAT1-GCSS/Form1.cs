@@ -40,7 +40,7 @@ namespace MERGEN_KAT1_GCSS
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            aras.FifthErrorChanged += OnFifthErrorChanged;
+           
 
             string csvPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "TELEMETRİ.csv");
             dataGridViewHandler = new DataGridViewHandler(dataGridView1, csvPath);
@@ -52,11 +52,7 @@ namespace MERGEN_KAT1_GCSS
             LoadAvailableCameras();
         }
 
-        private void OnFifthErrorChanged(bool isError)
-        {
-            // 5. bit hatası değiştiğinde 3D modeli değiştirmiyoruz, sadece bilgi logluyoruz.
-            Console.WriteLine($"[DEBUG] 5. bit durumu değişti: {(isError ? 1 : 0)}");
-        }
+       
 
         private void Form1_Load(object sender, EventArgs e)
         {

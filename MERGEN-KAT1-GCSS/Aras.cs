@@ -9,10 +9,10 @@ namespace MERGEN_KAT1_GCSS
     {
         private PictureBox[] pictureBoxes;
 
-        // 5. hata biti değiştiğinde haber verecek event
-        public event Action<bool> FifthErrorChanged;
+        
+        
 
-        private bool? lastFifthError = null; // Başlangıçta bilinmiyor
+        
 
         public Aras(params PictureBox[] pbs)
         {
@@ -36,17 +36,8 @@ namespace MERGEN_KAT1_GCSS
                 }
             }
 
-            // 5. bit (error[4]) kontrolü
-            if (error.Length > 2)
-            {
-                bool currentFifthError = error[2] == '1';
-
-                if (lastFifthError == null || currentFifthError != lastFifthError)
-                {
-                    FifthErrorChanged?.Invoke(currentFifthError);
-                    lastFifthError = currentFifthError;
-                }
-            }
+            
+            
 
             if (alarm)
             {
