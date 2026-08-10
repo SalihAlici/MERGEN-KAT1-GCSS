@@ -18,7 +18,7 @@ namespace MERGEN_KAT1_GCSS
         private AxisAngleRotation3D _pitchRotation;
         private AxisAngleRotation3D _rollRotation;
 
-        // Dışarıdan okunma ihtimaline karşı eski public değişkenleri tutuyoruz
+        // Dışarıdan okunma ihtimaline karşı public değişkenler
         public float x = 0, y = 0, z = 0;
 
         // Sensörden gelen "Hedef" açılar
@@ -57,12 +57,21 @@ namespace MERGEN_KAT1_GCSS
                 Background = new SolidColorBrush(Color.FromRgb(24, 30, 54))
             };
 
-            // --- KAMERAYI TAM DİK VE ÖN CEPHEDEN SABİTLEME ---
-            _viewport.Camera.Position = new Point3D(0, -20, 0); // Kamerayı tam önüne koyuyoruz
-            _viewport.Camera.LookDirection = new Vector3D(0, 40, 0); // Tam merkeze bakmasını sağlıyoruz
-            _viewport.Camera.UpDirection = new Vector3D(0, 0, 1); // Z eksenini yukarı dikiyoruz
-            // Işıklandırma
-            _viewport.Children.Add(new DefaultLights());
+            // --- 1. KAMERAYI BİRAZ GERİ ÇEK (Model Küçülür) ---
+            _viewport.Camera.Position = new Point3D(0, -35, 0);
+            _viewport.Camera.LookDirection = new Vector3D(0, 35, 0);
+            _viewport.Camera.UpDirection = new Vector3D(0, 0, 1);
+
+            // --- 2. YUMUŞATILMIŞ IŞIKLANDIRMA (Parlamayı Önler) ---
+            var lightGroup = new Model3DGroup();
+
+            // Genel ortam ışığını hafif artırıyoruz ki her yer eşit aydınlansın
+            lightGroup.Children.Add(new AmbientLight(Color.FromRgb(120, 120, 120)));
+
+            // Ortadaki beyaz patlamayı önlemek için saf beyaz yerine daha kısık (gri) ve açılı bir ışık veriyoruz
+            lightGroup.Children.Add(new DirectionalLight(Color.FromRgb(130, 130, 130), new Vector3D(0, 1, -0.5)));
+
+            _viewport.Children.Add(new ModelVisual3D { Content = lightGroup });
 
             // Tek ve Sabit Uydu Modelini Oluştur
             _satelliteModel = new ModelVisual3D();
@@ -75,9 +84,9 @@ namespace MERGEN_KAT1_GCSS
             transformGroup.Children.Add(new RotateTransform3D(new AxisAngleRotation3D(new Vector3D(1, 0, 0), 180)));
 
             // DİNAMİK EKSENLER: Model Z ekseninde dik durduğu için eksenleri Z-Up sistemine göre ayarladık.
-            _yawRotation = new AxisAngleRotation3D(new Vector3D(0, 0, 1), 0);   // YAW -> Z Ekseni (Kendi etrafında)
-            _pitchRotation = new AxisAngleRotation3D(new Vector3D(1, 0, 0), 0); // PITCH -> X Ekseni (Öne arkaya eğilme)
-            _rollRotation = new AxisAngleRotation3D(new Vector3D(0, 1, 0), 0);  // ROLL -> Y Ekseni (Sağa sola yatma)
+            _yawRotation = new AxisAngleRotation3D(new Vector3D(0, 0, 1), 0);
+            _pitchRotation = new AxisAngleRotation3D(new Vector3D(1, 0, 0), 0);
+            _rollRotation = new AxisAngleRotation3D(new Vector3D(0, 1, 0), 0);
 
             // Sıralama
             transformGroup.Children.Add(new RotateTransform3D(_yawRotation));
@@ -88,8 +97,6 @@ namespace MERGEN_KAT1_GCSS
             _viewport.Children.Add(_satelliteModel);
 
             _host.Child = _viewport;
-
-
         }
 
         public void UpdateRotation(float yaw, float pitch, float roll)
@@ -136,13 +143,16 @@ namespace MERGEN_KAT1_GCSS
         {
             var builder = new MeshBuilder();
 
-            // Boyu (-7, 7) ve yarıçapı (6) olan tam dolu, tek parça katı silindir
-            builder.AddCylinder(new Point3D(0, 0, -7), new Point3D(0, 0, 7), 6, 36);
+            // Boyu (-7, 7) ve yarıçapı (8) olan tam dolu, kapalı katı silindir
+            builder.AddCylinder(new Point3D(0, 0, -7), new Point3D(0, 0, 7), 8, 36);
 
+            // Orijinal saf turuncu materyal
             var material = MaterialHelper.CreateMaterial(Colors.Orange);
 
             var geometryModel = new GeometryModel3D(builder.ToMesh(), material);
-            geometryModel.BackMaterial = material; // Arkaya bakan yüzeylerin de turuncu görünmesini sağlar
+
+            // Arkaya veya içeri bakan yüzeylerin de turuncu görünmesini sağlar (kesikliği önler)
+            geometryModel.BackMaterial = material;
 
             return geometryModel;
         }
