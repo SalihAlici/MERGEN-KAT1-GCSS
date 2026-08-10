@@ -697,7 +697,7 @@
             this.lockbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.lockbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lockbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.lockbutton.Location = new System.Drawing.Point(962, 11);
+            this.lockbutton.Location = new System.Drawing.Point(999, 11);
             this.lockbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lockbutton.Name = "lockbutton";
             this.lockbutton.Size = new System.Drawing.Size(37, 38);
@@ -712,7 +712,7 @@
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.button7.Location = new System.Drawing.Point(542, 44);
+            this.button7.Location = new System.Drawing.Point(558, 61);
             this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(28, 30);
@@ -742,7 +742,7 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.textBox1.Location = new System.Drawing.Point(577, 50);
+            this.textBox1.Location = new System.Drawing.Point(593, 67);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(167, 22);
@@ -754,7 +754,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.label19.ForeColor = System.Drawing.Color.Snow;
-            this.label19.Location = new System.Drawing.Point(589, 21);
+            this.label19.Location = new System.Drawing.Point(605, 38);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(117, 20);
             this.label19.TabIndex = 15;
@@ -767,7 +767,7 @@
             this.camclosebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.camclosebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.camclosebutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.camclosebutton.Location = new System.Drawing.Point(962, 53);
+            this.camclosebutton.Location = new System.Drawing.Point(999, 67);
             this.camclosebutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.camclosebutton.Name = "camclosebutton";
             this.camclosebutton.Size = new System.Drawing.Size(37, 38);
@@ -797,7 +797,7 @@
             this.unlockbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.unlockbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.unlockbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.unlockbutton.Location = new System.Drawing.Point(858, 11);
+            this.unlockbutton.Location = new System.Drawing.Point(928, 12);
             this.unlockbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.unlockbutton.Name = "unlockbutton";
             this.unlockbutton.Size = new System.Drawing.Size(37, 38);
@@ -824,7 +824,7 @@
             this.camopenbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.camopenbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.camopenbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.camopenbutton.Location = new System.Drawing.Point(858, 52);
+            this.camopenbutton.Location = new System.Drawing.Point(928, 64);
             this.camopenbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.camopenbutton.Name = "camopenbutton";
             this.camopenbutton.Size = new System.Drawing.Size(37, 38);
@@ -869,7 +869,7 @@
             this.batteryProgressBar1.BackColor = System.Drawing.Color.Transparent;
             this.batteryProgressBar1.Location = new System.Drawing.Point(1643, 39);
             this.batteryProgressBar1.Name = "batteryProgressBar1";
-            this.batteryProgressBar1.Percentage = 28;
+            this.batteryProgressBar1.Percentage = 32;
             this.batteryProgressBar1.Size = new System.Drawing.Size(120, 66);
             this.batteryProgressBar1.TabIndex = 34;
             // 

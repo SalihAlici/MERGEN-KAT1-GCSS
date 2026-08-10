@@ -67,15 +67,15 @@ namespace MERGEN_KAT1_GCSS
             // Transform3DGroup ile Gimbal Lock önlenir
             var transformGroup = new Transform3DGroup();
 
-            // DONANIMSAL DÜZELTME: Sensörün PCB alt katmanında ters durmasını dengeleyen 180 derecelik sabit dönüş.
+            // DONANIMSAL DÜZELTME: Sensör PCB'nin alt katmanında (ters) olduğu için 180 derece takla attırıyoruz.
             transformGroup.Children.Add(new RotateTransform3D(new AxisAngleRotation3D(new Vector3D(1, 0, 0), 180)));
 
-            // Dinamik Eksenler
-            _yawRotation = new AxisAngleRotation3D(new Vector3D(0, 1, 0), 0);
-            _pitchRotation = new AxisAngleRotation3D(new Vector3D(0, 0, 1), 0);
-            _rollRotation = new AxisAngleRotation3D(new Vector3D(1, 0, 0), 0);
+            // DİNAMİK EKSENLER: Model Z ekseninde dik durduğu için eksenleri Z-Up sistemine göre ayarladık.
+            _yawRotation = new AxisAngleRotation3D(new Vector3D(0, 0, 1), 0);   // YAW -> Z Ekseni (Kendi etrafında)
+            _pitchRotation = new AxisAngleRotation3D(new Vector3D(1, 0, 0), 0); // PITCH -> X Ekseni (Öne arkaya eğilme)
+            _rollRotation = new AxisAngleRotation3D(new Vector3D(0, 1, 0), 0);  // ROLL -> Y Ekseni (Sağa sola yatma)
 
-            // Sıralama (YAW -> PITCH -> ROLL)
+            // Sıralama
             transformGroup.Children.Add(new RotateTransform3D(_yawRotation));
             transformGroup.Children.Add(new RotateTransform3D(_pitchRotation));
             transformGroup.Children.Add(new RotateTransform3D(_rollRotation));
@@ -99,28 +99,39 @@ namespace MERGEN_KAT1_GCSS
             _targetRoll = roll;
         }
 
+        // Açıların en kısa yolunu hesaplar (Kendi etrafında fırıldak gibi dönmeyi engeller)
+        private float LerpAngle(float current, float target, float speed)
+        {
+            float diff = target - current;
+
+            // Aradaki farkı her zaman -180 ile +180 derece arasına sıkıştırır
+            while (diff < -180f) diff += 360f;
+            while (diff > 180f) diff -= 360f;
+
+            return current + diff * speed;
+        }
+
         private void RenderTimer_Tick(object sender, EventArgs e)
         {
-            // LERP (Linear Interpolation) ile Pürüzsüzleştirme
-            // Saniyede 1 gelen veri sıçramasını sönümlemek için katsayı 0.05f olarak ayarlandı.
-            // Bu sayede animasyon tık tık atmaz, kesintisiz ve yağ gibi akar.
-            _currentYaw += (_targetYaw - _currentYaw) * 0.05f;
-            _currentPitch += (_targetPitch - _currentPitch) * 0.05f;
-            _currentRoll += (_targetRoll - _currentRoll) * 0.05f;
+            // Saniyede 1 gelen veri atlamalarını sönümler, açıları en kısa yoldan pürüzsüz çevirir
+            _currentYaw = LerpAngle(_currentYaw, _targetYaw, 0.05f);
+            _currentPitch = LerpAngle(_currentPitch, _targetPitch, 0.05f);
+            _currentRoll = LerpAngle(_currentRoll, _targetRoll, 0.05f);
 
-            // WPF UI Thread üzerinden yormadan ekran kartını (GPU) güncelliyoruz
             _yawRotation.Angle = -_currentYaw;
-            _pitchRotation.Angle = _currentPitch;
-            _rollRotation.Angle = _currentRoll;
+
+            // --- ÇAPRAZ EKSEN DÜZELTMESİ ---
+            // Sensör dizgisi 90 derece yatık olduğu için Pitch açısını Roll'a, Roll açısını Pitch'e atıyoruz.
+            _pitchRotation.Angle = -_currentRoll;
+            _rollRotation.Angle = -_currentPitch;
         }
 
         private GeometryModel3D CreateSatelliteModel()
         {
-            // Tek, sabit turuncu silindir
             var builder = new MeshBuilder();
 
-            // Boyutlar: Yarıçap (Radius) = 5, Yükseklik = 20 (-10'dan 10'a)
-            builder.AddCylinder(new Point3D(0, -10, 0), new Point3D(0, 10, 0), 5, 36);
+            // Model Z ekseni (Mavi ok) boyunca dik olarak çiziliyor.
+            builder.AddCylinder(new Point3D(0, 0, -10), new Point3D(0, 0, 10), 5, 36);
 
             var material = MaterialHelper.CreateMaterial(Colors.Orange);
 
