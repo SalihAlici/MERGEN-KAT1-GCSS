@@ -242,5 +242,16 @@ namespace MERGEN_KAT1_GCSS
         {
             SendMessageAsync("B");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SendMessageAsync("E");
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SendMessageAsync("R");
+        }
     }
 }

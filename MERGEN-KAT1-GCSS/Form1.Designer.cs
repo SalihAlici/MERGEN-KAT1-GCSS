@@ -94,6 +94,8 @@
             this.cikisbutton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.batteryProgressBar1 = new MERGEN_KAT1_GCSS.BatteryProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.solpanel.SuspendLayout();
@@ -627,8 +629,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.comboBoxKamera);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label15);
@@ -643,36 +646,34 @@
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.camopenbutton);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox1.Location = new System.Drawing.Point(427, 9);
+            this.groupBox1.Location = new System.Drawing.Point(507, 10);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1066, 131);
+            this.groupBox1.Size = new System.Drawing.Size(1055, 131);
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
             // 
             // comboBoxKamera
             // 
-            this.comboBoxKamera.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comboBoxKamera.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxKamera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
             this.comboBoxKamera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxKamera.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.comboBoxKamera.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.comboBoxKamera.FormattingEnabled = true;
-            this.comboBoxKamera.Location = new System.Drawing.Point(300, 67);
+            this.comboBoxKamera.Location = new System.Drawing.Point(294, 67);
             this.comboBoxKamera.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxKamera.Name = "comboBoxKamera";
-            this.comboBoxKamera.Size = new System.Drawing.Size(191, 24);
+            this.comboBoxKamera.Size = new System.Drawing.Size(208, 24);
             this.comboBoxKamera.TabIndex = 27;
             // 
             // label17
             // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label17.Location = new System.Drawing.Point(509, 0);
+            this.label17.Location = new System.Drawing.Point(410, -3);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(121, 19);
             this.label17.TabIndex = 26;
@@ -680,11 +681,11 @@
             // 
             // label15
             // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Snow;
-            this.label15.Location = new System.Drawing.Point(19, 36);
+            this.label15.Location = new System.Drawing.Point(13, 36);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(193, 20);
             this.label15.TabIndex = 9;
@@ -692,15 +693,15 @@
             // 
             // lockbutton
             // 
-            this.lockbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lockbutton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lockbutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lockbutton.BackgroundImage")));
             this.lockbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.lockbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lockbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.lockbutton.Location = new System.Drawing.Point(999, 11);
+            this.lockbutton.Location = new System.Drawing.Point(995, 22);
             this.lockbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lockbutton.Name = "lockbutton";
-            this.lockbutton.Size = new System.Drawing.Size(37, 38);
+            this.lockbutton.Size = new System.Drawing.Size(54, 38);
             this.lockbutton.TabIndex = 25;
             this.lockbutton.UseVisualStyleBackColor = true;
             this.lockbutton.Click += new System.EventHandler(this.lockbutton_Click);
@@ -712,25 +713,25 @@
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.button7.Location = new System.Drawing.Point(558, 61);
+            this.button7.Location = new System.Drawing.Point(531, 58);
             this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(28, 30);
+            this.button7.Size = new System.Drawing.Size(45, 30);
             this.button7.TabIndex = 17;
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button5
             // 
-            this.button5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.button5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
             this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.button5.Location = new System.Drawing.Point(219, 64);
+            this.button5.Location = new System.Drawing.Point(231, 64);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(33, 33);
+            this.button5.Size = new System.Drawing.Size(50, 33);
             this.button5.TabIndex = 7;
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
@@ -742,10 +743,10 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.textBox1.Location = new System.Drawing.Point(593, 67);
+            this.textBox1.Location = new System.Drawing.Point(566, 64);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(167, 22);
+            this.textBox1.Size = new System.Drawing.Size(184, 22);
             this.textBox1.TabIndex = 16;
             // 
             // label19
@@ -754,7 +755,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.label19.ForeColor = System.Drawing.Color.Snow;
-            this.label19.Location = new System.Drawing.Point(605, 38);
+            this.label19.Location = new System.Drawing.Point(578, 35);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(117, 20);
             this.label19.TabIndex = 15;
@@ -762,56 +763,56 @@
             // 
             // camclosebutton
             // 
-            this.camclosebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.camclosebutton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.camclosebutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("camclosebutton.BackgroundImage")));
             this.camclosebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.camclosebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.camclosebutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.camclosebutton.Location = new System.Drawing.Point(999, 67);
+            this.camclosebutton.Location = new System.Drawing.Point(995, 78);
             this.camclosebutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.camclosebutton.Name = "camclosebutton";
-            this.camclosebutton.Size = new System.Drawing.Size(37, 38);
+            this.camclosebutton.Size = new System.Drawing.Size(54, 38);
             this.camclosebutton.TabIndex = 3;
             this.camclosebutton.UseVisualStyleBackColor = true;
             this.camclosebutton.Click += new System.EventHandler(this.camclosebutton_Click);
             // 
             // comboBox1
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(119)))), ((int)(((byte)(1)))));
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(23, 67);
+            this.comboBox1.Location = new System.Drawing.Point(17, 67);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(191, 24);
+            this.comboBox1.Size = new System.Drawing.Size(208, 24);
             this.comboBox1.TabIndex = 10;
             this.comboBox1.DropDown += new System.EventHandler(this.comboBox1_DropDown);
             // 
             // unlockbutton
             // 
-            this.unlockbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.unlockbutton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.unlockbutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("unlockbutton.BackgroundImage")));
             this.unlockbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.unlockbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.unlockbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.unlockbutton.Location = new System.Drawing.Point(928, 12);
+            this.unlockbutton.Location = new System.Drawing.Point(924, 23);
             this.unlockbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.unlockbutton.Name = "unlockbutton";
-            this.unlockbutton.Size = new System.Drawing.Size(37, 38);
+            this.unlockbutton.Size = new System.Drawing.Size(54, 38);
             this.unlockbutton.TabIndex = 24;
             this.unlockbutton.UseVisualStyleBackColor = true;
             this.unlockbutton.Click += new System.EventHandler(this.unlockbutton_Click);
             // 
             // label16
             // 
-            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.label16.ForeColor = System.Drawing.Color.Snow;
-            this.label16.Location = new System.Drawing.Point(312, 39);
+            this.label16.Location = new System.Drawing.Point(306, 39);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(160, 20);
             this.label16.TabIndex = 12;
@@ -819,15 +820,15 @@
             // 
             // camopenbutton
             // 
-            this.camopenbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.camopenbutton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.camopenbutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("camopenbutton.BackgroundImage")));
             this.camopenbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.camopenbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.camopenbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.camopenbutton.Location = new System.Drawing.Point(928, 64);
+            this.camopenbutton.Location = new System.Drawing.Point(924, 75);
             this.camopenbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.camopenbutton.Name = "camopenbutton";
-            this.camopenbutton.Size = new System.Drawing.Size(37, 38);
+            this.camopenbutton.Size = new System.Drawing.Size(54, 38);
             this.camopenbutton.TabIndex = 6;
             this.camopenbutton.UseVisualStyleBackColor = true;
             this.camopenbutton.Click += new System.EventHandler(this.camopenbutton_Click);
@@ -863,13 +864,47 @@
             this.serialPort1.ReadTimeout = 500;
             this.serialPort1.WriteTimeout = 500;
             // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(788, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 49);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "EEPROM";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button2.FlatAppearance.BorderSize = 2;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(788, 77);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(110, 42);
+            this.button2.TabIndex = 29;
+            this.button2.Text = "RESET";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // batteryProgressBar1
             // 
             this.batteryProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.batteryProgressBar1.BackColor = System.Drawing.Color.Transparent;
             this.batteryProgressBar1.Location = new System.Drawing.Point(1643, 39);
             this.batteryProgressBar1.Name = "batteryProgressBar1";
-            this.batteryProgressBar1.Percentage = 32;
+            this.batteryProgressBar1.Percentage = 16;
             this.batteryProgressBar1.Size = new System.Drawing.Size(120, 66);
             this.batteryProgressBar1.TabIndex = 34;
             // 
@@ -967,6 +1002,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxKamera;
         private System.Windows.Forms.Panel panel3D;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
