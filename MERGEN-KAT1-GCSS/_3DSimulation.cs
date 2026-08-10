@@ -130,12 +130,15 @@ namespace MERGEN_KAT1_GCSS
         {
             var builder = new MeshBuilder();
 
-            // Model Z ekseni (Mavi ok) boyunca dik olarak çiziliyor.
-            builder.AddCylinder(new Point3D(0, 0, -10), new Point3D(0, 0, 10), 5, 36);
+            // Boyu (-7, 7) ve yarıçapı (6) olan tam dolu, tek parça katı silindir
+            builder.AddCylinder(new Point3D(0, 0, -7), new Point3D(0, 0, 7), 6, 36);
 
             var material = MaterialHelper.CreateMaterial(Colors.Orange);
 
-            return new GeometryModel3D(builder.ToMesh(), material);
+            var geometryModel = new GeometryModel3D(builder.ToMesh(), material);
+            geometryModel.BackMaterial = material; // Arkaya bakan yüzeylerin de turuncu görünmesini sağlar
+
+            return geometryModel;
         }
     }
 }
