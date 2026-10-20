@@ -1,123 +1,123 @@
 # MERGEN-KAT1-GCSS
 
-MERGEN takımının model uydu ve CubeSat görevleri için geliştirdiği yer istasyonu yazılımı (Ground Control Station Software). Uydudan seri port üzerinden gelen telemetriyi çözer; grafiklerde, tabloda, haritada ve 3B modelde gösterir. Verileri CSV'ye kaydeder, uyduya komut gönderir ve kamera görüntüsünü kaydeder.
+Ground Control Station Software for model satellite and CubeSat missions. It decodes telemetry received from the satellite over a serial port and displays it in charts, a data table, a map and a 3D model. It logs data to CSV, sends commands to the satellite and records the camera feed.
 
-C# ve Windows Forms (.NET Framework 4.7.2) ile yazılmıştır.
+Written in C# with Windows Forms (.NET Framework 4.7.2). The user interface is in Turkish.
 
-![TEKNOFEST 2025 Kategori 1 sürümü](docs/teknofest2025_kat1.png)
-*TEKNOFEST 2025 Kategori 1 sürümü. Görüntülerdeki değerler örnek veridir.*
+![TEKNOFEST 2025 Category 1 version](docs/teknofest2025_kat1.png)
+*TEKNOFEST 2025 Category 1 version. Values shown are sample data.*
 
-## Sürümler
+## Versions
 
-Aynı altyapı farklı yarışmaların isterlerine göre ayrı branch'lerde geliştirildi. `master` branch'i projenin ilk arayüz tasarımını içerir. Tamamlanmış sürümler şunlardır:
+The same codebase was adapted to the requirements of different competitions in separate branches. The `master` branch contains the first interface design. The completed versions are:
 
-| Branch | Görev | Telemetri paketi |
+| Branch | Mission | Telemetry packet |
 |---|---|---|
-| [`KAT1-YİST`](../../tree/KAT1-Y%C4%B0ST) | TEKNOFEST 2025 Model Uydu Yarışması, Kategori 1 | 22 alan, `*` ile ayrılmış |
-| [`AZ`](../../tree/AZ) | Azerbaycan CubeSat yarışması | 15 alan, `,` ile ayrılmış |
-| [`T3`](../../tree/T3) | T3 Vakfı uydu eğitimi (MERSAT) | 16 alan, `,` ile ayrılmış |
+| [`KAT1-YİST`](../../tree/KAT1-Y%C4%B0ST) | TEKNOFEST 2025 Model Satellite Competition, Category 1 | 22 fields, `*`-separated |
+| [`AZ`](../../tree/AZ) | CubeSat competition in Azerbaijan | 15 fields, `,`-separated |
+| [`T3`](../../tree/T3) | T3 Foundation satellite program (MERSAT) | 16 fields, `,`-separated |
 
-## Ortak özellikler
+## Common features
 
-- **Seri port bağlantısı (9600 baud):**
-  - Okuma ve işleme ayrı iş parçacıklarında (thread) çalışır, arayüz donmaz.
-  - Paketler `$` ile başlar, `#` ile biter. Bozuk ya da yarım paketler atılır, tampon taşarsa temizlenir.
-- **Grafikler ve kayıt:** telemetri zaman grafiklerinde gösterilir. Her paket tabloya eklenir ve masaüstündeki bir CSV dosyasına yazılır.
-- **Harita:** GMap.NET ile uydunun konumu ve izlediği yol çizilir; geçersiz koordinatlar yok sayılır.
-- **Komut paneli:**
-  - Uyduya mesaj gönderme (`C` + mesaj).
-  - Kilitleme / kilit açma komutları (`B` / `A`).
-- **Kamera:** canlı görüntü ve masaüstüne MP4 olarak otomatik kayıt (AForge / Accord).
+- **Serial connection (9600 baud):**
+  - Reading and processing run on separate threads, so the interface stays responsive.
+  - Packets start with `$` and end with `#`. Corrupt or incomplete packets are discarded; the buffer is cleared if it overflows.
+- **Charts and logging:** telemetry is plotted over time. Every packet is added to the data table and appended to a CSV file on the desktop.
+- **Map:** the satellite position and its track are drawn with GMap.NET; invalid coordinates are ignored.
+- **Command panel:**
+  - Send a message to the satellite (`C` + message).
+  - Lock / unlock commands (`B` / `A`).
+- **Camera:** live video with automatic MP4 recording to the desktop (AForge / Accord).
 
-## Sürümlere göre farklar
+## Differences between versions
 
-### TEKNOFEST 2025, Kategori 1 (`KAT1-YİST`)
-- **Telemetri:**
-  - Paket numarası, uydu statüsü, hata kodu, gönderme saati.
-  - Görev yükü ve taşıyıcının basınç ve yükseklikleri, irtifa farkı, iniş hızı.
-  - Sıcaklık, pil gerilimi, GPS, pitch / roll / yaw, RHRH, IoT S1–S2, takım no.
-- **Grafikler:** 8 zaman grafiği. Kayıt dosyası `TELEMETRİ.csv`. Harita OpenStreetMap.
-- **3B simülasyon:** OpenTK ile uydu modeli gelen açılarla döner. Ayrılma gerçekleşince model değişir (hata kodunun 5. biti).
-- **ARAS (arıza tespit) göstergesi:** hata kodunun her biti bir ışık. Hata olan bit kırmızı yanar ve sesli uyarı verilir.
-
-```
-$paket*statü*hata_kodu*saat*basınç1*basınç2*yükseklik1*yükseklik2*irtifa_farkı*iniş_hızı*sıcaklık*pil*
- gps_enlem*gps_boylam*gps_yükseklik*pitch*roll*yaw*RHRH*iot_s1*iot_s2*takım_no#
-```
-
-### Azerbaycan CubeSat (`AZ`)
-- **Telemetri:**
-  - Takım ID, paket numarası, zaman.
-  - Basınç, göreli yükseklik, iniş hızı, pil gerilimi.
-  - GPS, pitch / roll / yaw, ayrılma durumu, şifreli (kripto) mesaj.
-- **Grafikler:** 4 grafik (göreli yükseklik, basınç, iniş hızı, pil). Kayıt dosyası `MERGEN.csv`. Harita Google Hybrid.
-- **Ek komutlar:** **EEPROM** (`E`) ve **OFFSET** (`R`).
-- **Kamera:** bağlı kameralar listelenir, istenen kamera seçilir.
-
-![Azerbaycan CubeSat sürümü](docs/azerbaycan_cubesat.png)
+### TEKNOFEST 2025, Category 1 (`KAT1-YİST`)
+- **Telemetry:**
+  - Packet number, satellite status, error code, transmission time.
+  - Payload and carrier pressure and altitude, altitude difference, descent rate.
+  - Temperature, battery voltage, GPS, pitch / roll / yaw, RHRH, IoT S1–S2, team number.
+- **Charts:** 8 time charts. Log file `TELEMETRİ.csv`. OpenStreetMap map.
+- **3D simulation:** the satellite model rotates with the received angles (OpenTK); the model changes after separation (5th bit of the error code).
+- **ARAS (fault detection) indicator:** one light per error-code bit. Faulty bits turn red with an audible alert.
 
 ```
-$takım_id,paket,zaman,basınç,göreli_yükseklik,iniş_hızı,pil,gps_enlem,gps_boylam,gps_yükseklik,pitch,roll,yaw,ayrılma,kripto_mesaj#
+$packet*status*error_code*time*pressure1*pressure2*altitude1*altitude2*altitude_diff*descent_rate*temperature*battery*
+ gps_lat*gps_lon*gps_alt*pitch*roll*yaw*RHRH*iot_s1*iot_s2*team_no#
 ```
 
-### T3 Vakfı, MERSAT (`T3`)
-- **Telemetri:**
-  - Paket numarası, uydu statüsü, hata kodu, gönderme saati.
-  - Basınç, yükseklik, iniş hızı, sıcaklık, pil gerilimi.
-  - GPS, pitch / roll / yaw, takım no.
-- **Grafikler:** 5 grafik. Kayıt dosyası `TELEMETRİ.csv`. Harita Google Hybrid.
-- **3B simülasyon:** HelixToolkit (WPF) ile yeniden yazıldı; açı geçişleri yumuşatılır.
-- **ARAS göstergesi.**
-- **Ek komutlar:** **EEPROM** (`E`) ve **RESET** (`R`).
-- **Kamera:** bağlı kameralar listelenir, istenen kamera seçilir.
+### Azerbaijan CubeSat (`AZ`)
+- **Telemetry:**
+  - Team ID, packet number, time.
+  - Pressure, relative altitude, descent rate, battery voltage.
+  - GPS, pitch / roll / yaw, separation status, encrypted message.
+- **Charts:** 4 charts (relative altitude, pressure, descent rate, battery). Log file `MERGEN.csv`. Google Hybrid map.
+- **Extra commands:** **EEPROM** (`E`) and **OFFSET** (`R`).
+- **Camera:** connected cameras are listed and one can be selected.
 
-![T3 Vakfı MERSAT sürümü](docs/t3_mersat.png)
+![Azerbaijan CubeSat version](docs/azerbaycan_cubesat.png)
 
 ```
-$paket,statü,hata_kodu,saat,basınç,yükseklik,iniş_hızı,sıcaklık,pil,gps_enlem,gps_boylam,gps_yükseklik,pitch,roll,yaw,takım_no#
+$team_id,packet,time,pressure,relative_altitude,descent_rate,battery,gps_lat,gps_lon,gps_alt,pitch,roll,yaw,separation,encrypted_message#
 ```
 
-## Dosyalar (tamamlanmış sürümlerde)
+### T3 Foundation, MERSAT (`T3`)
+- **Telemetry:**
+  - Packet number, satellite status, error code, transmission time.
+  - Pressure, altitude, descent rate, temperature, battery voltage.
+  - GPS, pitch / roll / yaw, team number.
+- **Charts:** 5 charts. Log file `TELEMETRİ.csv`. Google Hybrid map.
+- **3D simulation:** rewritten with HelixToolkit (WPF), with smoothed angle transitions.
+- **ARAS indicator.**
+- **Extra commands:** **EEPROM** (`E`) and **RESET** (`R`).
+- **Camera:** connected cameras are listed and one can be selected.
 
-| Dosya | İçerik |
+![T3 Foundation MERSAT version](docs/t3_mersat.png)
+
+```
+$packet,status,error_code,time,pressure,altitude,descent_rate,temperature,battery,gps_lat,gps_lon,gps_alt,pitch,roll,yaw,team_no#
+```
+
+## Files (in the completed versions)
+
+| File | Contents |
 |---|---|
-| `Form1.cs` | Ana pencere, port, kamera ve komut düğmeleri |
-| `Data.cs` | Seri port okuma, paket ayırma, işleme kuyruğu, komut gönderme |
-| `TelemetryData.cs` | Paket ayrıştırıcı |
-| `Chart.cs` | Grafikler |
-| `DataGridViewHandler.cs` | Tablo ve CSV kaydı |
-| `Map.cs` | Harita ve rota |
-| `_3DSimulation.cs` | 3B uydu modeli |
-| `Aras.cs` | Hata kodu göstergesi |
-| `Camera.cs` | Kamera görüntüsü ve kaydı |
+| `Form1.cs` | Main window, port, camera and command buttons |
+| `Data.cs` | Serial reading, packet framing, processing queue, sending commands |
+| `TelemetryData.cs` | Packet parser |
+| `Chart.cs` | Charts |
+| `DataGridViewHandler.cs` | Data table and CSV logging |
+| `Map.cs` | Map and track |
+| `_3DSimulation.cs` | 3D satellite model |
+| `Aras.cs` | Error-code indicator |
+| `Camera.cs` | Camera feed and recording |
 
-## Kurulum ve çalıştırma
+## Build and run
 
-**Gerekenler:**
+**Requirements:**
 - Windows 10 / 11
-- Visual Studio 2019 ya da 2022, ".NET masaüstü geliştirme" iş yüküyle (.NET Framework 4.7.2 dahil)
-- Harita için internet bağlantısı
-- Kamera görüntüsü için USB kamera (isteğe bağlı)
+- Visual Studio 2019 or 2022 with the ".NET desktop development" workload (including .NET Framework 4.7.2)
+- Internet connection for the map
+- USB camera for video (optional)
 
-**Adımlar:**
-1. Depoyu indirin ve istediğiniz sürümün branch'ine geçin:
+**Steps:**
+1. Clone the repository and check out the version you need:
    ```
    git clone https://github.com/SalihAlici/MERGEN-KAT1-GCSS.git
    cd MERGEN-KAT1-GCSS
-   git checkout T3          # ya da KAT1-YİST, AZ
+   git checkout T3          # or KAT1-YİST, AZ
    ```
-2. `MERGEN-KAT1-GCSS.sln` dosyasını Visual Studio ile açın.
-3. NuGet paketlerini geri yükleyin: Solution'a sağ tık → *Restore NuGet Packages*. Paketler ilk derlemede otomatik de inebilir.
-4. Derleyip çalıştırın (F5).
-5. Görev yükü portunu listeden seçip bağlantı düğmesine basın. Port 9600 baud ile açılır.
-6. Kamera kullanılacaksa kamerayı seçip kamera düğmesine basın. Kayıt masaüstüne MP4 olarak alınır.
+2. Open `MERGEN-KAT1-GCSS.sln` in Visual Studio.
+3. Restore NuGet packages: right-click the solution → *Restore NuGet Packages* (they may also be restored on the first build).
+4. Build and run (F5).
+5. Select the payload port from the list and press the connect button. The port opens at 9600 baud.
+6. To use the camera, select it and press the camera button. Recordings are saved to the desktop as MP4.
 
-Telemetri kaydı masaüstündeki CSV dosyasına yazılır.
+Telemetry is logged to a CSV file on the desktop.
 
-## Kullanılan kütüphaneler
+## Libraries
 
-GMap.NET (harita), OpenTK ve HelixToolkit (3B), AForge / Accord.Video (kamera ve kayıt), System.Windows.Forms.DataVisualization (grafikler), CircularProgressBar.
+GMap.NET (map), OpenTK and HelixToolkit (3D), AForge / Accord.Video (camera and recording), System.Windows.Forms.DataVisualization (charts), CircularProgressBar.
 
-## Geliştiren
+## Author
 
 [SalihAlici](https://github.com/SalihAlici)
